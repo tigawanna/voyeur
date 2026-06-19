@@ -35,7 +35,7 @@ function RootDocument() {
       <head>
         <HeadContent />
       </head>
-      <body className="min-h-dvh bg-background font-sans text-foreground antialiased [overflow-wrap:anywhere]">
+      <body className="min-h-dvh bg-background font-sans text-foreground antialiased wrap-anywhere">
         <ThemeProvider storageKey={AppConfig.themeStorageKey}>
           <TanstackQueryProvider queryClient={queryClient}>
             <TooltipProvider>

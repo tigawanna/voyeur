@@ -1,12 +1,8 @@
-import { createFileRoute } from '@tanstack/react-router'
-import { useLiveQuery } from '@tanstack/react-db'
-import { useQuery } from '@tanstack/react-query'
-import { MovieLibraryActions } from '#/features/movies/components/MovieLibraryActions'
-import { favoritesCollection, watchlistCollection } from '#/lib/collections/local-collections'
-import type { Movie } from '#/types/movie'
 import { backdropUrl, posterUrl } from '#/utils/tmdb-images'
 import { LoadingState } from '@/components/common/LoadingState'
 import { Empty, EmptyDescription, EmptyHeader, EmptyTitle } from '@/components/ui/empty'
+import { useQuery } from '@tanstack/react-query'
+import { createFileRoute } from '@tanstack/react-router'
 
 export const Route = createFileRoute('/_app/movie/$movieId')({
   component: MovieDetailPage,
@@ -21,18 +17,20 @@ function MovieDetailPage() {
     queryFn: async () => {
       const response = await fetch(`/api/tmdb/movies/${numericId}`)
       if (!response.ok) throw new Error('Movie not found')
-      return (await response.json()) as Movie
+      return (await response.json())
     },
     enabled: Number.isFinite(numericId),
   })
 
-  const { data: favorites } = useLiveQuery((query) =>
-    query.from({ favorite: favoritesCollection }).select(({ favorite }) => favorite.movieId),
-  )
+  console.log(movie)
 
-  const { data: watchlist } = useLiveQuery((query) =>
-    query.from({ watchlist: watchlistCollection }).select(({ watchlist }) => watchlist.movieId),
-  )
+  // const { data: favorites } = useLiveQuery((query) =>
+  //   query.from({ favorite: favoritesCollection }).select(({ favorite }) => favorite.movieId),
+  // )
+
+  // const { data: watchlist } = useLiveQuery((query) =>
+  //   query.from({ watchlist: watchlistCollection }).select(({ watchlist }) => watchlist.movieId),
+  // )
 
   if (isLoading) return <LoadingState label="Loading movie" />
   if (isError || !movie) {
@@ -47,24 +45,23 @@ function MovieDetailPage() {
   }
 
   const hero = backdropUrl(movie.backdropPath) ?? posterUrl(movie.posterPath)
-  const isFavorite = favorites?.includes(movie.id) ?? false
-  const isWatchlisted = watchlist?.includes(movie.id) ?? false
+
 
   return (
     <article style={{ viewTransitionName: `movie-${movie.id}` }}>
-      <div className="island-shell overflow-hidden rounded-[2rem] border border-border">
+      <div className="island-shell overflow-hidden rounded-4xl border border-border">
         <div className="relative min-h-72 overflow-hidden bg-muted">
           {hero ? (
             <img src={hero} alt="" className="absolute inset-0 h-full w-full object-cover opacity-70" />
           ) : null}
-          <div className="absolute inset-0 bg-gradient-to-t from-[rgba(10,8,12,0.95)] via-[rgba(10,8,12,0.45)] to-transparent" />
+          <div className="absolute inset-0 bg-linear-to-t from-[rgba(10,8,12,0.95)] via-[rgba(10,8,12,0.45)] to-transparent" />
           <div className="relative grid gap-8 p-8 lg:grid-cols-[180px_1fr] lg:items-end">
             <div className="overflow-hidden rounded-2xl border border-white/10 bg-black/30 shadow-2xl">
               {posterUrl(movie.posterPath) ? (
                 <img
                   src={posterUrl(movie.posterPath)!}
                   alt={movie.title}
-                  className="aspect-[2/3] w-full object-cover"
+                  className="aspect-2/3 w-full object-cover"
                 />
               ) : null}
             </div>
@@ -77,11 +74,6 @@ function MovieDetailPage() {
                 <span>★ {movie.voteAverage.toFixed(1)}</span>
                 <span>{movie.voteCount.toLocaleString()} votes</span>
               </div>
-              <MovieLibraryActions
-                movie={movie}
-                isFavorite={isFavorite}
-                isWatchlisted={isWatchlisted}
-              />
             </div>
           </div>
         </div>

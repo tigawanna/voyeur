@@ -25,7 +25,7 @@ export function MovieCard({ movie, className }: MovieCardProps) {
         params={{ movieId: String(movie.id) }}
         className="block no-underline"
       >
-        <div className="relative aspect-[2/3] overflow-hidden bg-muted">
+        <div className="relative aspect-2/3 overflow-hidden bg-muted">
           {image ? (
             <img
               src={image}
@@ -38,7 +38,7 @@ export function MovieCard({ movie, className }: MovieCardProps) {
               No poster
             </div>
           )}
-          <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[rgba(10,8,12,0.92)] to-transparent p-4 pt-16">
+          <div className="absolute inset-x-0 bottom-0 bg-linear-to-t from-[rgba(10,8,12,0.92)] to-transparent p-4 pt-16">
             <h3 className="line-clamp-2 text-base font-semibold text-white">{movie.title}</h3>
             <p className="mt-1 text-xs text-white/70">
               {movie.releaseDate ? movie.releaseDate.slice(0, 4) : 'TBA'} · ★{' '}
