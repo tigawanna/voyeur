@@ -3,6 +3,7 @@ import { queryCollectionOptions } from '@tanstack/query-db-collection'
 import type { QueryClient } from '@tanstack/react-query'
 import { fetchPopularMovies, popularMoviesQueryKey } from '#/data-access-layer/tmdb/query-functions'
 import type { Movie } from '#/types/movie'
+import { mapTmdbMovie } from '#/utils/tmdb-images'
 
 export function createPopularMoviesCollection(queryClient: QueryClient) {
   return createCollection(
@@ -11,7 +12,7 @@ export function createPopularMoviesCollection(queryClient: QueryClient) {
       queryKey: popularMoviesQueryKey,
       queryFn: async () => {
         const firstPage = await fetchPopularMovies({ page: 1 })
-        return firstPage.results
+        return (firstPage.results ?? []).map(mapTmdbMovie)
       },
       queryClient,
       getKey: (item: Movie) => item.id,
@@ -25,8 +26,8 @@ export async function appendPopularMoviesPage(
 ) {
   const data = await fetchPopularMovies({ page })
 
-  for (const movie of data.results) {
-    collection.utils.writeUpsert(movie)
+  for (const movie of data.results ?? []) {
+    collection.utils.writeUpsert(mapTmdbMovie(movie))
   }
 
   return data

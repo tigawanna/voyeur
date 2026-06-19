@@ -14,7 +14,7 @@ export function useMovieTimeline() {
 
   useEffect(() => {
     void fetchPopularMovies({ page: 1 }).then((meta) => {
-      setTotalPages(meta.totalPages)
+      setTotalPages(meta.total_pages ?? 500)
     })
   }, [])
 
@@ -50,7 +50,7 @@ export function useMovieTimeline() {
       const nextPage = page + 1
       const response = await appendPopularMoviesPage(moviesCollection, nextPage)
       setPage(nextPage)
-      setTotalPages(response.totalPages)
+      setTotalPages(response.total_pages ?? totalPages)
     } finally {
       setLoadingMore(false)
     }

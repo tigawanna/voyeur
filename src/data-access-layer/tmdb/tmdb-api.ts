@@ -1,4 +1,5 @@
-import type { Movie, MovieListResponse } from '#/types/movie'
+import type { MovieDetailsQueryResponse } from '#/data-access-layer/tmdb/generated/models/MovieDetails'
+import type { MoviePopularListQueryResponse } from '#/data-access-layer/tmdb/generated/models/MoviePopularList'
 
 async function tmdbProxyFetch<T>(
   path: string,
@@ -22,13 +23,13 @@ async function tmdbProxyFetch<T>(
     throw new Error(`TMDB proxy request failed: ${response.status}`)
   }
 
-  return response.json() as Promise<T>
+  return response.json() as T
 }
 
 export function fetchPopularMoviesPage(page = 1) {
-  return tmdbProxyFetch<MovieListResponse>('/api/tmdb/movies/popular', { page })
+  return tmdbProxyFetch<MoviePopularListQueryResponse>('/api/tmdb/movies/popular', { page })
 }
 
 export function fetchMovieById(movieId: number) {
-  return tmdbProxyFetch<Movie>(`/api/tmdb/movies/${movieId}`)
+  return tmdbProxyFetch<MovieDetailsQueryResponse>(`/api/tmdb/movies/${movieId}`)
 }
