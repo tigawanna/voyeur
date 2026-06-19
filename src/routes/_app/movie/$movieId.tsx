@@ -1,0 +1,84 @@
+import { createFileRoute } from '@tanstack/react-router'
+import { useLiveQuery } from '@tanstack/react-db'
+import { useQuery } from '@tanstack/react-query'
+import { MovieLibraryActions } from '#/features/movies/components/MovieLibraryActions'
+import { favoritesCollection, watchlistCollection } from '#/lib/collections/local-collections'
+import type { Movie } from '#/types/movie'
+import { backdropUrl, posterUrl } from '#/utils/tmdb-images'
+import { Spinner } from '#/components/common/Spinner'
+import { EmptyState } from '#/components/common/EmptyState'
+
+export const Route = createFileRoute('/_app/movie/$movieId')({
+  component: MovieDetailPage,
+})
+
+function MovieDetailPage() {
+  const { movieId } = Route.useParams()
+  const numericId = Number(movieId)
+
+  const { data: movie, isLoading, isError } = useQuery({
+    queryKey: ['movie', numericId],
+    queryFn: async () => {
+      const response = await fetch(`/api/tmdb/movies/${numericId}`)
+      if (!response.ok) throw new Error('Movie not found')
+      return (await response.json()) as Movie
+    },
+    enabled: Number.isFinite(numericId),
+  })
+
+  const { data: favorites } = useLiveQuery((query) =>
+    query.from({ favorite: favoritesCollection }).select(({ favorite }) => favorite.movieId),
+  )
+
+  const { data: watchlist } = useLiveQuery((query) =>
+    query.from({ watchlist: watchlistCollection }).select(({ watchlist }) => watchlist.movieId),
+  )
+
+  if (isLoading) return <Spinner label="Loading movie" />
+  if (isError || !movie) {
+    return <EmptyState title="Movie not found" description="This title could not be loaded from TMDB." />
+  }
+
+  const hero = backdropUrl(movie.backdropPath) ?? posterUrl(movie.posterPath)
+  const isFavorite = favorites?.includes(movie.id) ?? false
+  const isWatchlisted = watchlist?.includes(movie.id) ?? false
+
+  return (
+    <article style={{ viewTransitionName: `movie-${movie.id}` }}>
+      <div className="island-shell overflow-hidden rounded-[2rem] border border-[var(--line)]">
+        <div className="relative min-h-72 overflow-hidden bg-[var(--surface-strong)]">
+          {hero ? (
+            <img src={hero} alt="" className="absolute inset-0 h-full w-full object-cover opacity-70" />
+          ) : null}
+          <div className="absolute inset-0 bg-gradient-to-t from-[rgba(10,8,12,0.95)] via-[rgba(10,8,12,0.45)] to-transparent" />
+          <div className="relative grid gap-8 p-8 lg:grid-cols-[180px_1fr] lg:items-end">
+            <div className="overflow-hidden rounded-2xl border border-white/10 bg-black/30 shadow-2xl">
+              {posterUrl(movie.posterPath) ? (
+                <img
+                  src={posterUrl(movie.posterPath)!}
+                  alt={movie.title}
+                  className="aspect-[2/3] w-full object-cover"
+                />
+              ) : null}
+            </div>
+            <div>
+              <p className="island-kicker mb-3 text-white/70">Now showing</p>
+              <h1 className="display-title mb-4 text-4xl font-bold text-white sm:text-6xl">{movie.title}</h1>
+              <p className="mb-6 max-w-3xl text-sm text-white/75 sm:text-base">{movie.overview}</p>
+              <div className="mb-6 flex flex-wrap gap-4 text-sm text-white/70">
+                <span>{movie.releaseDate || 'Release TBA'}</span>
+                <span>★ {movie.voteAverage.toFixed(1)}</span>
+                <span>{movie.voteCount.toLocaleString()} votes</span>
+              </div>
+              <MovieLibraryActions
+                movie={movie}
+                isFavorite={isFavorite}
+                isWatchlisted={isWatchlisted}
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+  )
+}

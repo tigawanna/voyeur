@@ -1,0 +1,36 @@
+import { createFileRoute } from '@tanstack/react-router'
+import { EmptyState } from '#/components/common/EmptyState'
+import { Spinner } from '#/components/common/Spinner'
+import { SavedMovieCard } from '#/features/movies/components/SavedMovieCard'
+import { useWatchlistMovies } from '#/features/movies/hooks/useWatchlistMovies'
+
+export const Route = createFileRoute('/_app/watchlist/')({
+  component: WatchlistPage,
+})
+
+function WatchlistPage() {
+  const { watchlist, isLoading } = useWatchlistMovies()
+
+  return (
+    <section>
+      <div className="mb-8">
+        <p className="island-kicker mb-2">Up next</p>
+        <h1 className="display-title text-4xl font-bold tracking-tight text-[var(--ink)] sm:text-5xl">
+          Watchlist
+        </h1>
+      </div>
+      {isLoading ? <Spinner /> : null}
+      {!isLoading && watchlist.length === 0 ? (
+        <EmptyState
+          title="Watchlist is empty"
+          description="Queue films from the timeline when you want a personal shortlist."
+        />
+      ) : null}
+      <div className="grid gap-4">
+        {watchlist.map((movie) => (
+          <SavedMovieCard key={movie.movieId} movie={movie} kind="watchlist" />
+        ))}
+      </div>
+    </section>
+  )
+}
