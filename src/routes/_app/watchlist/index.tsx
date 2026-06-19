@@ -15,7 +15,7 @@ function WatchlistPage() {
     <section>
       <div className="mb-8">
         <p className="island-kicker mb-2">Up next</p>
-        <h1 className="display-title text-4xl font-bold tracking-tight text-[var(--ink)] sm:text-5xl">
+        <h1 className="display-title text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
           Watchlist
         </h1>
       </div>

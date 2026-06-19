@@ -52,8 +52,8 @@ function MovieDetailPage() {
 
   return (
     <article style={{ viewTransitionName: `movie-${movie.id}` }}>
-      <div className="island-shell overflow-hidden rounded-[2rem] border border-[var(--line)]">
-        <div className="relative min-h-72 overflow-hidden bg-[var(--surface-strong)]">
+      <div className="island-shell overflow-hidden rounded-[2rem] border border-border">
+        <div className="relative min-h-72 overflow-hidden bg-muted">
           {hero ? (
             <img src={hero} alt="" className="absolute inset-0 h-full w-full object-cover opacity-70" />
           ) : null}

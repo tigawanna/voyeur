@@ -16,14 +16,14 @@ export function AppShell() {
   const Icon = AppConfig.icon
 
   return (
-    <div className="min-h-dvh bg-[var(--bg-base)]">
-      <header className="sticky top-0 z-40 border-b border-[var(--line)] bg-[var(--header-bg)] backdrop-blur-md">
+    <div className="min-h-dvh bg-background">
+      <header className="sticky top-0 z-40 border-b border-border bg-background/85 backdrop-blur-md">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4">
           <Link to="/" className="flex items-center gap-2 no-underline">
-            <Icon className="size-5 text-[var(--accent)]" />
-            <span className="font-mono text-xs font-bold tracking-[0.24em] text-[var(--ink)] uppercase">
+            <Icon className="size-5 text-primary" />
+            <span className="font-mono text-xs font-bold tracking-[0.24em] text-foreground uppercase">
               {AppConfig.wordmark}
-              <span className="text-[var(--accent)]">.</span>
+              <span className="text-primary">.</span>
             </span>
           </Link>
           <nav className="flex items-center gap-1 overflow-x-auto">
@@ -43,8 +43,8 @@ export function AppShell() {
                   className={cn(
                     'inline-flex items-center gap-2 rounded-full px-4 py-2 font-mono text-xs tracking-wide transition',
                     active
-                      ? 'bg-[rgba(212,175,55,0.16)] text-[var(--ink)]'
-                      : 'text-[var(--ink-soft)] hover:bg-[var(--surface)] hover:text-[var(--ink)]',
+                      ? 'bg-primary/15 text-foreground'
+                      : 'text-muted-foreground hover:bg-muted hover:text-foreground',
                   )}
                 >
                   <NavIcon size={14} />

@@ -1,6 +1,7 @@
 import { HeadContent, Outlet, Scripts, createRootRouteWithContext } from '@tanstack/react-router'
 import type { QueryClient } from '@tanstack/react-query'
 import { TooltipProvider } from '@/components/ui/tooltip'
+import { ThemeProvider } from '@/lib/tanstack/router/theme-provider'
 import {
   TanstackQueryProvider,
   getTanstackQueryContext,
@@ -34,14 +35,16 @@ function RootDocument() {
       <head>
         <HeadContent />
       </head>
-      <body className="font-sans antialiased [overflow-wrap:anywhere]">
-        <TanstackQueryProvider queryClient={queryClient}>
-          <TooltipProvider>
-            <MoviesCollectionProvider>
-              <Outlet />
-            </MoviesCollectionProvider>
-          </TooltipProvider>
-        </TanstackQueryProvider>
+      <body className="min-h-dvh bg-background font-sans text-foreground antialiased [overflow-wrap:anywhere]">
+        <ThemeProvider storageKey={AppConfig.themeStorageKey}>
+          <TanstackQueryProvider queryClient={queryClient}>
+            <TooltipProvider>
+              <MoviesCollectionProvider>
+                <Outlet />
+              </MoviesCollectionProvider>
+            </TooltipProvider>
+          </TanstackQueryProvider>
+        </ThemeProvider>
         <Scripts />
       </body>
     </html>

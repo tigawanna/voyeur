@@ -10,10 +10,10 @@ function BrowsePage() {
     <section>
       <div className="mb-8">
         <p className="island-kicker mb-2">Live timeline</p>
-        <h1 className="display-title text-4xl font-bold tracking-tight text-[var(--ink)] sm:text-5xl">
+        <h1 className="display-title text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
           Popular right now
         </h1>
-        <p className="mt-3 max-w-2xl text-sm text-[var(--ink-soft)] sm:text-base">
+        <p className="mt-3 max-w-2xl text-sm text-muted-foreground sm:text-base">
           Streaming from TMDB through a Worker proxy, joined live with your local favorites and
           watchlist collections.
         </p>
