@@ -1,6 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { EmptyState } from '#/components/common/EmptyState'
-import { Spinner } from '#/components/common/Spinner'
+import { EmptyState } from '@/components/common/EmptyState'
+import { LoadingState } from '@/components/common/LoadingState'
 import { SavedMovieCard } from '#/features/movies/components/SavedMovieCard'
 import { useWatchlistMovies } from '#/features/movies/hooks/useWatchlistMovies'
 
@@ -19,7 +19,7 @@ function WatchlistPage() {
           Watchlist
         </h1>
       </div>
-      {isLoading ? <Spinner /> : null}
+      {isLoading ? <LoadingState /> : null}
       {!isLoading && watchlist.length === 0 ? (
         <EmptyState
           title="Watchlist is empty"

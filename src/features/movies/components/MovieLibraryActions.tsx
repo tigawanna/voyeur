@@ -1,5 +1,5 @@
 import { Bookmark, BookmarkCheck, Star } from 'lucide-react'
-import { Button } from '#/components/common/Button'
+import { Button } from '@/components/ui/button'
 import { useMovieLibraryActions } from '#/features/movies/hooks/useMovieLibraryActions'
 import type { Movie } from '#/types/movie'
 import { withViewTransition } from '#/utils/viewTransition'
@@ -22,7 +22,8 @@ export function MovieLibraryActions({
   return (
     <div className={compact ? 'flex gap-2' : 'flex flex-wrap gap-3'}>
       <Button
-        variant={isFavorite ? 'primary' : 'secondary'}
+        variant={isFavorite ? 'default' : 'secondary'}
+        size={compact ? 'icon' : 'default'}
         aria-label={isFavorite ? 'Remove from favorites' : 'Add to favorites'}
         onClick={() => {
           withViewTransition(() => {
@@ -34,7 +35,8 @@ export function MovieLibraryActions({
         {compact ? null : isFavorite ? 'Favorited' : 'Favorite'}
       </Button>
       <Button
-        variant={isWatchlisted ? 'primary' : 'secondary'}
+        variant={isWatchlisted ? 'default' : 'secondary'}
+        size={compact ? 'icon' : 'default'}
         aria-label={isWatchlisted ? 'Remove from watchlist' : 'Add to watchlist'}
         onClick={() => {
           withViewTransition(() => {

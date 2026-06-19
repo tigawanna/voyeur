@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
-import { Button } from '#/components/common/Button'
-import { EmptyState } from '#/components/common/EmptyState'
-import { Spinner } from '#/components/common/Spinner'
+import { Button } from '@/components/ui/button'
+import { EmptyState } from '@/components/common/EmptyState'
+import { LoadingState } from '@/components/common/LoadingState'
 import { MovieCard } from '#/features/movies/components/MovieCard'
 import { useMovieTimeline } from '#/features/movies/hooks/useMovieTimeline'
 
@@ -27,7 +27,7 @@ export function MovieTimeline() {
   }, [hasMore, loadMore])
 
   if (isLoading && movies.length === 0) {
-    return <Spinner label="Loading the timeline" />
+    return <LoadingState label="Loading the timeline" />
   }
 
   if (isError) {
@@ -53,9 +53,9 @@ export function MovieTimeline() {
         ))}
       </div>
       <div ref={sentinelRef} className="flex justify-center py-4">
-        {loadingMore ? <Spinner label="Loading more" /> : null}
+        {loadingMore ? <LoadingState label="Loading more" className="py-4" /> : null}
         {!hasMore ? (
-          <p className="text-sm text-[var(--ink-soft)]">You have reached the end of the reel.</p>
+          <p className="text-sm text-muted-foreground">You have reached the end of the reel.</p>
         ) : (
           <Button variant="secondary" onClick={() => void loadMore()} disabled={loadingMore}>
             Load more

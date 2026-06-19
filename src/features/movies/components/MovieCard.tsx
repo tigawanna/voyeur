@@ -2,7 +2,7 @@ import { Link } from '@tanstack/react-router'
 import { MovieLibraryActions } from '#/features/movies/components/MovieLibraryActions'
 import type { TimelineMovie } from '#/types/movie'
 import { posterUrl } from '#/utils/tmdb-images'
-import { cn } from '#/utils/cn'
+import { cn } from '@/lib/utils'
 
 interface MovieCardProps {
   movie: TimelineMovie

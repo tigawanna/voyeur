@@ -1,8 +1,8 @@
 import { Link } from '@tanstack/react-router'
 import { Bookmark, Star } from 'lucide-react'
-import { Card } from '#/components/common/Card'
 import type { SavedMovieRef } from '#/types/movie'
 import { posterUrl } from '#/utils/tmdb-images'
+import { cn } from '@/lib/utils'
 
 interface SavedMovieCardProps {
   movie: SavedMovieRef
@@ -14,30 +14,30 @@ export function SavedMovieCard({ movie, kind }: SavedMovieCardProps) {
   const Icon = kind === 'favorite' ? Star : Bookmark
 
   return (
-    <Card className="overflow-hidden">
+    <div className={cn('overflow-hidden rounded-xl border border-border bg-card text-card-foreground shadow-sm')}>
       <Link
         to="/movie/$movieId"
         params={{ movieId: String(movie.movieId) }}
         className="flex gap-4 p-4 no-underline"
       >
-        <div className="h-28 w-20 shrink-0 overflow-hidden rounded-xl bg-[var(--surface-strong)]">
+        <div className="h-28 w-20 shrink-0 overflow-hidden rounded-xl bg-base-300">
           {image ? (
             <img src={image} alt={movie.title} className="h-full w-full object-cover" loading="lazy" />
           ) : null}
         </div>
         <div className="min-w-0 flex-1">
-          <div className="mb-2 flex items-center gap-2 text-[var(--accent)]">
+          <div className="mb-2 flex items-center gap-2 text-primary">
             <Icon size={16} />
             <span className="text-xs font-semibold tracking-wide uppercase">
               {kind === 'favorite' ? 'Favorite' : 'Watchlist'}
             </span>
           </div>
-          <h3 className="line-clamp-2 text-lg font-semibold text-[var(--ink)]">{movie.title}</h3>
-          <p className="mt-2 text-xs text-[var(--ink-soft)]">
+          <h3 className="line-clamp-2 text-lg font-semibold">{movie.title}</h3>
+          <p className="mt-2 text-xs text-muted-foreground">
             Saved {new Date(movie.addedAt).toLocaleDateString()}
           </p>
         </div>
       </Link>
-    </Card>
+    </div>
   )
 }

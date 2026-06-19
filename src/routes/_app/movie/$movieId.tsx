@@ -5,8 +5,8 @@ import { MovieLibraryActions } from '#/features/movies/components/MovieLibraryAc
 import { favoritesCollection, watchlistCollection } from '#/lib/collections/local-collections'
 import type { Movie } from '#/types/movie'
 import { backdropUrl, posterUrl } from '#/utils/tmdb-images'
-import { Spinner } from '#/components/common/Spinner'
-import { EmptyState } from '#/components/common/EmptyState'
+import { LoadingState } from '@/components/common/LoadingState'
+import { EmptyState } from '@/components/common/EmptyState'
 
 export const Route = createFileRoute('/_app/movie/$movieId')({
   component: MovieDetailPage,
@@ -34,7 +34,7 @@ function MovieDetailPage() {
     query.from({ watchlist: watchlistCollection }).select(({ watchlist }) => watchlist.movieId),
   )
 
-  if (isLoading) return <Spinner label="Loading movie" />
+  if (isLoading) return <LoadingState label="Loading movie" />
   if (isError || !movie) {
     return <EmptyState title="Movie not found" description="This title could not be loaded from TMDB." />
   }

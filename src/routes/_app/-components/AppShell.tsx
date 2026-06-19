@@ -1,7 +1,7 @@
 import { Link, Outlet, useRouter, useRouterState } from '@tanstack/react-router'
 import { Bookmark, Film, Star } from 'lucide-react'
 import { AppConfig } from '#/utils/system'
-import { cn } from '#/utils/cn'
+import { cn } from '@/lib/utils'
 import { withViewTransition } from '#/utils/viewTransition'
 
 const navItems = [
