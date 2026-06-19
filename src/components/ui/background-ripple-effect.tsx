@@ -179,7 +179,7 @@ const DivGrid = ({
               borderColor: borderColor,
               ...style,
             }}
-            onClick={interactive ? () => onCellClick?.(rowIdx, colIdx) : undefined}
+            onClick={interactive ? () => onCellClick(rowIdx, colIdx) : undefined}
           />
         );
       })}

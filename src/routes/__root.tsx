@@ -1,5 +1,6 @@
 import { HeadContent, Outlet, Scripts, createRootRouteWithContext } from '@tanstack/react-router'
 import type { QueryClient } from '@tanstack/react-query'
+import { TooltipProvider } from '@/components/ui/tooltip'
 import {
   TanstackQueryProvider,
   getTanstackQueryContext,
@@ -35,9 +36,11 @@ function RootDocument() {
       </head>
       <body className="font-sans antialiased [overflow-wrap:anywhere]">
         <TanstackQueryProvider queryClient={queryClient}>
-          <MoviesCollectionProvider>
-            <Outlet />
-          </MoviesCollectionProvider>
+          <TooltipProvider>
+            <MoviesCollectionProvider>
+              <Outlet />
+            </MoviesCollectionProvider>
+          </TooltipProvider>
         </TanstackQueryProvider>
         <Scripts />
       </body>

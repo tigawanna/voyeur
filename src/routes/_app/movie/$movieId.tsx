@@ -6,7 +6,7 @@ import { favoritesCollection, watchlistCollection } from '#/lib/collections/loca
 import type { Movie } from '#/types/movie'
 import { backdropUrl, posterUrl } from '#/utils/tmdb-images'
 import { LoadingState } from '@/components/common/LoadingState'
-import { EmptyState } from '@/components/common/EmptyState'
+import { Empty, EmptyDescription, EmptyHeader, EmptyTitle } from '@/components/ui/empty'
 
 export const Route = createFileRoute('/_app/movie/$movieId')({
   component: MovieDetailPage,
@@ -36,7 +36,14 @@ function MovieDetailPage() {
 
   if (isLoading) return <LoadingState label="Loading movie" />
   if (isError || !movie) {
-    return <EmptyState title="Movie not found" description="This title could not be loaded from TMDB." />
+    return (
+      <Empty>
+        <EmptyHeader>
+          <EmptyTitle>Movie not found</EmptyTitle>
+          <EmptyDescription>This title could not be loaded from TMDB.</EmptyDescription>
+        </EmptyHeader>
+      </Empty>
+    )
   }
 
   const hero = backdropUrl(movie.backdropPath) ?? posterUrl(movie.posterPath)

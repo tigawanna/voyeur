@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { Button } from '@/components/ui/button'
-import { EmptyState } from '@/components/common/EmptyState'
+import { Empty, EmptyDescription, EmptyHeader, EmptyTitle } from '@/components/ui/empty'
 import { LoadingState } from '@/components/common/LoadingState'
 import { MovieCard } from '#/features/movies/components/MovieCard'
 import { useMovieTimeline } from '#/features/movies/hooks/useMovieTimeline'
@@ -32,16 +32,25 @@ export function MovieTimeline() {
 
   if (isError) {
     return (
-      <EmptyState
-        title="Could not load movies"
-        description="Check that TMDB_API_KEY is set in .dev.vars and try again."
-      />
+      <Empty>
+        <EmptyHeader>
+          <EmptyTitle>Could not load movies</EmptyTitle>
+          <EmptyDescription>
+            Check that TMDB_API_KEY is set in .dev.vars and try again.
+          </EmptyDescription>
+        </EmptyHeader>
+      </Empty>
     )
   }
 
   if (movies.length === 0) {
     return (
-      <EmptyState title="Nothing playing yet" description="Popular movies will show up here soon." />
+      <Empty>
+        <EmptyHeader>
+          <EmptyTitle>Nothing playing yet</EmptyTitle>
+          <EmptyDescription>Popular movies will show up here soon.</EmptyDescription>
+        </EmptyHeader>
+      </Empty>
     )
   }
 

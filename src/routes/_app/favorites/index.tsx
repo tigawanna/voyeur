@@ -1,5 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { EmptyState } from '@/components/common/EmptyState'
+import { Empty, EmptyDescription, EmptyHeader, EmptyTitle } from '@/components/ui/empty'
 import { LoadingState } from '@/components/common/LoadingState'
 import { SavedMovieCard } from '#/features/movies/components/SavedMovieCard'
 import { useFavoriteMovies } from '#/features/movies/hooks/useFavoriteMovies'
@@ -21,10 +21,14 @@ function FavoritesPage() {
       </div>
       {isLoading ? <LoadingState /> : null}
       {!isLoading && favorites.length === 0 ? (
-        <EmptyState
-          title="No favorites yet"
-          description="Star a film on the browse timeline and it will land here instantly."
-        />
+        <Empty>
+          <EmptyHeader>
+            <EmptyTitle>No favorites yet</EmptyTitle>
+            <EmptyDescription>
+              Star a film on the browse timeline and it will land here instantly.
+            </EmptyDescription>
+          </EmptyHeader>
+        </Empty>
       ) : null}
       <div className="grid gap-4">
         {favorites.map((movie) => (

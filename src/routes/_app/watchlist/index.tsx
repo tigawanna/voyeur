@@ -1,5 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { EmptyState } from '@/components/common/EmptyState'
+import { Empty, EmptyDescription, EmptyHeader, EmptyTitle } from '@/components/ui/empty'
 import { LoadingState } from '@/components/common/LoadingState'
 import { SavedMovieCard } from '#/features/movies/components/SavedMovieCard'
 import { useWatchlistMovies } from '#/features/movies/hooks/useWatchlistMovies'
@@ -21,10 +21,14 @@ function WatchlistPage() {
       </div>
       {isLoading ? <LoadingState /> : null}
       {!isLoading && watchlist.length === 0 ? (
-        <EmptyState
-          title="Watchlist is empty"
-          description="Queue films from the timeline when you want a personal shortlist."
-        />
+        <Empty>
+          <EmptyHeader>
+            <EmptyTitle>Watchlist is empty</EmptyTitle>
+            <EmptyDescription>
+              Queue films from the timeline when you want a personal shortlist.
+            </EmptyDescription>
+          </EmptyHeader>
+        </Empty>
       ) : null}
       <div className="grid gap-4">
         {watchlist.map((movie) => (
