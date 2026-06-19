@@ -1,3 +1,4 @@
+import { movieDetailsQueryOptions } from '#/data-access-layer/tmdb/query-functions'
 import { backdropUrl, posterUrl } from '#/utils/tmdb-images'
 import { LoadingState } from '@/components/common/LoadingState'
 import { Empty, EmptyDescription, EmptyHeader, EmptyTitle } from '@/components/ui/empty'
@@ -13,16 +14,9 @@ function MovieDetailPage() {
   const numericId = Number(movieId)
 
   const { data: movie, isLoading, isError } = useQuery({
-    queryKey: ['movie', numericId],
-    queryFn: async () => {
-      const response = await fetch(`/api/tmdb/movies/${numericId}`)
-      if (!response.ok) throw new Error('Movie not found')
-      return (await response.json())
-    },
+    ...movieDetailsQueryOptions(numericId),
     enabled: Number.isFinite(numericId),
   })
-
-  console.log(movie)
 
   // const { data: favorites } = useLiveQuery((query) =>
   //   query.from({ favorite: favoritesCollection }).select(({ favorite }) => favorite.movieId),

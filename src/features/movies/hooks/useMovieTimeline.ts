@@ -1,15 +1,10 @@
 import { eq, useLiveQuery } from '@tanstack/react-db'
+import { fetchPopularMovies } from '#/data-access-layer/tmdb/query-functions'
 import { appendPopularMoviesPage } from '#/lib/collections/movies-collection'
 import { favoritesCollection, watchlistCollection } from '#/lib/collections/local-collections'
 import { usePopularMoviesCollection } from '#/lib/collections/movies-collection-context'
 import type { TimelineMovie } from '#/types/movie'
 import { useCallback, useEffect, useState } from 'react'
-
-async function fetchPopularMeta() {
-  const response = await fetch('/api/tmdb/movies/popular?page=1')
-  if (!response.ok) return null
-  return (await response.json()) as { totalPages: number }
-}
 
 export function useMovieTimeline() {
   const moviesCollection = usePopularMoviesCollection()
@@ -18,8 +13,8 @@ export function useMovieTimeline() {
   const [loadingMore, setLoadingMore] = useState(false)
 
   useEffect(() => {
-    void fetchPopularMeta().then((meta) => {
-      if (meta) setTotalPages(meta.totalPages)
+    void fetchPopularMovies({ page: 1 }).then((meta) => {
+      setTotalPages(meta.totalPages)
     })
   }, [])
 
