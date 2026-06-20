@@ -1,4 +1,5 @@
 import { AppConfig } from '@/utils/system'
+import { browseSearchDefaults } from '#/types/browse'
 import { Link } from '@tanstack/react-router'
 
 export function Footer() {
@@ -21,7 +22,7 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link to="/browse" className="link link-hover">
+                <Link to="/browse" search={browseSearchDefaults} className="link link-hover">
                   Browse
                 </Link>
               </li>

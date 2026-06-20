@@ -1,6 +1,7 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { Button } from '@/components/ui/button'
 import { AppConfig } from '#/utils/system'
+import { browseSearchDefaults } from '#/types/browse'
 import { withViewTransition } from '#/utils/viewTransition'
 
 export const Route = createFileRoute('/')({ component: LandingPage })
@@ -39,7 +40,7 @@ function LandingPage() {
             type="button"
             onClick={() => {
               withViewTransition(() => {
-                void navigate({ to: '/browse' })
+                void navigate({ to: '/browse', search: browseSearchDefaults })
               })
             }}
           >

@@ -3,11 +3,16 @@ import { Button } from '@/components/ui/button'
 import { Empty, EmptyDescription, EmptyHeader, EmptyTitle } from '@/components/ui/empty'
 import { LoadingState } from '@/components/common/LoadingState'
 import { MovieCard } from '#/features/movies/components/MovieCard'
-import { useMovieTimeline } from '#/features/movies/hooks/useMovieTimeline'
+import { useMovieBrowse } from '#/features/movies/hooks/useMovieBrowse'
+import { getRouteApi } from '@tanstack/react-router'
+
+const browseRouteApi = getRouteApi('/_app/browse/')
 
 export function MovieTimeline() {
-  const { movies, isLoading, isError, loadMore, loadingMore, hasMore } = useMovieTimeline()
+  const { q } = browseRouteApi.useSearch()
+  const { movies, isLoading, isError, isFetching, loadMore, loadingMore, hasMore } = useMovieBrowse()
   const sentinelRef = useRef<HTMLDivElement | null>(null)
+  const isSearchActive = Boolean(q?.trim())
 
   useEffect(() => {
     const node = sentinelRef.current
@@ -27,7 +32,7 @@ export function MovieTimeline() {
   }, [hasMore, loadMore])
 
   if (isLoading && movies.length === 0) {
-    return <LoadingState label="Loading the timeline" />
+    return <LoadingState label={isSearchActive ? 'Searching movies' : 'Loading the timeline'} />
   }
 
   if (isError) {
@@ -47,8 +52,12 @@ export function MovieTimeline() {
     return (
       <Empty>
         <EmptyHeader>
-          <EmptyTitle>Nothing playing yet</EmptyTitle>
-          <EmptyDescription>Popular movies will show up here soon.</EmptyDescription>
+          <EmptyTitle>{isSearchActive ? 'No matches found' : 'Nothing playing yet'}</EmptyTitle>
+          <EmptyDescription>
+            {isSearchActive
+              ? 'Try a different title or clear the search to browse the catalog.'
+              : 'Movies will show up here soon.'}
+          </EmptyDescription>
         </EmptyHeader>
       </Empty>
     )
@@ -56,7 +65,10 @@ export function MovieTimeline() {
 
   return (
     <div className="space-y-8">
-      <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
+      {isFetching && !isLoading && !loadingMore ? (
+        <p className="text-sm text-muted-foreground">Updating results…</p>
+      ) : null}
+      <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
         {movies.map((movie) => (
           <MovieCard key={movie.id} movie={movie} />
         ))}

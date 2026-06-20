@@ -1,6 +1,7 @@
 import { Link, Outlet, useRouter, useRouterState } from '@tanstack/react-router'
 import { Bookmark, Film, Star } from 'lucide-react'
 import { AppConfig } from '#/utils/system'
+import { browseSearchDefaults } from '#/types/browse'
 import { cn } from '@/lib/utils'
 import { withViewTransition } from '#/utils/viewTransition'
 
@@ -37,7 +38,11 @@ export function AppShell() {
                   onClick={() => {
                     if (active) return
                     withViewTransition(() => {
-                      void router.navigate({ to: item.href })
+                      void router.navigate(
+                        item.href === '/browse'
+                          ? { to: item.href, search: browseSearchDefaults }
+                          : { to: item.href },
+                      )
                     })
                   }}
                   className={cn(

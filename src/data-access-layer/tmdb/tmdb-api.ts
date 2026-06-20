@@ -1,5 +1,7 @@
 import type { MovieDetailsQueryResponse } from '#/data-access-layer/tmdb/generated/models/MovieDetails'
+import type { MovieNowPlayingListQueryResponse } from '#/data-access-layer/tmdb/generated/models/MovieNowPlayingList'
 import type { MoviePopularListQueryResponse } from '#/data-access-layer/tmdb/generated/models/MoviePopularList'
+import type { SearchMovieQueryResponse } from '#/data-access-layer/tmdb/generated/models/SearchMovie'
 
 async function tmdbProxyFetch<T>(
   path: string,
@@ -28,6 +30,18 @@ async function tmdbProxyFetch<T>(
 
 export function fetchPopularMoviesPage(page = 1) {
   return tmdbProxyFetch<MoviePopularListQueryResponse>('/api/tmdb/movies/popular', { page })
+}
+
+export function fetchTrendingMoviesPage(page = 1) {
+  return tmdbProxyFetch<MoviePopularListQueryResponse>('/api/tmdb/movies/trending', { page })
+}
+
+export function fetchNowPlayingMoviesPage(page = 1) {
+  return tmdbProxyFetch<MovieNowPlayingListQueryResponse>('/api/tmdb/movies/now-playing', { page })
+}
+
+export function fetchSearchMoviesPage(query: string, page = 1) {
+  return tmdbProxyFetch<SearchMovieQueryResponse>('/api/tmdb/movies/search', { query, page })
 }
 
 export function fetchMovieById(movieId: number) {
