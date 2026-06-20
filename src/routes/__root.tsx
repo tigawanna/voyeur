@@ -1,7 +1,6 @@
 import paginationCss from '#/components/pagination/pagination.css?url'
 import type { TViewer } from '#/data-access-layer/auth/viewer'
 import { viewerMiddleware, viewerqueryOptions } from '#/data-access-layer/auth/viewer'
-import { MoviesCollectionProvider } from '#/lib/collections/movies-collection-context'
 import {
   TanstackQueryProvider,
   getTanstackQueryContext,
@@ -56,9 +55,7 @@ function RootDocument() {
         <ThemeProvider storageKey={AppConfig.themeStorageKey}>
           <TanstackQueryProvider queryClient={queryClient}>
             <TooltipProvider>
-              <MoviesCollectionProvider>
-                <Outlet />
-              </MoviesCollectionProvider>
+              <Outlet />
               <Toaster />
             </TooltipProvider>
           </TanstackQueryProvider>

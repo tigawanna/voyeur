@@ -1,15 +1,28 @@
+import { favoritesCollection } from '#/data-access-layer/tmdb/query-collection'
 import { SavedMovieCard } from '#/features/movies/components/SavedMovieCard'
-import { useFavoriteMovies } from '#/features/movies/hooks/useFavoriteMovies'
 import { LoadingState } from '@/components/common/LoadingState'
 import { Empty, EmptyDescription, EmptyHeader, EmptyTitle } from '@/components/ui/empty'
+import { useLiveQuery } from '@tanstack/react-db'
 import { createFileRoute } from '@tanstack/react-router'
+import type { SavedMovieRef } from '#/types/movie'
 
 export const Route = createFileRoute('/_app/favorites/')({
   component: FavoritesPage,
 })
 
 function FavoritesPage() {
-  const { favorites, isLoading } = useFavoriteMovies()
+  const { data, isLoading } = useLiveQuery(
+    (query) =>
+      query.from({ favorite: favoritesCollection }).select(({ favorite }) => ({
+        movieId: favorite.movieId,
+        title: favorite.title,
+        posterPath: favorite.posterPath,
+        addedAt: favorite.addedAt,
+      })),
+    [],
+  )
+
+  const favorites = (data ?? []) as SavedMovieRef[]
 
   return (
     <section>

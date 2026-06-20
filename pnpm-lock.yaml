@@ -23,6 +23,9 @@ importers:
       '@tanem/react-nprogress':
         specifier: ^6.0.3
         version: 6.0.3(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
+      '@tanstack/browser-db-sqlite-persistence':
+        specifier: ^0.2.1
+        version: 0.2.1(@journeyapps/wa-sqlite@1.7.0)(typescript@6.0.3)
       '@tanstack/db':
         specifier: ^0.6.9
         version: 0.6.9(typescript@6.0.3)
@@ -1320,6 +1323,9 @@ packages:
     engines: {node: ^18.17.0 || ^20.3.0 || >=21.0.0}
     cpu: [x64]
     os: [win32]
+
+  '@journeyapps/wa-sqlite@1.7.0':
+    resolution: {integrity: sha512-xQZ670aKDo4FWxIFpLqY0AGDpURr09aYIO08UkLdWvFw8C018nCiqY0ILJudGRhRdXORhv7K2xD2OXZ2QxU39w==}
 
   '@jridgewell/gen-mapping@0.3.13':
     resolution: {integrity: sha512-2kkt/7niJ6MgEPxF0bYdQ6etZaA+fQvDcLKckhy1yIQOzaoKjBBjSj63/aLVjYE3qhRt5dvM+uUyfCg6UKCBbA==}
@@ -2701,6 +2707,12 @@ packages:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
       react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
+  '@tanstack/browser-db-sqlite-persistence@0.2.1':
+    resolution: {integrity: sha512-37dGAtF7cCBryZAM4DGKBVW1cY7Pvhf0Lgz2198kclt10RnWv/UgUGXGn/r/k5e1jom1Kk9FcWNFq9Yj4aF+zQ==}
+    peerDependencies:
+      '@journeyapps/wa-sqlite': ^1.4.1
+      typescript: '>=4.7'
+
   '@tanstack/db-collections@0.0.24':
     resolution: {integrity: sha512-/Fmyw/KW8uvRpQ+b9YS3/CNASLCmBKgCleDcvs/YrLuEFupCb8a5XSpPhs2evESr228OOHTxO5L77yY15TanmQ==}
     peerDependencies:
@@ -2709,6 +2721,11 @@ packages:
 
   '@tanstack/db-ivm@0.1.18':
     resolution: {integrity: sha512-+pZJiRKdoKRM5Epq9T7otD9ZJl82pRFauo7LKuJGrarjVKQ7r+QQlPe3kGdN9LEKSnuNGIWjX9OOY4M8kH4eLw==}
+    peerDependencies:
+      typescript: '>=4.7'
+
+  '@tanstack/db-sqlite-persistence-core@0.2.1':
+    resolution: {integrity: sha512-bjdpY5cQKE5oAH/n7OvpNsu5e5sEOtpTuEkkbvgl+NpzlQDaLc1E7aZOsfmJt77gJJU/boZa7uL1lAmmTsEnQA==}
     peerDependencies:
       typescript: '>=4.7'
 
@@ -7169,6 +7186,8 @@ snapshots:
   '@img/sharp-win32-x64@0.34.5':
     optional: true
 
+  '@journeyapps/wa-sqlite@1.7.0': {}
+
   '@jridgewell/gen-mapping@0.3.13':
     dependencies:
       '@jridgewell/sourcemap-codec': 1.5.5
@@ -8525,6 +8544,12 @@ snapshots:
       react: 19.2.7
       react-dom: 19.2.7(react@19.2.7)
 
+  '@tanstack/browser-db-sqlite-persistence@0.2.1(@journeyapps/wa-sqlite@1.7.0)(typescript@6.0.3)':
+    dependencies:
+      '@journeyapps/wa-sqlite': 1.7.0
+      '@tanstack/db-sqlite-persistence-core': 0.2.1(typescript@6.0.3)
+      typescript: 6.0.3
+
   '@tanstack/db-collections@0.0.24(@electric-sql/client@1.5.21)(typescript@6.0.3)':
     dependencies:
       '@electric-sql/client': 1.5.21
@@ -8541,6 +8566,12 @@ snapshots:
     dependencies:
       fractional-indexing: 3.2.0
       sorted-btree: 1.8.1
+      typescript: 6.0.3
+
+  '@tanstack/db-sqlite-persistence-core@0.2.1(typescript@6.0.3)':
+    dependencies:
+      '@standard-schema/spec': 1.1.0
+      '@tanstack/db': 0.6.9(typescript@6.0.3)
       typescript: 6.0.3
 
   '@tanstack/db@0.0.20(typescript@6.0.3)':

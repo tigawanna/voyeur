@@ -1,6 +1,9 @@
+import {
+  favoritesCollection,
+  watchlistCollection,
+} from '#/data-access-layer/tmdb/query-collection'
 import { Bookmark, BookmarkCheck, Star } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import { useMovieLibraryActions } from '#/features/movies/hooks/useMovieLibraryActions'
 import type { Movie } from '#/types/movie'
 import { withViewTransition } from '#/utils/viewTransition'
 
@@ -11,13 +14,38 @@ interface MovieLibraryActionsProps {
   compact?: boolean
 }
 
+function toSavedRef(movie: Movie) {
+  return {
+    movieId: movie.id,
+    title: movie.title,
+    posterPath: movie.posterPath,
+    addedAt: new Date().toISOString(),
+  }
+}
+
 export function MovieLibraryActions({
   movie,
   isFavorite,
   isWatchlisted,
   compact = false,
 }: MovieLibraryActionsProps) {
-  const { toggleFavorite, toggleWatchlist } = useMovieLibraryActions(movie)
+  async function toggleFavorite(currentlyFavorite: boolean) {
+    if (currentlyFavorite) {
+      await favoritesCollection.delete(movie.id)
+      return
+    }
+
+    await favoritesCollection.insert(toSavedRef(movie))
+  }
+
+  async function toggleWatchlist(currentlyWatchlisted: boolean) {
+    if (currentlyWatchlisted) {
+      await watchlistCollection.delete(movie.id)
+      return
+    }
+
+    await watchlistCollection.insert(toSavedRef(movie))
+  }
 
   return (
     <div className={compact ? 'flex gap-2' : 'flex flex-wrap gap-3'}>

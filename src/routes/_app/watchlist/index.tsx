@@ -1,15 +1,28 @@
+import { watchlistCollection } from '#/data-access-layer/tmdb/query-collection'
 import { SavedMovieCard } from '#/features/movies/components/SavedMovieCard'
-import { useWatchlistMovies } from '#/features/movies/hooks/useWatchlistMovies'
 import { LoadingState } from '@/components/common/LoadingState'
 import { Empty, EmptyDescription, EmptyHeader, EmptyTitle } from '@/components/ui/empty'
+import { useLiveQuery } from '@tanstack/react-db'
 import { createFileRoute } from '@tanstack/react-router'
+import type { SavedMovieRef } from '#/types/movie'
 
 export const Route = createFileRoute('/_app/watchlist/')({
   component: WatchlistPage,
 })
 
 function WatchlistPage() {
-  const { watchlist, isLoading } = useWatchlistMovies()
+  const { data, isLoading } = useLiveQuery(
+    (query) =>
+      query.from({ watchlist: watchlistCollection }).select(({ watchlist }) => ({
+        movieId: watchlist.movieId,
+        title: watchlist.title,
+        posterPath: watchlist.posterPath,
+        addedAt: watchlist.addedAt,
+      })),
+    [],
+  )
+
+  const watchlist = (data ?? []) as SavedMovieRef[]
 
   return (
     <section>
