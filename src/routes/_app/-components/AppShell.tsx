@@ -7,7 +7,7 @@ import { cn } from '@/lib/utils'
 import { withViewTransition } from '#/utils/viewTransition'
 
 const navItems = [
-  { title: 'Browse', href: '/browse', icon: Film },
+  { title: 'Browse', href: '/movies', icon: Film },
   { title: 'Favorites', href: '/favorites', icon: Star },
   { title: 'Watchlist', href: '/watchlist', icon: Bookmark },
 ] as const
@@ -41,7 +41,7 @@ export function AppShell() {
                     if (active) return
                     withViewTransition(() => {
                       void router.navigate(
-                        item.href === '/browse'
+                        item.href === '/movies'
                           ? { to: item.href, search: browseSearchDefaults }
                           : { to: item.href },
                       )

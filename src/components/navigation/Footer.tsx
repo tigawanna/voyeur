@@ -22,7 +22,7 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link to="/browse" search={browseSearchDefaults} className="link link-hover">
+                <Link to="/movies" search={browseSearchDefaults} className="link link-hover">
                   Browse
                 </Link>
               </li>

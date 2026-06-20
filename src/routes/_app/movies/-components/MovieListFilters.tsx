@@ -1,6 +1,6 @@
 import { SearchBox } from '#/components/filters/SearchBox'
 import { SortDirectionButton } from '#/components/filters/SortDirectionButton'
-import { Button } from '#/components/ui/button'
+import { buttonVariants, Button } from '#/components/ui/button'
 import {
   Popover,
   PopoverContent,
@@ -24,6 +24,7 @@ import type { BrowseSearch } from '#/types/browse'
 import { useDebouncer } from '@tanstack/react-pacer'
 import { ArrowDownAZ, ArrowUpZA, SlidersHorizontal } from 'lucide-react'
 import { useEffect, useState } from 'react'
+import { cn } from '@/lib/utils'
 
 export interface MovieFiltersProps {
   q: string
@@ -102,10 +103,10 @@ export function MovieFilters({
 
       <div className="md:hidden">
         <Popover>
-          <PopoverTrigger>
-            <Button variant="outline" size="icon" className="shrink-0">
-              <SlidersHorizontal className="size-4" />
-            </Button>
+          <PopoverTrigger
+            className={cn(buttonVariants({ variant: 'outline', size: 'icon' }), 'shrink-0')}
+          >
+            <SlidersHorizontal className="size-4" />
           </PopoverTrigger>
           <PopoverContent align="end" className="w-56 space-y-3">
             <p className="text-xs font-medium text-muted-foreground">

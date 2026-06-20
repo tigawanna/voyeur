@@ -40,7 +40,7 @@ function LandingPage() {
             type="button"
             onClick={() => {
               withViewTransition(() => {
-                void navigate({ to: '/browse', search: browseSearchDefaults })
+                void navigate({ to: '/movies', search: browseSearchDefaults })
               })
             }}
           >

@@ -8,6 +8,7 @@ import {
   getTanstackQueryContext,
 } from '#/lib/tanstack/query/query-provider'
 import { MoviesCollectionProvider } from '#/lib/collections/movies-collection-context'
+import { NotFoundPage } from '#/routes/-components/NotFoundPage'
 import { AppConfig } from '#/utils/system'
 import appCss from '#/styles.css?url'
 import paginationCss from '#/components/pagination/pagination.css?url'
@@ -17,6 +18,7 @@ interface RouterContext {
 }
 
 export const Route = createRootRouteWithContext<RouterContext>()({
+  notFoundComponent: NotFoundPage,
   head: () => ({
     meta: [
       { charSet: 'utf-8' },
