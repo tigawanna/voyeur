@@ -18,8 +18,9 @@ import {
   getMovieSortLabel,
   getMovieSortOrder,
   MOVIE_SORT_OPTIONS,
-  type MovieSortOption,
 } from '#/types/movie-sort'
+import type { MovieSortOption } from '#/types/movie-sort'
+import type { BrowseSearch } from '#/types/browse'
 import { useDebouncer } from '@tanstack/react-pacer'
 import { ArrowDownAZ, ArrowUpZA, SlidersHorizontal } from 'lucide-react'
 import { useEffect, useState } from 'react'
@@ -28,14 +29,16 @@ export interface MovieFiltersProps {
   q: string
   sortBy: string
   sortOrder: string
+  isRefreshing?: boolean
   sortOptions?: MovieSortOption[]
-  onSearchChange: (search: { q?: string; sortBy?: string }) => void
+  onSearchChange: (search: Partial<Pick<BrowseSearch, 'q' | 'sortBy'>>) => void
 }
 
 export function MovieFilters({
   q,
   sortBy,
   sortOrder,
+  isRefreshing = false,
   sortOptions = MOVIE_SORT_OPTIONS,
   onSearchChange,
 }: MovieFiltersProps) {
@@ -77,7 +80,7 @@ export function MovieFilters({
           debouncedValue={q}
           setKeyword={handleKeywordChange}
           isDebouncing={debouncer.state.isPending}
-          inputProps={{ placeholder: 'Search movies...' }}
+          isRefreshing={isRefreshing}
         />
       </div>
 

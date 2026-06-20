@@ -1,5 +1,6 @@
 import { Link, Outlet, useRouter, useRouterState } from '@tanstack/react-router'
 import { Bookmark, Film, Star } from 'lucide-react'
+import { AppActivityNprogress } from '@/components/navigation/nprogress/AppActivityNprogress'
 import { AppConfig } from '#/utils/system'
 import { browseSearchDefaults } from '#/types/browse'
 import { cn } from '@/lib/utils'
@@ -18,6 +19,7 @@ export function AppShell() {
 
   return (
     <div className="min-h-dvh bg-background">
+      <AppActivityNprogress />
       <header className="sticky top-0 z-40 border-b border-border bg-background/85 backdrop-blur-md">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4">
           <Link to="/" className="flex items-center gap-2 no-underline">

@@ -95,6 +95,7 @@ export const browseSearchSchema = z
     region: z.enum(browseRegionCodes).catch('global'),
     language: z.enum(browseLanguageCodes).optional().catch(undefined),
     sortBy: z.enum(MOVIE_SORT_BY_VALUES).catch(defaultMovieSortBy),
+    page: z.number().int().min(1).catch(1),
   })
   .transform((search) => ({
     ...search,
@@ -108,6 +109,7 @@ export const browseSearchDefaults: BrowseSearch = {
   region: 'global',
   language: 'en-US',
   sortBy: defaultMovieSortBy,
+  page: 1,
 }
 
 export function getDefaultLanguageForRegion(region: BrowseRegionCode): BrowseLanguageCode {

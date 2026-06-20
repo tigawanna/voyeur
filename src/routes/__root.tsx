@@ -1,6 +1,7 @@
 import { HeadContent, Outlet, Scripts, createRootRouteWithContext } from '@tanstack/react-router'
 import type { QueryClient } from '@tanstack/react-query'
 import { TooltipProvider } from '@/components/ui/tooltip'
+import { Toaster } from '@/components/ui/sonner'
 import { ThemeProvider } from '@/lib/tanstack/router/theme-provider'
 import {
   TanstackQueryProvider,
@@ -9,6 +10,7 @@ import {
 import { MoviesCollectionProvider } from '#/lib/collections/movies-collection-context'
 import { AppConfig } from '#/utils/system'
 import appCss from '#/styles.css?url'
+import paginationCss from '#/components/pagination/pagination.css?url'
 
 interface RouterContext {
   queryClient: QueryClient
@@ -22,7 +24,7 @@ export const Route = createRootRouteWithContext<RouterContext>()({
       { title: AppConfig.name },
       { name: 'description', content: AppConfig.description },
     ],
-    links: [{ rel: 'stylesheet', href: appCss }],
+    links: [{ rel: 'stylesheet', href: appCss }, { rel: 'stylesheet', href: paginationCss }],
   }),
   component: RootDocument,
 })
@@ -42,6 +44,7 @@ function RootDocument() {
               <MoviesCollectionProvider>
                 <Outlet />
               </MoviesCollectionProvider>
+              <Toaster />
             </TooltipProvider>
           </TanstackQueryProvider>
         </ThemeProvider>

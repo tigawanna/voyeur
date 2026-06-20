@@ -45,9 +45,9 @@ export function popularMoviesQueryOptions(
   })
 }
 
-function toBrowseListParams(search: BrowseSearch, page = 1) {
+function toBrowseListParams(search: BrowseSearch) {
   return {
-    page,
+    page: search.page,
     region: search.region === 'global' ? 'US' : search.region,
     language: search.language,
     sortBy: search.sortBy,
@@ -63,6 +63,7 @@ export function browseMoviesQueryOptions(search: BrowseSearch) {
       search.region,
       search.language,
       search.sortBy,
+      search.page,
     ],
     queryFn: () =>
       fetchBrowseMovies({

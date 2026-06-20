@@ -11,8 +11,10 @@ import {
   EmptyTitle,
 } from '@/components/ui/empty'
 import { getRouteApi } from '@tanstack/react-router'
-import { keepPreviousData, useQuery } from '@tanstack/react-query'
+import { useQuery } from '@tanstack/react-query'
 import { AlertCircle, Loader, SearchX } from 'lucide-react'
+import { useEffect } from 'react'
+import { toast } from 'sonner'
 import { MoviesListWrapper, useClearBrowseFilters } from './movies-list-wrapper'
 
 const browseRouteApi = getRouteApi('/_app/browse/')
@@ -21,11 +23,20 @@ export function MoviesList() {
   const browseSearch = browseRouteApi.useSearch()
   const clearFilters = useClearBrowseFilters()
 
-  const { data, isPending, isError, error, isPlaceholderData, isFetching } = useQuery(
-    {...browseMoviesQueryOptions(browseSearch),placeholderData: keepPreviousData},
-  )
+  const { data, isPending, isError, error, isPlaceholderData, isFetching, errorUpdatedAt } =
+    useQuery(browseMoviesQueryOptions(browseSearch))
 
   const hasActiveFilters = Boolean(browseSearch.q?.trim())
+  const hasPreviousResults =
+    isError && data != null && (data.results?.length ?? 0) > 0
+
+  useEffect(() => {
+    if (!hasPreviousResults) return
+
+    toast.error('Something went wrong', {
+      description: "We couldn't update the movie list. Showing your previous results.",
+    })
+  }, [hasPreviousResults, errorUpdatedAt])
 
   if (isPending) {
     return (
@@ -37,7 +48,7 @@ export function MoviesList() {
     )
   }
 
-  if (isError) {
+  if (isError && !data) {
     return (
       <MoviesListWrapper isRefetching={isFetching}>
         <div className="flex h-full w-full flex-col items-center justify-center">
@@ -64,7 +75,7 @@ export function MoviesList() {
 
   if (!data.results || data.results.length === 0) {
     return (
-      <MoviesListWrapper totalResults={data.total_results} isRefetching={isPlaceholderData}>
+      <MoviesListWrapper totalResults={data.total_results} totalPages={data.total_pages} isRefetching={isPlaceholderData}>
         <div className="flex h-full w-full flex-col items-center justify-center">
           <Empty className="my-8 max-h-[40%] max-w-[60%] rounded-2xl bg-base-200">
             <EmptyHeader>
@@ -92,7 +103,11 @@ export function MoviesList() {
   }
 
   return (
-    <MoviesListWrapper totalResults={data.total_results} isRefetching={isPlaceholderData}>
+    <MoviesListWrapper
+      totalResults={data.total_results}
+      totalPages={data.total_pages}
+      isRefetching={isPlaceholderData}
+    >
       <div className="grid w-full grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5">
         {data.results.map((movie) => (
           <MovieCard key={movie.id} movie={mapTmdbMovie(movie)} />

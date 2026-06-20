@@ -1,4 +1,6 @@
+import { BrowseListPagination } from '@/components/pagination/BrowseListPagination'
 import { browseSearchDefaults, getBrowseHeading } from '#/types/browse'
+import type { BrowseSearch } from '#/types/browse'
 import { getMovieSortOrder, MOVIE_SORT_OPTIONS } from '#/types/movie-sort'
 import { cn } from '@/lib/utils'
 import { getRouteApi } from '@tanstack/react-router'
@@ -11,23 +13,26 @@ const browseRouteApi = getRouteApi('/_app/browse/')
 interface MoviesListWrapperProps {
   children: React.ReactNode
   totalResults?: number
+  totalPages?: number
   isRefetching?: boolean
 }
 
 export function MoviesListWrapper({
   children,
   totalResults,
+  totalPages,
   isRefetching,
 }: MoviesListWrapperProps) {
   const browseSearch = browseRouteApi.useSearch()
   const navigate = browseRouteApi.useNavigate()
 
-  function handleSearchChange(updates: { q?: string; sortBy?: string }) {
-    navigate({
-      search: (prev) => ({
-        ...prev,
+  function handleSearchChange(updates: Partial<Pick<BrowseSearch, 'q' | 'sortBy'>>) {
+    void navigate({
+      search: {
+        ...browseSearch,
         ...updates,
-      }),
+        page: 1,
+      },
     })
   }
 
@@ -45,6 +50,7 @@ export function MoviesListWrapper({
           sortBy={browseSearch.sortBy}
           sortOrder={getMovieSortOrder(browseSearch.sortBy)}
           sortOptions={MOVIE_SORT_OPTIONS}
+          isRefreshing={isRefetching}
           onSearchChange={handleSearchChange}
         />
       </div>
@@ -60,6 +66,7 @@ export function MoviesListWrapper({
           </div>
         ) : null}
       </div>
+      {totalPages != null ? <BrowseListPagination totalPages={totalPages} /> : null}
     </div>
   )
 }
@@ -68,12 +75,9 @@ export function useClearBrowseFilters() {
   const navigate = browseRouteApi.useNavigate()
 
   return () => {
-    navigate({
+    void navigate({
       search: {
-        view: browseSearchDefaults.view,
-        region: browseSearchDefaults.region,
-        language: browseSearchDefaults.language,
-        sortBy: browseSearchDefaults.sortBy,
+        ...browseSearchDefaults,
         q: undefined,
       },
     })
