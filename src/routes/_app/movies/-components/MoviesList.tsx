@@ -12,7 +12,6 @@ import {
   EmptyMedia,
   EmptyTitle,
 } from '@/components/ui/empty'
-import { useLiveQuery } from '@tanstack/react-db'
 import { useQuery } from '@tanstack/react-query'
 import { getRouteApi } from '@tanstack/react-router'
 import { AlertCircle, Loader, SearchX } from 'lucide-react'
@@ -125,7 +124,7 @@ export function MoviesList() {
     >
       <div className="grid w-full grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5">
         {data.results.map((movie) => (
-          <MovieCard key={movie.id} movie={mapTmdbMovie(movie)} />
+          <MovieCard key={movie.id} movie={mapTmdbMovie(movie)}  />
         ))}
       </div>
     </MoviesListWrapper>

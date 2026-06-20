@@ -11,20 +11,12 @@ import {
   fetchSearchMoviesPage,
   fetchTrendingMoviesPage,
 } from '#/data-access-layer/tmdb/tmdb-api'
-import { getTanstackQueryContext } from '#/lib/tanstack/query/query-provider'
 import type { BrowseSearch, BrowseView } from '#/types/browse'
 import { defaultMovieSortBy } from '#/types/movie-sort'
-import {
-  parseLoadSubsetOptions,
-  queryCollectionOptions,
-} from '@tanstack/query-db-collection'
-import { createCollection } from '@tanstack/react-db'
 import { keepPreviousData, queryOptions } from '@tanstack/react-query'
 
-import {} from "@/routes/_app/movies"
- 
-const globalQc = getTanstackQueryContext().queryClient
-export const popularMoviesQueryKey = ['movies', 'popular'] as const
+
+ export const popularMoviesQueryKey = ['movies', 'popular'] as const
 export const browseMoviesQueryKey = ['movies', 'browse'] as const
 
 export const popularMoviesDefaultParams = {

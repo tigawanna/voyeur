@@ -1,8 +1,8 @@
-import { createFileRoute } from '@tanstack/react-router'
-import { Empty, EmptyDescription, EmptyHeader, EmptyTitle } from '@/components/ui/empty'
-import { LoadingState } from '@/components/common/LoadingState'
 import { SavedMovieCard } from '#/features/movies/components/SavedMovieCard'
 import { useFavoriteMovies } from '#/features/movies/hooks/useFavoriteMovies'
+import { LoadingState } from '@/components/common/LoadingState'
+import { Empty, EmptyDescription, EmptyHeader, EmptyTitle } from '@/components/ui/empty'
+import { createFileRoute } from '@tanstack/react-router'
 
 export const Route = createFileRoute('/_app/favorites/')({
   component: FavoritesPage,

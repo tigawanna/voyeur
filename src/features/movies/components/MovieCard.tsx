@@ -1,8 +1,11 @@
-import { Link } from '@tanstack/react-router'
-import { MovieLibraryActions } from '#/features/movies/components/MovieLibraryActions'
 import type { TimelineMovie } from '#/types/movie'
 import { posterUrl } from '#/utils/tmdb-images'
+import { movieViewTransitionName, preloadMovie } from '#/utils/movie-preload'
+import { withViewTransition } from '#/utils/viewTransition'
 import { cn } from '@/lib/utils'
+import { useQueryClient } from '@tanstack/react-query'
+import { Link, useNavigate } from '@tanstack/react-router'
+
 
 interface MovieCardProps {
   movie: TimelineMovie
@@ -10,6 +13,8 @@ interface MovieCardProps {
 }
 
 export function MovieCard({ movie, className }: MovieCardProps) {
+  const queryClient = useQueryClient()
+  const navigate = useNavigate()
   const image = posterUrl(movie.posterPath, 'w342')
 
   return (
@@ -18,12 +23,23 @@ export function MovieCard({ movie, className }: MovieCardProps) {
         'group island-shell rise-in overflow-hidden rounded-2xl border border-border bg-card',
         className,
       )}
-      style={{ viewTransitionName: `movie-${movie.id}` }}
     >
       <Link
         to="/movies/movie/$movieId"
         params={{ movieId: String(movie.id) }}
         className="block no-underline"
+        onMouseEnter={() => preloadMovie(queryClient, movie)}
+        onFocus={() => preloadMovie(queryClient, movie)}
+        onClick={(event) => {
+          event.preventDefault()
+          preloadMovie(queryClient, movie)
+          withViewTransition(() => {
+            void navigate({
+              to: '/movies/movie/$movieId',
+              params: { movieId: String(movie.id) },
+            })
+          })
+        }}
       >
         <div className="relative aspect-2/3 overflow-hidden bg-muted">
           {image ? (
@@ -32,6 +48,7 @@ export function MovieCard({ movie, className }: MovieCardProps) {
               alt={movie.title}
               className="h-full w-full object-cover transition duration-300 group-hover:scale-[1.03]"
               loading="lazy"
+              style={{ viewTransitionName: movieViewTransitionName(movie.id) }}
             />
           ) : (
             <div className="flex h-full items-center justify-center px-4 text-center text-sm text-muted-foreground">

@@ -529,7 +529,20 @@ a {
 
 ::view-transition-old(root),
 ::view-transition-new(root) {
-  animation-duration: 0.28s;
+  animation-duration: 0.58s;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+::view-transition-group(*) {
+  animation-duration: 0.68s;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+::view-transition-old(*),
+::view-transition-new(*) {
+  height: 100%;
+  object-fit: cover;
+  animation-duration: 0.68s;
   animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
