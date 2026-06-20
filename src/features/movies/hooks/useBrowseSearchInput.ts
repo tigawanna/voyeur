@@ -4,7 +4,8 @@ import { useEffect, useState } from 'react'
 import type { BrowseLanguageCode, BrowseRegionCode, BrowseView } from '#/types/browse'
 import { getDefaultLanguageForRegion } from '#/types/browse'
 
-const browseRouteApi = getRouteApi('/_app/browse/')
+const browseRouteApi = getRouteApi('/_app/movies/')
+
 
 const SEARCH_DEBOUNCE_MS = 400
 

@@ -1,7 +1,7 @@
 import { getRouteApi } from '@tanstack/react-router'
 import ResponsivePagination from 'react-responsive-pagination'
 
-const browseRouteApi = getRouteApi('/_app/browse/')
+const browseRouteApi = getRouteApi('/_app/movies/')
 
 interface BrowseListPaginationProps {
   totalPages: number

@@ -21,7 +21,7 @@ export function MovieCard({ movie, className }: MovieCardProps) {
       style={{ viewTransitionName: `movie-${movie.id}` }}
     >
       <Link
-        to="/movie/$movieId"
+        to="/movies/movie/$movieId"
         params={{ movieId: String(movie.id) }}
         className="block no-underline"
       >

@@ -1,5 +1,7 @@
+import {
+  browseMoviesQueryOptions,
+} from '#/data-access-layer/tmdb/query-options'
 import { MovieCard } from '#/features/movies/components/MovieCard'
-import { browseMoviesQueryOptions } from '#/data-access-layer/tmdb/query-options'
 import { mapTmdbMovie } from '#/utils/tmdb-images'
 import { Button } from '@/components/ui/button'
 import {
@@ -10,21 +12,29 @@ import {
   EmptyMedia,
   EmptyTitle,
 } from '@/components/ui/empty'
-import { getRouteApi } from '@tanstack/react-router'
+import { useLiveQuery } from '@tanstack/react-db'
 import { useQuery } from '@tanstack/react-query'
+import { getRouteApi } from '@tanstack/react-router'
 import { AlertCircle, Loader, SearchX } from 'lucide-react'
 import { useEffect } from 'react'
 import { toast } from 'sonner'
 import { MoviesListWrapper, useClearBrowseFilters } from './movies-list-wrapper'
 
-const browseRouteApi = getRouteApi('/_app/browse/')
+const browseRouteApi = getRouteApi('/_app/movies/')
 
 export function MoviesList() {
   const browseSearch = browseRouteApi.useSearch()
   const clearFilters = useClearBrowseFilters()
 
-  const { data, isPending, isError, error, isPlaceholderData, isFetching, errorUpdatedAt } =
-    useQuery(browseMoviesQueryOptions(browseSearch))
+  const {
+    data,
+    isPending,
+    isError,
+    error,
+    isPlaceholderData,
+    isFetching,
+    errorUpdatedAt,
+  } = useQuery(browseMoviesQueryOptions(browseSearch))
 
   const hasActiveFilters = Boolean(browseSearch.q?.trim())
   const hasPreviousResults =
@@ -34,7 +44,8 @@ export function MoviesList() {
     if (!hasPreviousResults) return
 
     toast.error('Something went wrong', {
-      description: "We couldn't update the movie list. Showing your previous results.",
+      description:
+        "We couldn't update the movie list. Showing your previous results.",
     })
   }, [hasPreviousResults, errorUpdatedAt])
 
@@ -75,7 +86,11 @@ export function MoviesList() {
 
   if (!data.results || data.results.length === 0) {
     return (
-      <MoviesListWrapper totalResults={data.total_results} totalPages={data.total_pages} isRefetching={isPlaceholderData}>
+      <MoviesListWrapper
+        totalResults={data.total_results}
+        totalPages={data.total_pages}
+        isRefetching={isPlaceholderData}
+      >
         <div className="flex h-full w-full flex-col items-center justify-center">
           <Empty className="my-8 max-h-[40%] max-w-[60%] rounded-2xl bg-base-200">
             <EmptyHeader>

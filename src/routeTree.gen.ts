@@ -12,9 +12,9 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as AppRouteRouteImport } from './routes/_app/route'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AppWatchlistIndexRouteImport } from './routes/_app/watchlist/index'
+import { Route as AppMoviesIndexRouteImport } from './routes/_app/movies/index'
 import { Route as AppFavoritesIndexRouteImport } from './routes/_app/favorites/index'
-import { Route as AppBrowseIndexRouteImport } from './routes/_app/browse/index'
-import { Route as AppMovieMovieIdRouteImport } from './routes/_app/movie/$movieId'
+import { Route as AppMoviesMovieMovieIdRouteImport } from './routes/_app/movies/movie/$movieId'
 
 const AppRouteRoute = AppRouteRouteImport.update({
   id: '/_app',
@@ -30,63 +30,63 @@ const AppWatchlistIndexRoute = AppWatchlistIndexRouteImport.update({
   path: '/watchlist/',
   getParentRoute: () => AppRouteRoute,
 } as any)
+const AppMoviesIndexRoute = AppMoviesIndexRouteImport.update({
+  id: '/movies/',
+  path: '/movies/',
+  getParentRoute: () => AppRouteRoute,
+} as any)
 const AppFavoritesIndexRoute = AppFavoritesIndexRouteImport.update({
   id: '/favorites/',
   path: '/favorites/',
   getParentRoute: () => AppRouteRoute,
 } as any)
-const AppBrowseIndexRoute = AppBrowseIndexRouteImport.update({
-  id: '/browse/',
-  path: '/browse/',
-  getParentRoute: () => AppRouteRoute,
-} as any)
-const AppMovieMovieIdRoute = AppMovieMovieIdRouteImport.update({
-  id: '/movie/$movieId',
-  path: '/movie/$movieId',
+const AppMoviesMovieMovieIdRoute = AppMoviesMovieMovieIdRouteImport.update({
+  id: '/movies/movie/$movieId',
+  path: '/movies/movie/$movieId',
   getParentRoute: () => AppRouteRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/movie/$movieId': typeof AppMovieMovieIdRoute
-  '/browse/': typeof AppBrowseIndexRoute
   '/favorites/': typeof AppFavoritesIndexRoute
+  '/movies/': typeof AppMoviesIndexRoute
   '/watchlist/': typeof AppWatchlistIndexRoute
+  '/movies/movie/$movieId': typeof AppMoviesMovieMovieIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/movie/$movieId': typeof AppMovieMovieIdRoute
-  '/browse': typeof AppBrowseIndexRoute
   '/favorites': typeof AppFavoritesIndexRoute
+  '/movies': typeof AppMoviesIndexRoute
   '/watchlist': typeof AppWatchlistIndexRoute
+  '/movies/movie/$movieId': typeof AppMoviesMovieMovieIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/_app': typeof AppRouteRouteWithChildren
-  '/_app/movie/$movieId': typeof AppMovieMovieIdRoute
-  '/_app/browse/': typeof AppBrowseIndexRoute
   '/_app/favorites/': typeof AppFavoritesIndexRoute
+  '/_app/movies/': typeof AppMoviesIndexRoute
   '/_app/watchlist/': typeof AppWatchlistIndexRoute
+  '/_app/movies/movie/$movieId': typeof AppMoviesMovieMovieIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/movie/$movieId'
-    | '/browse/'
     | '/favorites/'
+    | '/movies/'
     | '/watchlist/'
+    | '/movies/movie/$movieId'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/movie/$movieId' | '/browse' | '/favorites' | '/watchlist'
+  to: '/' | '/favorites' | '/movies' | '/watchlist' | '/movies/movie/$movieId'
   id:
     | '__root__'
     | '/'
     | '/_app'
-    | '/_app/movie/$movieId'
-    | '/_app/browse/'
     | '/_app/favorites/'
+    | '/_app/movies/'
     | '/_app/watchlist/'
+    | '/_app/movies/movie/$movieId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -117,6 +117,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppWatchlistIndexRouteImport
       parentRoute: typeof AppRouteRoute
     }
+    '/_app/movies/': {
+      id: '/_app/movies/'
+      path: '/movies'
+      fullPath: '/movies/'
+      preLoaderRoute: typeof AppMoviesIndexRouteImport
+      parentRoute: typeof AppRouteRoute
+    }
     '/_app/favorites/': {
       id: '/_app/favorites/'
       path: '/favorites'
@@ -124,35 +131,28 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppFavoritesIndexRouteImport
       parentRoute: typeof AppRouteRoute
     }
-    '/_app/browse/': {
-      id: '/_app/browse/'
-      path: '/browse'
-      fullPath: '/browse/'
-      preLoaderRoute: typeof AppBrowseIndexRouteImport
-      parentRoute: typeof AppRouteRoute
-    }
-    '/_app/movie/$movieId': {
-      id: '/_app/movie/$movieId'
-      path: '/movie/$movieId'
-      fullPath: '/movie/$movieId'
-      preLoaderRoute: typeof AppMovieMovieIdRouteImport
+    '/_app/movies/movie/$movieId': {
+      id: '/_app/movies/movie/$movieId'
+      path: '/movies/movie/$movieId'
+      fullPath: '/movies/movie/$movieId'
+      preLoaderRoute: typeof AppMoviesMovieMovieIdRouteImport
       parentRoute: typeof AppRouteRoute
     }
   }
 }
 
 interface AppRouteRouteChildren {
-  AppMovieMovieIdRoute: typeof AppMovieMovieIdRoute
-  AppBrowseIndexRoute: typeof AppBrowseIndexRoute
   AppFavoritesIndexRoute: typeof AppFavoritesIndexRoute
+  AppMoviesIndexRoute: typeof AppMoviesIndexRoute
   AppWatchlistIndexRoute: typeof AppWatchlistIndexRoute
+  AppMoviesMovieMovieIdRoute: typeof AppMoviesMovieMovieIdRoute
 }
 
 const AppRouteRouteChildren: AppRouteRouteChildren = {
-  AppMovieMovieIdRoute: AppMovieMovieIdRoute,
-  AppBrowseIndexRoute: AppBrowseIndexRoute,
   AppFavoritesIndexRoute: AppFavoritesIndexRoute,
+  AppMoviesIndexRoute: AppMoviesIndexRoute,
   AppWatchlistIndexRoute: AppWatchlistIndexRoute,
+  AppMoviesMovieMovieIdRoute: AppMoviesMovieMovieIdRoute,
 }
 
 const AppRouteRouteWithChildren = AppRouteRoute._addFileChildren(

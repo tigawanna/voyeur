@@ -14,15 +14,18 @@ import {
 import { getTanstackQueryContext } from '#/lib/tanstack/query/query-provider'
 import type { BrowseSearch, BrowseView } from '#/types/browse'
 import { defaultMovieSortBy } from '#/types/movie-sort'
-import { queryCollectionOptions } from '@tanstack/query-db-collection'
+import {
+  parseLoadSubsetOptions,
+  queryCollectionOptions,
+} from '@tanstack/query-db-collection'
 import { createCollection } from '@tanstack/react-db'
 import { keepPreviousData, queryOptions } from '@tanstack/react-query'
 
-
-const globalQc= getTanstackQueryContext().queryClient
+import {} from "@/routes/_app/movies"
+ 
+const globalQc = getTanstackQueryContext().queryClient
 export const popularMoviesQueryKey = ['movies', 'popular'] as const
 export const browseMoviesQueryKey = ['movies', 'browse'] as const
-
 
 export const popularMoviesDefaultParams = {
   page: 1,
@@ -31,7 +34,9 @@ export const popularMoviesDefaultParams = {
 } as const satisfies MoviePopularListQueryParams
 
 export function popularMoviesQueryOptions(
-  params: MoviePopularListQueryParams & { sortBy?: string } = popularMoviesDefaultParams,
+  params: MoviePopularListQueryParams & {
+    sortBy?: string
+  } = popularMoviesDefaultParams,
 ) {
   return queryOptions({
     queryKey: [
@@ -112,7 +117,9 @@ export async function fetchBrowseMovies(params: {
   }
 }
 
-export async function fetchMovieDetails(movieId: number): Promise<MovieDetailsQueryResponse> {
+export async function fetchMovieDetails(
+  movieId: number,
+): Promise<MovieDetailsQueryResponse> {
   return fetchMovieById(movieId)
 }
 
@@ -122,25 +129,3 @@ export function movieDetailsQueryOptions(movieId: number) {
     queryFn: () => fetchMovieDetails(movieId),
   })
 }
-
-
-
-// Define a collection that loads data using TanStack Query
-const moviesCollection = createCollection(
-  queryCollectionOptions({
-    queryKey: browseMoviesQueryKey,
-    queryFn: async () => {
-      const response = await fetchBrowseMovies({
-        view: 'popular',
-        q: '',
-        page: 1,
-        region: 'US',
-        language: 'en-US',
-        sortBy: 'popularity.desc',
-      })
-      return response.results??[]
-    },
-    getKey: (item) => (item.id||item.title)!,
-    queryClient: globalQc,
-  }),
-)

@@ -8,7 +8,7 @@ import { Loader } from 'lucide-react'
 import { MovieFilters } from './MovieListFilters'
 import { MoviesBrowseHeader } from './MoviesBrowseHeader'
 
-const browseRouteApi = getRouteApi('/_app/browse/')
+const browseRouteApi = getRouteApi('/_app/movies/')
 
 interface MoviesListWrapperProps {
   children: React.ReactNode
