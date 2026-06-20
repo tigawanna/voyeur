@@ -1,6 +1,5 @@
 import {
   browseMoviesQueryOptions,
-  moviesCollection,
 } from '#/data-access-layer/tmdb/query-options'
 import { MovieCard } from '#/features/movies/components/MovieCard'
 import { mapTmdbMovie } from '#/utils/tmdb-images'
@@ -20,6 +19,7 @@ import { AlertCircle, Loader, SearchX } from 'lucide-react'
 import { useEffect } from 'react'
 import { toast } from 'sonner'
 import { MoviesListWrapper, useClearBrowseFilters } from './movies-list-wrapper'
+import { moviesCollection } from '#/data-access-layer/tmdb/query-collection'
 
 const browseRouteApi = getRouteApi('/_app/movies/')
 
