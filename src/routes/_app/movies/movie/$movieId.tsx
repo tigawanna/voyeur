@@ -17,11 +17,11 @@ import { createFileRoute, useRouter } from '@tanstack/react-router'
 import { AlertCircle, Loader } from 'lucide-react'
 
 export const Route = createFileRoute('/_app/movies/movie/$movieId')({
-  loader: ({ context, params }) => {
+  loader: async ({ context, params }) => {
     const movieId = Number(params.movieId)
     if (Number.isNaN(movieId)) return
 
-    return context.queryClient.ensureQueryData(movieDetailsQueryOptions(movieId))
+    return context.queryClient.fetchQuery(movieDetailsQueryOptions(movieId))
   },
   component: MovieDetailsPage,
 })

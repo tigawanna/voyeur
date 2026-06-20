@@ -21,8 +21,8 @@ export function toMovieDetailsSeed(movie: Movie): MovieDetails200 {
 }
 
 export function preloadMovie(queryClient: QueryClient, movie: Movie) {
-  queryClient.setQueryData(
-    movieDetailsQueryOptions(movie.id).queryKey,
-    toMovieDetailsSeed(movie),
-  )
+  const options = movieDetailsQueryOptions(movie.id)
+
+  queryClient.setQueryData(options.queryKey, toMovieDetailsSeed(movie))
+  void queryClient.prefetchQuery(options)
 }

@@ -16,6 +16,10 @@ export function backdropUrl(path: string | null | undefined, size: 'w780' | 'w12
   return `${TMDB_IMAGE_BASE}/${size}${path}`
 }
 
+export function movieHeroImageUrl(movie: Movie, size: 'w780' | 'w1280' | 'original' = 'w1280') {
+  return backdropUrl(movie.backdropPath, size) ?? posterUrl(movie.posterPath, 'w500')
+}
+
 export function mapTmdbMovie(movie: PopularMovieResult | MovieDetails200): Movie {
   const genreIds =
     'genres' in movie && movie.genres

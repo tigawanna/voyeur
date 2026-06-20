@@ -119,5 +119,6 @@ export function movieDetailsQueryOptions(movieId: number) {
   return queryOptions({
     queryKey: ['movie', movieId],
     queryFn: () => fetchMovieDetails(movieId),
+    staleTime: 0,
   })
 }
