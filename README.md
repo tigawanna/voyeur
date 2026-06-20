@@ -1,218 +1,164 @@
-Welcome to your new TanStack Start app! 
+# Voyeur
 
-# Getting Started
+Browse films, save favorites, and build your watchlist. Built with TanStack Start on Cloudflare Workers (D1 + Hono TMDB proxy).
 
-To run this application:
+## Getting started
 
 ```bash
 pnpm install
+cp .dev.vars.example .dev.vars
+cp .env.example .env
+pnpm db:migrate:local
 pnpm dev
 ```
 
-# Building For Production
+The dev server runs at [http://localhost:3072](http://localhost:3072).
 
-To build this application for production:
+### Environment variables
 
-```bash
-pnpm build
-```
+| Variable | Where | Purpose |
+| --- | --- | --- |
+| `TMDB_API_KEY` | `.dev.vars` / Wrangler | TMDB API access (server-only) |
+| `BETTER_AUTH_SECRET` | `.dev.vars` / Wrangler | Session signing secret |
+| `BETTER_AUTH_URL` | `.dev.vars` / Wrangler | Public app URL (e.g. `http://localhost:3072`) |
+| `GOOGLE_CLIENT_ID` | `.dev.vars` / Wrangler | Google OAuth client ID |
+| `GOOGLE_CLIENT_SECRET` | `.dev.vars` / Wrangler | Google OAuth client secret |
+| `VITE_APP_URL` | `.env` | Client-side app URL for auth redirects |
 
-## Testing
+`BETTER_AUTH_URL` and `VITE_APP_URL` must match in local development. Configure the same redirect URI in the Google Cloud console (`{BETTER_AUTH_URL}/api/auth/callback/google`).
 
-This project uses [Vitest](https://vitest.dev/) for testing. You can run the tests with:
+### Database
 
-```bash
-pnpm test
-```
-
-## Styling
-
-This project uses [Tailwind CSS](https://tailwindcss.com/) for styling.
-
-### Removing Tailwind CSS
-
-If you prefer not to use Tailwind CSS:
-
-1. Remove the demo pages in `src/routes/demo/`
-2. Replace the Tailwind import in `src/styles.css` with your own styles
-3. Remove `tailwindcss()` from the plugins array in `vite.config.ts`
-4. Uninstall the packages: `pnpm add @tailwindcss/vite tailwindcss --dev`
-
-## Linting & Formatting
-
-
-This project uses [eslint](https://eslint.org/) and [prettier](https://prettier.io/) for linting and formatting. Eslint is configured using [tanstack/eslint-config](https://tanstack.com/config/latest/docs/eslint). The following scripts are available:
+Auth tables live in Cloudflare D1 via Drizzle. Apply migrations locally before first run:
 
 ```bash
-pnpm lint
-pnpm format
-pnpm check
+pnpm db:migrate:local
 ```
 
+## Authentication
 
-## Deploy with Nitro
+Auth follows the same viewer pattern used in **agentic-json-resume** (`apps/web/src/data-access-layer/auth/viewer.ts`): a single React Query source of truth for the signed-in user, injected into TanStack Router context, with server middleware guarding protected layouts.
 
-This project uses Nitro as a generic server adapter, so it can run on any Node-compatible host.
+### Stack
+
+- **[better-auth](https://www.better-auth.com/)** — sessions, Google OAuth, cookie handling via `tanstackStartCookies`
+- **Cloudflare D1 + Drizzle** — `user`, `session`, `account`, `verification` tables (`src/lib/drizzle/schema/auth-schema.ts`)
+- **TanStack Router + React Query** — viewer loaded once at the root, reused everywhere
+
+### Key files
+
+| File | Role |
+| --- | --- |
+| `src/server/create-auth.ts` | better-auth instance (Drizzle adapter, Google provider) |
+| `src/lib/auth.ts` | `getAuth()` — lazy accessor for the Cloudflare worker env |
+| `src/lib/auth.functions.ts` | `getSession` server function |
+| `src/lib/better-auth/client.ts` | Client-side `authClient` |
+| `src/routes/api/auth/$.ts` | better-auth HTTP handler (`GET` / `POST`) |
+| `src/data-access-layer/auth/viewer.ts` | `viewerqueryOptions`, `useViewer`, `viewerMiddleware` |
+| `src/routes/__root.tsx` | Loads viewer into router context on every navigation |
+| `src/routes/_app/route.tsx` | Protected layout — server middleware + client redirect |
+| `src/routes/login.tsx` | Public sign-in page |
+| `src/features/auth/components/LoginCard.tsx` | Google sign-in UI |
+
+### How the viewer flows through the router
+
+```mermaid
+flowchart TD
+  subgraph root ["__root beforeLoad"]
+    A[ensureQueryData viewerqueryOptions] --> B[getSession server fn]
+    B --> C[getAuth.api.getSession]
+    C --> D["return { viewer: data } on RouterContext"]
+  end
+
+  subgraph public ["Public routes /, /login"]
+    D --> E[context.viewer?.user for UI hints]
+  end
+
+  subgraph protected ["/_app layout"]
+    F[viewerMiddleware on server] --> G{session?}
+    G -->|no| H["redirect /login?returnTo=…"]
+    G -->|yes| I[pass viewer into route context]
+    J[beforeLoad on client] --> K{viewer.user?}
+    K -->|no| H
+    K -->|yes| L[render AppShell]
+    I --> L
+  end
+
+  D --> J
+```
+
+1. **Root `beforeLoad`** — Every navigation calls `context.queryClient.ensureQueryData(viewerqueryOptions)`. The query fn calls `getSession()`, which reads cookies on the server via `getRequestHeaders()`. The result is merged into router context as `viewer` (user + session, or `undefined` when signed out).
+
+2. **`viewerqueryOptions` shape** — Returns `{ data: { user, session } | null, error: null }` so callers consistently read `viewer.data` from the query and `context.viewer` from the router (the unwrapped `data` field).
+
+3. **Protected `/_app` routes** — Two guards, same intent:
+   - **Server:** `viewerMiddleware` calls `getAuth().api.getSession({ headers: request.headers })` and redirects to `/login` with `returnTo` when there is no session.
+   - **Client:** `beforeLoad` redirects when `!serverContext?.isServer && !context.viewer?.user` (covers client-side navigation after sign-out without a full round-trip).
+
+4. **`useViewer()`** — For components inside the protected shell. Uses `useSuspenseQuery(viewerqueryOptions)` and exposes `viewer`, `logoutMutation`. Sign-out calls `authClient.signOut()`, invalidates the viewer query, and redirects to `/login`.
+
+5. **Login** — Public route. `beforeLoad` redirects to `returnTo` (default `/movies`) when `context.viewer?.user` is already set. Google OAuth uses `authClient.signIn.social` with `callbackURL` built from `VITE_APP_URL`.
+
+### Route access
+
+| Route | Auth required | How viewer is read |
+| --- | --- | --- |
+| `/` | No | `useRouteContext({ from: '__root__' })` |
+| `/login` | No | `context.viewer` in `beforeLoad` |
+| `/_app/*` (`/movies`, `/favorites`, `/watchlist`) | Yes | `useViewer()` in `AppShell` |
+
+`viewerMiddleware` is attached only to `/_app`, not `__root`, so the landing page and login stay public.
+
+### Design decisions
+
+**React Query as the viewer cache** — The session is fetched through `viewerqueryOptions` instead of ad-hoc `getSession()` calls in each route. Root `ensureQueryData` populates the cache before child routes load; `useViewer` reads the same cache inside the app shell. Invalidation on sign-out keeps UI and router context aligned.
+
+**Dual guard (server middleware + client `beforeLoad`)** — Server middleware protects the initial request and SSR paths. Client `beforeLoad` catches in-app navigations when the viewer query is stale or empty after logout. The client check is gated with `!serverContext?.isServer` to avoid double redirects.
+
+**`getAuth()` instead of a module-level `auth` singleton** — On Cloudflare Workers the Drizzle database binding comes from `env` at request time. `getAuth()` creates the better-auth instance from `cloudflare:workers` env when needed.
+
+**Google-only for now** — Email/password and multi-session plugins are not enabled. The schema and better-auth setup are ready to extend.
+
+**`ssr: false` on `/_app`** — The authenticated shell is client-rendered. TMDB browsing still uses server loaders/proxies where needed; auth guarding does not depend on SSR for the layout.
+
+**`/login` instead of `/auth`** — Matches Voyeur’s route naming; behavior is the same as the reference app’s `/auth` route.
+
+**Favorites and watchlist stay in `localStorage`** — Not yet persisted per user in D1. Signing in does not migrate lists; that is a follow-up.
+
+### Local sign-in checklist
+
+1. Copy `.dev.vars.example` → `.dev.vars` and fill in Google + auth secrets.
+2. Copy `.env.example` → `.env` with `VITE_APP_URL=http://localhost:3072`.
+3. Run `pnpm db:migrate:local`.
+4. Add `http://localhost:3072/api/auth/callback/google` as an authorized redirect URI in Google Cloud Console.
+5. Run `pnpm dev` and open `/login`.
+
+## Scripts
 
 ```bash
-npm run build
-node dist/server/index.mjs
+pnpm dev              # Dev server (port 3072)
+pnpm build            # Production build
+pnpm deploy           # Build + Wrangler deploy
+pnpm db:migrate:local # Apply D1 migrations locally
+pnpm test             # Vitest
+pnpm lint             # ESLint
 ```
-
-The build output is a self-contained Node server. To deploy, push the `dist/` directory to your host (Render, Fly.io, your own VPS, etc.) and run the server command above.
-
-For host-specific presets (Vercel, Netlify, Cloudflare, AWS Lambda, etc.) and tuning, see https://v3.nitro.build/deploy.
-
-
 
 ## Routing
 
-This project uses [TanStack Router](https://tanstack.com/router) with file-based routing. Routes are managed as files in `src/routes`.
+File-based routes live in `src/routes`. TanStack Router generates `src/routeTree.gen.ts`.
 
-### Adding A Route
+- `__root.tsx` — HTML shell, providers, global viewer preload
+- `_app/` — Authenticated layout (movies, favorites, watchlist)
+- `index.tsx` — Public landing page
+- `login.tsx` — Sign-in
 
-To add a new route to your application just add a new file in the `./src/routes` directory.
+## Data fetching
 
-TanStack will automatically generate the content of the route file for you.
+TMDB data is fetched through a Hono proxy (`src/data-access-layer/tmdb/`) so the API key never reaches the client. Movie list routes use TanStack Query with `keepPreviousData` for pagination; movie detail routes use loaders with `fetchQuery` for SSR-friendly prefetch.
 
-Now that you have two routes you can use a `Link` component to navigate between them.
+## Learn more
 
-### Adding Links
-
-To use SPA (Single Page Application) navigation you will need to import the `Link` component from `@tanstack/react-router`.
-
-```tsx
-import { Link } from "@tanstack/react-router";
-```
-
-Then anywhere in your JSX you can use it like so:
-
-```tsx
-<Link to="/about">About</Link>
-```
-
-This will create a link that will navigate to the `/about` route.
-
-More information on the `Link` component can be found in the [Link documentation](https://tanstack.com/router/v1/docs/framework/react/api/router/linkComponent).
-
-### Using A Layout
-
-In the File Based Routing setup the layout is located in `src/routes/__root.tsx`. Anything you add to the root route will appear in all the routes. The route content will appear in the JSX where you render `{children}` in the `shellComponent`.
-
-Here is an example layout that includes a header:
-
-```tsx
-import { HeadContent, Scripts, createRootRoute } from '@tanstack/react-router'
-
-export const Route = createRootRoute({
-  head: () => ({
-    meta: [
-      { charSet: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { title: 'My App' },
-    ],
-  }),
-  shellComponent: ({ children }) => (
-    <html lang="en">
-      <head>
-        <HeadContent />
-      </head>
-      <body>
-        <header>
-          <nav>
-            <Link to="/">Home</Link>
-            <Link to="/about">About</Link>
-          </nav>
-        </header>
-        {children}
-        <Scripts />
-      </body>
-    </html>
-  ),
-})
-```
-
-More information on layouts can be found in the [Layouts documentation](https://tanstack.com/router/latest/docs/framework/react/guide/routing-concepts#layouts).
-
-## Server Functions
-
-TanStack Start provides server functions that allow you to write server-side code that seamlessly integrates with your client components.
-
-```tsx
-import { createServerFn } from '@tanstack/react-start'
-
-const getServerTime = createServerFn({
-  method: 'GET',
-}).handler(async () => {
-  return new Date().toISOString()
-})
-
-// Use in a component
-function MyComponent() {
-  const [time, setTime] = useState('')
-  
-  useEffect(() => {
-    getServerTime().then(setTime)
-  }, [])
-  
-  return <div>Server time: {time}</div>
-}
-```
-
-## API Routes
-
-You can create API routes by using the `server` property in your route definitions:
-
-```tsx
-import { createFileRoute } from '@tanstack/react-router'
-import { json } from '@tanstack/react-start'
-
-export const Route = createFileRoute('/api/hello')({
-  server: {
-    handlers: {
-      GET: () => json({ message: 'Hello, World!' }),
-    },
-  },
-})
-```
-
-## Data Fetching
-
-There are multiple ways to fetch data in your application. You can use TanStack Query to fetch data from a server. But you can also use the `loader` functionality built into TanStack Router to load the data for a route before it's rendered.
-
-For example:
-
-```tsx
-import { createFileRoute } from '@tanstack/react-router'
-
-export const Route = createFileRoute('/people')({
-  loader: async () => {
-    const response = await fetch('https://swapi.dev/api/people')
-    return response.json()
-  },
-  component: PeopleComponent,
-})
-
-function PeopleComponent() {
-  const data = Route.useLoaderData()
-  return (
-    <ul>
-      {data.results.map((person) => (
-        <li key={person.name}>{person.name}</li>
-      ))}
-    </ul>
-  )
-}
-```
-
-Loaders simplify your data fetching logic dramatically. Check out more information in the [Loader documentation](https://tanstack.com/router/latest/docs/framework/react/guide/data-loading#loader-parameters).
-
-# Demo files
-
-Files prefixed with `demo` can be safely deleted. They are there to provide a starting point for you to play around with the features you've installed.
-
-# Learn More
-
-You can learn more about all of the offerings from TanStack in the [TanStack documentation](https://tanstack.com).
-
-For TanStack Start specific documentation, visit [TanStack Start](https://tanstack.com/start).
+- [TanStack Start](https://tanstack.com/start)
+- [TanStack Router](https://tanstack.com/router)
+- [better-auth](https://www.better-auth.com/docs)

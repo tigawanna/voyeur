@@ -1,19 +1,19 @@
-import { HeadContent, Outlet, Scripts, createRootRouteWithContext } from '@tanstack/react-router'
-import type { QueryClient } from '@tanstack/react-query'
-import { TooltipProvider } from '@/components/ui/tooltip'
-import { Toaster } from '@/components/ui/sonner'
-import { ThemeProvider } from '@/lib/tanstack/router/theme-provider'
+import paginationCss from '#/components/pagination/pagination.css?url'
+import type { TViewer } from '#/data-access-layer/auth/viewer'
+import { viewerMiddleware, viewerqueryOptions } from '#/data-access-layer/auth/viewer'
+import { MoviesCollectionProvider } from '#/lib/collections/movies-collection-context'
 import {
   TanstackQueryProvider,
   getTanstackQueryContext,
 } from '#/lib/tanstack/query/query-provider'
-import { MoviesCollectionProvider } from '#/lib/collections/movies-collection-context'
-import { viewerMiddleware, viewerqueryOptions  } from '#/data-access-layer/auth/viewer'
-import type {TViewer} from '#/data-access-layer/auth/viewer';
 import { NotFoundPage } from '#/routes/-components/NotFoundPage'
-import { AppConfig } from '#/utils/system'
 import appCss from '#/styles.css?url'
-import paginationCss from '#/components/pagination/pagination.css?url'
+import { AppConfig } from '#/utils/system'
+import { Toaster } from '@/components/ui/sonner'
+import { TooltipProvider } from '@/components/ui/tooltip'
+import { ThemeProvider } from '@/lib/tanstack/router/theme-provider'
+import type { QueryClient } from '@tanstack/react-query'
+import { HeadContent, Outlet, Scripts, createRootRouteWithContext } from '@tanstack/react-router'
 
 interface RouterContext {
   queryClient: QueryClient
