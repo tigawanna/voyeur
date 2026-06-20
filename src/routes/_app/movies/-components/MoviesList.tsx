@@ -13,7 +13,7 @@ import {
   EmptyMedia,
   EmptyTitle,
 } from '@/components/ui/empty'
-import { eq, useLiveQuery } from '@tanstack/react-db'
+import { and, eq, useLiveQuery } from '@tanstack/react-db'
 import { useQuery } from '@tanstack/react-query'
 import { getRouteApi } from '@tanstack/react-router'
 import { AlertCircle, Loader, SearchX } from 'lucide-react'
@@ -27,14 +27,23 @@ export function MoviesList() {
   const browseSearch = browseRouteApi.useSearch()
   const clearFilters = useClearBrowseFilters()
   
-  const { data: movies } = useLiveQuery((q) =>
-    q
-      .from({ movie: moviesCollection })
-      .where(({ movie }) =>
-        eq(movie.page, browseSearch.page)
-      )
-      .orderBy(({ movie }) => movie.popularity, 'desc')
-      .limit(40),
+  const { data: movies } = useLiveQuery(
+    (q) =>
+      q
+        .from({ movie: moviesCollection })
+        .where(({ movie }) =>
+          and(
+            eq(movie.page, browseSearch.page),
+            eq(movie.view, browseSearch.view),
+            eq(movie.region, browseSearch.region),
+            eq(movie.language, browseSearch.language),
+            eq(movie.sortBy, browseSearch.sortBy),
+            eq(movie.q, browseSearch.q?.trim() ?? ''),
+          ),
+        )
+        .orderBy(({ movie }) => movie.popularity, 'desc')
+        .limit(40),
+    [browseSearch],
   )
   console.log({movies})
 

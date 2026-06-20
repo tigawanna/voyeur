@@ -13,7 +13,12 @@ import {
 import { getTanstackQueryContext } from '#/lib/tanstack/query/query-provider'
 import type { BrowseSearch, BrowseView } from '#/types/browse'
 import { defaultMovieSortBy } from '#/types/movie-sort'
-import { createCollection, parseLoadSubsetOptions } from '@tanstack/db'
+import {
+  parseMoviesBrowseSubset,
+  moviesBrowseSubsetToFetchParams,
+  stampMovieBrowseContext,
+} from '#/data-access-layer/tmdb/movies-browse-subset'
+import { createCollection } from '@tanstack/db'
 import { queryCollectionOptions } from '@tanstack/query-db-collection'
 import { keepPreviousData, queryOptions } from '@tanstack/react-query'
 
@@ -131,23 +136,15 @@ export const moviesCollection = createCollection(
     queryKey: browseMoviesQueryKey,
 
     queryFn: async (ctx) => {
-      const { filters, sorts, limit } = parseLoadSubsetOptions(
-        ctx.meta?.loadSubsetOptions,
+      const subset = parseMoviesBrowseSubset(ctx.meta?.loadSubsetOptions)
+      console.log({subset})
+      const response = await fetchBrowseMovies(
+        moviesBrowseSubsetToFetchParams(subset),
       )
 
-      console.log({ filters, sorts, limit })
-
-      const response = await fetchBrowseMovies({
-        view: 'popular',
-        q: '',
-        page: 1,
-        region: 'US',
-        language: 'en-US',
-        sortBy: 'popularity.desc',
-      })
-      return (response.results ?? []).map((item) => {
-        return { ...item, page: response.page }
-      })
+      return (response.results ?? []).map((item) =>
+        stampMovieBrowseContext(item, subset, response.page),
+      )
     },
     getKey: (item) => (item.id || item.title)!,
     queryClient: globalQc,
