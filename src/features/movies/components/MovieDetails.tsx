@@ -1,7 +1,7 @@
 import type { ComponentProps, ReactNode } from 'react'
 import type { Movie } from '#/types/movie'
 import { movieHeroImageUrl, posterUrl } from '#/utils/tmdb-images'
-import { movieViewTransitionName } from '#/utils/movie-preload'
+import { movieViewTransitionName } from '#/utils/movie-view-transition'
 import { cn } from '@/lib/utils'
 import { ArrowLeft } from 'lucide-react'
 
@@ -9,9 +9,10 @@ interface MovieDetailsProps {
   movie: Movie
   className?: string
   backAction: ReactNode
+  libraryActions?: ReactNode
 }
 
-export function MovieDetails({ movie, className, backAction }: MovieDetailsProps) {
+export function MovieDetails({ movie, className, backAction, libraryActions }: MovieDetailsProps) {
   const poster = posterUrl(movie.posterPath, 'w500')
   const heroImage = movieHeroImageUrl(movie)
   const year = movie.releaseDate ? movie.releaseDate.slice(0, 4) : 'TBA'
@@ -68,6 +69,7 @@ export function MovieDetails({ movie, className, backAction }: MovieDetailsProps
             <p className="max-w-2xl text-base leading-relaxed text-muted-foreground">
               {movie.overview || 'No overview available.'}
             </p>
+            {libraryActions ? <div>{libraryActions}</div> : null}
           </div>
         </div>
       </div>

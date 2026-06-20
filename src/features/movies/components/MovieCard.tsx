@@ -1,10 +1,9 @@
 import { MovieLibraryActions } from '#/features/movies/components/MovieLibraryActions'
 import type { BrowseMovieWithLibrary } from '#/types/movie'
 import { posterUrl, mapTmdbMovie } from '#/utils/tmdb-images'
-import { movieViewTransitionName, preloadMovie } from '#/utils/movie-preload'
+import { movieViewTransitionName } from '#/utils/movie-view-transition'
 import { withViewTransition } from '#/utils/viewTransition'
 import { cn } from '@/lib/utils'
-import { useQueryClient } from '@tanstack/react-query'
 import { Link, useNavigate } from '@tanstack/react-router'
 
 interface MovieCardProps {
@@ -13,7 +12,6 @@ interface MovieCardProps {
 }
 
 export function MovieCard({ movie, className }: MovieCardProps) {
-  const queryClient = useQueryClient()
   const navigate = useNavigate()
   const timelineMovie = mapTmdbMovie(movie)
   const image = posterUrl(timelineMovie.posterPath, 'w342')
@@ -29,11 +27,8 @@ export function MovieCard({ movie, className }: MovieCardProps) {
         to="/movies/movie/$movieId"
         params={{ movieId: String(timelineMovie.id) }}
         className="block no-underline"
-        onMouseEnter={() => preloadMovie(queryClient, timelineMovie)}
-        onFocus={() => preloadMovie(queryClient, timelineMovie)}
         onClick={(event) => {
           event.preventDefault()
-          preloadMovie(queryClient, timelineMovie)
           withViewTransition(() => {
             void navigate({
               to: '/movies/movie/$movieId',

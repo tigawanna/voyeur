@@ -2,6 +2,83 @@
 
 Browse films, save favorites, and build your watchlist. Built with TanStack Start on Cloudflare Workers (D1 + Hono TMDB proxy).
 
+## Architecture highlights
+
+### TanStack DB — API data and local data as one queryable surface
+
+We use [TanStack DB](https://tanstack.com/db) to mix **live API-backed collections** with **local-only collections** and query them together as if they were tables in one database.
+
+| Collection | Source | Role |
+| --- | --- | --- |
+| `moviesCollection` | TMDB via server proxy | Browse results, loaded on demand from the API |
+| `favoritesCollection` | Browser persistence (SQLite / OPFS) | Per-device favorites |
+| `watchlistCollection` | Browser persistence (SQLite / OPFS) | Per-device watchlist |
+
+**Movies from the API** — `moviesCollection` is defined with `queryCollectionOptions` and TanStack Query. It is fully driven by our Hono TMDB proxy: the API key never leaves the server, and fetched pages are stamped with browse context (page, filters, sort) so multiple views can coexist in the same collection.
+
+**Favorites and watchlist locally** — `favoritesCollection` and `watchlistCollection` use `persistedCollectionOptions` with browser SQLite persistence. They are local-only today. TanStack DB supports attaching a sync strategy later so these could follow the signed-in user across devices; we have not wired that up yet.
+
+**Joins in `useLiveQuery`** — Components query across collections with ordinary joins. On the browse screen, movies are left-joined to favorites and watchlist so each row gains `isFavorite` and `isWatchlisted` without ad-hoc merging in React state:
+
+```tsx
+useLiveQuery((q) =>
+  q
+    .from({ movie: moviesCollection })
+    .leftJoin({ favorite: favoritesCollection }, ({ movie, favorite }) =>
+      eq(movie.id, favorite.movieId),
+    )
+    .leftJoin({ watchlist: watchlistCollection }, ({ movie, watchlist }) =>
+      eq(movie.id, watchlist.movieId),
+    )
+    .select(({ movie, favorite, watchlist }) => ({
+      ...movie,
+      isFavorite: not(isUndefined(favorite)),
+      isWatchlisted: not(isUndefined(watchlist)),
+    })),
+)
+```
+
+That pattern is the main payoff: remote catalog data and local library state compose in one reactive query instead of separate hooks and manual joins.
+
+Browse loading also uses TanStack DB **query-driven sync** — live-query context (filters, page, sort) flows into the collection `queryFn` so each subset fetch stays aligned with what `useLiveQuery` is asking for. The wiring lives in `src/data-access-layer/tmdb/query-collection.ts` and `movies-browse-subset.ts`; the details matter when extending browse, not when first understanding the app.
+
+All collections are declared in `src/data-access-layer/tmdb/query-collection.ts`.
+
+### TanStack Start, Router context, and auth
+
+**TanStack Start + TanStack Router** carry authentication through the tree:
+
+1. **Root `beforeLoad`** — Every navigation runs `ensureQueryData(viewerqueryOptions)` and merges the result into router context as `viewer` (user + session, or `undefined` when signed out).
+2. **`viewerMiddleware` on `/_app`** — On the server, protected layout requests validate the session from cookies before the route renders. Unauthenticated requests redirect to `/login` with `returnTo`.
+3. **Client `beforeLoad` on `/_app`** — Catches in-app navigations when the viewer cache is empty after sign-out, without waiting for another server round-trip.
+
+We run our own auth stack (**better-auth** + **Cloudflare D1** + **Drizzle**) instead of a hosted provider like Clerk. Sessions, Google OAuth, and cookie handling stay under our control on the same Worker that proxies TMDB.
+
+**Server-only secrets** — `TMDB_API_KEY` lives in Wrangler env (`.dev.vars`). The client talks to `/api/tmdb/*`; the Hono handler in `src/server/tmdb-routes.ts` attaches the key server-side.
+
+### SSR — capable, but mostly opted out
+
+TanStack Start can server-render routes, and our auth middleware runs on those SSR paths for guarded layouts. In practice the authenticated experience is **client-rendered**:
+
+- `/_app` and `/_app/movies/` set `ssr: false`.
+- TanStack DB’s browser collections (SQLite persistence, live queries) do not cooperate cleanly with SSR today.
+- The product is **gated behind login**. Crawlers cannot see browse, favorites, or watchlist anyway, so server-rendering that UI would spend Worker CPU on HTML no public user or bot consumes.
+
+Public routes (`/`, `/login`) can still use SSR where it helps; the movie browse shell is intentionally client-only.
+
+### View Transitions
+
+Screen and card transitions use the browser **[View Transitions API](https://developer.mozilla.org/en-US/docs/Web/API/View_Transition_API)** via `withViewTransition` (`src/utils/viewTransition.ts`). Navigation and library toggles wrap DOM updates in `document.startViewTransition` (with `flushSync` so React commits before the animation). Movie posters use matching `viewTransitionName` values between the grid and detail view for shared-element-style motion — native, no animation library required.
+
+### Theming with CSS variables and Tailwind
+
+Themes are built on **CSS custom properties**, not hard-coded colors in components:
+
+- DaisyUI theme plugins in `src/styles.css` define light/dark token sets (`--color-base-100`, `--color-primary`, radii, etc.).
+- Additional app tokens (`--ink`, `--sand`, `--surface`, …) layer on top for layout chrome.
+- `ThemeProvider` (`src/lib/tanstack/router/theme-provider.tsx`) toggles `light` / `dark` / `system` on `<html>` (`class`, `data-theme`) and persists the choice.
+- Tailwind utilities (`bg-background`, `text-primary`, …) resolve through those variables, so a theme switch updates the whole UI consistently.
+
 ## Getting started
 
 ```bash
@@ -37,7 +114,7 @@ pnpm db:migrate:local
 
 ## Authentication
 
-Auth follows the same viewer pattern used in **agentic-json-resume** (`apps/web/src/data-access-layer/auth/viewer.ts`): a single React Query source of truth for the signed-in user, injected into TanStack Router context, with server middleware guarding protected layouts.
+Auth follows the viewer pattern from **agentic-json-resume**: a single React Query source of truth for the signed-in user, injected into TanStack Router context, with server middleware guarding protected layouts.
 
 ### Stack
 
@@ -107,7 +184,7 @@ flowchart TD
 | `/login` | No | `context.viewer` in `beforeLoad` |
 | `/_app/*` (`/movies`, `/favorites`, `/watchlist`) | Yes | `useViewer()` in `AppShell` |
 
-`viewerMiddleware` is attached only to `/_app`, not `__root`, so the landing page and login stay public.
+`viewerMiddleware` is attached to `/_app`, not required for public routes, so the landing page and login stay reachable while signed out.
 
 ### Design decisions
 
@@ -119,11 +196,11 @@ flowchart TD
 
 **Google-only for now** — Email/password and multi-session plugins are not enabled. The schema and better-auth setup are ready to extend.
 
-**`ssr: false` on `/_app`** — The authenticated shell is client-rendered. TMDB browsing still uses server loaders/proxies where needed; auth guarding does not depend on SSR for the layout.
+**Own backend auth instead of Clerk** — Sessions and OAuth run on our Worker + D1. No third-party auth UI or per-MAU billing; we keep the same deployment unit as the TMDB proxy.
 
-**`/login` instead of `/auth`** — Matches Voyeur’s route naming; behavior is the same as the reference app’s `/auth` route.
+**`ssr: false` on the authenticated shell** — See [SSR — capable, but mostly opted out](#ssr--capable-but-mostly-opted-out) above.
 
-**Favorites and watchlist stay in `localStorage`** — Not yet persisted per user in D1. Signing in does not migrate lists; that is a follow-up.
+**Favorites and watchlist in TanStack DB** — Stored locally in the browser via SQLite/OPFS collections, not yet synced per user in D1. Signing in does not migrate lists across devices; a sync strategy is a natural follow-up.
 
 ### Local sign-in checklist
 
@@ -149,16 +226,24 @@ pnpm lint             # ESLint
 File-based routes live in `src/routes`. TanStack Router generates `src/routeTree.gen.ts`.
 
 - `__root.tsx` — HTML shell, providers, global viewer preload
-- `_app/` — Authenticated layout (movies, favorites, watchlist)
+- `_app/` — Authenticated layout (movies, favorites, watchlist); `ssr: false`
 - `index.tsx` — Public landing page
 - `login.tsx` — Sign-in
 
 ## Data fetching
 
-TMDB data is fetched through a Hono proxy (`src/data-access-layer/tmdb/`) so the API key never reaches the client. Movie list routes use TanStack Query with `keepPreviousData` for pagination; movie detail routes use loaders with `fetchQuery` for SSR-friendly prefetch.
+| Layer | Responsibility |
+| --- | --- |
+| Hono TMDB proxy (`src/server/tmdb-routes.ts`) | Server-side TMDB calls with `TMDB_API_KEY` |
+| TanStack Query (`src/data-access-layer/tmdb/query-options.ts`) | HTTP fetch helpers, pagination metadata |
+| TanStack DB (`src/data-access-layer/tmdb/query-collection.ts`) | Collections, live queries, joins with local library state |
+
+Movie browse uses `useLiveQuery` for the grid (movies + favorites + watchlist) and a parallel `useQuery` only where TanStack Query still owns pagination totals. Movie detail routes can prefetch via loaders where SSR is enabled.
 
 ## Learn more
 
 - [TanStack Start](https://tanstack.com/start)
 - [TanStack Router](https://tanstack.com/router)
+- [TanStack DB](https://tanstack.com/db)
 - [better-auth](https://www.better-auth.com/docs)
+- [View Transitions API](https://developer.mozilla.org/en-US/docs/Web/API/View_Transition_API)

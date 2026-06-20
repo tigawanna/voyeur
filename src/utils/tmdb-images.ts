@@ -1,6 +1,7 @@
 import type { MovieDetails200 } from '#/data-access-layer/tmdb/generated/models/MovieDetails'
 import type { MoviePopularList200 } from '#/data-access-layer/tmdb/generated/models/MoviePopularList'
 import type { Movie } from '#/types/movie'
+import type { TmdbMovieResult } from '#/types/tmdb'
 
 const TMDB_IMAGE_BASE = 'https://image.tmdb.org/t/p'
 
@@ -20,7 +21,9 @@ export function movieHeroImageUrl(movie: Movie, size: 'w780' | 'w1280' | 'origin
   return backdropUrl(movie.backdropPath, size) ?? posterUrl(movie.posterPath, 'w500')
 }
 
-export function mapTmdbMovie(movie: PopularMovieResult | MovieDetails200): Movie {
+export function mapTmdbMovie(
+  movie: PopularMovieResult | MovieDetails200 | TmdbMovieResult,
+): Movie {
   const genreIds =
     'genres' in movie && movie.genres
       ? movie.genres.map((genre) => genre.id ?? 0)

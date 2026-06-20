@@ -38,6 +38,7 @@ export const moviesCollection = createCollection(
 )
 
 moviesCollection.createIndex((row) => row.popularity)
+moviesCollection.createIndex((row) => row.id)
 
 const database = await openBrowserWASQLiteOPFSDatabase({
   databaseName: 'reelroom.sqlite',

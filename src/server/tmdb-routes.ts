@@ -1,4 +1,5 @@
 import type { MovieDetails200 } from '#/data-access-layer/tmdb/generated/models/MovieDetails'
+import type { TmdbPagedResponse, TmdbMovieResult } from '#/types/tmdb'
 import type { MovieNowPlayingListQueryResponse } from '#/data-access-layer/tmdb/generated/models/MovieNowPlayingList'
 import type { MoviePopularListQueryResponse } from '#/data-access-layer/tmdb/generated/models/MoviePopularList'
 import type { SearchMovieQueryResponse } from '#/data-access-layer/tmdb/generated/models/SearchMovie'
@@ -90,6 +91,20 @@ export const tmdbRoutes = new Hono<TmdbBindings>()
       c.env.TMDB_API_KEY,
       `/movie/${movieId}`,
       language ? { language } : undefined,
+    )
+    return c.json(data)
+  })
+  .get('/movies/:movieId/recommendations', async (c) => {
+    const movieId = c.req.param('movieId')
+    const language = c.req.query('language')?.trim()
+    const page = c.req.query('page') ?? '1'
+    const data = await tmdbFetch<TmdbPagedResponse<TmdbMovieResult>>(
+      c.env.TMDB_API_KEY,
+      `/movie/${movieId}/recommendations`,
+      {
+        page,
+        ...(language ? { language } : {}),
+      },
     )
     return c.json(data)
   })
