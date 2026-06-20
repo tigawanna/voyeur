@@ -10,16 +10,18 @@ import { mapTmdbMovie } from '#/utils/tmdb-images'
 const browseRouteApi = getRouteApi('/_app/browse/')
 
 export function useMovieBrowse() {
-  const { view, q } = browseRouteApi.useSearch()
+  const { view, q, region, language } = browseRouteApi.useSearch()
   const searchQuery = q?.trim() ?? ''
 
   const moviesQuery = useInfiniteQuery({
-    queryKey: [...browseMoviesQueryKey, view, searchQuery],
+    queryKey: [...browseMoviesQueryKey, view, searchQuery, region, language],
     queryFn: ({ pageParam }) =>
       fetchBrowseMovies({
         view,
         q: searchQuery || undefined,
         page: pageParam,
+        region,
+        language,
       }),
     initialPageParam: 1,
     getNextPageParam: (lastPage) => {

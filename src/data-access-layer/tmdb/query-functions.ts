@@ -20,12 +20,12 @@ export const browseMoviesQueryKey = ['movies', 'browse'] as const
 export async function fetchPopularMovies(
   params: MoviePopularListQueryParams = { page: 1 },
 ): Promise<MoviePopularListQueryResponse> {
-  return fetchPopularMoviesPage(params.page ?? 1)
+  return fetchPopularMoviesPage({ page: params.page ?? 1, region: params.region })
 }
 
 export function popularMoviesQueryOptions(params: MoviePopularListQueryParams = { page: 1 }) {
   return queryOptions({
-    queryKey: [...popularMoviesQueryKey, params.page ?? 1],
+    queryKey: [...popularMoviesQueryKey, params.page ?? 1, params.region ?? null],
     queryFn: () => fetchPopularMovies(params),
   })
 }
@@ -34,21 +34,24 @@ export async function fetchBrowseMovies(params: {
   view: BrowseView
   q?: string
   page?: number
+  region?: string
+  language?: string
 }): Promise<MoviePopularListQueryResponse | SearchMovieQueryResponse> {
   const page = params.page ?? 1
   const query = params.q?.trim()
+  const listParams = { page, region: params.region, language: params.language }
 
   if (query) {
-    return fetchSearchMoviesPage(query, page)
+    return fetchSearchMoviesPage(query, listParams)
   }
 
   switch (params.view) {
     case 'trending':
-      return fetchTrendingMoviesPage(page)
+      return fetchTrendingMoviesPage(listParams)
     case 'recent':
-      return fetchNowPlayingMoviesPage(page)
+      return fetchNowPlayingMoviesPage(listParams)
     default:
-      return fetchPopularMoviesPage(page)
+      return fetchPopularMoviesPage(listParams)
   }
 }
 

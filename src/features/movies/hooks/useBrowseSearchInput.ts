@@ -1,14 +1,15 @@
 import { useDebouncedCallback } from '@tanstack/react-pacer'
 import { getRouteApi } from '@tanstack/react-router'
 import { useEffect, useState } from 'react'
-import type { BrowseView } from '#/types/browse'
+import type { BrowseLanguageCode, BrowseRegionCode, BrowseView } from '#/types/browse'
+import { getDefaultLanguageForRegion } from '#/types/browse'
 
 const browseRouteApi = getRouteApi('/_app/browse/')
 
 const SEARCH_DEBOUNCE_MS = 400
 
 export function useBrowseSearchInput() {
-  const { q, view } = browseRouteApi.useSearch()
+  const { q, view, region, language } = browseRouteApi.useSearch()
   const navigate = browseRouteApi.useNavigate()
   const [inputValue, setInputValue] = useState(q ?? '')
 
@@ -35,7 +36,25 @@ export function useBrowseSearchInput() {
   function onViewChange(nextView: BrowseView) {
     setInputValue('')
     void navigate({
-      search: { view: nextView, q: undefined },
+      search: (prev) => ({ ...prev, view: nextView, q: undefined }),
+      replace: true,
+    })
+  }
+
+  function onRegionChange(nextRegion: BrowseRegionCode) {
+    void navigate({
+      search: (prev) => ({
+        ...prev,
+        region: nextRegion,
+        language: getDefaultLanguageForRegion(nextRegion),
+      }),
+      replace: true,
+    })
+  }
+
+  function onLanguageChange(nextLanguage: BrowseLanguageCode) {
+    void navigate({
+      search: (prev) => ({ ...prev, language: nextLanguage }),
       replace: true,
     })
   }
@@ -47,7 +66,11 @@ export function useBrowseSearchInput() {
     onSearchChange,
     onViewChange,
     view,
+    region,
+    language,
     q,
     isSearchPending,
+    onRegionChange,
+    onLanguageChange,
   }
 }

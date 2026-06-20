@@ -7,6 +7,22 @@ import { tmdbFetch } from './tmdb-client'
 
 type TmdbBindings = { Bindings: CloudflareBindings }
 
+function listParams(c: { req: { query: (key: string) => string | undefined } }): Record<string, string> {
+  const params: Record<string, string> = { page: c.req.query('page') ?? '1' }
+
+  const region = c.req.query('region')?.trim()
+  if (region && region !== 'global') {
+    params.region = region.toUpperCase()
+  }
+
+  const language = c.req.query('language')?.trim()
+  if (language) {
+    params.language = language
+  }
+
+  return params
+}
+
 export const tmdbRoutes = new Hono<TmdbBindings>()
   .get('/health', (c) =>
     c.json({
@@ -16,36 +32,34 @@ export const tmdbRoutes = new Hono<TmdbBindings>()
     }),
   )
   .get('/movies/popular', async (c) => {
-    const page = c.req.query('page') ?? '1'
-    const data = await tmdbFetch<MoviePopularListQueryResponse>(c.env.TMDB_API_KEY, '/movie/popular', {
-      page,
-    })
+    const data = await tmdbFetch<MoviePopularListQueryResponse>(
+      c.env.TMDB_API_KEY,
+      '/movie/popular',
+      listParams(c),
+    )
 
     return c.json(data)
   })
   .get('/movies/trending', async (c) => {
-    const page = c.req.query('page') ?? '1'
     const data = await tmdbFetch<MoviePopularListQueryResponse>(
       c.env.TMDB_API_KEY,
       '/trending/movie/day',
-      { page },
+      listParams(c),
     )
 
     return c.json(data)
   })
   .get('/movies/now-playing', async (c) => {
-    const page = c.req.query('page') ?? '1'
     const data = await tmdbFetch<MovieNowPlayingListQueryResponse>(
       c.env.TMDB_API_KEY,
       '/movie/now_playing',
-      { page },
+      listParams(c),
     )
 
     return c.json(data)
   })
   .get('/movies/search', async (c) => {
     const query = c.req.query('query')
-    const page = c.req.query('page') ?? '1'
 
     if (!query?.trim()) {
       return c.json({ message: 'query is required' }, 400)
@@ -53,14 +67,19 @@ export const tmdbRoutes = new Hono<TmdbBindings>()
 
     const data = await tmdbFetch<SearchMovieQueryResponse>(c.env.TMDB_API_KEY, '/search/movie', {
       query: query.trim(),
-      page,
       include_adult: 'false',
+      ...listParams(c),
     })
 
     return c.json(data)
   })
   .get('/movies/:movieId', async (c) => {
     const movieId = c.req.param('movieId')
-    const data = await tmdbFetch<MovieDetails200>(c.env.TMDB_API_KEY, `/movie/${movieId}`)
+    const language = c.req.query('language')?.trim()
+    const data = await tmdbFetch<MovieDetails200>(
+      c.env.TMDB_API_KEY,
+      `/movie/${movieId}`,
+      language ? { language } : undefined,
+    )
     return c.json(data)
   })
