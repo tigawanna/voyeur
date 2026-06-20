@@ -49,12 +49,6 @@ export function MovieCard({ movie, className }: MovieCardProps) {
       </Link>
       <div className="flex items-center justify-between gap-3 p-4">
         <p className="m-0 line-clamp-2 flex-1 text-sm text-muted-foreground">{movie.overview}</p>
-        <MovieLibraryActions
-          movie={movie}
-          isFavorite={movie.isFavorite}
-          isWatchlisted={movie.isWatchlisted}
-          compact
-        />
       </div>
     </article>
   )

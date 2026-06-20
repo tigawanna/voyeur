@@ -1,4 +1,5 @@
 import { z } from 'zod'
+import { defaultMovieSortBy, MOVIE_SORT_BY_VALUES } from '#/types/movie-sort'
 
 export const BROWSE_VIEWS = ['popular', 'trending', 'recent'] as const
 
@@ -93,6 +94,7 @@ export const browseSearchSchema = z
     q: z.string().optional().catch(undefined),
     region: z.enum(browseRegionCodes).catch('global'),
     language: z.enum(browseLanguageCodes).optional().catch(undefined),
+    sortBy: z.enum(MOVIE_SORT_BY_VALUES).catch(defaultMovieSortBy),
   })
   .transform((search) => ({
     ...search,
@@ -105,6 +107,7 @@ export const browseSearchDefaults: BrowseSearch = {
   view: 'popular',
   region: 'global',
   language: 'en-US',
+  sortBy: defaultMovieSortBy,
 }
 
 export function getDefaultLanguageForRegion(region: BrowseRegionCode): BrowseLanguageCode {

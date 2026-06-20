@@ -1,9 +1,10 @@
-import { eq, useLiveQuery } from '@tanstack/react-db'
-import { fetchPopularMovies } from '#/data-access-layer/tmdb/query-functions'
-import { appendPopularMoviesPage } from '#/lib/collections/movies-collection'
+import { fetchPopularMoviesPage } from '#/data-access-layer/tmdb/tmdb-api'
+import { popularMoviesDefaultParams } from '#/data-access-layer/tmdb/query-options'
 import { favoritesCollection, watchlistCollection } from '#/lib/collections/local-collections'
+import { appendPopularMoviesPage } from '#/lib/collections/movies-collection'
 import { usePopularMoviesCollection } from '#/lib/collections/movies-collection-context'
 import type { TimelineMovie } from '#/types/movie'
+import { eq, useLiveQuery } from '@tanstack/react-db'
 import { useCallback, useEffect, useState } from 'react'
 
 export function useMovieTimeline() {
@@ -13,7 +14,7 @@ export function useMovieTimeline() {
   const [loadingMore, setLoadingMore] = useState(false)
 
   useEffect(() => {
-    void fetchPopularMovies({ page: 1 }).then((meta) => {
+    void fetchPopularMoviesPage(popularMoviesDefaultParams).then((meta) => {
       setTotalPages(meta.total_pages ?? 500)
     })
   }, [])

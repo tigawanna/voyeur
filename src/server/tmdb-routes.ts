@@ -20,6 +20,11 @@ function listParams(c: { req: { query: (key: string) => string | undefined } }):
     params.language = language
   }
 
+  const sortBy = c.req.query('sort_by')?.trim()
+  if (sortBy) {
+    params.sort_by = sortBy
+  }
+
   return params
 }
 
@@ -34,8 +39,13 @@ export const tmdbRoutes = new Hono<TmdbBindings>()
   .get('/movies/popular', async (c) => {
     const data = await tmdbFetch<MoviePopularListQueryResponse>(
       c.env.TMDB_API_KEY,
-      '/movie/popular',
-      listParams(c),
+      '/discover/movie',
+      {
+        ...listParams(c),
+        sort_by: c.req.query('sort_by')?.trim() ?? 'popularity.desc',
+        include_adult: 'false',
+        include_video: 'false',
+      },
     )
 
     return c.json(data)

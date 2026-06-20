@@ -1,11 +1,11 @@
-import { useInfiniteQuery } from '@tanstack/react-query'
-import { useLiveQuery } from '@tanstack/react-db'
-import { getRouteApi } from '@tanstack/react-router'
-import { useMemo } from 'react'
-import { browseMoviesQueryKey, fetchBrowseMovies } from '#/data-access-layer/tmdb/query-functions'
+import { browseMoviesQueryKey, fetchBrowseMovies } from '#/data-access-layer/tmdb/query-options'
 import { favoritesCollection, watchlistCollection } from '#/lib/collections/local-collections'
 import type { TimelineMovie } from '#/types/movie'
 import { mapTmdbMovie } from '#/utils/tmdb-images'
+import { useLiveQuery } from '@tanstack/react-db'
+import { useInfiniteQuery } from '@tanstack/react-query'
+import { getRouteApi } from '@tanstack/react-router'
+import { useMemo } from 'react'
 
 const browseRouteApi = getRouteApi('/_app/browse/')
 

@@ -24,7 +24,4 @@ export interface SavedMovieRef {
   addedAt: string
 }
 
-export interface TimelineMovie extends Movie {
-  isFavorite: boolean
-  isWatchlisted: boolean
-}
+export interface TimelineMovie extends Movie {}

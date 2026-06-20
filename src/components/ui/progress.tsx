@@ -74,10 +74,22 @@ function ProgressValue({ className, ...props }: ProgressPrimitive.Value.Props) {
   )
 }
 
+function IndeterminateProgress({ className }: { className?: string }) {
+  return (
+    <div
+      data-slot="indeterminate-progress"
+      className={cn('h-1 w-full overflow-hidden bg-primary/20', className)}
+    >
+      <div className="h-full w-1/3 animate-pulse rounded-full bg-primary" />
+    </div>
+  )
+}
+
 export {
   Progress,
   ProgressTrack,
   ProgressIndicator,
   ProgressLabel,
   ProgressValue,
+  IndeterminateProgress,
 }
