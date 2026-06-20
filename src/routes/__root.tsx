@@ -8,7 +8,8 @@ import {
   getTanstackQueryContext,
 } from '#/lib/tanstack/query/query-provider'
 import { MoviesCollectionProvider } from '#/lib/collections/movies-collection-context'
-import { viewerQueryOptions, type Viewer } from '#/data-access-layer/auth/viewer'
+import { viewerMiddleware, viewerqueryOptions  } from '#/data-access-layer/auth/viewer'
+import type {TViewer} from '#/data-access-layer/auth/viewer';
 import { NotFoundPage } from '#/routes/-components/NotFoundPage'
 import { AppConfig } from '#/utils/system'
 import appCss from '#/styles.css?url'
@@ -16,14 +17,17 @@ import paginationCss from '#/components/pagination/pagination.css?url'
 
 interface RouterContext {
   queryClient: QueryClient
-  viewer?: Viewer
+  viewer?: TViewer
 }
 
 export const Route = createRootRouteWithContext<RouterContext>()({
   notFoundComponent: NotFoundPage,
+  server: {
+    middleware: [viewerMiddleware],
+  },
   beforeLoad: async ({ context }) => {
-    const viewer = await context.queryClient.ensureQueryData(viewerQueryOptions)
-    return { viewer: viewer ?? undefined }
+    const viewer = await context.queryClient.ensureQueryData(viewerqueryOptions)
+    return { viewer: viewer.data ?? undefined }
   },
   head: () => ({
     meta: [
@@ -32,7 +36,10 @@ export const Route = createRootRouteWithContext<RouterContext>()({
       { title: AppConfig.name },
       { name: 'description', content: AppConfig.description },
     ],
-    links: [{ rel: 'stylesheet', href: appCss }, { rel: 'stylesheet', href: paginationCss }],
+    links: [
+      { rel: 'stylesheet', href: appCss },
+      { rel: 'stylesheet', href: paginationCss },
+    ],
   }),
   component: RootDocument,
 })

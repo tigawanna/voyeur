@@ -1,11 +1,17 @@
 import { Footer } from '#/components/navigation/Footer'
+import { viewerMiddleware } from '#/data-access-layer/auth/viewer'
 import { browseSearchDefaults } from '#/types/browse'
 import { AppConfig } from '#/utils/system'
 import { withViewTransition } from '#/utils/viewTransition'
 import { Button } from '@/components/ui/button'
 import { createFileRoute, useRouteContext } from '@tanstack/react-router'
 
-export const Route = createFileRoute('/')({ component: LandingPage })
+export const Route = createFileRoute('/')({
+  component: LandingPage,
+  server: {
+    middleware: [viewerMiddleware],
+  },
+})
 
 function LandingPage() {
   const navigate = Route.useNavigate()
