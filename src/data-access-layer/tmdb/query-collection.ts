@@ -12,7 +12,7 @@ import {
   openBrowserWASQLiteOPFSDatabase,
   persistedCollectionOptions,
 } from '@tanstack/browser-db-sqlite-persistence'
-import { createCollection } from '@tanstack/db'
+import { BasicIndex, createCollection } from '@tanstack/db'
 import { queryCollectionOptions } from '@tanstack/query-db-collection'
 
 const globalQc = getTanstackQueryContext().queryClient
@@ -22,7 +22,6 @@ export const moviesCollection = createCollection(
     queryKey: browseMoviesQueryKey,
     queryFn: async (ctx) => {
       const subset = parseMoviesBrowseSubset(ctx.meta?.loadSubsetOptions)
-      console.log({ subset })
       const response = await fetchBrowseMovies(
         moviesBrowseSubsetToFetchParams(subset),
       )
@@ -34,8 +33,11 @@ export const moviesCollection = createCollection(
     getKey: (item) => (item.id || item.title)!,
     queryClient: globalQc,
     syncMode: 'on-demand',
+    defaultIndexType: BasicIndex,
   }),
 )
+
+moviesCollection.createIndex((row) => row.popularity)
 
 const database = await openBrowserWASQLiteOPFSDatabase({
   databaseName: 'reelroom.sqlite',
@@ -56,8 +58,11 @@ export const favoritesCollection = createCollection(
     getKey: (item) => item.movieId,
     persistence,
     schemaVersion: 1,
+    defaultIndexType: BasicIndex,
   }),
 )
+
+favoritesCollection.createIndex((row) => row.movieId)
 
 export const watchlistCollection = createCollection(
   persistedCollectionOptions<SavedMovieRef, number>({
@@ -65,5 +70,8 @@ export const watchlistCollection = createCollection(
     getKey: (item) => item.movieId,
     persistence,
     schemaVersion: 1,
+    defaultIndexType: BasicIndex,
   }),
 )
+
+watchlistCollection.createIndex((row) => row.movieId)
