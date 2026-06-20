@@ -32,7 +32,7 @@ export const tmdbRoutes = new Hono<TmdbBindings>()
   .get('/health', (c) =>
     c.json({
       ok: true,
-      service: 'reelroom',
+      service: 'voyeur',
       tmdbConfigured: Boolean(c.env.TMDB_API_KEY),
     }),
   )

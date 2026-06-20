@@ -21,5 +21,5 @@ function createSavedMovieCollection(id: string, storageKey: string) {
   )
 }
 
-export const favoritesCollection = createSavedMovieCollection('favorites', 'reelroom.favorites')
-export const watchlistCollection = createSavedMovieCollection('watchlist', 'reelroom.watchlist')
+export const favoritesCollection = createSavedMovieCollection('favorites', 'voyeur.favorites')
+export const watchlistCollection = createSavedMovieCollection('watchlist', 'voyeur.watchlist')

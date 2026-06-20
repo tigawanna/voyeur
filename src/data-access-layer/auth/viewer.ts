@@ -1,39 +1,65 @@
-import { getSession } from '#/data-access-layer/auth/auth.functions'
-import { authClient, type BetterAuthSession } from '#/lib/better-auth/client'
-import { queryOptions, useMutation, useQueryClient } from '@tanstack/react-query'
-import { useRouter } from '@tanstack/react-router'
+import { authClient, BetterAuthSession } from "@/lib/better-auth/client";
+import { getSession } from "@/lib/auth.functions";
+import { auth } from "@/lib/auth";
+import { safeStringToUrl } from "@/utils/url";
+import { queryOptions, useMutation, useQueryClient, useSuspenseQuery } from "@tanstack/react-query";
+import { redirect } from "@tanstack/react-router";
+import { createMiddleware } from "@tanstack/react-start";
 
-type ViewerUser = BetterAuthSession['user']
-type ViewerSession = BetterAuthSession['session']
+type ViewerUser = BetterAuthSession["user"];
+type ViewerSession = BetterAuthSession["session"];
 
-export type Viewer = {
-  user?: ViewerUser
-  session?: ViewerSession
-}
+// export type BetterAuthUserRoles = "tenant" | "staff" | "admin" | "manager";
+export type TViewer = {
+  user?: ViewerUser;
+  session?: ViewerSession;
+};
+export type TViewerLoginPayload = { email: string; password: string };
 
-export const viewerQueryOptions = queryOptions({
-  queryKey: ['viewer'],
+export const viewerqueryOptions = queryOptions({
+  queryKey: ["viewer"],
   queryFn: async () => {
-    const session = await getSession()
+    const session = await getSession();
     if (!session) {
-      return null
+      return { data: null, error: null };
     }
-    return { user: session.user, session: session.session }
+    return {
+      data: { user: session.user, session: session.session },
+      error: null,
+    };
   },
-})
+});
 
 export function useViewer() {
-  const queryClient = useQueryClient()
-  const router = useRouter()
-
+  const qc = useQueryClient();
   const logoutMutation = useMutation({
     mutationFn: async () => {
-      await authClient.signOut()
-      await queryClient.invalidateQueries(viewerQueryOptions)
-      await router.invalidate()
-      void router.navigate({ to: '/' })
+      await authClient.signOut();
+      void qc.invalidateQueries(viewerqueryOptions);
+      throw redirect({ to: "/auth", search: { returnTo: "/" } });
     },
-  })
+  });
+  const viewerQuery = useSuspenseQuery(viewerqueryOptions);
 
-  return { logoutMutation }
+  return {
+    viewerQuery,
+    viewer: {
+      user: viewerQuery.data.data?.user,
+      session: viewerQuery.data.data?.session,
+    },
+    logoutMutation,
+  } as const;
 }
+
+export const viewerMiddleware = createMiddleware().server(async ({ next, request }) => {
+  const session = await auth.api.getSession({ headers: request.headers });
+  if (!session) {
+    const returnTo = safeStringToUrl(request.url)?.pathname ?? "/";
+    throw redirect({ to: "/auth", search: { returnTo } });
+  }
+  return await next({
+    context: {
+      viewer: { user: session.user, session: session.session },
+    },
+  });
+});
