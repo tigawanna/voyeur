@@ -1,5 +1,9 @@
 import { browseMoviesQueryOptions } from '#/data-access-layer/tmdb/query-options'
-import { moviesCollection } from '#/data-access-layer/tmdb/query-collection'
+import {
+  favoritesCollection,
+  moviesCollection,
+  watchlistCollection,
+} from '#/data-access-layer/tmdb/query-collection'
 import { MovieCard } from '#/features/movies/components/MovieCard'
 import { mapTmdbMovie } from '#/utils/tmdb-images'
 import { Button } from '@/components/ui/button'
@@ -11,7 +15,7 @@ import {
   EmptyMedia,
   EmptyTitle,
 } from '@/components/ui/empty'
-import { and, eq, useLiveQuery } from '@tanstack/react-db'
+import { and, eq, isUndefined, not, useLiveQuery } from '@tanstack/react-db'
 import { useQuery } from '@tanstack/react-query'
 import { getRouteApi } from '@tanstack/react-router'
 import { AlertCircle, Loader, SearchX } from 'lucide-react'
@@ -25,10 +29,16 @@ export function MoviesList() {
   const browseSearch = browseRouteApi.useSearch()
   const clearFilters = useClearBrowseFilters()
   
-  useLiveQuery(
+  const { data: movies } = useLiveQuery(
     (q) =>
       q
         .from({ movie: moviesCollection })
+        .leftJoin({ favorite: favoritesCollection }, ({ movie, favorite }) =>
+          eq(movie.id, favorite.movieId),
+        )
+        .leftJoin({ watchlist: watchlistCollection }, ({ movie, watchlist }) =>
+          eq(movie.id, watchlist.movieId),
+        )
         .where(({ movie }) =>
           and(
             eq(movie.page, browseSearch.page),
@@ -40,9 +50,16 @@ export function MoviesList() {
           ),
         )
         .orderBy(({ movie }) => movie.popularity, 'desc')
-        .limit(40),
+        .limit(40)
+        .select(({ movie, favorite, watchlist }) => ({
+          id: movie.id,
+          isFavorite: not(isUndefined(favorite)),
+          isWatchlisted: not(isUndefined(watchlist)),
+        })),
     [browseSearch],
   )
+ console.log({movies})
+  const libraryByMovieId = new Map(movies.map((row) => [row.id, row]))
 
   const {
     data,
@@ -142,9 +159,18 @@ export function MoviesList() {
       isRefetching={isPlaceholderData}
     >
       <div className="grid w-full grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5">
-        {data.results.map((movie) => (
-          <MovieCard key={movie.id} movie={mapTmdbMovie(movie)}  />
-        ))}
+        {data.results.map((movie) => {
+          const library = libraryByMovieId.get(movie.id ?? 0)
+
+          return (
+            <MovieCard
+              key={movie.id}
+              movie={mapTmdbMovie(movie)}
+              isFavorite={library?.isFavorite ?? false}
+              isWatchlisted={library?.isWatchlisted ?? false}
+            />
+          )
+        })}
       </div>
     </MoviesListWrapper>
   )

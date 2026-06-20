@@ -5,14 +5,21 @@ import { withViewTransition } from '#/utils/viewTransition'
 import { cn } from '@/lib/utils'
 import { useQueryClient } from '@tanstack/react-query'
 import { Link, useNavigate } from '@tanstack/react-router'
-
+import { BookmarkCheck, Star } from 'lucide-react'
 
 interface MovieCardProps {
   movie: TimelineMovie
   className?: string
+  isFavorite?: boolean
+  isWatchlisted?: boolean
 }
 
-export function MovieCard({ movie, className }: MovieCardProps) {
+export function MovieCard({
+  movie,
+  className,
+  isFavorite = false,
+  isWatchlisted = false,
+}: MovieCardProps) {
   const queryClient = useQueryClient()
   const navigate = useNavigate()
   const image = posterUrl(movie.posterPath, 'w342')
@@ -55,6 +62,20 @@ export function MovieCard({ movie, className }: MovieCardProps) {
               No poster
             </div>
           )}
+          {isFavorite || isWatchlisted ? (
+            <div className="absolute top-3 right-3 flex gap-1.5">
+              {isFavorite ? (
+                <span className="inline-flex size-8 items-center justify-center rounded-full bg-black/55 text-amber-300 backdrop-blur-sm">
+                  <Star className="size-4 fill-current" />
+                </span>
+              ) : null}
+              {isWatchlisted ? (
+                <span className="inline-flex size-8 items-center justify-center rounded-full bg-black/55 text-sky-300 backdrop-blur-sm">
+                  <BookmarkCheck className="size-4" />
+                </span>
+              ) : null}
+            </div>
+          ) : null}
           <div className="absolute inset-x-0 bottom-0 bg-linear-to-t from-[rgba(10,8,12,0.92)] to-transparent p-4 pt-16">
             <h3 className="line-clamp-2 text-base font-semibold text-white">{movie.title}</h3>
             <p className="mt-1 text-xs text-white/70">

@@ -22,6 +22,7 @@ export const moviesCollection = createCollection(
     queryKey: browseMoviesQueryKey,
     queryFn: async (ctx) => {
       const subset = parseMoviesBrowseSubset(ctx.meta?.loadSubsetOptions)
+      console.log({ subset })
       const response = await fetchBrowseMovies(
         moviesBrowseSubsetToFetchParams(subset),
       )
