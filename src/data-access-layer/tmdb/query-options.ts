@@ -1,4 +1,3 @@
-import type { MovieDetailsQueryResponse } from '#/data-access-layer/tmdb/generated/models/MovieDetails'
 import type {
   MoviePopularListQueryParams,
   MoviePopularListQueryResponse,
@@ -11,12 +10,12 @@ import {
   fetchSearchMoviesPage,
   fetchTrendingMoviesPage,
 } from '#/data-access-layer/tmdb/tmdb-api'
+import { getTanstackQueryContext } from '#/lib/tanstack/query/query-provider'
 import type { BrowseSearch, BrowseView } from '#/types/browse'
 import { defaultMovieSortBy } from '#/types/movie-sort'
-import { createCollection } from '@tanstack/db'
+import { createCollection, parseLoadSubsetOptions } from '@tanstack/db'
 import { queryCollectionOptions } from '@tanstack/query-db-collection'
 import { keepPreviousData, queryOptions } from '@tanstack/react-query'
-import { getTanstackQueryContext } from '#/lib/tanstack/query/query-provider'
 
 const globalQc = getTanstackQueryContext().queryClient
 export const popularMoviesQueryKey = ['movies', 'popular'] as const
@@ -114,7 +113,7 @@ export async function fetchBrowseMovies(params: {
 
 export async function fetchMovieDetails(
   movieId: number,
-): Promise<MovieDetailsQueryResponse> {
+) {
   return fetchMovieById(movieId)
 }
 
@@ -130,7 +129,14 @@ export function movieDetailsQueryOptions(movieId: number) {
 export const moviesCollection = createCollection(
   queryCollectionOptions({
     queryKey: browseMoviesQueryKey,
-    queryFn: async () => {
+
+    queryFn: async (ctx) => {
+      const { filters, sorts, limit } = parseLoadSubsetOptions(
+        ctx.meta?.loadSubsetOptions,
+      )
+
+      console.log({ filters, sorts, limit })
+
       const response = await fetchBrowseMovies({
         view: 'popular',
         q: '',
@@ -139,9 +145,12 @@ export const moviesCollection = createCollection(
         language: 'en-US',
         sortBy: 'popularity.desc',
       })
-      return response.results ?? []
+      return (response.results ?? []).map((item) => {
+        return { ...item, page: response.page }
+      })
     },
     getKey: (item) => (item.id || item.title)!,
     queryClient: globalQc,
+    syncMode: 'on-demand',
   }),
 )

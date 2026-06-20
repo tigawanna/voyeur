@@ -1,5 +1,6 @@
 import {
   browseMoviesQueryOptions,
+  moviesCollection,
 } from '#/data-access-layer/tmdb/query-options'
 import { MovieCard } from '#/features/movies/components/MovieCard'
 import { mapTmdbMovie } from '#/utils/tmdb-images'
@@ -12,6 +13,7 @@ import {
   EmptyMedia,
   EmptyTitle,
 } from '@/components/ui/empty'
+import { eq, useLiveQuery } from '@tanstack/react-db'
 import { useQuery } from '@tanstack/react-query'
 import { getRouteApi } from '@tanstack/react-router'
 import { AlertCircle, Loader, SearchX } from 'lucide-react'
@@ -24,6 +26,17 @@ const browseRouteApi = getRouteApi('/_app/movies/')
 export function MoviesList() {
   const browseSearch = browseRouteApi.useSearch()
   const clearFilters = useClearBrowseFilters()
+  
+  const { data: movies } = useLiveQuery((q) =>
+    q
+      .from({ movie: moviesCollection })
+      .where(({ movie }) =>
+        eq(movie.page, browseSearch.page)
+      )
+      .orderBy(({ movie }) => movie.popularity, 'desc')
+      .limit(40),
+  )
+  console.log({movies})
 
   const {
     data,
