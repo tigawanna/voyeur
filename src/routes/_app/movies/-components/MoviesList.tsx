@@ -5,7 +5,6 @@ import {
   watchlistCollection,
 } from '#/data-access-layer/tmdb/query-collection'
 import { MovieCard } from '#/features/movies/components/MovieCard'
-import { mapTmdbMovie } from '#/utils/tmdb-images'
 import { Button } from '@/components/ui/button'
 import {
   Empty,
@@ -28,8 +27,8 @@ const browseRouteApi = getRouteApi('/_app/movies/')
 export function MoviesList() {
   const browseSearch = browseRouteApi.useSearch()
   const clearFilters = useClearBrowseFilters()
-  
-  const { data: movies } = useLiveQuery(
+
+  const { data: movies, isLoading: isMoviesLoading } = useLiveQuery(
     (q) =>
       q
         .from({ movie: moviesCollection })
@@ -52,28 +51,30 @@ export function MoviesList() {
         .orderBy(({ movie }) => movie.popularity, 'desc')
         .limit(40)
         .select(({ movie, favorite, watchlist }) => ({
-          id: movie.id,
+          ...movie,
           isFavorite: not(isUndefined(favorite)),
           isWatchlisted: not(isUndefined(watchlist)),
         })),
     [browseSearch],
   )
- console.log({movies})
-  const libraryByMovieId = new Map(movies.map((row) => [row.id, row]))
 
   const {
-    data,
-    isPending,
+    data: browseMeta,
     isError,
     error,
     isPlaceholderData,
     isFetching,
     errorUpdatedAt,
-  } = useQuery(browseMoviesQueryOptions(browseSearch))
+  } = useQuery({
+    ...browseMoviesQueryOptions(browseSearch),
+    select: (response) => ({
+      totalResults: response.total_results ?? 0,
+      totalPages: response.total_pages ?? 0,
+    }),
+  })
 
   const hasActiveFilters = Boolean(browseSearch.q?.trim())
-  const hasPreviousResults =
-    isError && data != null && (data.results?.length ?? 0) > 0
+  const hasPreviousResults = isError && movies.length > 0
 
   useEffect(() => {
     if (!hasPreviousResults) return
@@ -84,7 +85,7 @@ export function MoviesList() {
     })
   }, [hasPreviousResults, errorUpdatedAt])
 
-  if (isPending) {
+  if (isMoviesLoading && movies.length === 0) {
     return (
       <MoviesListWrapper>
         <div className="flex h-full w-full flex-col items-center justify-center gap-3 py-20">
@@ -94,7 +95,7 @@ export function MoviesList() {
     )
   }
 
-  if (isError && !data) {
+  if (isError && movies.length === 0) {
     return (
       <MoviesListWrapper isRefetching={isFetching}>
         <div className="flex h-full w-full flex-col items-center justify-center">
@@ -119,11 +120,11 @@ export function MoviesList() {
     )
   }
 
-  if (!data.results || data.results.length === 0) {
+  if (movies.length === 0) {
     return (
       <MoviesListWrapper
-        totalResults={data.total_results}
-        totalPages={data.total_pages}
+        totalResults={browseMeta?.totalResults}
+        totalPages={browseMeta?.totalPages}
         isRefetching={isPlaceholderData}
       >
         <div className="flex h-full w-full flex-col items-center justify-center">
@@ -154,23 +155,14 @@ export function MoviesList() {
 
   return (
     <MoviesListWrapper
-      totalResults={data.total_results}
-      totalPages={data.total_pages}
+      totalResults={browseMeta?.totalResults}
+      totalPages={browseMeta?.totalPages}
       isRefetching={isPlaceholderData}
     >
       <div className="grid w-full grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5">
-        {data.results.map((movie) => {
-          const library = libraryByMovieId.get(movie.id ?? 0)
-
-          return (
-            <MovieCard
-              key={movie.id}
-              movie={mapTmdbMovie(movie)}
-              isFavorite={library?.isFavorite ?? false}
-              isWatchlisted={library?.isWatchlisted ?? false}
-            />
-          )
-        })}
+        {movies.map((movie) => (
+          <MovieCard key={movie.id} movie={movie} />
+        ))}
       </div>
     </MoviesListWrapper>
   )

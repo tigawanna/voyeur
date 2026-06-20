@@ -1,3 +1,8 @@
+import type { MoviePopularList200 } from '#/data-access-layer/tmdb/generated/models/MoviePopularList'
+import type { BrowseLanguageCode, BrowseRegionCode, BrowseView } from '#/types/browse'
+
+type PopularMovieResult = NonNullable<MoviePopularList200['results']>[number]
+
 export interface Movie {
   id: number
   title: string
@@ -25,3 +30,14 @@ export interface SavedMovieRef {
 }
 
 export interface TimelineMovie extends Movie {}
+
+export type BrowseMovieWithLibrary = PopularMovieResult & {
+  page: number
+  view: BrowseView
+  q: string
+  region: BrowseRegionCode
+  language: BrowseLanguageCode
+  sortBy: string
+  isFavorite: boolean
+  isWatchlisted: boolean
+}

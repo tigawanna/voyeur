@@ -1,28 +1,22 @@
-import type { TimelineMovie } from '#/types/movie'
-import { posterUrl } from '#/utils/tmdb-images'
+import { MovieLibraryActions } from '#/features/movies/components/MovieLibraryActions'
+import type { BrowseMovieWithLibrary } from '#/types/movie'
+import { posterUrl, mapTmdbMovie } from '#/utils/tmdb-images'
 import { movieViewTransitionName, preloadMovie } from '#/utils/movie-preload'
 import { withViewTransition } from '#/utils/viewTransition'
 import { cn } from '@/lib/utils'
 import { useQueryClient } from '@tanstack/react-query'
 import { Link, useNavigate } from '@tanstack/react-router'
-import { BookmarkCheck, Star } from 'lucide-react'
 
 interface MovieCardProps {
-  movie: TimelineMovie
+  movie: BrowseMovieWithLibrary
   className?: string
-  isFavorite?: boolean
-  isWatchlisted?: boolean
 }
 
-export function MovieCard({
-  movie,
-  className,
-  isFavorite = false,
-  isWatchlisted = false,
-}: MovieCardProps) {
+export function MovieCard({ movie, className }: MovieCardProps) {
   const queryClient = useQueryClient()
   const navigate = useNavigate()
-  const image = posterUrl(movie.posterPath, 'w342')
+  const timelineMovie = mapTmdbMovie(movie)
+  const image = posterUrl(timelineMovie.posterPath, 'w342')
 
   return (
     <article
@@ -33,17 +27,17 @@ export function MovieCard({
     >
       <Link
         to="/movies/movie/$movieId"
-        params={{ movieId: String(movie.id) }}
+        params={{ movieId: String(timelineMovie.id) }}
         className="block no-underline"
-        onMouseEnter={() => preloadMovie(queryClient, movie)}
-        onFocus={() => preloadMovie(queryClient, movie)}
+        onMouseEnter={() => preloadMovie(queryClient, timelineMovie)}
+        onFocus={() => preloadMovie(queryClient, timelineMovie)}
         onClick={(event) => {
           event.preventDefault()
-          preloadMovie(queryClient, movie)
+          preloadMovie(queryClient, timelineMovie)
           withViewTransition(() => {
             void navigate({
               to: '/movies/movie/$movieId',
-              params: { movieId: String(movie.id) },
+              params: { movieId: String(timelineMovie.id) },
             })
           })
         }}
@@ -52,41 +46,35 @@ export function MovieCard({
           {image ? (
             <img
               src={image}
-              alt={movie.title}
+              alt={timelineMovie.title}
               className="h-full w-full object-cover transition duration-300 group-hover:scale-[1.03]"
               loading="lazy"
-              style={{ viewTransitionName: movieViewTransitionName(movie.id) }}
+              style={{ viewTransitionName: movieViewTransitionName(timelineMovie.id) }}
             />
           ) : (
             <div className="flex h-full items-center justify-center px-4 text-center text-sm text-muted-foreground">
               No poster
             </div>
           )}
-          {isFavorite || isWatchlisted ? (
-            <div className="absolute top-3 right-3 flex gap-1.5">
-              {isFavorite ? (
-                <span className="inline-flex size-8 items-center justify-center rounded-full bg-black/55 text-amber-300 backdrop-blur-sm">
-                  <Star className="size-4 fill-current" />
-                </span>
-              ) : null}
-              {isWatchlisted ? (
-                <span className="inline-flex size-8 items-center justify-center rounded-full bg-black/55 text-sky-300 backdrop-blur-sm">
-                  <BookmarkCheck className="size-4" />
-                </span>
-              ) : null}
-            </div>
-          ) : null}
           <div className="absolute inset-x-0 bottom-0 bg-linear-to-t from-[rgba(10,8,12,0.92)] to-transparent p-4 pt-16">
-            <h3 className="line-clamp-2 text-base font-semibold text-white">{movie.title}</h3>
+            <h3 className="line-clamp-2 text-base font-semibold text-white">
+              {timelineMovie.title}
+            </h3>
             <p className="mt-1 text-xs text-white/70">
-              {movie.releaseDate ? movie.releaseDate.slice(0, 4) : 'TBA'} · ★{' '}
-              {movie.voteAverage.toFixed(1)}
+              {timelineMovie.releaseDate ? timelineMovie.releaseDate.slice(0, 4) : 'TBA'} · ★{' '}
+              {timelineMovie.voteAverage.toFixed(1)}
             </p>
           </div>
         </div>
       </Link>
-      <div className="flex items-center justify-between gap-3 p-4">
-        <p className="m-0 line-clamp-2 flex-1 text-sm text-muted-foreground">{movie.overview}</p>
+      <div className="flex flex-col gap-3 p-4">
+        <p className="m-0 line-clamp-2 text-sm text-muted-foreground">{timelineMovie.overview}</p>
+        <MovieLibraryActions
+          movie={timelineMovie}
+          isFavorite={movie.isFavorite}
+          isWatchlisted={movie.isWatchlisted}
+          compact
+        />
       </div>
     </article>
   )
