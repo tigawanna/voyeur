@@ -7,6 +7,11 @@ import { defineConfig } from 'vite'
 
 export default defineConfig({
   resolve: { tsconfigPaths: true },
+  ssr: {
+    optimizeDeps: {
+      exclude: ['better-auth'],
+    },
+  },
   server: {
     host: '::',
     port: 3000,

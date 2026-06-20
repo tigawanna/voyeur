@@ -9,14 +9,21 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as LoginRouteImport } from './routes/login'
 import { Route as AppRouteRouteImport } from './routes/_app/route'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as BrowseIndexRouteImport } from './routes/browse/index'
 import { Route as AppWatchlistIndexRouteImport } from './routes/_app/watchlist/index'
 import { Route as AppMoviesIndexRouteImport } from './routes/_app/movies/index'
 import { Route as AppFavoritesIndexRouteImport } from './routes/_app/favorites/index'
+import { Route as ApiAuthSplatRouteImport } from './routes/api/auth/$'
 import { Route as AppMoviesMovieMovieIdRouteImport } from './routes/_app/movies/movie/$movieId'
 
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AppRouteRoute = AppRouteRouteImport.update({
   id: '/_app',
   getParentRoute: () => rootRouteImport,
@@ -46,6 +53,11 @@ const AppFavoritesIndexRoute = AppFavoritesIndexRouteImport.update({
   path: '/favorites/',
   getParentRoute: () => AppRouteRoute,
 } as any)
+const ApiAuthSplatRoute = ApiAuthSplatRouteImport.update({
+  id: '/api/auth/$',
+  path: '/api/auth/$',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AppMoviesMovieMovieIdRoute = AppMoviesMovieMovieIdRouteImport.update({
   id: '/movies/movie/$movieId',
   path: '/movies/movie/$movieId',
@@ -54,7 +66,9 @@ const AppMoviesMovieMovieIdRoute = AppMoviesMovieMovieIdRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/login': typeof LoginRoute
   '/browse/': typeof BrowseIndexRoute
+  '/api/auth/$': typeof ApiAuthSplatRoute
   '/favorites/': typeof AppFavoritesIndexRoute
   '/movies/': typeof AppMoviesIndexRoute
   '/watchlist/': typeof AppWatchlistIndexRoute
@@ -62,7 +76,9 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/login': typeof LoginRoute
   '/browse': typeof BrowseIndexRoute
+  '/api/auth/$': typeof ApiAuthSplatRoute
   '/favorites': typeof AppFavoritesIndexRoute
   '/movies': typeof AppMoviesIndexRoute
   '/watchlist': typeof AppWatchlistIndexRoute
@@ -72,7 +88,9 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/_app': typeof AppRouteRouteWithChildren
+  '/login': typeof LoginRoute
   '/browse/': typeof BrowseIndexRoute
+  '/api/auth/$': typeof ApiAuthSplatRoute
   '/_app/favorites/': typeof AppFavoritesIndexRoute
   '/_app/movies/': typeof AppMoviesIndexRoute
   '/_app/watchlist/': typeof AppWatchlistIndexRoute
@@ -82,7 +100,9 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/login'
     | '/browse/'
+    | '/api/auth/$'
     | '/favorites/'
     | '/movies/'
     | '/watchlist/'
@@ -90,7 +110,9 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/login'
     | '/browse'
+    | '/api/auth/$'
     | '/favorites'
     | '/movies'
     | '/watchlist'
@@ -99,7 +121,9 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/_app'
+    | '/login'
     | '/browse/'
+    | '/api/auth/$'
     | '/_app/favorites/'
     | '/_app/movies/'
     | '/_app/watchlist/'
@@ -109,11 +133,20 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AppRouteRoute: typeof AppRouteRouteWithChildren
+  LoginRoute: typeof LoginRoute
   BrowseIndexRoute: typeof BrowseIndexRoute
+  ApiAuthSplatRoute: typeof ApiAuthSplatRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/_app': {
       id: '/_app'
       path: ''
@@ -156,6 +189,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppFavoritesIndexRouteImport
       parentRoute: typeof AppRouteRoute
     }
+    '/api/auth/$': {
+      id: '/api/auth/$'
+      path: '/api/auth/$'
+      fullPath: '/api/auth/$'
+      preLoaderRoute: typeof ApiAuthSplatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/_app/movies/movie/$movieId': {
       id: '/_app/movies/movie/$movieId'
       path: '/movies/movie/$movieId'
@@ -187,7 +227,9 @@ const AppRouteRouteWithChildren = AppRouteRoute._addFileChildren(
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AppRouteRoute: AppRouteRouteWithChildren,
+  LoginRoute: LoginRoute,
   BrowseIndexRoute: BrowseIndexRoute,
+  ApiAuthSplatRoute: ApiAuthSplatRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

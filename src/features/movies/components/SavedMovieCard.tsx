@@ -16,7 +16,7 @@ export function SavedMovieCard({ movie, kind }: SavedMovieCardProps) {
   return (
     <div className={cn('overflow-hidden rounded-xl border border-border bg-card text-card-foreground shadow-sm')}>
       <Link
-        to="/movie/$movieId"
+        to="/movies/movie/$movieId"
         params={{ movieId: String(movie.movieId) }}
         className="flex gap-4 p-4 no-underline"
       >

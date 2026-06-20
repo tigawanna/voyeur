@@ -1,3 +1,5 @@
+export * from './auth-schema'
+
 import { sqliteTable, text } from 'drizzle-orm/sqlite-core'
 
 export const appMeta = sqliteTable('app_meta', {

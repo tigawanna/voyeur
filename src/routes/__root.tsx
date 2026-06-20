@@ -8,6 +8,7 @@ import {
   getTanstackQueryContext,
 } from '#/lib/tanstack/query/query-provider'
 import { MoviesCollectionProvider } from '#/lib/collections/movies-collection-context'
+import { viewerQueryOptions, type Viewer } from '#/data-access-layer/auth/viewer'
 import { NotFoundPage } from '#/routes/-components/NotFoundPage'
 import { AppConfig } from '#/utils/system'
 import appCss from '#/styles.css?url'
@@ -15,10 +16,15 @@ import paginationCss from '#/components/pagination/pagination.css?url'
 
 interface RouterContext {
   queryClient: QueryClient
+  viewer?: Viewer
 }
 
 export const Route = createRootRouteWithContext<RouterContext>()({
   notFoundComponent: NotFoundPage,
+  beforeLoad: async ({ context }) => {
+    const viewer = await context.queryClient.ensureQueryData(viewerQueryOptions)
+    return { viewer: viewer ?? undefined }
+  },
   head: () => ({
     meta: [
       { charSet: 'utf-8' },

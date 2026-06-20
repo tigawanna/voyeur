@@ -1,10 +1,12 @@
-import { Link, Outlet, useRouter, useRouterState } from '@tanstack/react-router'
-import { Bookmark, Film, Star } from 'lucide-react'
+import { useViewer } from '#/data-access-layer/auth/viewer'
 import { AppActivityNprogress } from '@/components/navigation/nprogress/AppActivityNprogress'
 import { AppConfig } from '#/utils/system'
 import { browseSearchDefaults } from '#/types/browse'
 import { cn } from '@/lib/utils'
 import { withViewTransition } from '#/utils/viewTransition'
+import { Button } from '@/components/ui/button'
+import { Link, Outlet, useRouteContext, useRouter, useRouterState } from '@tanstack/react-router'
+import { Bookmark, Film, LogOut, Star } from 'lucide-react'
 
 const navItems = [
   { title: 'Browse', href: '/movies', icon: Film },
@@ -15,6 +17,8 @@ const navItems = [
 export function AppShell() {
   const pathname = useRouterState({ select: (state) => state.location.pathname })
   const router = useRouter()
+  const { viewer } = useRouteContext({ from: '__root__' })
+  const { logoutMutation } = useViewer()
   const Icon = AppConfig.icon
 
   return (
@@ -60,6 +64,24 @@ export function AppShell() {
               )
             })}
           </nav>
+          {viewer?.user ? (
+            <div className="flex shrink-0 items-center gap-2">
+              <span className="hidden max-w-32 truncate text-xs text-muted-foreground sm:inline">
+                {viewer.user.name}
+              </span>
+              <Button
+                type="button"
+                variant="ghost"
+                size="sm"
+                className="gap-2"
+                disabled={logoutMutation.isPending}
+                onClick={() => logoutMutation.mutate()}
+              >
+                <LogOut className="size-4" />
+                <span className="hidden sm:inline">Sign out</span>
+              </Button>
+            </div>
+          ) : null}
         </div>
       </header>
       <main className="mx-auto max-w-7xl px-4 py-8">

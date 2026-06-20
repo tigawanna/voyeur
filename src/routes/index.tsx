@@ -1,17 +1,30 @@
-import { createFileRoute } from '@tanstack/react-router'
-import { Button } from '@/components/ui/button'
-import { AppConfig } from '#/utils/system'
+import { Footer } from '#/components/navigation/Footer'
 import { browseSearchDefaults } from '#/types/browse'
+import { AppConfig } from '#/utils/system'
 import { withViewTransition } from '#/utils/viewTransition'
+import { Button } from '@/components/ui/button'
+import { createFileRoute, useRouteContext } from '@tanstack/react-router'
 
 export const Route = createFileRoute('/')({ component: LandingPage })
 
 function LandingPage() {
   const navigate = Route.useNavigate()
+  const { viewer } = useRouteContext({ from: '__root__' })
   const Icon = AppConfig.icon
+  const isSignedIn = Boolean(viewer?.user)
+
+  function handleContinue() {
+    withViewTransition(() => {
+      if (isSignedIn) {
+        void navigate({ to: '/movies', search: browseSearchDefaults })
+        return
+      }
+      void navigate({ to: '/login', search: { returnTo: '/movies' } })
+    })
+  }
 
   return (
-    <div className="min-h-dvh bg-background">
+    <div className="flex min-h-dvh flex-col bg-background">
       <header className="sticky top-0 z-50 border-b border-border bg-background/85 backdrop-blur-md">
         <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
           <div className="flex items-center gap-2">
@@ -21,50 +34,61 @@ function LandingPage() {
               <span className="text-primary">.</span>
             </span>
           </div>
+          {isSignedIn ? (
+            <Button
+              type="button"
+              variant="outline"
+              size="sm"
+              onClick={() => {
+                withViewTransition(() => {
+                  void navigate({ to: '/movies', search: browseSearchDefaults })
+                })
+              }}
+            >
+              Open movies
+            </Button>
+          ) : (
+            <Button
+              type="button"
+              variant="outline"
+              size="sm"
+              onClick={() => {
+                withViewTransition(() => {
+                  void navigate({ to: '/login', search: { returnTo: '/movies' } })
+                })
+              }}
+            >
+              Sign in
+            </Button>
+          )}
         </div>
       </header>
 
-      <main className="page-wrap px-4 pb-16 pt-14">
-        <section className="island-shell rise-in relative overflow-hidden rounded-4xl px-6 py-12 sm:px-10 sm:py-16">
-          <div className="pointer-events-none absolute -left-16 -top-20 h-56 w-56 rounded-full bg-[radial-gradient(circle,rgba(212,175,55,0.28),transparent_66%)]" />
+      <main className="page-wrap flex flex-1 flex-col justify-center px-4 py-16">
+        <section className="island-shell rise-in relative mx-auto w-full max-w-3xl overflow-hidden rounded-4xl px-8 py-14 text-center sm:px-12 sm:py-16">
+          <div className="pointer-events-none absolute -left-20 -top-20 h-56 w-56 rounded-full bg-[radial-gradient(circle,rgba(212,175,55,0.28),transparent_66%)]" />
           <div className="pointer-events-none absolute -bottom-24 -right-16 h-64 w-64 rounded-full bg-[radial-gradient(circle,rgba(120,72,32,0.18),transparent_66%)]" />
-          <p className="island-kicker mb-3">TMDB take-home, upgraded</p>
-          <h1 className="display-title mb-5 max-w-4xl text-4xl leading-[1.02] font-bold tracking-tight text-foreground sm:text-6xl">
-            Browse films with a live TanStack DB timeline.
-          </h1>
-          <p className="mb-8 max-w-2xl text-base text-muted-foreground sm:text-lg">
-            Popular movies stream in through a Cloudflare Worker proxy, while favorites and watchlist
-            stay in local TanStack DB collections joined live to every card.
-          </p>
-          <Button
-            type="button"
-            onClick={() => {
-              withViewTransition(() => {
-                void navigate({ to: '/movies', search: browseSearchDefaults })
-              })
-            }}
-          >
-            Enter the room →
-          </Button>
-        </section>
 
-        <section className="mt-8 grid gap-4 sm:grid-cols-3">
-          {[
-            ['Worker-backed TMDB', 'API keys stay on the server, not in the bundle.'],
-            ['TanStack DB joins', 'Timeline rows react instantly when you star or queue a film.'],
-            ['Cloudflare ready', 'Wrangler, D1, and Drizzle wired for when you deploy.'],
-          ].map(([title, desc], index) => (
-            <article
-              key={title}
-              className="island-shell feature-card rise-in rounded-2xl p-5"
-              style={{ animationDelay: `${index * 90 + 80}ms` }}
-            >
-              <h2 className="mb-2 text-base font-semibold text-foreground">{title}</h2>
-              <p className="m-0 text-sm text-muted-foreground">{desc}</p>
-            </article>
-          ))}
+          <div className="relative">
+            <p className="island-kicker mb-4">Your private screening room</p>
+            <h1 className="display-title mb-6 text-4xl leading-[1.05] font-bold tracking-tight text-foreground sm:text-5xl">
+              Find something worth watching tonight.
+            </h1>
+            <p className="mx-auto mb-4 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+              {AppConfig.name} is a calm place to browse what&apos;s popular, save the films you
+              love, and line up what to watch next — without the noise.
+            </p>
+            <p className="mx-auto mb-10 max-w-lg text-sm text-muted-foreground">
+              Sign in once with Google, then pick up right where you left off on any device.
+            </p>
+            <Button type="button" size="lg" onClick={handleContinue}>
+              {isSignedIn ? 'Continue to movies →' : 'Sign in to continue →'}
+            </Button>
+          </div>
         </section>
       </main>
+
+      <Footer />
     </div>
   )
 }

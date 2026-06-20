@@ -1,1 +1,5 @@
 TMDB_API_KEY=your_tmdb_api_key_here
+BETTER_AUTH_SECRET=generate_a_long_random_secret_here
+BETTER_AUTH_URL=http://localhost:3072
+GOOGLE_CLIENT_ID=your_google_client_id
+GOOGLE_CLIENT_SECRET=your_google_client_secret
