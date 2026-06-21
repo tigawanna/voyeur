@@ -1,5 +1,5 @@
 {
-  "projectName": "reelroom",
+  "projectName": "voyeur",
   "mode": "file-router",
   "typescript": true,
   "tailwind": true,
@@ -13,8 +13,5 @@
   "routerOnly": false,
   "version": 1,
   "framework": "react",
-  "chosenAddOns": [
-    "eslint",
-    "nitro"
-  ]
+  "chosenAddOns": ["eslint", "nitro"]
 }

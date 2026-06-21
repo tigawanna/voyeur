@@ -11,46 +11,46 @@ export type PersonLatestId200 = {
    * @default true
    * @type boolean | undefined
    */
-  adult?: boolean
+  adult?: boolean;
   /**
    * @type array | undefined
    */
-  also_known_as?: any[]
+  also_known_as?: any[];
   /**
    * @type string | undefined
    */
-  biography?: string
-  birthday?: any
-  deathday?: any
+  biography?: string;
+  birthday?: any;
+  deathday?: any;
   /**
    * @default 0
    * @type integer | undefined
    */
-  gender?: number
-  homepage?: any
+  gender?: number;
+  homepage?: any;
   /**
    * @default 0
    * @type integer | undefined
    */
-  id?: number
-  imdb_id?: any
-  known_for_department?: any
+  id?: number;
+  imdb_id?: any;
+  known_for_department?: any;
   /**
    * @type string | undefined
    */
-  name?: string
-  place_of_birth?: any
+  name?: string;
+  place_of_birth?: any;
   /**
    * @default 0
    * @type integer | undefined
    */
-  popularity?: number
-  profile_path?: any
-}
+  popularity?: number;
+  profile_path?: any;
+};
 
-export type PersonLatestIdQueryResponse = PersonLatestId200
+export type PersonLatestIdQueryResponse = PersonLatestId200;
 
 export type PersonLatestIdQuery = {
-  Response: PersonLatestId200
-  Errors: any
-}
+  Response: PersonLatestId200;
+  Errors: any;
+};

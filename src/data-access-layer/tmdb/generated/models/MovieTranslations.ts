@@ -7,8 +7,8 @@ export type MovieTranslationsPathParams = {
   /**
    * @type integer, int32
    */
-  movie_id: number
-}
+  movie_id: number;
+};
 
 /**
  * @description 200
@@ -18,7 +18,7 @@ export type MovieTranslations200 = {
    * @default 0
    * @type integer | undefined
    */
-  id?: number
+  id?: number;
   /**
    * @type array | undefined
    */
@@ -26,19 +26,19 @@ export type MovieTranslations200 = {
     /**
      * @type string | undefined
      */
-    iso_3166_1?: string
+    iso_3166_1?: string;
     /**
      * @type string | undefined
      */
-    iso_639_1?: string
+    iso_639_1?: string;
     /**
      * @type string | undefined
      */
-    name?: string
+    name?: string;
     /**
      * @type string | undefined
      */
-    english_name?: string
+    english_name?: string;
     /**
      * @type object | undefined
      */
@@ -46,32 +46,32 @@ export type MovieTranslations200 = {
       /**
        * @type string | undefined
        */
-      homepage?: string
+      homepage?: string;
       /**
        * @type string | undefined
        */
-      overview?: string
+      overview?: string;
       /**
        * @default 0
        * @type integer | undefined
        */
-      runtime?: number
+      runtime?: number;
       /**
        * @type string | undefined
        */
-      tagline?: string
+      tagline?: string;
       /**
        * @type string | undefined
        */
-      title?: string
-    }
-  }[]
-}
+      title?: string;
+    };
+  }[];
+};
 
-export type MovieTranslationsQueryResponse = MovieTranslations200
+export type MovieTranslationsQueryResponse = MovieTranslations200;
 
 export type MovieTranslationsQuery = {
-  Response: MovieTranslations200
-  PathParams: MovieTranslationsPathParams
-  Errors: any
-}
+  Response: MovieTranslations200;
+  PathParams: MovieTranslationsPathParams;
+  Errors: any;
+};

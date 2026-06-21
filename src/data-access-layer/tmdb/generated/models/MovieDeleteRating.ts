@@ -7,27 +7,27 @@ export type MovieDeleteRatingPathParams = {
   /**
    * @type integer, int32
    */
-  movie_id: number
-}
+  movie_id: number;
+};
 
 export type MovieDeleteRatingQueryParams = {
   /**
    * @type string | undefined
    */
-  guest_session_id?: string
+  guest_session_id?: string;
   /**
    * @type string | undefined
    */
-  session_id?: string
-}
+  session_id?: string;
+};
 
 export type MovieDeleteRatingHeaderParams = {
   /**
    * @default "application/json;charset=utf-8"
    * @type string | undefined
    */
-  'Content-Type'?: string
-}
+  "Content-Type"?: string;
+};
 
 /**
  * @description 200
@@ -37,19 +37,19 @@ export type MovieDeleteRating200 = {
    * @default 0
    * @type integer | undefined
    */
-  status_code?: number
+  status_code?: number;
   /**
    * @type string | undefined
    */
-  status_message?: string
-}
+  status_message?: string;
+};
 
-export type MovieDeleteRatingMutationResponse = MovieDeleteRating200
+export type MovieDeleteRatingMutationResponse = MovieDeleteRating200;
 
 export type MovieDeleteRatingMutation = {
-  Response: MovieDeleteRating200
-  PathParams: MovieDeleteRatingPathParams
-  QueryParams: MovieDeleteRatingQueryParams
-  HeaderParams: MovieDeleteRatingHeaderParams
-  Errors: any
-}
+  Response: MovieDeleteRating200;
+  PathParams: MovieDeleteRatingPathParams;
+  QueryParams: MovieDeleteRatingQueryParams;
+  HeaderParams: MovieDeleteRatingHeaderParams;
+  Errors: any;
+};

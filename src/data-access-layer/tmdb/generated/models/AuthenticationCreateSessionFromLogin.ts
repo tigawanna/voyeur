@@ -11,29 +11,29 @@ export type AuthenticationCreateSessionFromLogin200 = {
    * @default true
    * @type boolean | undefined
    */
-  success?: boolean
+  success?: boolean;
   /**
    * @type string | undefined
    */
-  expires_at?: string
+  expires_at?: string;
   /**
    * @type string | undefined
    */
-  request_token?: string
-}
+  request_token?: string;
+};
 
 export type AuthenticationCreateSessionFromLoginMutationRequest = {
   /**
    * @type string, json
    */
-  RAW_BODY: string
-}
+  RAW_BODY: string;
+};
 
 export type AuthenticationCreateSessionFromLoginMutationResponse =
-  AuthenticationCreateSessionFromLogin200
+  AuthenticationCreateSessionFromLogin200;
 
 export type AuthenticationCreateSessionFromLoginMutation = {
-  Response: AuthenticationCreateSessionFromLogin200
-  Request: AuthenticationCreateSessionFromLoginMutationRequest
-  Errors: any
-}
+  Response: AuthenticationCreateSessionFromLogin200;
+  Request: AuthenticationCreateSessionFromLoginMutationRequest;
+  Errors: any;
+};

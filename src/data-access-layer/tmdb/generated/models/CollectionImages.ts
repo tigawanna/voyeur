@@ -7,20 +7,20 @@ export type CollectionImagesPathParams = {
   /**
    * @type integer, int32
    */
-  collection_id: number
-}
+  collection_id: number;
+};
 
 export type CollectionImagesQueryParams = {
   /**
    * @description specify a comma separated list of ISO-639-1 values to query, for example: `en-US,null`
    * @type string | undefined
    */
-  include_image_language?: string
+  include_image_language?: string;
   /**
    * @type string | undefined
    */
-  language?: string
-}
+  language?: string;
+};
 
 /**
  * @description 200
@@ -30,7 +30,7 @@ export type CollectionImages200 = {
    * @default 0
    * @type integer | undefined
    */
-  id?: number
+  id?: number;
   /**
    * @type array | undefined
    */
@@ -39,33 +39,33 @@ export type CollectionImages200 = {
      * @default 0
      * @type number | undefined
      */
-    aspect_ratio?: number
+    aspect_ratio?: number;
     /**
      * @default 0
      * @type integer | undefined
      */
-    height?: number
-    iso_639_1?: any
+    height?: number;
+    iso_639_1?: any;
     /**
      * @type string | undefined
      */
-    file_path?: string
+    file_path?: string;
     /**
      * @default 0
      * @type number | undefined
      */
-    vote_average?: number
+    vote_average?: number;
     /**
      * @default 0
      * @type integer | undefined
      */
-    vote_count?: number
+    vote_count?: number;
     /**
      * @default 0
      * @type integer | undefined
      */
-    width?: number
-  }[]
+    width?: number;
+  }[];
   /**
    * @type array | undefined
    */
@@ -74,43 +74,43 @@ export type CollectionImages200 = {
      * @default 0
      * @type number | undefined
      */
-    aspect_ratio?: number
+    aspect_ratio?: number;
     /**
      * @default 0
      * @type integer | undefined
      */
-    height?: number
+    height?: number;
     /**
      * @type string | undefined
      */
-    iso_639_1?: string
+    iso_639_1?: string;
     /**
      * @type string | undefined
      */
-    file_path?: string
+    file_path?: string;
     /**
      * @default 0
      * @type number | undefined
      */
-    vote_average?: number
+    vote_average?: number;
     /**
      * @default 0
      * @type integer | undefined
      */
-    vote_count?: number
+    vote_count?: number;
     /**
      * @default 0
      * @type integer | undefined
      */
-    width?: number
-  }[]
-}
+    width?: number;
+  }[];
+};
 
-export type CollectionImagesQueryResponse = CollectionImages200
+export type CollectionImagesQueryResponse = CollectionImages200;
 
 export type CollectionImagesQuery = {
-  Response: CollectionImages200
-  PathParams: CollectionImagesPathParams
-  QueryParams: CollectionImagesQueryParams
-  Errors: any
-}
+  Response: CollectionImages200;
+  PathParams: CollectionImagesPathParams;
+  QueryParams: CollectionImagesQueryParams;
+  Errors: any;
+};

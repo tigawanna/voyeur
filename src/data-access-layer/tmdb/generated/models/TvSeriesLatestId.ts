@@ -11,46 +11,46 @@ export type TvSeriesLatestId200 = {
    * @default true
    * @type boolean | undefined
    */
-  adult?: boolean
-  backdrop_path?: any
+  adult?: boolean;
+  backdrop_path?: any;
   /**
    * @type array | undefined
    */
-  created_by?: any[]
+  created_by?: any[];
   /**
    * @type array | undefined
    */
-  episode_run_time?: any[]
+  episode_run_time?: any[];
   /**
    * @type string | undefined
    */
-  first_air_date?: string
+  first_air_date?: string;
   /**
    * @type array | undefined
    */
-  genres?: any[]
+  genres?: any[];
   /**
    * @type string | undefined
    */
-  homepage?: string
+  homepage?: string;
   /**
    * @default 0
    * @type integer | undefined
    */
-  id?: number
+  id?: number;
   /**
    * @default true
    * @type boolean | undefined
    */
-  in_production?: boolean
+  in_production?: boolean;
   /**
    * @type array | undefined
    */
-  languages?: any[]
+  languages?: any[];
   /**
    * @type string | undefined
    */
-  last_air_date?: string
+  last_air_date?: string;
   /**
    * @type object | undefined
    */
@@ -59,161 +59,161 @@ export type TvSeriesLatestId200 = {
      * @default 0
      * @type integer | undefined
      */
-    id?: number
+    id?: number;
     /**
      * @type string | undefined
      */
-    name?: string
+    name?: string;
     /**
      * @type string | undefined
      */
-    overview?: string
+    overview?: string;
     /**
      * @default 0
      * @type integer | undefined
      */
-    vote_average?: number
+    vote_average?: number;
     /**
      * @default 0
      * @type integer | undefined
      */
-    vote_count?: number
+    vote_count?: number;
     /**
      * @type string | undefined
      */
-    air_date?: string
+    air_date?: string;
     /**
      * @default 0
      * @type integer | undefined
      */
-    episode_number?: number
+    episode_number?: number;
     /**
      * @type string | undefined
      */
-    production_code?: string
-    runtime?: any
+    production_code?: string;
+    runtime?: any;
     /**
      * @default 0
      * @type integer | undefined
      */
-    season_number?: number
+    season_number?: number;
     /**
      * @default 0
      * @type integer | undefined
      */
-    show_id?: number
-    still_path?: any
-  }
+    show_id?: number;
+    still_path?: any;
+  };
   /**
    * @type string | undefined
    */
-  name?: string
-  next_episode_to_air?: any
+  name?: string;
+  next_episode_to_air?: any;
   /**
    * @type array | undefined
    */
-  networks?: any[]
+  networks?: any[];
   /**
    * @default 0
    * @type integer | undefined
    */
-  number_of_episodes?: number
+  number_of_episodes?: number;
   /**
    * @default 0
    * @type integer | undefined
    */
-  number_of_seasons?: number
+  number_of_seasons?: number;
   /**
    * @type array | undefined
    */
-  origin_country?: string[]
+  origin_country?: string[];
   /**
    * @type string | undefined
    */
-  original_language?: string
+  original_language?: string;
   /**
    * @type string | undefined
    */
-  original_name?: string
+  original_name?: string;
   /**
    * @type string | undefined
    */
-  overview?: string
+  overview?: string;
   /**
    * @default 0
    * @type integer | undefined
    */
-  popularity?: number
-  poster_path?: any
+  popularity?: number;
+  poster_path?: any;
   /**
    * @type array | undefined
    */
-  production_companies?: any[]
+  production_companies?: any[];
   /**
    * @type array | undefined
    */
-  production_countries?: any[]
+  production_countries?: any[];
   /**
    * @type array | undefined
    */
   seasons?: {
-    air_date?: any
+    air_date?: any;
     /**
      * @default 0
      * @type integer | undefined
      */
-    episode_count?: number
+    episode_count?: number;
     /**
      * @default 0
      * @type integer | undefined
      */
-    id?: number
+    id?: number;
     /**
      * @type string | undefined
      */
-    name?: string
+    name?: string;
     /**
      * @type string | undefined
      */
-    overview?: string
-    poster_path?: any
+    overview?: string;
+    poster_path?: any;
     /**
      * @default 0
      * @type integer | undefined
      */
-    season_number?: number
-  }[]
+    season_number?: number;
+  }[];
   /**
    * @type array | undefined
    */
-  spoken_languages?: any[]
+  spoken_languages?: any[];
   /**
    * @type string | undefined
    */
-  status?: string
+  status?: string;
   /**
    * @type string | undefined
    */
-  tagline?: string
+  tagline?: string;
   /**
    * @type string | undefined
    */
-  type?: string
+  type?: string;
   /**
    * @default 0
    * @type integer | undefined
    */
-  vote_average?: number
+  vote_average?: number;
   /**
    * @default 0
    * @type integer | undefined
    */
-  vote_count?: number
-}
+  vote_count?: number;
+};
 
-export type TvSeriesLatestIdQueryResponse = TvSeriesLatestId200
+export type TvSeriesLatestIdQueryResponse = TvSeriesLatestId200;
 
 export type TvSeriesLatestIdQuery = {
-  Response: TvSeriesLatestId200
-  Errors: any
-}
+  Response: TvSeriesLatestId200;
+  Errors: any;
+};

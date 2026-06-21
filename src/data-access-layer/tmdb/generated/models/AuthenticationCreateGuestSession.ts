@@ -11,21 +11,20 @@ export type AuthenticationCreateGuestSession200 = {
    * @default true
    * @type boolean | undefined
    */
-  success?: boolean
+  success?: boolean;
   /**
    * @type string | undefined
    */
-  guest_session_id?: string
+  guest_session_id?: string;
   /**
    * @type string | undefined
    */
-  expires_at?: string
-}
+  expires_at?: string;
+};
 
-export type AuthenticationCreateGuestSessionQueryResponse =
-  AuthenticationCreateGuestSession200
+export type AuthenticationCreateGuestSessionQueryResponse = AuthenticationCreateGuestSession200;
 
 export type AuthenticationCreateGuestSessionQuery = {
-  Response: AuthenticationCreateGuestSession200
-  Errors: any
-}
+  Response: AuthenticationCreateGuestSession200;
+  Errors: any;
+};

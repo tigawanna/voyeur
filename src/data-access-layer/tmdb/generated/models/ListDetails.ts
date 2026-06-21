@@ -7,21 +7,21 @@ export type ListDetailsPathParams = {
   /**
    * @type integer, int32
    */
-  list_id: number
-}
+  list_id: number;
+};
 
 export type ListDetailsQueryParams = {
   /**
    * @default "en-US"
    * @type string | undefined
    */
-  language?: string
+  language?: string;
   /**
    * @default 1
    * @type integer | undefined, int32
    */
-  page?: number
-}
+  page?: number;
+};
 
 /**
  * @description 200
@@ -30,20 +30,20 @@ export type ListDetails200 = {
   /**
    * @type string | undefined
    */
-  created_by?: string
+  created_by?: string;
   /**
    * @type string | undefined
    */
-  description?: string
+  description?: string;
   /**
    * @default 0
    * @type integer | undefined
    */
-  favorite_count?: number
+  favorite_count?: number;
   /**
    * @type string | undefined
    */
-  id?: string
+  id?: string;
   /**
    * @type array | undefined
    */
@@ -52,93 +52,93 @@ export type ListDetails200 = {
      * @default true
      * @type boolean | undefined
      */
-    adult?: boolean
+    adult?: boolean;
     /**
      * @type string | undefined
      */
-    backdrop_path?: string
+    backdrop_path?: string;
     /**
      * @type array | undefined
      */
-    genre_ids?: number[]
+    genre_ids?: number[];
     /**
      * @default 0
      * @type integer | undefined
      */
-    id?: number
+    id?: number;
     /**
      * @type string | undefined
      */
-    media_type?: string
+    media_type?: string;
     /**
      * @type string | undefined
      */
-    original_language?: string
+    original_language?: string;
     /**
      * @type string | undefined
      */
-    original_title?: string
+    original_title?: string;
     /**
      * @type string | undefined
      */
-    overview?: string
+    overview?: string;
     /**
      * @default 0
      * @type number | undefined
      */
-    popularity?: number
+    popularity?: number;
     /**
      * @type string | undefined
      */
-    poster_path?: string
+    poster_path?: string;
     /**
      * @type string | undefined
      */
-    release_date?: string
+    release_date?: string;
     /**
      * @type string | undefined
      */
-    title?: string
+    title?: string;
     /**
      * @default true
      * @type boolean | undefined
      */
-    video?: boolean
+    video?: boolean;
     /**
      * @default 0
      * @type integer | undefined
      */
-    vote_average?: number
+    vote_average?: number;
     /**
      * @default 0
      * @type integer | undefined
      */
-    vote_count?: number
-  }[]
+    vote_count?: number;
+  }[];
   /**
    * @default 0
    * @type integer | undefined
    */
-  item_count?: number
+  item_count?: number;
   /**
    * @type string | undefined
    */
-  iso_639_1?: string
+  iso_639_1?: string;
   /**
    * @type string | undefined
    */
-  name?: string
+  name?: string;
   /**
    * @type string | undefined
    */
-  poster_path?: string
-}
+  poster_path?: string;
+};
 
-export type ListDetailsQueryResponse = ListDetails200
+export type ListDetailsQueryResponse = ListDetails200;
 
 export type ListDetailsQuery = {
-  Response: ListDetails200
-  PathParams: ListDetailsPathParams
-  QueryParams: ListDetailsQueryParams
-  Errors: any
-}
+  Response: ListDetails200;
+  PathParams: ListDetailsPathParams;
+  QueryParams: ListDetailsQueryParams;
+  Errors: any;
+};

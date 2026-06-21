@@ -8,13 +8,13 @@ export type TvSeriesPopularListQueryParams = {
    * @default "en-US"
    * @type string | undefined
    */
-  language?: string
+  language?: string;
   /**
    * @default 1
    * @type integer | undefined, int32
    */
-  page?: number
-}
+  page?: number;
+};
 
 /**
  * @description 200
@@ -24,7 +24,7 @@ export type TvSeriesPopularList200 = {
    * @default 0
    * @type integer | undefined
    */
-  page?: number
+  page?: number;
   /**
    * @type array | undefined
    */
@@ -32,76 +32,76 @@ export type TvSeriesPopularList200 = {
     /**
      * @type string | undefined
      */
-    backdrop_path?: string
+    backdrop_path?: string;
     /**
      * @type string | undefined
      */
-    first_air_date?: string
+    first_air_date?: string;
     /**
      * @type array | undefined
      */
-    genre_ids?: number[]
+    genre_ids?: number[];
     /**
      * @default 0
      * @type integer | undefined
      */
-    id?: number
+    id?: number;
     /**
      * @type string | undefined
      */
-    name?: string
+    name?: string;
     /**
      * @type array | undefined
      */
-    origin_country?: string[]
+    origin_country?: string[];
     /**
      * @type string | undefined
      */
-    original_language?: string
+    original_language?: string;
     /**
      * @type string | undefined
      */
-    original_name?: string
+    original_name?: string;
     /**
      * @type string | undefined
      */
-    overview?: string
+    overview?: string;
     /**
      * @default 0
      * @type number | undefined
      */
-    popularity?: number
+    popularity?: number;
     /**
      * @type string | undefined
      */
-    poster_path?: string
+    poster_path?: string;
     /**
      * @default 0
      * @type integer | undefined
      */
-    vote_average?: number
+    vote_average?: number;
     /**
      * @default 0
      * @type integer | undefined
      */
-    vote_count?: number
-  }[]
+    vote_count?: number;
+  }[];
   /**
    * @default 0
    * @type integer | undefined
    */
-  total_pages?: number
+  total_pages?: number;
   /**
    * @default 0
    * @type integer | undefined
    */
-  total_results?: number
-}
+  total_results?: number;
+};
 
-export type TvSeriesPopularListQueryResponse = TvSeriesPopularList200
+export type TvSeriesPopularListQueryResponse = TvSeriesPopularList200;
 
 export type TvSeriesPopularListQuery = {
-  Response: TvSeriesPopularList200
-  QueryParams: TvSeriesPopularListQueryParams
-  Errors: any
-}
+  Response: TvSeriesPopularList200;
+  QueryParams: TvSeriesPopularListQueryParams;
+  Errors: any;
+};

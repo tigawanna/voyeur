@@ -7,25 +7,25 @@ export type TvSeasonVideosPathParams = {
   /**
    * @type integer, int32
    */
-  series_id: number
+  series_id: number;
   /**
    * @type integer, int32
    */
-  season_number: number
-}
+  season_number: number;
+};
 
 export type TvSeasonVideosQueryParams = {
   /**
    * @description filter the list results by language, supports more than one value by using a comma
    * @type string | undefined
    */
-  include_video_language?: string
+  include_video_language?: string;
   /**
    * @default "en-US"
    * @type string | undefined
    */
-  language?: string
-}
+  language?: string;
+};
 
 /**
  * @description 200
@@ -35,7 +35,7 @@ export type TvSeasonVideos200 = {
    * @default 0
    * @type integer | undefined
    */
-  id?: number
+  id?: number;
   /**
    * @type array | undefined
    */
@@ -43,53 +43,53 @@ export type TvSeasonVideos200 = {
     /**
      * @type string | undefined
      */
-    iso_639_1?: string
+    iso_639_1?: string;
     /**
      * @type string | undefined
      */
-    iso_3166_1?: string
+    iso_3166_1?: string;
     /**
      * @type string | undefined
      */
-    name?: string
+    name?: string;
     /**
      * @type string | undefined
      */
-    key?: string
+    key?: string;
     /**
      * @type string | undefined
      */
-    site?: string
+    site?: string;
     /**
      * @default 0
      * @type integer | undefined
      */
-    size?: number
+    size?: number;
     /**
      * @type string | undefined
      */
-    type?: string
+    type?: string;
     /**
      * @default true
      * @type boolean | undefined
      */
-    official?: boolean
+    official?: boolean;
     /**
      * @type string | undefined
      */
-    published_at?: string
+    published_at?: string;
     /**
      * @type string | undefined
      */
-    id?: string
-  }[]
-}
+    id?: string;
+  }[];
+};
 
-export type TvSeasonVideosQueryResponse = TvSeasonVideos200
+export type TvSeasonVideosQueryResponse = TvSeasonVideos200;
 
 export type TvSeasonVideosQuery = {
-  Response: TvSeasonVideos200
-  PathParams: TvSeasonVideosPathParams
-  QueryParams: TvSeasonVideosQueryParams
-  Errors: any
-}
+  Response: TvSeasonVideos200;
+  PathParams: TvSeasonVideosPathParams;
+  QueryParams: TvSeasonVideosQueryParams;
+  Errors: any;
+};

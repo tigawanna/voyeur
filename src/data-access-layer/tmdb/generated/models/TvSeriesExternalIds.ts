@@ -7,8 +7,8 @@ export type TvSeriesExternalIdsPathParams = {
   /**
    * @type integer, int32
    */
-  series_id: number
-}
+  series_id: number;
+};
 
 /**
  * @description 200
@@ -18,51 +18,51 @@ export type TvSeriesExternalIds200 = {
    * @default 0
    * @type integer | undefined
    */
-  id?: number
+  id?: number;
   /**
    * @type string | undefined
    */
-  imdb_id?: string
+  imdb_id?: string;
   /**
    * @type string | undefined
    */
-  freebase_mid?: string
+  freebase_mid?: string;
   /**
    * @type string | undefined
    */
-  freebase_id?: string
+  freebase_id?: string;
   /**
    * @default 0
    * @type integer | undefined
    */
-  tvdb_id?: number
+  tvdb_id?: number;
   /**
    * @default 0
    * @type integer | undefined
    */
-  tvrage_id?: number
+  tvrage_id?: number;
   /**
    * @type string | undefined
    */
-  wikidata_id?: string
+  wikidata_id?: string;
   /**
    * @type string | undefined
    */
-  facebook_id?: string
+  facebook_id?: string;
   /**
    * @type string | undefined
    */
-  instagram_id?: string
+  instagram_id?: string;
   /**
    * @type string | undefined
    */
-  twitter_id?: string
-}
+  twitter_id?: string;
+};
 
-export type TvSeriesExternalIdsQueryResponse = TvSeriesExternalIds200
+export type TvSeriesExternalIdsQueryResponse = TvSeriesExternalIds200;
 
 export type TvSeriesExternalIdsQuery = {
-  Response: TvSeriesExternalIds200
-  PathParams: TvSeriesExternalIdsPathParams
-  Errors: any
-}
+  Response: TvSeriesExternalIds200;
+  PathParams: TvSeriesExternalIdsPathParams;
+  Errors: any;
+};

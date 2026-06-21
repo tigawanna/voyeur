@@ -7,24 +7,24 @@ export type PersonChangesPathParams = {
   /**
    * @type integer, int32
    */
-  person_id: number
-}
+  person_id: number;
+};
 
 export type PersonChangesQueryParams = {
   /**
    * @type string | undefined, date
    */
-  end_date?: string
+  end_date?: string;
   /**
    * @default 1
    * @type integer | undefined, int32
    */
-  page?: number
+  page?: number;
   /**
    * @type string | undefined, date
    */
-  start_date?: string
-}
+  start_date?: string;
+};
 
 /**
  * @description 200
@@ -37,7 +37,7 @@ export type PersonChanges200 = {
     /**
      * @type string | undefined
      */
-    key?: string
+    key?: string;
     /**
      * @type array | undefined
      */
@@ -45,36 +45,36 @@ export type PersonChanges200 = {
       /**
        * @type string | undefined
        */
-      id?: string
+      id?: string;
       /**
        * @type string | undefined
        */
-      action?: string
+      action?: string;
       /**
        * @type string | undefined
        */
-      time?: string
+      time?: string;
       /**
        * @type string | undefined
        */
-      iso_639_1?: string
+      iso_639_1?: string;
       /**
        * @type string | undefined
        */
-      iso_3166_1?: string
+      iso_3166_1?: string;
       /**
        * @type string | undefined
        */
-      value?: string
-    }[]
-  }[]
-}
+      value?: string;
+    }[];
+  }[];
+};
 
-export type PersonChangesQueryResponse = PersonChanges200
+export type PersonChangesQueryResponse = PersonChanges200;
 
 export type PersonChangesQuery = {
-  Response: PersonChanges200
-  PathParams: PersonChangesPathParams
-  QueryParams: PersonChangesQueryParams
-  Errors: any
-}
+  Response: PersonChanges200;
+  PathParams: PersonChangesPathParams;
+  QueryParams: PersonChangesQueryParams;
+  Errors: any;
+};

@@ -7,16 +7,16 @@ export type MovieAlternativeTitlesPathParams = {
   /**
    * @type integer, int32
    */
-  movie_id: number
-}
+  movie_id: number;
+};
 
 export type MovieAlternativeTitlesQueryParams = {
   /**
    * @description specify a ISO-3166-1 value to filter the results
    * @type string | undefined
    */
-  country?: string
-}
+  country?: string;
+};
 
 /**
  * @description 200
@@ -26,7 +26,7 @@ export type MovieAlternativeTitles200 = {
    * @default 0
    * @type integer | undefined
    */
-  id?: number
+  id?: number;
   /**
    * @type array | undefined
    */
@@ -34,23 +34,23 @@ export type MovieAlternativeTitles200 = {
     /**
      * @type string | undefined
      */
-    iso_3166_1?: string
+    iso_3166_1?: string;
     /**
      * @type string | undefined
      */
-    title?: string
+    title?: string;
     /**
      * @type string | undefined
      */
-    type?: string
-  }[]
-}
+    type?: string;
+  }[];
+};
 
-export type MovieAlternativeTitlesQueryResponse = MovieAlternativeTitles200
+export type MovieAlternativeTitlesQueryResponse = MovieAlternativeTitles200;
 
 export type MovieAlternativeTitlesQuery = {
-  Response: MovieAlternativeTitles200
-  PathParams: MovieAlternativeTitlesPathParams
-  QueryParams: MovieAlternativeTitlesQueryParams
-  Errors: any
-}
+  Response: MovieAlternativeTitles200;
+  PathParams: MovieAlternativeTitlesPathParams;
+  QueryParams: MovieAlternativeTitlesQueryParams;
+  Errors: any;
+};

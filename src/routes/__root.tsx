@@ -1,24 +1,24 @@
-import paginationCss from '#/components/pagination/pagination.css?url'
-import type { TViewer } from '#/data-access-layer/auth/viewer'
-import { bypassViewer, isAuthBypassEnabled } from '#/data-access-layer/auth/auth-bypass'
-import { viewerMiddleware, viewerqueryOptions } from '#/data-access-layer/auth/viewer'
+import paginationCss from "#/components/pagination/pagination.css?url";
+import type { TViewer } from "#/data-access-layer/auth/viewer";
+import { bypassViewer, isAuthBypassEnabled } from "#/data-access-layer/auth/auth-bypass";
+import { viewerMiddleware, viewerqueryOptions } from "#/data-access-layer/auth/viewer";
 import {
   TanstackQueryProvider,
   getTanstackQueryContext,
-} from '#/lib/tanstack/query/query-provider'
-import { AppDevtools } from '#/lib/tanstack/devtools/app-devtools'
-import { NotFoundPage } from '#/routes/-components/NotFoundPage'
-import appCss from '#/styles.css?url'
-import { AppConfig } from '#/utils/system'
-import { Toaster } from '@/components/ui/sonner'
-import { TooltipProvider } from '@/components/ui/tooltip'
-import { ThemeProvider } from '@/lib/tanstack/router/theme-provider'
-import type { QueryClient } from '@tanstack/react-query'
-import { HeadContent, Outlet, Scripts, createRootRouteWithContext } from '@tanstack/react-router'
+} from "#/lib/tanstack/query/query-provider";
+import { AppDevtools } from "#/lib/tanstack/devtools/app-devtools";
+import { NotFoundPage } from "#/routes/-components/NotFoundPage";
+import appCss from "#/styles.css?url";
+import { AppConfig } from "#/utils/system";
+import { Toaster } from "@/components/ui/sonner";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import { ThemeProvider } from "@/lib/tanstack/router/theme-provider";
+import type { QueryClient } from "@tanstack/react-query";
+import { HeadContent, Outlet, Scripts, createRootRouteWithContext } from "@tanstack/react-router";
 
 interface RouterContext {
-  queryClient: QueryClient
-  viewer?: TViewer
+  queryClient: QueryClient;
+  viewer?: TViewer;
 }
 
 export const Route = createRootRouteWithContext<RouterContext>()({
@@ -28,29 +28,29 @@ export const Route = createRootRouteWithContext<RouterContext>()({
   },
   beforeLoad: async ({ context }) => {
     if (isAuthBypassEnabled()) {
-      return { viewer: bypassViewer }
+      return { viewer: bypassViewer };
     }
 
-    const viewer = await context.queryClient.ensureQueryData(viewerqueryOptions)
-    return { viewer: viewer.data ?? undefined }
+    const viewer = await context.queryClient.ensureQueryData(viewerqueryOptions);
+    return { viewer: viewer.data ?? undefined };
   },
   head: () => ({
     meta: [
-      { charSet: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { charSet: "utf-8" },
+      { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: AppConfig.name },
-      { name: 'description', content: AppConfig.description },
+      { name: "description", content: AppConfig.description },
     ],
     links: [
-      { rel: 'stylesheet', href: appCss },
-      { rel: 'stylesheet', href: paginationCss },
+      { rel: "stylesheet", href: appCss },
+      { rel: "stylesheet", href: paginationCss },
     ],
   }),
   component: RootDocument,
-})
+});
 
 function RootDocument() {
-  const { queryClient } = getTanstackQueryContext()
+  const { queryClient } = getTanstackQueryContext();
 
   return (
     <html lang="en" suppressHydrationWarning>
@@ -70,5 +70,5 @@ function RootDocument() {
         <Scripts />
       </body>
     </html>
-  )
+  );
 }

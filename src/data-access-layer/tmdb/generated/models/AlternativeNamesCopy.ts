@@ -7,8 +7,8 @@ export type AlternativeNamesCopyPathParams = {
   /**
    * @type integer, int32
    */
-  network_id: number
-}
+  network_id: number;
+};
 
 /**
  * @description 200
@@ -18,7 +18,7 @@ export type AlternativeNamesCopy200 = {
    * @default 0
    * @type integer | undefined
    */
-  id?: number
+  id?: number;
   /**
    * @type array | undefined
    */
@@ -27,46 +27,46 @@ export type AlternativeNamesCopy200 = {
      * @default 0
      * @type number | undefined
      */
-    aspect_ratio?: number
+    aspect_ratio?: number;
     /**
      * @type string | undefined
      */
-    file_path?: string
+    file_path?: string;
     /**
      * @default 0
      * @type integer | undefined
      */
-    height?: number
+    height?: number;
     /**
      * @type string | undefined
      */
-    id?: string
+    id?: string;
     /**
      * @type string | undefined
      */
-    file_type?: string
+    file_type?: string;
     /**
      * @default 0
      * @type number | undefined
      */
-    vote_average?: number
+    vote_average?: number;
     /**
      * @default 0
      * @type integer | undefined
      */
-    vote_count?: number
+    vote_count?: number;
     /**
      * @default 0
      * @type integer | undefined
      */
-    width?: number
-  }[]
-}
+    width?: number;
+  }[];
+};
 
-export type AlternativeNamesCopyQueryResponse = AlternativeNamesCopy200
+export type AlternativeNamesCopyQueryResponse = AlternativeNamesCopy200;
 
 export type AlternativeNamesCopyQuery = {
-  Response: AlternativeNamesCopy200
-  PathParams: AlternativeNamesCopyPathParams
-  Errors: any
-}
+  Response: AlternativeNamesCopy200;
+  PathParams: AlternativeNamesCopyPathParams;
+  Errors: any;
+};

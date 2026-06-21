@@ -7,21 +7,21 @@ export type PersonDetailsPathParams = {
   /**
    * @type integer, int32
    */
-  person_id: number
-}
+  person_id: number;
+};
 
 export type PersonDetailsQueryParams = {
   /**
    * @description comma separated list of endpoints within this namespace, 20 items max
    * @type string | undefined
    */
-  append_to_response?: string
+  append_to_response?: string;
   /**
    * @default "en-US"
    * @type string | undefined
    */
-  language?: string
-}
+  language?: string;
+};
 
 /**
  * @description 200
@@ -31,63 +31,63 @@ export type PersonDetails200 = {
    * @default true
    * @type boolean | undefined
    */
-  adult?: boolean
+  adult?: boolean;
   /**
    * @type array | undefined
    */
-  also_known_as?: string[]
+  also_known_as?: string[];
   /**
    * @type string | undefined
    */
-  biography?: string
+  biography?: string;
   /**
    * @type string | undefined
    */
-  birthday?: string
-  deathday?: any
+  birthday?: string;
+  deathday?: any;
   /**
    * @default 0
    * @type integer | undefined
    */
-  gender?: number
-  homepage?: any
+  gender?: number;
+  homepage?: any;
   /**
    * @default 0
    * @type integer | undefined
    */
-  id?: number
+  id?: number;
   /**
    * @type string | undefined
    */
-  imdb_id?: string
+  imdb_id?: string;
   /**
    * @type string | undefined
    */
-  known_for_department?: string
+  known_for_department?: string;
   /**
    * @type string | undefined
    */
-  name?: string
+  name?: string;
   /**
    * @type string | undefined
    */
-  place_of_birth?: string
+  place_of_birth?: string;
   /**
    * @default 0
    * @type number | undefined
    */
-  popularity?: number
+  popularity?: number;
   /**
    * @type string | undefined
    */
-  profile_path?: string
-}
+  profile_path?: string;
+};
 
-export type PersonDetailsQueryResponse = PersonDetails200
+export type PersonDetailsQueryResponse = PersonDetails200;
 
 export type PersonDetailsQuery = {
-  Response: PersonDetails200
-  PathParams: PersonDetailsPathParams
-  QueryParams: PersonDetailsQueryParams
-  Errors: any
-}
+  Response: PersonDetails200;
+  PathParams: PersonDetailsPathParams;
+  QueryParams: PersonDetailsQueryParams;
+  Errors: any;
+};

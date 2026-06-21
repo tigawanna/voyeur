@@ -7,8 +7,8 @@ export type DetailsCopyPathParams = {
   /**
    * @type integer, int32
    */
-  network_id: number
-}
+  network_id: number;
+};
 
 /**
  * @description 200
@@ -18,7 +18,7 @@ export type DetailsCopy200 = {
    * @default 0
    * @type integer | undefined
    */
-  id?: number
+  id?: number;
   /**
    * @type array | undefined
    */
@@ -26,18 +26,18 @@ export type DetailsCopy200 = {
     /**
      * @type string | undefined
      */
-    name?: string
+    name?: string;
     /**
      * @type string | undefined
      */
-    type?: string
-  }[]
-}
+    type?: string;
+  }[];
+};
 
-export type DetailsCopyQueryResponse = DetailsCopy200
+export type DetailsCopyQueryResponse = DetailsCopy200;
 
 export type DetailsCopyQuery = {
-  Response: DetailsCopy200
-  PathParams: DetailsCopyPathParams
-  Errors: any
-}
+  Response: DetailsCopy200;
+  PathParams: DetailsCopyPathParams;
+  Errors: any;
+};

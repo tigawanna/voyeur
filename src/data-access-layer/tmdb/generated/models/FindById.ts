@@ -7,34 +7,34 @@ export type FindByIdPathParams = {
   /**
    * @type string
    */
-  external_id: string
-}
+  external_id: string;
+};
 
 export const findByIdQueryParamsExternalSourceEnum = {
-  imdb_id: 'imdb_id',
-  facebook_id: 'facebook_id',
-  instagram_id: 'instagram_id',
-  tvdb_id: 'tvdb_id',
-  tiktok_id: 'tiktok_id',
-  twitter_id: 'twitter_id',
-  wikidata_id: 'wikidata_id',
-  youtube_id: 'youtube_id',
-} as const
+  imdb_id: "imdb_id",
+  facebook_id: "facebook_id",
+  instagram_id: "instagram_id",
+  tvdb_id: "tvdb_id",
+  tiktok_id: "tiktok_id",
+  twitter_id: "twitter_id",
+  wikidata_id: "wikidata_id",
+  youtube_id: "youtube_id",
+} as const;
 
 export type FindByIdQueryParamsExternalSourceEnumKey =
-  (typeof findByIdQueryParamsExternalSourceEnum)[keyof typeof findByIdQueryParamsExternalSourceEnum]
+  (typeof findByIdQueryParamsExternalSourceEnum)[keyof typeof findByIdQueryParamsExternalSourceEnum];
 
 export type FindByIdQueryParams = {
   /**
    * @type string
    */
-  external_source: FindByIdQueryParamsExternalSourceEnumKey
+  external_source: FindByIdQueryParamsExternalSourceEnumKey;
   /**
    * @default "en-US"
    * @type string | undefined
    */
-  language?: string
-}
+  language?: string;
+};
 
 /**
  * @description 200
@@ -48,92 +48,92 @@ export type FindById200 = {
      * @default true
      * @type boolean | undefined
      */
-    adult?: boolean
+    adult?: boolean;
     /**
      * @type string | undefined
      */
-    backdrop_path?: string
+    backdrop_path?: string;
     /**
      * @default 0
      * @type integer | undefined
      */
-    id?: number
+    id?: number;
     /**
      * @type string | undefined
      */
-    title?: string
+    title?: string;
     /**
      * @type string | undefined
      */
-    original_language?: string
+    original_language?: string;
     /**
      * @type string | undefined
      */
-    original_title?: string
+    original_title?: string;
     /**
      * @type string | undefined
      */
-    overview?: string
+    overview?: string;
     /**
      * @type string | undefined
      */
-    poster_path?: string
+    poster_path?: string;
     /**
      * @type string | undefined
      */
-    media_type?: string
+    media_type?: string;
     /**
      * @type array | undefined
      */
-    genre_ids?: number[]
+    genre_ids?: number[];
     /**
      * @default 0
      * @type number | undefined
      */
-    popularity?: number
+    popularity?: number;
     /**
      * @type string | undefined
      */
-    release_date?: string
+    release_date?: string;
     /**
      * @default true
      * @type boolean | undefined
      */
-    video?: boolean
+    video?: boolean;
     /**
      * @default 0
      * @type number | undefined
      */
-    vote_average?: number
+    vote_average?: number;
     /**
      * @default 0
      * @type integer | undefined
      */
-    vote_count?: number
-  }[]
+    vote_count?: number;
+  }[];
   /**
    * @type array | undefined
    */
-  person_results?: any[]
+  person_results?: any[];
   /**
    * @type array | undefined
    */
-  tv_results?: any[]
+  tv_results?: any[];
   /**
    * @type array | undefined
    */
-  tv_episode_results?: any[]
+  tv_episode_results?: any[];
   /**
    * @type array | undefined
    */
-  tv_season_results?: any[]
-}
+  tv_season_results?: any[];
+};
 
-export type FindByIdQueryResponse = FindById200
+export type FindByIdQueryResponse = FindById200;
 
 export type FindByIdQuery = {
-  Response: FindById200
-  PathParams: FindByIdPathParams
-  QueryParams: FindByIdQueryParams
-  Errors: any
-}
+  Response: FindById200;
+  PathParams: FindByIdPathParams;
+  QueryParams: FindByIdQueryParams;
+  Errors: any;
+};

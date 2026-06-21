@@ -1,5 +1,5 @@
-import Nprogress from './Nprogress'
+import Nprogress from "./Nprogress";
 
 export function SyncActivityNprogress() {
-  return <Nprogress isAnimating={false} />
+  return <Nprogress isAnimating={false} />;
 }

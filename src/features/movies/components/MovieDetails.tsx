@@ -1,17 +1,17 @@
-import type { ComponentProps, ReactNode } from 'react'
-import { MovieDetailMetadata } from '#/features/movies/components/MovieDetailMetadata'
-import type { Movie } from '#/types/movie'
-import { movieHeroImageUrl, posterUrl } from '#/utils/tmdb-images'
-import { movieViewTransitionName } from '#/utils/movie-view-transition'
-import { cn } from '@/lib/utils'
-import { ArrowLeft } from 'lucide-react'
+import type { ComponentProps, ReactNode } from "react";
+import { MovieDetailMetadata } from "#/features/movies/components/MovieDetailMetadata";
+import type { Movie } from "#/types/movie";
+import { movieHeroImageUrl, posterUrl } from "#/utils/tmdb-images";
+import { movieViewTransitionName } from "#/utils/movie-view-transition";
+import { cn } from "@/lib/utils";
+import { ArrowLeft } from "lucide-react";
 
 interface MovieDetailsProps {
-  movie: Movie
-  movieId: number
-  className?: string
-  backAction: ReactNode
-  libraryActions?: ReactNode
+  movie: Movie;
+  movieId: number;
+  className?: string;
+  backAction: ReactNode;
+  libraryActions?: ReactNode;
 }
 
 export function MovieDetails({
@@ -21,17 +21,17 @@ export function MovieDetails({
   backAction,
   libraryActions,
 }: MovieDetailsProps) {
-  const poster = posterUrl(movie.posterPath, 'w500')
-  const heroImage = movieHeroImageUrl(movie)
-  const year = movie.releaseDate ? movie.releaseDate.slice(0, 4) : 'TBA'
+  const poster = posterUrl(movie.posterPath, "w500");
+  const heroImage = movieHeroImageUrl(movie);
+  const year = movie.releaseDate ? movie.releaseDate.slice(0, 4) : "TBA";
   const metaParts = [
     year,
     `★ ${movie.voteAverage.toFixed(1)}`,
     movie.voteCount > 0 ? `${movie.voteCount.toLocaleString()} votes` : null,
-  ].filter(Boolean)
+  ].filter(Boolean);
 
   return (
-    <article className={cn('relative isolate', className)} data-testid="movie-detail">
+    <article className={cn("relative isolate", className)} data-testid="movie-detail">
       {heroImage ? (
         <div
           aria-hidden
@@ -78,10 +78,10 @@ export function MovieDetails({
               >
                 {movie.title}
               </h1>
-              <p className="mt-2 text-sm text-muted-foreground">{metaParts.join(' · ')}</p>
+              <p className="mt-2 text-sm text-muted-foreground">{metaParts.join(" · ")}</p>
             </div>
             <p className="max-w-2xl text-base leading-relaxed text-muted-foreground">
-              {movie.overview || 'No overview available.'}
+              {movie.overview || "No overview available."}
             </p>
             {libraryActions ? <div>{libraryActions}</div> : null}
             <MovieDetailMetadata movieId={movieId} />
@@ -89,19 +89,19 @@ export function MovieDetails({
         </div>
       </div>
     </article>
-  )
+  );
 }
 
 export function MovieDetailsBackButton({
   children,
   className,
   ...props
-}: ComponentProps<'button'>) {
+}: ComponentProps<"button">) {
   return (
     <button
       type="button"
       className={cn(
-        'inline-flex items-center gap-2 rounded-full border border-border bg-card/80 px-4 py-2 text-sm font-medium text-foreground backdrop-blur-sm transition hover:bg-muted',
+        "inline-flex items-center gap-2 rounded-full border border-border bg-card/80 px-4 py-2 text-sm font-medium text-foreground backdrop-blur-sm transition hover:bg-muted",
         className,
       )}
       {...props}
@@ -109,5 +109,5 @@ export function MovieDetailsBackButton({
       <ArrowLeft className="size-4" />
       {children}
     </button>
-  )
+  );
 }

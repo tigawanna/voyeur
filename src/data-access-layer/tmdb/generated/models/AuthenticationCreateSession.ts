@@ -11,25 +11,24 @@ export type AuthenticationCreateSession200 = {
    * @default true
    * @type boolean | undefined
    */
-  success?: boolean
+  success?: boolean;
   /**
    * @type string | undefined
    */
-  session_id?: string
-}
+  session_id?: string;
+};
 
 export type AuthenticationCreateSessionMutationRequest = {
   /**
    * @type string, json
    */
-  RAW_BODY: string
-}
+  RAW_BODY: string;
+};
 
-export type AuthenticationCreateSessionMutationResponse =
-  AuthenticationCreateSession200
+export type AuthenticationCreateSessionMutationResponse = AuthenticationCreateSession200;
 
 export type AuthenticationCreateSessionMutation = {
-  Response: AuthenticationCreateSession200
-  Request: AuthenticationCreateSessionMutationRequest
-  Errors: any
-}
+  Response: AuthenticationCreateSession200;
+  Request: AuthenticationCreateSessionMutationRequest;
+  Errors: any;
+};

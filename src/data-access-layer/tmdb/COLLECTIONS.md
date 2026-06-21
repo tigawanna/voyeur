@@ -6,14 +6,14 @@ This file explains how movie-related collections fit together, how `useLiveQuery
 
 All collections are created in `query-collection.ts`.
 
-| Collection | Backed by | Fetches from API? | Persisted? |
-| --- | --- | --- | --- |
-| `moviesCollection` | TanStack Query + TMDB proxy | Yes — browse pages (popular, trending, search, …) | No (in-memory / query cache) |
-| `movieBasicCollection` | TanStack Query | **No** — `queryFn` returns `[]` | No |
-| `movieDetailCollection` | TanStack Query + TMDB proxy | Yes — `GET /api/tmdb/movies/:id` | No |
-| `movieRecommendationsCollection` | TanStack Query + TMDB proxy | Yes — `GET /api/tmdb/movies/:id/recommendations` | No |
-| `favoritesCollection` | Browser SQLite (OPFS) | No | Yes |
-| `watchlistCollection` | Browser SQLite (OPFS) | No | Yes |
+| Collection                       | Backed by                   | Fetches from API?                                 | Persisted?                   |
+| -------------------------------- | --------------------------- | ------------------------------------------------- | ---------------------------- |
+| `moviesCollection`               | TanStack Query + TMDB proxy | Yes — browse pages (popular, trending, search, …) | No (in-memory / query cache) |
+| `movieBasicCollection`           | TanStack Query              | **No** — `queryFn` returns `[]`                   | No                           |
+| `movieDetailCollection`          | TanStack Query + TMDB proxy | Yes — `GET /api/tmdb/movies/:id`                  | No                           |
+| `movieRecommendationsCollection` | TanStack Query + TMDB proxy | Yes — `GET /api/tmdb/movies/:id/recommendations`  | No                           |
+| `favoritesCollection`            | Browser SQLite (OPFS)       | No                                                | Yes                          |
+| `watchlistCollection`            | Browser SQLite (OPFS)       | No                                                | Yes                          |
 
 ### `moviesCollection` (browse)
 
@@ -67,12 +67,12 @@ The hero (poster, title, overview) and the metadata block (runtime, budget, …)
 summaryRow = basicRows ?? browseRows ?? recommendationRows ?? detailRows
 ```
 
-| Source | When it has data |
-| --- | --- |
-| `movieBasicCollection` | After a **previous** detail fetch wrote the summary |
-| `moviesCollection` | User **came from the browse grid** and that movie is still in the browse cache |
+| Source                           | When it has data                                                                               |
+| -------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `movieBasicCollection`           | After a **previous** detail fetch wrote the summary                                            |
+| `moviesCollection`               | User **came from the browse grid** and that movie is still in the browse cache                 |
 | `movieRecommendationsCollection` | User **came from a recommendations grid** and that movie is still in the recommendations cache |
-| `movieDetailCollection` | After the **current** detail API fetch completes |
+| `movieDetailCollection`          | After the **current** detail API fetch completes                                               |
 
 **Full-page spinner:** Shown only when `summaryRow` is missing **and** the detail fetch is still loading.
 
@@ -132,9 +132,9 @@ The only automatic “seed” today:
 
 ```ts
 // movieDetailCollection queryFn (query-collection.ts)
-const details = await fetchMovieDetails(movieId)
-movieBasicCollection.utils.writeUpsert(toBasicMovieRecord(details))
-return [details]
+const details = await fetchMovieDetails(movieId);
+movieBasicCollection.utils.writeUpsert(toBasicMovieRecord(details));
+return [details];
 ```
 
 `writeUpsert` bypasses optimistic mutations and does **not** trigger a refetch. It updates the basic collection’s TanStack Query cache so the next `useLiveQuery` on `movieBasicCollection` can read the summary immediately.
@@ -143,10 +143,10 @@ return [details]
 
 ## Related files
 
-| File | Role |
-| --- | --- |
-| `query-collection.ts` | Collection definitions |
-| `movies-browse-subset.ts` | Parse browse `loadSubsetOptions` |
-| `movie-detail-subset.ts` | Parse movie id from detail `loadSubsetOptions` |
-| `movie-basic-record.ts` | Map full detail → basic summary for `writeUpsert` |
-| `query-options.ts` | Query keys and plain `fetch*` helpers |
+| File                      | Role                                              |
+| ------------------------- | ------------------------------------------------- |
+| `query-collection.ts`     | Collection definitions                            |
+| `movies-browse-subset.ts` | Parse browse `loadSubsetOptions`                  |
+| `movie-detail-subset.ts`  | Parse movie id from detail `loadSubsetOptions`    |
+| `movie-basic-record.ts`   | Map full detail → basic summary for `writeUpsert` |
+| `query-options.ts`        | Query keys and plain `fetch*` helpers             |

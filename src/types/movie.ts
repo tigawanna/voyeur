@@ -1,81 +1,81 @@
-import type { MoviePopularList200 } from '#/data-access-layer/tmdb/generated/models/MoviePopularList'
-import type { BrowseLanguageCode, BrowseRegionCode, BrowseView } from '#/types/browse'
+import type { MoviePopularList200 } from "#/data-access-layer/tmdb/generated/models/MoviePopularList";
+import type { BrowseLanguageCode, BrowseRegionCode, BrowseView } from "#/types/browse";
 
-type PopularMovieResult = NonNullable<MoviePopularList200['results']>[number]
+type PopularMovieResult = NonNullable<MoviePopularList200["results"]>[number];
 
 export interface Movie {
-  id: number
-  title: string
-  overview: string
-  posterPath: string | null
-  backdropPath: string | null
-  releaseDate: string
-  voteAverage: number
-  voteCount: number
-  genreIds: number[]
+  id: number;
+  title: string;
+  overview: string;
+  posterPath: string | null;
+  backdropPath: string | null;
+  releaseDate: string;
+  voteAverage: number;
+  voteCount: number;
+  genreIds: number[];
 }
 
 export interface MovieGenre {
-  id: number
-  name: string
+  id: number;
+  name: string;
 }
 
 export interface MovieCollectionRef {
-  id: number
-  name: string
+  id: number;
+  name: string;
 }
 
 export interface MovieDetail extends Movie {
-  tagline?: string
-  genres: MovieGenre[]
-  runtime?: number
-  status?: string
-  budget?: number
-  revenue?: number
-  collection?: MovieCollectionRef
-  productionCompanies: string[]
-  productionCountries: string[]
-  spokenLanguages: string[]
-  homepage?: string
-  imdbId?: string
-  originalTitle?: string
-  originalLanguage?: string
-  originCountries: string[]
+  tagline?: string;
+  genres: MovieGenre[];
+  runtime?: number;
+  status?: string;
+  budget?: number;
+  revenue?: number;
+  collection?: MovieCollectionRef;
+  productionCompanies: string[];
+  productionCountries: string[];
+  spokenLanguages: string[];
+  homepage?: string;
+  imdbId?: string;
+  originalTitle?: string;
+  originalLanguage?: string;
+  originCountries: string[];
 }
 
 export interface MovieListResponse {
-  page: number
-  totalPages: number
-  totalResults: number
-  results: Movie[]
+  page: number;
+  totalPages: number;
+  totalResults: number;
+  results: Movie[];
 }
 
 export interface SavedMovieRef {
-  movieId: number
-  title: string
-  posterPath: string | null
-  addedAt: string
+  movieId: number;
+  title: string;
+  posterPath: string | null;
+  addedAt: string;
 }
 
 export interface TimelineMovie extends Movie {}
 
 export type BrowseMovieWithLibrary = PopularMovieResult & {
-  page: number
-  view: BrowseView
-  q: string
-  region: BrowseRegionCode
-  language: BrowseLanguageCode
-  sortBy: string
-  totalResults: number
-  totalPages: number
-  isFavorite: boolean
-  isWatchlisted: boolean
-}
+  page: number;
+  view: BrowseView;
+  q: string;
+  region: BrowseRegionCode;
+  language: BrowseLanguageCode;
+  sortBy: string;
+  totalResults: number;
+  totalPages: number;
+  isFavorite: boolean;
+  isWatchlisted: boolean;
+};
 
 export type RecommendationMovieWithLibrary = PopularMovieResult & {
-  sourceMovieId: number
-  isFavorite: boolean
-  isWatchlisted: boolean
-}
+  sourceMovieId: number;
+  isFavorite: boolean;
+  isWatchlisted: boolean;
+};
 
-export type MovieCardMovie = BrowseMovieWithLibrary | RecommendationMovieWithLibrary
+export type MovieCardMovie = BrowseMovieWithLibrary | RecommendationMovieWithLibrary;

@@ -7,21 +7,21 @@ export type TvSeriesDetailsPathParams = {
   /**
    * @type integer, int32
    */
-  series_id: number
-}
+  series_id: number;
+};
 
 export type TvSeriesDetailsQueryParams = {
   /**
    * @description comma separated list of endpoints within this namespace, 20 items max
    * @type string | undefined
    */
-  append_to_response?: string
+  append_to_response?: string;
   /**
    * @default "en-US"
    * @type string | undefined
    */
-  language?: string
-}
+  language?: string;
+};
 
 /**
  * @description 200
@@ -31,11 +31,11 @@ export type TvSeriesDetails200 = {
    * @default true
    * @type boolean | undefined
    */
-  adult?: boolean
+  adult?: boolean;
   /**
    * @type string | undefined
    */
-  backdrop_path?: string
+  backdrop_path?: string;
   /**
    * @type array | undefined
    */
@@ -44,33 +44,33 @@ export type TvSeriesDetails200 = {
      * @default 0
      * @type integer | undefined
      */
-    id?: number
+    id?: number;
     /**
      * @type string | undefined
      */
-    credit_id?: string
+    credit_id?: string;
     /**
      * @type string | undefined
      */
-    name?: string
+    name?: string;
     /**
      * @default 0
      * @type integer | undefined
      */
-    gender?: number
+    gender?: number;
     /**
      * @type string | undefined
      */
-    profile_path?: string
-  }[]
+    profile_path?: string;
+  }[];
   /**
    * @type array | undefined
    */
-  episode_run_time?: number[]
+  episode_run_time?: number[];
   /**
    * @type string | undefined
    */
-  first_air_date?: string
+  first_air_date?: string;
   /**
    * @type array | undefined
    */
@@ -79,34 +79,34 @@ export type TvSeriesDetails200 = {
      * @default 0
      * @type integer | undefined
      */
-    id?: number
+    id?: number;
     /**
      * @type string | undefined
      */
-    name?: string
-  }[]
+    name?: string;
+  }[];
   /**
    * @type string | undefined
    */
-  homepage?: string
+  homepage?: string;
   /**
    * @default 0
    * @type integer | undefined
    */
-  id?: number
+  id?: number;
   /**
    * @default true
    * @type boolean | undefined
    */
-  in_production?: boolean
+  in_production?: boolean;
   /**
    * @type array | undefined
    */
-  languages?: string[]
+  languages?: string[];
   /**
    * @type string | undefined
    */
-  last_air_date?: string
+  last_air_date?: string;
   /**
    * @type object | undefined
    */
@@ -115,63 +115,63 @@ export type TvSeriesDetails200 = {
      * @default 0
      * @type integer | undefined
      */
-    id?: number
+    id?: number;
     /**
      * @type string | undefined
      */
-    name?: string
+    name?: string;
     /**
      * @type string | undefined
      */
-    overview?: string
+    overview?: string;
     /**
      * @default 0
      * @type number | undefined
      */
-    vote_average?: number
+    vote_average?: number;
     /**
      * @default 0
      * @type integer | undefined
      */
-    vote_count?: number
+    vote_count?: number;
     /**
      * @type string | undefined
      */
-    air_date?: string
+    air_date?: string;
     /**
      * @default 0
      * @type integer | undefined
      */
-    episode_number?: number
+    episode_number?: number;
     /**
      * @type string | undefined
      */
-    production_code?: string
+    production_code?: string;
     /**
      * @default 0
      * @type integer | undefined
      */
-    runtime?: number
+    runtime?: number;
     /**
      * @default 0
      * @type integer | undefined
      */
-    season_number?: number
+    season_number?: number;
     /**
      * @default 0
      * @type integer | undefined
      */
-    show_id?: number
+    show_id?: number;
     /**
      * @type string | undefined
      */
-    still_path?: string
-  }
+    still_path?: string;
+  };
   /**
    * @type string | undefined
    */
-  name?: string
-  next_episode_to_air?: any
+  name?: string;
+  next_episode_to_air?: any;
   /**
    * @type array | undefined
    */
@@ -180,55 +180,55 @@ export type TvSeriesDetails200 = {
      * @default 0
      * @type integer | undefined
      */
-    id?: number
+    id?: number;
     /**
      * @type string | undefined
      */
-    logo_path?: string
+    logo_path?: string;
     /**
      * @type string | undefined
      */
-    name?: string
+    name?: string;
     /**
      * @type string | undefined
      */
-    origin_country?: string
-  }[]
+    origin_country?: string;
+  }[];
   /**
    * @default 0
    * @type integer | undefined
    */
-  number_of_episodes?: number
+  number_of_episodes?: number;
   /**
    * @default 0
    * @type integer | undefined
    */
-  number_of_seasons?: number
+  number_of_seasons?: number;
   /**
    * @type array | undefined
    */
-  origin_country?: string[]
+  origin_country?: string[];
   /**
    * @type string | undefined
    */
-  original_language?: string
+  original_language?: string;
   /**
    * @type string | undefined
    */
-  original_name?: string
+  original_name?: string;
   /**
    * @type string | undefined
    */
-  overview?: string
+  overview?: string;
   /**
    * @default 0
    * @type number | undefined
    */
-  popularity?: number
+  popularity?: number;
   /**
    * @type string | undefined
    */
-  poster_path?: string
+  poster_path?: string;
   /**
    * @type array | undefined
    */
@@ -237,20 +237,20 @@ export type TvSeriesDetails200 = {
      * @default 0
      * @type integer | undefined
      */
-    id?: number
+    id?: number;
     /**
      * @type string | undefined
      */
-    logo_path?: string
+    logo_path?: string;
     /**
      * @type string | undefined
      */
-    name?: string
+    name?: string;
     /**
      * @type string | undefined
      */
-    origin_country?: string
-  }[]
+    origin_country?: string;
+  }[];
   /**
    * @type array | undefined
    */
@@ -258,12 +258,12 @@ export type TvSeriesDetails200 = {
     /**
      * @type string | undefined
      */
-    iso_3166_1?: string
+    iso_3166_1?: string;
     /**
      * @type string | undefined
      */
-    name?: string
-  }[]
+    name?: string;
+  }[];
   /**
    * @type array | undefined
    */
@@ -271,40 +271,40 @@ export type TvSeriesDetails200 = {
     /**
      * @type string | undefined
      */
-    air_date?: string
+    air_date?: string;
     /**
      * @default 0
      * @type integer | undefined
      */
-    episode_count?: number
+    episode_count?: number;
     /**
      * @default 0
      * @type integer | undefined
      */
-    id?: number
+    id?: number;
     /**
      * @type string | undefined
      */
-    name?: string
+    name?: string;
     /**
      * @type string | undefined
      */
-    overview?: string
+    overview?: string;
     /**
      * @type string | undefined
      */
-    poster_path?: string
+    poster_path?: string;
     /**
      * @default 0
      * @type integer | undefined
      */
-    season_number?: number
+    season_number?: number;
     /**
      * @default 0
      * @type integer | undefined
      */
-    vote_average?: number
-  }[]
+    vote_average?: number;
+  }[];
   /**
    * @type array | undefined
    */
@@ -312,45 +312,45 @@ export type TvSeriesDetails200 = {
     /**
      * @type string | undefined
      */
-    english_name?: string
+    english_name?: string;
     /**
      * @type string | undefined
      */
-    iso_639_1?: string
+    iso_639_1?: string;
     /**
      * @type string | undefined
      */
-    name?: string
-  }[]
+    name?: string;
+  }[];
   /**
    * @type string | undefined
    */
-  status?: string
+  status?: string;
   /**
    * @type string | undefined
    */
-  tagline?: string
+  tagline?: string;
   /**
    * @type string | undefined
    */
-  type?: string
+  type?: string;
   /**
    * @default 0
    * @type number | undefined
    */
-  vote_average?: number
+  vote_average?: number;
   /**
    * @default 0
    * @type integer | undefined
    */
-  vote_count?: number
-}
+  vote_count?: number;
+};
 
-export type TvSeriesDetailsQueryResponse = TvSeriesDetails200
+export type TvSeriesDetailsQueryResponse = TvSeriesDetails200;
 
 export type TvSeriesDetailsQuery = {
-  Response: TvSeriesDetails200
-  PathParams: TvSeriesDetailsPathParams
-  QueryParams: TvSeriesDetailsQueryParams
-  Errors: any
-}
+  Response: TvSeriesDetails200;
+  PathParams: TvSeriesDetailsPathParams;
+  QueryParams: TvSeriesDetailsQueryParams;
+  Errors: any;
+};

@@ -7,16 +7,16 @@ export type TvSeriesAggregateCreditsPathParams = {
   /**
    * @type integer, int32
    */
-  series_id: number
-}
+  series_id: number;
+};
 
 export type TvSeriesAggregateCreditsQueryParams = {
   /**
    * @default "en-US"
    * @type string | undefined
    */
-  language?: string
-}
+  language?: string;
+};
 
 /**
  * @description 200
@@ -30,38 +30,38 @@ export type TvSeriesAggregateCredits200 = {
      * @default true
      * @type boolean | undefined
      */
-    adult?: boolean
+    adult?: boolean;
     /**
      * @default 0
      * @type integer | undefined
      */
-    gender?: number
+    gender?: number;
     /**
      * @default 0
      * @type integer | undefined
      */
-    id?: number
+    id?: number;
     /**
      * @type string | undefined
      */
-    known_for_department?: string
+    known_for_department?: string;
     /**
      * @type string | undefined
      */
-    name?: string
+    name?: string;
     /**
      * @type string | undefined
      */
-    original_name?: string
+    original_name?: string;
     /**
      * @default 0
      * @type number | undefined
      */
-    popularity?: number
+    popularity?: number;
     /**
      * @type string | undefined
      */
-    profile_path?: string
+    profile_path?: string;
     /**
      * @type array | undefined
      */
@@ -69,28 +69,28 @@ export type TvSeriesAggregateCredits200 = {
       /**
        * @type string | undefined
        */
-      credit_id?: string
+      credit_id?: string;
       /**
        * @type string | undefined
        */
-      character?: string
+      character?: string;
       /**
        * @default 0
        * @type integer | undefined
        */
-      episode_count?: number
-    }[]
+      episode_count?: number;
+    }[];
     /**
      * @default 0
      * @type integer | undefined
      */
-    total_episode_count?: number
+    total_episode_count?: number;
     /**
      * @default 0
      * @type integer | undefined
      */
-    order?: number
-  }[]
+    order?: number;
+  }[];
   /**
    * @type array | undefined
    */
@@ -99,38 +99,38 @@ export type TvSeriesAggregateCredits200 = {
      * @default true
      * @type boolean | undefined
      */
-    adult?: boolean
+    adult?: boolean;
     /**
      * @default 0
      * @type integer | undefined
      */
-    gender?: number
+    gender?: number;
     /**
      * @default 0
      * @type integer | undefined
      */
-    id?: number
+    id?: number;
     /**
      * @type string | undefined
      */
-    known_for_department?: string
+    known_for_department?: string;
     /**
      * @type string | undefined
      */
-    name?: string
+    name?: string;
     /**
      * @type string | undefined
      */
-    original_name?: string
+    original_name?: string;
     /**
      * @default 0
      * @type number | undefined
      */
-    popularity?: number
+    popularity?: number;
     /**
      * @type string | undefined
      */
-    profile_path?: string
+    profile_path?: string;
     /**
      * @type array | undefined
      */
@@ -138,39 +138,39 @@ export type TvSeriesAggregateCredits200 = {
       /**
        * @type string | undefined
        */
-      credit_id?: string
+      credit_id?: string;
       /**
        * @type string | undefined
        */
-      job?: string
+      job?: string;
       /**
        * @default 0
        * @type integer | undefined
        */
-      episode_count?: number
-    }[]
+      episode_count?: number;
+    }[];
     /**
      * @type string | undefined
      */
-    department?: string
+    department?: string;
     /**
      * @default 0
      * @type integer | undefined
      */
-    total_episode_count?: number
-  }[]
+    total_episode_count?: number;
+  }[];
   /**
    * @default 0
    * @type integer | undefined
    */
-  id?: number
-}
+  id?: number;
+};
 
-export type TvSeriesAggregateCreditsQueryResponse = TvSeriesAggregateCredits200
+export type TvSeriesAggregateCreditsQueryResponse = TvSeriesAggregateCredits200;
 
 export type TvSeriesAggregateCreditsQuery = {
-  Response: TvSeriesAggregateCredits200
-  PathParams: TvSeriesAggregateCreditsPathParams
-  QueryParams: TvSeriesAggregateCreditsQueryParams
-  Errors: any
-}
+  Response: TvSeriesAggregateCredits200;
+  PathParams: TvSeriesAggregateCreditsPathParams;
+  QueryParams: TvSeriesAggregateCreditsQueryParams;
+  Errors: any;
+};

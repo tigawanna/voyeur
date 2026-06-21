@@ -8,15 +8,15 @@ export type AccountAddFavoritePathParams = {
    * @default null
    * @type integer, int32
    */
-  account_id: number
-}
+  account_id: number;
+};
 
 export type AccountAddFavoriteQueryParams = {
   /**
    * @type string | undefined
    */
-  session_id?: string
-}
+  session_id?: string;
+};
 
 /**
  * @description 200
@@ -26,26 +26,26 @@ export type AccountAddFavorite200 = {
    * @default 0
    * @type integer | undefined
    */
-  status_code?: number
+  status_code?: number;
   /**
    * @type string | undefined
    */
-  status_message?: string
-}
+  status_message?: string;
+};
 
 export type AccountAddFavoriteMutationRequest = {
   /**
    * @type string, json
    */
-  RAW_BODY: string
-}
+  RAW_BODY: string;
+};
 
-export type AccountAddFavoriteMutationResponse = AccountAddFavorite200
+export type AccountAddFavoriteMutationResponse = AccountAddFavorite200;
 
 export type AccountAddFavoriteMutation = {
-  Response: AccountAddFavorite200
-  Request: AccountAddFavoriteMutationRequest
-  PathParams: AccountAddFavoritePathParams
-  QueryParams: AccountAddFavoriteQueryParams
-  Errors: any
-}
+  Response: AccountAddFavorite200;
+  Request: AccountAddFavoriteMutationRequest;
+  PathParams: AccountAddFavoritePathParams;
+  QueryParams: AccountAddFavoriteQueryParams;
+  Errors: any;
+};

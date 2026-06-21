@@ -1,8 +1,8 @@
 import type {
   MoviePopularListQueryParams,
   MoviePopularListQueryResponse,
-} from '#/data-access-layer/tmdb/generated/models/MoviePopularList'
-import type { SearchMovieQueryResponse } from '#/data-access-layer/tmdb/generated/models/SearchMovie'
+} from "#/data-access-layer/tmdb/generated/models/MoviePopularList";
+import type { SearchMovieQueryResponse } from "#/data-access-layer/tmdb/generated/models/SearchMovie";
 import {
   fetchMovieById,
   fetchMovieRecommendations as fetchMovieRecommendationsPage,
@@ -10,27 +10,26 @@ import {
   fetchPopularMoviesPage,
   fetchSearchMoviesPage,
   fetchTrendingMoviesPage,
-} from '#/data-access-layer/tmdb/tmdb-api'
-import type { BrowseSearch, BrowseView } from '#/types/browse'
-import { defaultMovieSortBy } from '#/types/movie-sort'
-import { keepPreviousData, queryOptions } from '@tanstack/react-query'
+} from "#/data-access-layer/tmdb/tmdb-api";
+import type { BrowseSearch, BrowseView } from "#/types/browse";
+import { defaultMovieSortBy } from "#/types/movie-sort";
+import { keepPreviousData, queryOptions } from "@tanstack/react-query";
 
-
-export const popularMoviesQueryKey = ['movies', 'popular'] as const
-export const browseMoviesQueryKey = ['movies', 'browse'] as const
-export const movieDetailQueryKey = ['movie', 'detail'] as const
-export const movieBasicQueryKey = ['movie', 'basic'] as const
-export const movieRecommendationsQueryKey = ['movie', 'recommendations'] as const
+export const popularMoviesQueryKey = ["movies", "popular"] as const;
+export const browseMoviesQueryKey = ["movies", "browse"] as const;
+export const movieDetailQueryKey = ["movie", "detail"] as const;
+export const movieBasicQueryKey = ["movie", "basic"] as const;
+export const movieRecommendationsQueryKey = ["movie", "recommendations"] as const;
 
 export const popularMoviesDefaultParams = {
   page: 1,
-  language: 'en-US',
-  region: 'US',
-} as const satisfies MoviePopularListQueryParams
+  language: "en-US",
+  region: "US",
+} as const satisfies MoviePopularListQueryParams;
 
 export function popularMoviesQueryOptions(
   params: MoviePopularListQueryParams & {
-    sortBy?: string
+    sortBy?: string;
   } = popularMoviesDefaultParams,
 ) {
   return queryOptions({
@@ -48,16 +47,16 @@ export function popularMoviesQueryOptions(
         language: params.language,
         sortBy: params.sortBy,
       }),
-  })
+  });
 }
 
 function toBrowseListParams(search: BrowseSearch) {
   return {
     page: search.page,
-    region: search.region === 'global' ? 'US' : search.region,
+    region: search.region === "global" ? "US" : search.region,
     language: search.language,
     sortBy: search.sortBy,
-  }
+  };
 }
 
 export function browseMoviesQueryOptions(search: BrowseSearch) {
@@ -65,7 +64,7 @@ export function browseMoviesQueryOptions(search: BrowseSearch) {
     queryKey: [
       ...browseMoviesQueryKey,
       search.view,
-      search.q ?? '',
+      search.q ?? "",
       search.region,
       search.language,
       search.sortBy,
@@ -78,47 +77,44 @@ export function browseMoviesQueryOptions(search: BrowseSearch) {
         ...toBrowseListParams(search),
       }),
     placeholderData: keepPreviousData,
-  })
+  });
 }
 
 export async function fetchBrowseMovies(params: {
-  view: BrowseView
-  q?: string
-  page?: number
-  region?: string
-  language?: string
-  sortBy?: string
+  view: BrowseView;
+  q?: string;
+  page?: number;
+  region?: string;
+  language?: string;
+  sortBy?: string;
 }): Promise<MoviePopularListQueryResponse | SearchMovieQueryResponse> {
-  const page = params.page ?? 1
-  const query = params.q?.trim()
+  const page = params.page ?? 1;
+  const query = params.q?.trim();
   const listParams = {
     page,
     region: params.region,
     language: params.language,
     sortBy: params.sortBy,
-  }
+  };
 
   if (query) {
-    return fetchSearchMoviesPage(query, listParams)
+    return fetchSearchMoviesPage(query, listParams);
   }
 
   switch (params.view) {
-    case 'trending':
-      return fetchTrendingMoviesPage(listParams)
-    case 'recent':
-      return fetchNowPlayingMoviesPage(listParams)
+    case "trending":
+      return fetchTrendingMoviesPage(listParams);
+    case "recent":
+      return fetchNowPlayingMoviesPage(listParams);
     default:
-      return fetchPopularMoviesPage(listParams)
+      return fetchPopularMoviesPage(listParams);
   }
 }
 
-export async function fetchMovieDetails(
-  movieId: number,
-) {
-  return fetchMovieById(movieId)
+export async function fetchMovieDetails(movieId: number) {
+  return fetchMovieById(movieId);
 }
 
 export async function fetchMovieRecommendations(movieId: number, page = 1) {
-  return fetchMovieRecommendationsPage(movieId, page)
+  return fetchMovieRecommendationsPage(movieId, page);
 }
-

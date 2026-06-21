@@ -7,16 +7,16 @@ export type PersonCombinedCreditsPathParams = {
   /**
    * @type string
    */
-  person_id: string
-}
+  person_id: string;
+};
 
 export type PersonCombinedCreditsQueryParams = {
   /**
    * @default "en-US"
    * @type string | undefined
    */
-  language?: string
-}
+  language?: string;
+};
 
 /**
  * @description 200
@@ -30,82 +30,82 @@ export type PersonCombinedCredits200 = {
      * @default true
      * @type boolean | undefined
      */
-    adult?: boolean
+    adult?: boolean;
     /**
      * @type string | undefined
      */
-    backdrop_path?: string
+    backdrop_path?: string;
     /**
      * @type array | undefined
      */
-    genre_ids?: number[]
+    genre_ids?: number[];
     /**
      * @default 0
      * @type integer | undefined
      */
-    id?: number
+    id?: number;
     /**
      * @type string | undefined
      */
-    original_language?: string
+    original_language?: string;
     /**
      * @type string | undefined
      */
-    original_title?: string
+    original_title?: string;
     /**
      * @type string | undefined
      */
-    overview?: string
+    overview?: string;
     /**
      * @default 0
      * @type number | undefined
      */
-    popularity?: number
+    popularity?: number;
     /**
      * @type string | undefined
      */
-    poster_path?: string
+    poster_path?: string;
     /**
      * @type string | undefined
      */
-    release_date?: string
+    release_date?: string;
     /**
      * @type string | undefined
      */
-    title?: string
+    title?: string;
     /**
      * @default true
      * @type boolean | undefined
      */
-    video?: boolean
+    video?: boolean;
     /**
      * @default 0
      * @type number | undefined
      */
-    vote_average?: number
+    vote_average?: number;
     /**
      * @default 0
      * @type integer | undefined
      */
-    vote_count?: number
+    vote_count?: number;
     /**
      * @type string | undefined
      */
-    character?: string
+    character?: string;
     /**
      * @type string | undefined
      */
-    credit_id?: string
+    credit_id?: string;
     /**
      * @default 0
      * @type integer | undefined
      */
-    order?: number
+    order?: number;
     /**
      * @type string | undefined
      */
-    media_type?: string
-  }[]
+    media_type?: string;
+  }[];
   /**
    * @type array | undefined
    */
@@ -114,93 +114,93 @@ export type PersonCombinedCredits200 = {
      * @default true
      * @type boolean | undefined
      */
-    adult?: boolean
+    adult?: boolean;
     /**
      * @type string | undefined
      */
-    backdrop_path?: string
+    backdrop_path?: string;
     /**
      * @type array | undefined
      */
-    genre_ids?: number[]
+    genre_ids?: number[];
     /**
      * @default 0
      * @type integer | undefined
      */
-    id?: number
+    id?: number;
     /**
      * @type string | undefined
      */
-    original_language?: string
+    original_language?: string;
     /**
      * @type string | undefined
      */
-    original_title?: string
+    original_title?: string;
     /**
      * @type string | undefined
      */
-    overview?: string
+    overview?: string;
     /**
      * @default 0
      * @type number | undefined
      */
-    popularity?: number
+    popularity?: number;
     /**
      * @type string | undefined
      */
-    poster_path?: string
+    poster_path?: string;
     /**
      * @type string | undefined
      */
-    release_date?: string
+    release_date?: string;
     /**
      * @type string | undefined
      */
-    title?: string
+    title?: string;
     /**
      * @default true
      * @type boolean | undefined
      */
-    video?: boolean
+    video?: boolean;
     /**
      * @default 0
      * @type number | undefined
      */
-    vote_average?: number
+    vote_average?: number;
     /**
      * @default 0
      * @type integer | undefined
      */
-    vote_count?: number
+    vote_count?: number;
     /**
      * @type string | undefined
      */
-    credit_id?: string
+    credit_id?: string;
     /**
      * @type string | undefined
      */
-    department?: string
+    department?: string;
     /**
      * @type string | undefined
      */
-    job?: string
+    job?: string;
     /**
      * @type string | undefined
      */
-    media_type?: string
-  }[]
+    media_type?: string;
+  }[];
   /**
    * @default 0
    * @type integer | undefined
    */
-  id?: number
-}
+  id?: number;
+};
 
-export type PersonCombinedCreditsQueryResponse = PersonCombinedCredits200
+export type PersonCombinedCreditsQueryResponse = PersonCombinedCredits200;
 
 export type PersonCombinedCreditsQuery = {
-  Response: PersonCombinedCredits200
-  PathParams: PersonCombinedCreditsPathParams
-  QueryParams: PersonCombinedCreditsQueryParams
-  Errors: any
-}
+  Response: PersonCombinedCredits200;
+  PathParams: PersonCombinedCreditsPathParams;
+  QueryParams: PersonCombinedCreditsQueryParams;
+  Errors: any;
+};

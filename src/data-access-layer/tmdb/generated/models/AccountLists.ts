@@ -8,20 +8,20 @@ export type AccountListsPathParams = {
    * @default null
    * @type integer, int32
    */
-  account_id: number
-}
+  account_id: number;
+};
 
 export type AccountListsQueryParams = {
   /**
    * @default 1
    * @type integer | undefined, int32
    */
-  page?: number
+  page?: number;
   /**
    * @type string | undefined
    */
-  session_id?: string
-}
+  session_id?: string;
+};
 
 /**
  * @description 200
@@ -31,7 +31,7 @@ export type AccountLists200 = {
    * @default 0
    * @type integer | undefined
    */
-  page?: number
+  page?: number;
   /**
    * @type array | undefined
    */
@@ -39,53 +39,53 @@ export type AccountLists200 = {
     /**
      * @type string | undefined
      */
-    description?: string
+    description?: string;
     /**
      * @default 0
      * @type integer | undefined
      */
-    favorite_count?: number
+    favorite_count?: number;
     /**
      * @default 0
      * @type integer | undefined
      */
-    id?: number
+    id?: number;
     /**
      * @default 0
      * @type integer | undefined
      */
-    item_count?: number
+    item_count?: number;
     /**
      * @type string | undefined
      */
-    iso_639_1?: string
+    iso_639_1?: string;
     /**
      * @type string | undefined
      */
-    list_type?: string
+    list_type?: string;
     /**
      * @type string | undefined
      */
-    name?: string
-    poster_path?: any
-  }[]
+    name?: string;
+    poster_path?: any;
+  }[];
   /**
    * @default 0
    * @type integer | undefined
    */
-  total_pages?: number
+  total_pages?: number;
   /**
    * @default 0
    * @type integer | undefined
    */
-  total_results?: number
-}
+  total_results?: number;
+};
 
-export type AccountListsQueryResponse = AccountLists200
+export type AccountListsQueryResponse = AccountLists200;
 
 export type AccountListsQuery = {
-  Response: AccountLists200
-  PathParams: AccountListsPathParams
-  QueryParams: AccountListsQueryParams
-  Errors: any
-}
+  Response: AccountLists200;
+  PathParams: AccountListsPathParams;
+  QueryParams: AccountListsQueryParams;
+  Errors: any;
+};

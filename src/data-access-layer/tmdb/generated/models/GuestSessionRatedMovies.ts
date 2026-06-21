@@ -7,34 +7,34 @@ export type GuestSessionRatedMoviesPathParams = {
   /**
    * @type string
    */
-  guest_session_id: string
-}
+  guest_session_id: string;
+};
 
 export const guestSessionRatedMoviesQueryParamsSortByEnum = {
-  'created_at.asc': 'created_at.asc',
-  'created_at.desc': 'created_at.desc',
-} as const
+  "created_at.asc": "created_at.asc",
+  "created_at.desc": "created_at.desc",
+} as const;
 
 export type GuestSessionRatedMoviesQueryParamsSortByEnumKey =
-  (typeof guestSessionRatedMoviesQueryParamsSortByEnum)[keyof typeof guestSessionRatedMoviesQueryParamsSortByEnum]
+  (typeof guestSessionRatedMoviesQueryParamsSortByEnum)[keyof typeof guestSessionRatedMoviesQueryParamsSortByEnum];
 
 export type GuestSessionRatedMoviesQueryParams = {
   /**
    * @default "en-US"
    * @type string | undefined
    */
-  language?: string
+  language?: string;
   /**
    * @default 1
    * @type integer | undefined, int32
    */
-  page?: number
+  page?: number;
   /**
    * @default "created_at.asc"
    * @type string | undefined
    */
-  sort_by?: GuestSessionRatedMoviesQueryParamsSortByEnumKey
-}
+  sort_by?: GuestSessionRatedMoviesQueryParamsSortByEnumKey;
+};
 
 /**
  * @description 200
@@ -44,7 +44,7 @@ export type GuestSessionRatedMovies200 = {
    * @default 0
    * @type integer | undefined
    */
-  page?: number
+  page?: number;
   /**
    * @type array | undefined
    */
@@ -53,87 +53,87 @@ export type GuestSessionRatedMovies200 = {
      * @default true
      * @type boolean | undefined
      */
-    adult?: boolean
+    adult?: boolean;
     /**
      * @type string | undefined
      */
-    backdrop_path?: string
+    backdrop_path?: string;
     /**
      * @type array | undefined
      */
-    genre_ids?: number[]
+    genre_ids?: number[];
     /**
      * @default 0
      * @type integer | undefined
      */
-    id?: number
+    id?: number;
     /**
      * @type string | undefined
      */
-    original_language?: string
+    original_language?: string;
     /**
      * @type string | undefined
      */
-    original_title?: string
+    original_title?: string;
     /**
      * @type string | undefined
      */
-    overview?: string
+    overview?: string;
     /**
      * @default 0
      * @type number | undefined
      */
-    popularity?: number
+    popularity?: number;
     /**
      * @type string | undefined
      */
-    poster_path?: string
+    poster_path?: string;
     /**
      * @type string | undefined
      */
-    release_date?: string
+    release_date?: string;
     /**
      * @type string | undefined
      */
-    title?: string
+    title?: string;
     /**
      * @default true
      * @type boolean | undefined
      */
-    video?: boolean
+    video?: boolean;
     /**
      * @default 0
      * @type number | undefined
      */
-    vote_average?: number
+    vote_average?: number;
     /**
      * @default 0
      * @type integer | undefined
      */
-    vote_count?: number
+    vote_count?: number;
     /**
      * @default 0
      * @type number | undefined
      */
-    rating?: number
-  }[]
+    rating?: number;
+  }[];
   /**
    * @default 0
    * @type integer | undefined
    */
-  total_pages?: number
+  total_pages?: number;
   /**
    * @default 0
    * @type integer | undefined
    */
-  total_results?: number
-}
+  total_results?: number;
+};
 
-export type GuestSessionRatedMoviesQueryResponse = GuestSessionRatedMovies200
+export type GuestSessionRatedMoviesQueryResponse = GuestSessionRatedMovies200;
 
 export type GuestSessionRatedMoviesQuery = {
-  Response: GuestSessionRatedMovies200
-  PathParams: GuestSessionRatedMoviesPathParams
-  QueryParams: GuestSessionRatedMoviesQueryParams
-  Errors: any
-}
+  Response: GuestSessionRatedMovies200;
+  PathParams: GuestSessionRatedMoviesPathParams;
+  QueryParams: GuestSessionRatedMoviesQueryParams;
+  Errors: any;
+};

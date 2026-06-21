@@ -7,8 +7,8 @@ export type TvSeriesKeywordsPathParams = {
   /**
    * @type integer, int32
    */
-  series_id: number
-}
+  series_id: number;
+};
 
 /**
  * @description 200
@@ -18,7 +18,7 @@ export type TvSeriesKeywords200 = {
    * @default 0
    * @type integer | undefined
    */
-  id?: number
+  id?: number;
   /**
    * @type array | undefined
    */
@@ -26,19 +26,19 @@ export type TvSeriesKeywords200 = {
     /**
      * @type string | undefined
      */
-    name?: string
+    name?: string;
     /**
      * @default 0
      * @type integer | undefined
      */
-    id?: number
-  }[]
-}
+    id?: number;
+  }[];
+};
 
-export type TvSeriesKeywordsQueryResponse = TvSeriesKeywords200
+export type TvSeriesKeywordsQueryResponse = TvSeriesKeywords200;
 
 export type TvSeriesKeywordsQuery = {
-  Response: TvSeriesKeywords200
-  PathParams: TvSeriesKeywordsPathParams
-  Errors: any
-}
+  Response: TvSeriesKeywords200;
+  PathParams: TvSeriesKeywordsPathParams;
+  Errors: any;
+};

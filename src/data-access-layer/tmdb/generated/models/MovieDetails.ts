@@ -7,21 +7,21 @@ export type MovieDetailsPathParams = {
   /**
    * @type integer, int32
    */
-  movie_id: number
-}
+  movie_id: number;
+};
 
 export type MovieDetailsQueryParams = {
   /**
    * @description comma separated list of endpoints within this namespace, 20 items max
    * @type string | undefined
    */
-  append_to_response?: string
+  append_to_response?: string;
   /**
    * @default "en-US"
    * @type string | undefined
    */
-  language?: string
-}
+  language?: string;
+};
 
 /**
  * @description 200
@@ -31,11 +31,11 @@ export type MovieDetails200 = {
    * @default "false"
    * @type boolean | undefined
    */
-  adult?: boolean
+  adult?: boolean;
   /**
    * @type string | undefined
    */
-  backdrop_path?: string
+  backdrop_path?: string;
   /**
    * @type object | undefined
    */
@@ -44,25 +44,25 @@ export type MovieDetails200 = {
      * @default 0
      * @type integer | undefined
      */
-    id?: number
+    id?: number;
     /**
      * @type string | undefined
      */
-    name?: string
+    name?: string;
     /**
      * @type string | undefined
      */
-    poster_path?: string
+    poster_path?: string;
     /**
      * @type string | undefined
      */
-    backdrop_path?: string
-  }
+    backdrop_path?: string;
+  };
   /**
    * @default 0
    * @type integer | undefined
    */
-  budget?: number
+  budget?: number;
   /**
    * @type array | undefined
    */
@@ -71,50 +71,50 @@ export type MovieDetails200 = {
      * @default 0
      * @type integer | undefined
      */
-    id?: number
+    id?: number;
     /**
      * @type string | undefined
      */
-    name?: string
-  }[]
+    name?: string;
+  }[];
   /**
    * @type string | undefined
    */
-  homepage?: string
+  homepage?: string;
   /**
    * @default 0
    * @type integer | undefined
    */
-  id?: number
+  id?: number;
   /**
    * @type string | undefined
    */
-  imdb_id?: string
+  imdb_id?: string;
   /**
    * @type array | undefined
    */
-  origin_country?: string[]
+  origin_country?: string[];
   /**
    * @type string | undefined
    */
-  original_language?: string
+  original_language?: string;
   /**
    * @type string | undefined
    */
-  original_title?: string
+  original_title?: string;
   /**
    * @type string | undefined
    */
-  overview?: string
+  overview?: string;
   /**
    * @default 0
    * @type number | undefined
    */
-  popularity?: number
+  popularity?: number;
   /**
    * @type string | undefined
    */
-  poster_path?: string
+  poster_path?: string;
   /**
    * @type array | undefined
    */
@@ -123,20 +123,20 @@ export type MovieDetails200 = {
      * @default 0
      * @type integer | undefined
      */
-    id?: number
+    id?: number;
     /**
      * @type string | undefined
      */
-    logo_path?: string
+    logo_path?: string;
     /**
      * @type string | undefined
      */
-    name?: string
+    name?: string;
     /**
      * @type string | undefined
      */
-    origin_country?: string
-  }[]
+    origin_country?: string;
+  }[];
   /**
    * @type array | undefined
    */
@@ -144,26 +144,26 @@ export type MovieDetails200 = {
     /**
      * @type string | undefined
      */
-    iso_3166_1?: string
+    iso_3166_1?: string;
     /**
      * @type string | undefined
      */
-    name?: string
-  }[]
+    name?: string;
+  }[];
   /**
    * @type string | undefined
    */
-  release_date?: string
+  release_date?: string;
   /**
    * @default 0
    * @type integer | undefined
    */
-  revenue?: number
+  revenue?: number;
   /**
    * @default 0
    * @type integer | undefined
    */
-  runtime?: number
+  runtime?: number;
   /**
    * @type array | undefined
    */
@@ -171,50 +171,50 @@ export type MovieDetails200 = {
     /**
      * @type string | undefined
      */
-    english_name?: string
+    english_name?: string;
     /**
      * @type string | undefined
      */
-    iso_639_1?: string
+    iso_639_1?: string;
     /**
      * @type string | undefined
      */
-    name?: string
-  }[]
+    name?: string;
+  }[];
   /**
    * @type string | undefined
    */
-  status?: string
+  status?: string;
   /**
    * @type string | undefined
    */
-  tagline?: string
+  tagline?: string;
   /**
    * @type string | undefined
    */
-  title?: string
+  title?: string;
   /**
    * @default "false"
    * @type boolean | undefined
    */
-  video?: boolean
+  video?: boolean;
   /**
    * @default 0
    * @type number | undefined
    */
-  vote_average?: number
+  vote_average?: number;
   /**
    * @default 0
    * @type integer | undefined
    */
-  vote_count?: number
-}
+  vote_count?: number;
+};
 
-export type MovieDetailsQueryResponse = MovieDetails200
+export type MovieDetailsQueryResponse = MovieDetails200;
 
 export type MovieDetailsQuery = {
-  Response: MovieDetails200
-  PathParams: MovieDetailsPathParams
-  QueryParams: MovieDetailsQueryParams
-  Errors: any
-}
+  Response: MovieDetails200;
+  PathParams: MovieDetailsPathParams;
+  QueryParams: MovieDetailsQueryParams;
+  Errors: any;
+};

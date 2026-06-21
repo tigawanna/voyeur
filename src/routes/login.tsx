@@ -1,28 +1,28 @@
-import { LoginCard } from '#/features/auth/components/LoginCard'
-import { AppConfig } from '#/utils/system'
-import { Link, createFileRoute, redirect } from '@tanstack/react-router'
-import { z } from 'zod'
+import { LoginCard } from "#/features/auth/components/LoginCard";
+import { AppConfig } from "#/utils/system";
+import { Link, createFileRoute, redirect } from "@tanstack/react-router";
+import { z } from "zod";
 
 const loginSearchSchema = z.object({
-  returnTo: z.string().default('/movies'),
-})
+  returnTo: z.string().default("/movies"),
+});
 
-export const Route = createFileRoute('/login')({
+export const Route = createFileRoute("/login")({
   validateSearch: loginSearchSchema,
   beforeLoad: ({ context, search }) => {
     if (context.viewer?.user) {
-      throw redirect({ to: search.returnTo })
+      throw redirect({ to: search.returnTo });
     }
   },
   head: () => ({
     meta: [{ title: `${AppConfig.name} | Sign in` }],
   }),
   component: LoginPage,
-})
+});
 
 function LoginPage() {
-  const { returnTo } = Route.useSearch()
-  const Icon = AppConfig.icon
+  const { returnTo } = Route.useSearch();
+  const Icon = AppConfig.icon;
 
   return (
     <div className="min-h-dvh bg-background">
@@ -41,5 +41,5 @@ function LoginPage() {
         <LoginCard returnTo={returnTo} />
       </main>
     </div>
-  )
+  );
 }

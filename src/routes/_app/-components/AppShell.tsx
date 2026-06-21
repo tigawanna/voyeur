@@ -1,24 +1,24 @@
-import { useViewer } from '#/data-access-layer/auth/viewer'
-import { AppActivityNprogress } from '@/components/navigation/nprogress/AppActivityNprogress'
-import { AppConfig } from '#/utils/system'
-import { browseSearchDefaults } from '#/types/browse'
-import { cn } from '@/lib/utils'
-import { withViewTransition } from '#/utils/viewTransition'
-import { Button } from '@/components/ui/button'
-import { Link, Outlet, useRouter, useRouterState } from '@tanstack/react-router'
-import { Bookmark, Film, LogOut, Star } from 'lucide-react'
+import { useViewer } from "#/data-access-layer/auth/viewer";
+import { AppActivityNprogress } from "@/components/navigation/nprogress/AppActivityNprogress";
+import { AppConfig } from "#/utils/system";
+import { browseSearchDefaults } from "#/types/browse";
+import { cn } from "@/lib/utils";
+import { withViewTransition } from "#/utils/viewTransition";
+import { Button } from "@/components/ui/button";
+import { Link, Outlet, useRouter, useRouterState } from "@tanstack/react-router";
+import { Bookmark, Film, LogOut, Star } from "lucide-react";
 
 const navItems = [
-  { title: 'Browse', href: '/movies', icon: Film },
-  { title: 'Favorites', href: '/favorites', icon: Star },
-  { title: 'Watchlist', href: '/watchlist', icon: Bookmark },
-] as const
+  { title: "Browse", href: "/movies", icon: Film },
+  { title: "Favorites", href: "/favorites", icon: Star },
+  { title: "Watchlist", href: "/watchlist", icon: Bookmark },
+] as const;
 
 export function AppShell() {
-  const pathname = useRouterState({ select: (state) => state.location.pathname })
-  const router = useRouter()
-  const { viewer, logoutMutation } = useViewer()
-  const Icon = AppConfig.icon
+  const pathname = useRouterState({ select: (state) => state.location.pathname });
+  const router = useRouter();
+  const { viewer, logoutMutation } = useViewer();
+  const Icon = AppConfig.icon;
 
   return (
     <div className="min-h-dvh bg-background">
@@ -34,34 +34,34 @@ export function AppShell() {
           </Link>
           <nav className="flex items-center gap-1 overflow-x-auto">
             {navItems.map((item) => {
-              const active = pathname.startsWith(item.href)
-              const NavIcon = item.icon
+              const active = pathname.startsWith(item.href);
+              const NavIcon = item.icon;
               return (
                 <button
                   key={item.href}
                   type="button"
                   data-testid={`nav-${item.title.toLowerCase()}`}
                   onClick={() => {
-                    if (active) return
+                    if (active) return;
                     withViewTransition(() => {
                       void router.navigate(
-                        item.href === '/movies'
+                        item.href === "/movies"
                           ? { to: item.href, search: browseSearchDefaults }
                           : { to: item.href },
-                      )
-                    })
+                      );
+                    });
                   }}
                   className={cn(
-                    'inline-flex items-center gap-2 rounded-full px-4 py-2 font-mono text-xs tracking-wide transition',
+                    "inline-flex items-center gap-2 rounded-full px-4 py-2 font-mono text-xs tracking-wide transition",
                     active
-                      ? 'bg-primary/15 text-foreground'
-                      : 'text-muted-foreground hover:bg-muted hover:text-foreground',
+                      ? "bg-primary/15 text-foreground"
+                      : "text-muted-foreground hover:bg-muted hover:text-foreground",
                   )}
                 >
                   <NavIcon size={14} />
                   {item.title}
                 </button>
-              )
+              );
             })}
           </nav>
           {viewer.user ? (
@@ -88,5 +88,5 @@ export function AppShell() {
         <Outlet />
       </main>
     </div>
-  )
+  );
 }

@@ -1,22 +1,22 @@
-import { createDb } from '#/lib/drizzle/db'
-import * as authSchema from '#/lib/drizzle/schema/auth-schema'
-import { betterAuth } from 'better-auth'
-import { drizzleAdapter } from 'better-auth/adapters/drizzle'
-import { tanstackStartCookies } from 'better-auth/tanstack-start'
+import { createDb } from "#/lib/drizzle/db";
+import * as authSchema from "#/lib/drizzle/schema/auth-schema";
+import { betterAuth } from "better-auth";
+import { drizzleAdapter } from "better-auth/adapters/drizzle";
+import { tanstackStartCookies } from "better-auth/tanstack-start";
 
 export function createAuth(env: CloudflareBindings) {
   const trustedOrigins = String(env.BETTER_AUTH_URL)
-    .split(',')
+    .split(",")
     .map((value) => value.trim())
-    .filter(Boolean)
+    .filter(Boolean);
 
-  const db = createDb(env.DB)
+  const db = createDb(env.DB);
 
   return betterAuth({
-    database: drizzleAdapter(db, { provider: 'sqlite', schema: authSchema }),
+    database: drizzleAdapter(db, { provider: "sqlite", schema: authSchema }),
     secret: env.BETTER_AUTH_SECRET,
     baseURL: env.BETTER_AUTH_URL,
-    basePath: '/api/auth',
+    basePath: "/api/auth",
     trustedOrigins,
     socialProviders: {
       google: {
@@ -25,5 +25,5 @@ export function createAuth(env: CloudflareBindings) {
       },
     },
     plugins: [tanstackStartCookies()],
-  })
+  });
 }

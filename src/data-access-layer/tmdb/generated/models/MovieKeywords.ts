@@ -7,8 +7,8 @@ export type MovieKeywordsPathParams = {
   /**
    * @type string
    */
-  movie_id: string
-}
+  movie_id: string;
+};
 
 /**
  * @description 200
@@ -18,7 +18,7 @@ export type MovieKeywords200 = {
    * @default 0
    * @type integer | undefined
    */
-  id?: number
+  id?: number;
   /**
    * @type array | undefined
    */
@@ -27,18 +27,18 @@ export type MovieKeywords200 = {
      * @default 0
      * @type integer | undefined
      */
-    id?: number
+    id?: number;
     /**
      * @type string | undefined
      */
-    name?: string
-  }[]
-}
+    name?: string;
+  }[];
+};
 
-export type MovieKeywordsQueryResponse = MovieKeywords200
+export type MovieKeywordsQueryResponse = MovieKeywords200;
 
 export type MovieKeywordsQuery = {
-  Response: MovieKeywords200
-  PathParams: MovieKeywordsPathParams
-  Errors: any
-}
+  Response: MovieKeywords200;
+  PathParams: MovieKeywordsPathParams;
+  Errors: any;
+};

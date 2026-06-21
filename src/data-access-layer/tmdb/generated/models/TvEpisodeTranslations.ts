@@ -7,16 +7,16 @@ export type TvEpisodeTranslationsPathParams = {
   /**
    * @type integer, int32
    */
-  series_id: number
+  series_id: number;
   /**
    * @type integer, int32
    */
-  season_number: number
+  season_number: number;
   /**
    * @type integer, int32
    */
-  episode_number: number
-}
+  episode_number: number;
+};
 
 /**
  * @description 200
@@ -26,7 +26,7 @@ export type TvEpisodeTranslations200 = {
    * @default 0
    * @type integer | undefined
    */
-  id?: number
+  id?: number;
   /**
    * @type array | undefined
    */
@@ -34,19 +34,19 @@ export type TvEpisodeTranslations200 = {
     /**
      * @type string | undefined
      */
-    iso_3166_1?: string
+    iso_3166_1?: string;
     /**
      * @type string | undefined
      */
-    iso_639_1?: string
+    iso_639_1?: string;
     /**
      * @type string | undefined
      */
-    name?: string
+    name?: string;
     /**
      * @type string | undefined
      */
-    english_name?: string
+    english_name?: string;
     /**
      * @type object | undefined
      */
@@ -54,19 +54,19 @@ export type TvEpisodeTranslations200 = {
       /**
        * @type string | undefined
        */
-      name?: string
+      name?: string;
       /**
        * @type string | undefined
        */
-      overview?: string
-    }
-  }[]
-}
+      overview?: string;
+    };
+  }[];
+};
 
-export type TvEpisodeTranslationsQueryResponse = TvEpisodeTranslations200
+export type TvEpisodeTranslationsQueryResponse = TvEpisodeTranslations200;
 
 export type TvEpisodeTranslationsQuery = {
-  Response: TvEpisodeTranslations200
-  PathParams: TvEpisodeTranslationsPathParams
-  Errors: any
-}
+  Response: TvEpisodeTranslations200;
+  PathParams: TvEpisodeTranslationsPathParams;
+  Errors: any;
+};

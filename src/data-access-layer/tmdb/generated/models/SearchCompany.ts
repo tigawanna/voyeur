@@ -7,13 +7,13 @@ export type SearchCompanyQueryParams = {
   /**
    * @type string
    */
-  query: string
+  query: string;
   /**
    * @default 1
    * @type integer | undefined, int32
    */
-  page?: number
-}
+  page?: number;
+};
 
 /**
  * @description 200
@@ -23,7 +23,7 @@ export type SearchCompany200 = {
    * @default 0
    * @type integer | undefined
    */
-  page?: number
+  page?: number;
   /**
    * @type array | undefined
    */
@@ -32,36 +32,36 @@ export type SearchCompany200 = {
      * @default 0
      * @type integer | undefined
      */
-    id?: number
+    id?: number;
     /**
      * @type string | undefined
      */
-    logo_path?: string
+    logo_path?: string;
     /**
      * @type string | undefined
      */
-    name?: string
+    name?: string;
     /**
      * @type string | undefined
      */
-    origin_country?: string
-  }[]
+    origin_country?: string;
+  }[];
   /**
    * @default 0
    * @type integer | undefined
    */
-  total_pages?: number
+  total_pages?: number;
   /**
    * @default 0
    * @type integer | undefined
    */
-  total_results?: number
-}
+  total_results?: number;
+};
 
-export type SearchCompanyQueryResponse = SearchCompany200
+export type SearchCompanyQueryResponse = SearchCompany200;
 
 export type SearchCompanyQuery = {
-  Response: SearchCompany200
-  QueryParams: SearchCompanyQueryParams
-  Errors: any
-}
+  Response: SearchCompany200;
+  QueryParams: SearchCompanyQueryParams;
+  Errors: any;
+};

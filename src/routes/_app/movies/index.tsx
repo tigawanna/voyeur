@@ -1,21 +1,18 @@
-import { browseSearchSchema } from '#/types/browse'
-import { createFileRoute } from '@tanstack/react-router'
-import { Loader } from 'lucide-react'
-import { lazy, Suspense } from 'react'
+import { browseSearchSchema } from "#/types/browse";
+import { createFileRoute } from "@tanstack/react-router";
+import { Loader } from "lucide-react";
+import { lazy, Suspense } from "react";
 // import { MoviesList } from './-components/MoviesList'
 
-const MoviesList = lazy(() => import('./-components/MoviesList').then(module => ({default: module.MoviesList})))
+const MoviesList = lazy(() =>
+  import("./-components/MoviesList").then((module) => ({ default: module.MoviesList })),
+);
 
-
-
-
-export const Route = createFileRoute('/_app/movies/')({
+export const Route = createFileRoute("/_app/movies/")({
   validateSearch: browseSearchSchema,
   component: BrowsePage,
   ssr: false,
-})
-
-
+});
 
 function BrowsePage() {
   return (
@@ -30,5 +27,5 @@ function BrowsePage() {
         <MoviesList />
       </Suspense>
     </section>
-  )
+  );
 }

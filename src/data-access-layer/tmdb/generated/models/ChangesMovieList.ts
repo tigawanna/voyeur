@@ -7,17 +7,17 @@ export type ChangesMovieListQueryParams = {
   /**
    * @type string | undefined, date
    */
-  end_date?: string
+  end_date?: string;
   /**
    * @default 1
    * @type integer | undefined, int32
    */
-  page?: number
+  page?: number;
   /**
    * @type string | undefined, date
    */
-  start_date?: string
-}
+  start_date?: string;
+};
 
 /**
  * @description 200
@@ -31,34 +31,34 @@ export type ChangesMovieList200 = {
      * @default 0
      * @type integer | undefined
      */
-    id?: number
+    id?: number;
     /**
      * @default true
      * @type boolean | undefined
      */
-    adult?: boolean
-  }[]
+    adult?: boolean;
+  }[];
   /**
    * @default 0
    * @type integer | undefined
    */
-  page?: number
+  page?: number;
   /**
    * @default 0
    * @type integer | undefined
    */
-  total_pages?: number
+  total_pages?: number;
   /**
    * @default 0
    * @type integer | undefined
    */
-  total_results?: number
-}
+  total_results?: number;
+};
 
-export type ChangesMovieListQueryResponse = ChangesMovieList200
+export type ChangesMovieListQueryResponse = ChangesMovieList200;
 
 export type ChangesMovieListQuery = {
-  Response: ChangesMovieList200
-  QueryParams: ChangesMovieListQueryParams
-  Errors: any
-}
+  Response: ChangesMovieList200;
+  QueryParams: ChangesMovieListQueryParams;
+  Errors: any;
+};

@@ -1,32 +1,32 @@
-import { Footer } from '#/components/navigation/Footer'
-import { viewerMiddleware } from '#/data-access-layer/auth/viewer'
-import { browseSearchDefaults } from '#/types/browse'
-import { AppConfig } from '#/utils/system'
-import { withViewTransition } from '#/utils/viewTransition'
-import { Button } from '@/components/ui/button'
-import { createFileRoute, useRouteContext } from '@tanstack/react-router'
+import { Footer } from "#/components/navigation/Footer";
+import { viewerMiddleware } from "#/data-access-layer/auth/viewer";
+import { browseSearchDefaults } from "#/types/browse";
+import { AppConfig } from "#/utils/system";
+import { withViewTransition } from "#/utils/viewTransition";
+import { Button } from "@/components/ui/button";
+import { createFileRoute, useRouteContext } from "@tanstack/react-router";
 
-export const Route = createFileRoute('/')({
+export const Route = createFileRoute("/")({
   component: LandingPage,
   server: {
     middleware: [viewerMiddleware],
   },
-})
+});
 
 function LandingPage() {
-  const navigate = Route.useNavigate()
-  const { viewer } = useRouteContext({ from: '__root__' })
-  const Icon = AppConfig.icon
-  const isSignedIn = Boolean(viewer?.user)
+  const navigate = Route.useNavigate();
+  const { viewer } = useRouteContext({ from: "__root__" });
+  const Icon = AppConfig.icon;
+  const isSignedIn = Boolean(viewer?.user);
 
   function handleContinue() {
     withViewTransition(() => {
       if (isSignedIn) {
-        void navigate({ to: '/movies', search: browseSearchDefaults })
-        return
+        void navigate({ to: "/movies", search: browseSearchDefaults });
+        return;
       }
-      void navigate({ to: '/login', search: { returnTo: '/movies' } })
-    })
+      void navigate({ to: "/login", search: { returnTo: "/movies" } });
+    });
   }
 
   return (
@@ -47,8 +47,8 @@ function LandingPage() {
               size="sm"
               onClick={() => {
                 withViewTransition(() => {
-                  void navigate({ to: '/movies', search: browseSearchDefaults })
-                })
+                  void navigate({ to: "/movies", search: browseSearchDefaults });
+                });
               }}
             >
               Open movies
@@ -60,8 +60,8 @@ function LandingPage() {
               size="sm"
               onClick={() => {
                 withViewTransition(() => {
-                  void navigate({ to: '/login', search: { returnTo: '/movies' } })
-                })
+                  void navigate({ to: "/login", search: { returnTo: "/movies" } });
+                });
               }}
             >
               Sign in
@@ -88,7 +88,7 @@ function LandingPage() {
               Sign in once with Google, then pick up right where you left off on any device.
             </p>
             <Button type="button" size="lg" onClick={handleContinue}>
-              {isSignedIn ? 'Continue to movies →' : 'Sign in to continue →'}
+              {isSignedIn ? "Continue to movies →" : "Sign in to continue →"}
             </Button>
           </div>
         </section>
@@ -96,5 +96,5 @@ function LandingPage() {
 
       <Footer />
     </div>
-  )
+  );
 }

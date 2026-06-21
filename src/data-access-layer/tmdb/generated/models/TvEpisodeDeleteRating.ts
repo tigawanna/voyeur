@@ -7,35 +7,35 @@ export type TvEpisodeDeleteRatingPathParams = {
   /**
    * @type integer, int32
    */
-  series_id: number
+  series_id: number;
   /**
    * @type integer, int32
    */
-  season_number: number
+  season_number: number;
   /**
    * @type integer, int32
    */
-  episode_number: number
-}
+  episode_number: number;
+};
 
 export type TvEpisodeDeleteRatingQueryParams = {
   /**
    * @type string | undefined
    */
-  guest_session_id?: string
+  guest_session_id?: string;
   /**
    * @type string | undefined
    */
-  session_id?: string
-}
+  session_id?: string;
+};
 
 export type TvEpisodeDeleteRatingHeaderParams = {
   /**
    * @default "application/json;charset=utf-8"
    * @type string | undefined
    */
-  'Content-Type'?: string
-}
+  "Content-Type"?: string;
+};
 
 /**
  * @description 200
@@ -45,19 +45,19 @@ export type TvEpisodeDeleteRating200 = {
    * @default 0
    * @type integer | undefined
    */
-  status_code?: number
+  status_code?: number;
   /**
    * @type string | undefined
    */
-  status_message?: string
-}
+  status_message?: string;
+};
 
-export type TvEpisodeDeleteRatingMutationResponse = TvEpisodeDeleteRating200
+export type TvEpisodeDeleteRatingMutationResponse = TvEpisodeDeleteRating200;
 
 export type TvEpisodeDeleteRatingMutation = {
-  Response: TvEpisodeDeleteRating200
-  PathParams: TvEpisodeDeleteRatingPathParams
-  QueryParams: TvEpisodeDeleteRatingQueryParams
-  HeaderParams: TvEpisodeDeleteRatingHeaderParams
-  Errors: any
-}
+  Response: TvEpisodeDeleteRating200;
+  PathParams: TvEpisodeDeleteRatingPathParams;
+  QueryParams: TvEpisodeDeleteRatingQueryParams;
+  HeaderParams: TvEpisodeDeleteRatingHeaderParams;
+  Errors: any;
+};

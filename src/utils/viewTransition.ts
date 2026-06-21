@@ -1,16 +1,16 @@
-import { flushSync } from 'react-dom'
+import { flushSync } from "react-dom";
 
 export function withViewTransition(update: () => void) {
-  if (typeof document !== 'undefined' && 'startViewTransition' in document) {
+  if (typeof document !== "undefined" && "startViewTransition" in document) {
     try {
       document.startViewTransition(() => {
-        flushSync(update)
-      })
-      return
+        flushSync(update);
+      });
+      return;
     } catch {
-      update()
-      return
+      update();
+      return;
     }
   }
-  update()
+  update();
 }

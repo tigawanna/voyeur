@@ -11,25 +11,25 @@ export type AuthenticationCreateSessionFromV4Token200 = {
    * @default true
    * @type boolean | undefined
    */
-  success?: boolean
+  success?: boolean;
   /**
    * @type string | undefined
    */
-  session_id?: string
-}
+  session_id?: string;
+};
 
 export type AuthenticationCreateSessionFromV4TokenMutationRequest = {
   /**
    * @type string, json
    */
-  RAW_BODY: string
-}
+  RAW_BODY: string;
+};
 
 export type AuthenticationCreateSessionFromV4TokenMutationResponse =
-  AuthenticationCreateSessionFromV4Token200
+  AuthenticationCreateSessionFromV4Token200;
 
 export type AuthenticationCreateSessionFromV4TokenMutation = {
-  Response: AuthenticationCreateSessionFromV4Token200
-  Request: AuthenticationCreateSessionFromV4TokenMutationRequest
-  Errors: any
-}
+  Response: AuthenticationCreateSessionFromV4Token200;
+  Request: AuthenticationCreateSessionFromV4TokenMutationRequest;
+  Errors: any;
+};

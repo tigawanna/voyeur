@@ -4,170 +4,170 @@
  */
 
 export const discoverTvQueryParamsSortByEnum = {
-  'first_air_date.asc': 'first_air_date.asc',
-  'first_air_date.desc': 'first_air_date.desc',
-  'name.asc': 'name.asc',
-  'name.desc': 'name.desc',
-  'original_name.asc': 'original_name.asc',
-  'original_name.desc': 'original_name.desc',
-  'popularity.asc': 'popularity.asc',
-  'popularity.desc': 'popularity.desc',
-  'vote_average.asc': 'vote_average.asc',
-  'vote_average.desc': 'vote_average.desc',
-  'vote_count.asc': 'vote_count.asc',
-  'vote_count.desc': 'vote_count.desc',
-} as const
+  "first_air_date.asc": "first_air_date.asc",
+  "first_air_date.desc": "first_air_date.desc",
+  "name.asc": "name.asc",
+  "name.desc": "name.desc",
+  "original_name.asc": "original_name.asc",
+  "original_name.desc": "original_name.desc",
+  "popularity.asc": "popularity.asc",
+  "popularity.desc": "popularity.desc",
+  "vote_average.asc": "vote_average.asc",
+  "vote_average.desc": "vote_average.desc",
+  "vote_count.asc": "vote_count.asc",
+  "vote_count.desc": "vote_count.desc",
+} as const;
 
 export type DiscoverTvQueryParamsSortByEnumKey =
-  (typeof discoverTvQueryParamsSortByEnum)[keyof typeof discoverTvQueryParamsSortByEnum]
+  (typeof discoverTvQueryParamsSortByEnum)[keyof typeof discoverTvQueryParamsSortByEnum];
 
 export type DiscoverTvQueryParams = {
   /**
    * @type string | undefined, date
    */
-  'air_date.gte'?: string
+  "air_date.gte"?: string;
   /**
    * @type string | undefined, date
    */
-  'air_date.lte'?: string
+  "air_date.lte"?: string;
   /**
    * @type integer | undefined, int32
    */
-  first_air_date_year?: number
+  first_air_date_year?: number;
   /**
    * @type string | undefined, date
    */
-  'first_air_date.gte'?: string
+  "first_air_date.gte"?: string;
   /**
    * @type string | undefined, date
    */
-  'first_air_date.lte'?: string
+  "first_air_date.lte"?: string;
   /**
    * @default false
    * @type boolean | undefined
    */
-  include_adult?: boolean
+  include_adult?: boolean;
   /**
    * @default false
    * @type boolean | undefined
    */
-  include_null_first_air_dates?: boolean
+  include_null_first_air_dates?: boolean;
   /**
    * @default "en-US"
    * @type string | undefined
    */
-  language?: string
+  language?: string;
   /**
    * @default 1
    * @type integer | undefined, int32
    */
-  page?: number
+  page?: number;
   /**
    * @type boolean | undefined
    */
-  screened_theatrically?: boolean
+  screened_theatrically?: boolean;
   /**
    * @default "popularity.desc"
    * @type string | undefined
    */
-  sort_by?: DiscoverTvQueryParamsSortByEnumKey
+  sort_by?: DiscoverTvQueryParamsSortByEnumKey;
   /**
    * @type string | undefined
    */
-  timezone?: string
+  timezone?: string;
   /**
    * @type number | undefined, float
    */
-  'vote_average.gte'?: number
+  "vote_average.gte"?: number;
   /**
    * @type number | undefined, float
    */
-  'vote_average.lte'?: number
+  "vote_average.lte"?: number;
   /**
    * @type number | undefined, float
    */
-  'vote_count.gte'?: number
+  "vote_count.gte"?: number;
   /**
    * @type number | undefined, float
    */
-  'vote_count.lte'?: number
+  "vote_count.lte"?: number;
   /**
    * @description use in conjunction with `with_watch_monetization_types ` or `with_watch_providers `
    * @type string | undefined
    */
-  watch_region?: string
+  watch_region?: string;
   /**
    * @description can be a comma (`AND`) or pipe (`OR`) separated query
    * @type string | undefined
    */
-  with_companies?: string
+  with_companies?: string;
   /**
    * @description can be a comma (`AND`) or pipe (`OR`) separated query
    * @type string | undefined
    */
-  with_genres?: string
+  with_genres?: string;
   /**
    * @description can be a comma (`AND`) or pipe (`OR`) separated query
    * @type string | undefined
    */
-  with_keywords?: string
+  with_keywords?: string;
   /**
    * @type integer | undefined, int32
    */
-  with_networks?: number
+  with_networks?: number;
   /**
    * @type string | undefined
    */
-  with_origin_country?: string
+  with_origin_country?: string;
   /**
    * @type string | undefined
    */
-  with_original_language?: string
+  with_original_language?: string;
   /**
    * @type integer | undefined, int32
    */
-  'with_runtime.gte'?: number
+  "with_runtime.gte"?: number;
   /**
    * @type integer | undefined, int32
    */
-  'with_runtime.lte'?: number
+  "with_runtime.lte"?: number;
   /**
    * @description possible values are: [0, 1, 2, 3, 4, 5], can be a comma (`AND`) or pipe (`OR`) separated query
    * @type string | undefined
    */
-  with_status?: string
+  with_status?: string;
   /**
    * @description possible values are: [flatrate, free, ads, rent, buy] use in conjunction with `watch_region`, can be a comma (`AND`) or pipe (`OR`) separated query
    * @type string | undefined
    */
-  with_watch_monetization_types?: string
+  with_watch_monetization_types?: string;
   /**
    * @description use in conjunction with `watch_region`, can be a comma (`AND`) or pipe (`OR`) separated query
    * @type string | undefined
    */
-  with_watch_providers?: string
+  with_watch_providers?: string;
   /**
    * @type string | undefined
    */
-  without_companies?: string
+  without_companies?: string;
   /**
    * @type string | undefined
    */
-  without_genres?: string
+  without_genres?: string;
   /**
    * @type string | undefined
    */
-  without_keywords?: string
+  without_keywords?: string;
   /**
    * @type string | undefined
    */
-  without_watch_providers?: string
+  without_watch_providers?: string;
   /**
    * @description possible values are: [0, 1, 2, 3, 4, 5, 6], can be a comma (`AND`) or pipe (`OR`) separated query
    * @type string | undefined
    */
-  with_type?: string
-}
+  with_type?: string;
+};
 
 /**
  * @description 200
@@ -177,7 +177,7 @@ export type DiscoverTv200 = {
    * @default 0
    * @type integer | undefined
    */
-  page?: number
+  page?: number;
   /**
    * @type array | undefined
    */
@@ -185,76 +185,76 @@ export type DiscoverTv200 = {
     /**
      * @type string | undefined
      */
-    backdrop_path?: string
+    backdrop_path?: string;
     /**
      * @type string | undefined
      */
-    first_air_date?: string
+    first_air_date?: string;
     /**
      * @type array | undefined
      */
-    genre_ids?: number[]
+    genre_ids?: number[];
     /**
      * @default 0
      * @type integer | undefined
      */
-    id?: number
+    id?: number;
     /**
      * @type string | undefined
      */
-    name?: string
+    name?: string;
     /**
      * @type array | undefined
      */
-    origin_country?: string[]
+    origin_country?: string[];
     /**
      * @type string | undefined
      */
-    original_language?: string
+    original_language?: string;
     /**
      * @type string | undefined
      */
-    original_name?: string
+    original_name?: string;
     /**
      * @type string | undefined
      */
-    overview?: string
+    overview?: string;
     /**
      * @default 0
      * @type number | undefined
      */
-    popularity?: number
+    popularity?: number;
     /**
      * @type string | undefined
      */
-    poster_path?: string
+    poster_path?: string;
     /**
      * @default 0
      * @type integer | undefined
      */
-    vote_average?: number
+    vote_average?: number;
     /**
      * @default 0
      * @type integer | undefined
      */
-    vote_count?: number
-  }[]
+    vote_count?: number;
+  }[];
   /**
    * @default 0
    * @type integer | undefined
    */
-  total_pages?: number
+  total_pages?: number;
   /**
    * @default 0
    * @type integer | undefined
    */
-  total_results?: number
-}
+  total_results?: number;
+};
 
-export type DiscoverTvQueryResponse = DiscoverTv200
+export type DiscoverTvQueryResponse = DiscoverTv200;
 
 export type DiscoverTvQuery = {
-  Response: DiscoverTv200
-  QueryParams: DiscoverTvQueryParams
-  Errors: any
-}
+  Response: DiscoverTv200;
+  QueryParams: DiscoverTvQueryParams;
+  Errors: any;
+};

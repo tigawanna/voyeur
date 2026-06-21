@@ -7,8 +7,8 @@ export type MovieWatchProvidersPathParams = {
   /**
    * @type integer, int32
    */
-  movie_id: number
-}
+  movie_id: number;
+};
 
 /**
  * @description 200
@@ -18,7 +18,7 @@ export type MovieWatchProviders200 = {
    * @default 0
    * @type integer | undefined
    */
-  id?: number
+  id?: number;
   /**
    * @type object | undefined
    */
@@ -30,7 +30,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -38,22 +38,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -61,22 +61,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -84,23 +84,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -108,7 +108,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -116,23 +116,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -140,7 +140,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -148,22 +148,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -171,22 +171,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -194,23 +194,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -218,7 +218,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -226,22 +226,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -249,22 +249,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -272,23 +272,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -296,7 +296,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -304,22 +304,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -327,23 +327,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -351,7 +351,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -359,22 +359,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -382,23 +382,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -406,7 +406,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -414,23 +414,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -438,7 +438,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -446,22 +446,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -469,22 +469,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -492,23 +492,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -516,7 +516,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -524,22 +524,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -547,22 +547,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -570,23 +570,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -594,7 +594,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -602,23 +602,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -626,7 +626,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -634,23 +634,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -658,7 +658,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -666,23 +666,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -690,7 +690,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -698,23 +698,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -722,7 +722,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -730,22 +730,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -753,22 +753,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -776,23 +776,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -800,7 +800,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -808,22 +808,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -831,22 +831,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -854,23 +854,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -878,7 +878,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -886,22 +886,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -909,22 +909,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -932,23 +932,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -956,7 +956,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -964,22 +964,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -987,22 +987,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -1010,23 +1010,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -1034,7 +1034,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -1042,23 +1042,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -1066,7 +1066,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -1074,22 +1074,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -1097,23 +1097,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -1121,7 +1121,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -1129,22 +1129,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -1152,22 +1152,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -1175,23 +1175,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -1199,7 +1199,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -1207,22 +1207,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -1230,22 +1230,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -1253,23 +1253,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -1277,7 +1277,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -1285,22 +1285,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -1308,22 +1308,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -1331,23 +1331,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -1355,7 +1355,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -1363,23 +1363,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -1387,7 +1387,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -1395,22 +1395,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -1418,22 +1418,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -1441,23 +1441,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -1465,7 +1465,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -1473,22 +1473,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -1496,22 +1496,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -1519,23 +1519,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -1543,7 +1543,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -1551,22 +1551,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -1574,23 +1574,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -1598,7 +1598,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -1606,22 +1606,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -1629,22 +1629,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -1652,22 +1652,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -1675,23 +1675,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -1699,7 +1699,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -1707,22 +1707,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -1730,22 +1730,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -1753,23 +1753,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -1777,7 +1777,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -1785,23 +1785,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -1809,7 +1809,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -1817,22 +1817,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -1840,22 +1840,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -1863,23 +1863,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -1887,7 +1887,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -1895,22 +1895,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -1918,22 +1918,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -1941,23 +1941,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -1965,7 +1965,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -1973,23 +1973,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -1997,7 +1997,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -2005,23 +2005,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -2029,7 +2029,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -2037,22 +2037,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -2060,22 +2060,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -2083,23 +2083,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -2107,7 +2107,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -2115,23 +2115,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -2139,7 +2139,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -2147,23 +2147,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -2171,7 +2171,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -2179,23 +2179,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -2203,7 +2203,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -2211,22 +2211,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -2234,22 +2234,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -2257,23 +2257,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -2281,7 +2281,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -2289,22 +2289,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -2312,22 +2312,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -2335,23 +2335,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -2359,7 +2359,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -2367,23 +2367,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -2391,7 +2391,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -2399,22 +2399,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -2422,22 +2422,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -2445,23 +2445,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -2469,7 +2469,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -2477,22 +2477,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -2500,23 +2500,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -2524,7 +2524,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -2532,22 +2532,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -2555,22 +2555,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -2578,23 +2578,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -2602,7 +2602,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -2610,23 +2610,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -2634,7 +2634,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -2642,22 +2642,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -2665,23 +2665,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -2689,7 +2689,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -2697,22 +2697,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -2720,22 +2720,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -2743,23 +2743,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -2767,7 +2767,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -2775,23 +2775,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -2799,7 +2799,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -2807,22 +2807,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -2830,23 +2830,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -2854,7 +2854,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -2862,22 +2862,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -2885,22 +2885,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -2908,23 +2908,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -2932,7 +2932,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -2940,22 +2940,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -2963,23 +2963,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -2987,7 +2987,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -2995,22 +2995,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -3018,23 +3018,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -3042,7 +3042,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -3050,22 +3050,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -3073,23 +3073,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -3097,7 +3097,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -3105,23 +3105,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -3129,7 +3129,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -3137,22 +3137,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -3160,22 +3160,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -3183,23 +3183,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -3207,7 +3207,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -3215,22 +3215,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -3238,23 +3238,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -3262,7 +3262,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -3270,22 +3270,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -3293,23 +3293,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -3317,7 +3317,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -3325,22 +3325,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -3348,23 +3348,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -3372,7 +3372,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -3380,22 +3380,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -3403,22 +3403,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -3426,23 +3426,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -3450,7 +3450,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -3458,22 +3458,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -3481,23 +3481,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -3505,7 +3505,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -3513,23 +3513,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -3537,7 +3537,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -3545,23 +3545,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -3569,7 +3569,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -3577,22 +3577,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -3600,23 +3600,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -3624,7 +3624,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -3632,22 +3632,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -3655,22 +3655,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -3678,23 +3678,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -3702,7 +3702,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -3710,22 +3710,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -3733,22 +3733,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -3756,23 +3756,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -3780,7 +3780,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -3788,22 +3788,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -3811,23 +3811,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -3835,7 +3835,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -3843,22 +3843,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -3866,22 +3866,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -3889,23 +3889,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -3913,7 +3913,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -3921,23 +3921,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -3945,7 +3945,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -3953,22 +3953,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -3976,22 +3976,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -3999,23 +3999,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -4023,7 +4023,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -4031,23 +4031,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -4055,7 +4055,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -4063,23 +4063,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -4087,7 +4087,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -4095,22 +4095,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -4118,22 +4118,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -4141,23 +4141,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -4165,7 +4165,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -4173,23 +4173,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -4197,7 +4197,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -4205,22 +4205,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -4228,22 +4228,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -4251,23 +4251,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -4275,7 +4275,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -4283,23 +4283,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -4307,7 +4307,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -4315,22 +4315,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -4338,23 +4338,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -4362,7 +4362,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -4370,23 +4370,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -4394,7 +4394,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -4402,22 +4402,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -4425,23 +4425,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -4449,7 +4449,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -4457,22 +4457,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -4480,22 +4480,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -4503,23 +4503,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -4527,7 +4527,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -4535,22 +4535,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -4558,22 +4558,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -4581,23 +4581,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -4605,7 +4605,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -4613,22 +4613,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -4636,22 +4636,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -4659,23 +4659,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -4683,7 +4683,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -4691,23 +4691,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -4715,7 +4715,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -4723,22 +4723,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -4746,23 +4746,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -4770,7 +4770,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -4778,22 +4778,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -4801,22 +4801,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -4824,23 +4824,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -4848,7 +4848,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -4856,23 +4856,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -4880,7 +4880,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -4888,23 +4888,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -4912,7 +4912,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -4920,23 +4920,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -4944,7 +4944,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -4952,22 +4952,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -4975,22 +4975,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -4998,23 +4998,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -5022,7 +5022,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -5030,23 +5030,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -5054,7 +5054,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -5062,23 +5062,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -5086,7 +5086,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -5094,22 +5094,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -5117,23 +5117,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -5141,7 +5141,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -5149,22 +5149,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -5172,22 +5172,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -5195,23 +5195,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -5219,7 +5219,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -5227,23 +5227,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -5251,7 +5251,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -5259,22 +5259,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -5282,22 +5282,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -5305,23 +5305,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -5329,7 +5329,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -5337,23 +5337,23 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -5361,7 +5361,7 @@ export type MovieWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -5369,22 +5369,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -5392,22 +5392,22 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -5415,30 +5415,30 @@ export type MovieWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
-  }
-}
+        display_priority?: number;
+      }[];
+    };
+  };
+};
 
-export type MovieWatchProvidersQueryResponse = MovieWatchProviders200
+export type MovieWatchProvidersQueryResponse = MovieWatchProviders200;
 
 export type MovieWatchProvidersQuery = {
-  Response: MovieWatchProviders200
-  PathParams: MovieWatchProvidersPathParams
-  Errors: any
-}
+  Response: MovieWatchProviders200;
+  PathParams: MovieWatchProvidersPathParams;
+  Errors: any;
+};

@@ -7,16 +7,16 @@ export type MovieVideosPathParams = {
   /**
    * @type integer, int32
    */
-  movie_id: number
-}
+  movie_id: number;
+};
 
 export type MovieVideosQueryParams = {
   /**
    * @default "en-US"
    * @type string | undefined
    */
-  language?: string
-}
+  language?: string;
+};
 
 /**
  * @description 200
@@ -26,7 +26,7 @@ export type MovieVideos200 = {
    * @default 0
    * @type integer | undefined
    */
-  id?: number
+  id?: number;
   /**
    * @type array | undefined
    */
@@ -34,53 +34,53 @@ export type MovieVideos200 = {
     /**
      * @type string | undefined
      */
-    iso_639_1?: string
+    iso_639_1?: string;
     /**
      * @type string | undefined
      */
-    iso_3166_1?: string
+    iso_3166_1?: string;
     /**
      * @type string | undefined
      */
-    name?: string
+    name?: string;
     /**
      * @type string | undefined
      */
-    key?: string
+    key?: string;
     /**
      * @type string | undefined
      */
-    site?: string
+    site?: string;
     /**
      * @default 0
      * @type integer | undefined
      */
-    size?: number
+    size?: number;
     /**
      * @type string | undefined
      */
-    type?: string
+    type?: string;
     /**
      * @default true
      * @type boolean | undefined
      */
-    official?: boolean
+    official?: boolean;
     /**
      * @type string | undefined
      */
-    published_at?: string
+    published_at?: string;
     /**
      * @type string | undefined
      */
-    id?: string
-  }[]
-}
+    id?: string;
+  }[];
+};
 
-export type MovieVideosQueryResponse = MovieVideos200
+export type MovieVideosQueryResponse = MovieVideos200;
 
 export type MovieVideosQuery = {
-  Response: MovieVideos200
-  PathParams: MovieVideosPathParams
-  QueryParams: MovieVideosQueryParams
-  Errors: any
-}
+  Response: MovieVideos200;
+  PathParams: MovieVideosPathParams;
+  QueryParams: MovieVideosQueryParams;
+  Errors: any;
+};

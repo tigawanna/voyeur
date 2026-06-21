@@ -8,14 +8,14 @@ Browse films, save favorites, and build your watchlist. Built with TanStack Star
 
 We use [TanStack DB](https://tanstack.com/db) to mix **live API-backed collections** with **local-only collections** and query them together as if they were tables in one database.
 
-| Collection | Source | Role |
-| --- | --- | --- |
-| `moviesCollection` | TMDB via server proxy | Browse results, loaded on demand from the API |
-| `movieBasicCollection` | Written by detail fetch (`writeUpsert`) | Cached hero summary (poster, title, overview) per movie id |
-| `movieDetailCollection` | TMDB via server proxy | Full movie detail; seeds `movieBasicCollection` on success |
-| `movieRecommendationsCollection` | TMDB via server proxy | Recommendations per source movie; joinable with library collections |
-| `favoritesCollection` | Browser persistence (SQLite / OPFS) | Per-device favorites |
-| `watchlistCollection` | Browser persistence (SQLite / OPFS) | Per-device watchlist |
+| Collection                       | Source                                  | Role                                                                |
+| -------------------------------- | --------------------------------------- | ------------------------------------------------------------------- |
+| `moviesCollection`               | TMDB via server proxy                   | Browse results, loaded on demand from the API                       |
+| `movieBasicCollection`           | Written by detail fetch (`writeUpsert`) | Cached hero summary (poster, title, overview) per movie id          |
+| `movieDetailCollection`          | TMDB via server proxy                   | Full movie detail; seeds `movieBasicCollection` on success          |
+| `movieRecommendationsCollection` | TMDB via server proxy                   | Recommendations per source movie; joinable with library collections |
+| `favoritesCollection`            | Browser persistence (SQLite / OPFS)     | Per-device favorites                                                |
+| `watchlistCollection`            | Browser persistence (SQLite / OPFS)     | Per-device watchlist                                                |
 
 **Movie detail loading** — the detail route uses multiple live queries: browse or recommendations cache for instant hero when coming from a grid, `movieBasicCollection` for return visits, and `movieDetailCollection` for the API fetch. Extra fields (runtime, budget, …) render in `MovieDetailMetadata` with its own loading state. See `src/data-access-layer/tmdb/COLLECTIONS.md` for the full flow.
 
@@ -40,7 +40,7 @@ useLiveQuery((q) =>
       isFavorite: not(isUndefined(favorite)),
       isWatchlisted: not(isUndefined(watchlist)),
     })),
-)
+);
 ```
 
 That pattern is the main payoff: remote catalog data and local library state compose in one reactive query instead of separate hooks and manual joins.
@@ -98,14 +98,14 @@ The dev server runs at [http://localhost:3072](http://localhost:3072).
 
 ### Environment variables
 
-| Variable | Where | Purpose |
-| --- | --- | --- |
-| `TMDB_API_KEY` | `.dev.vars` / Wrangler | TMDB API access (server-only) |
-| `BETTER_AUTH_SECRET` | `.dev.vars` / Wrangler | Session signing secret |
-| `BETTER_AUTH_URL` | `.dev.vars` / Wrangler | Public app URL (e.g. `http://localhost:3072`) |
-| `GOOGLE_CLIENT_ID` | `.dev.vars` / Wrangler | Google OAuth client ID |
-| `GOOGLE_CLIENT_SECRET` | `.dev.vars` / Wrangler | Google OAuth client secret |
-| `VITE_APP_URL` | `.env` | Client-side app URL for auth redirects |
+| Variable               | Where                  | Purpose                                       |
+| ---------------------- | ---------------------- | --------------------------------------------- |
+| `TMDB_API_KEY`         | `.dev.vars` / Wrangler | TMDB API access (server-only)                 |
+| `BETTER_AUTH_SECRET`   | `.dev.vars` / Wrangler | Session signing secret                        |
+| `BETTER_AUTH_URL`      | `.dev.vars` / Wrangler | Public app URL (e.g. `http://localhost:3072`) |
+| `GOOGLE_CLIENT_ID`     | `.dev.vars` / Wrangler | Google OAuth client ID                        |
+| `GOOGLE_CLIENT_SECRET` | `.dev.vars` / Wrangler | Google OAuth client secret                    |
+| `VITE_APP_URL`         | `.env`                 | Client-side app URL for auth redirects        |
 
 `BETTER_AUTH_URL` and `VITE_APP_URL` must match in local development. Configure the same redirect URI in the Google Cloud console (`{BETTER_AUTH_URL}/api/auth/callback/google`).
 
@@ -129,18 +129,18 @@ Auth follows the viewer pattern from **agentic-json-resume**: a single React Que
 
 ### Key files
 
-| File | Role |
-| --- | --- |
-| `src/server/create-auth.ts` | better-auth instance (Drizzle adapter, Google provider) |
-| `src/lib/auth.ts` | `getAuth()` — lazy accessor for the Cloudflare worker env |
-| `src/lib/auth.functions.ts` | `getSession` server function |
-| `src/lib/better-auth/client.ts` | Client-side `authClient` |
-| `src/routes/api/auth/$.ts` | better-auth HTTP handler (`GET` / `POST`) |
-| `src/data-access-layer/auth/viewer.ts` | `viewerqueryOptions`, `useViewer`, `viewerMiddleware` |
-| `src/routes/__root.tsx` | Loads viewer into router context on every navigation |
-| `src/routes/_app/route.tsx` | Protected layout — server middleware + client redirect |
-| `src/routes/login.tsx` | Public sign-in page |
-| `src/features/auth/components/LoginCard.tsx` | Google sign-in UI |
+| File                                         | Role                                                      |
+| -------------------------------------------- | --------------------------------------------------------- |
+| `src/server/create-auth.ts`                  | better-auth instance (Drizzle adapter, Google provider)   |
+| `src/lib/auth.ts`                            | `getAuth()` — lazy accessor for the Cloudflare worker env |
+| `src/lib/auth.functions.ts`                  | `getSession` server function                              |
+| `src/lib/better-auth/client.ts`              | Client-side `authClient`                                  |
+| `src/routes/api/auth/$.ts`                   | better-auth HTTP handler (`GET` / `POST`)                 |
+| `src/data-access-layer/auth/viewer.ts`       | `viewerqueryOptions`, `useViewer`, `viewerMiddleware`     |
+| `src/routes/__root.tsx`                      | Loads viewer into router context on every navigation      |
+| `src/routes/_app/route.tsx`                  | Protected layout — server middleware + client redirect    |
+| `src/routes/login.tsx`                       | Public sign-in page                                       |
+| `src/features/auth/components/LoginCard.tsx` | Google sign-in UI                                         |
 
 ### How the viewer flows through the router
 
@@ -183,11 +183,11 @@ flowchart TD
 
 ### Route access
 
-| Route | Auth required | How viewer is read |
-| --- | --- | --- |
-| `/` | No | `useRouteContext({ from: '__root__' })` |
-| `/login` | No | `context.viewer` in `beforeLoad` |
-| `/_app/*` (`/movies`, `/favorites`, `/watchlist`) | Yes | `useViewer()` in `AppShell` |
+| Route                                             | Auth required | How viewer is read                      |
+| ------------------------------------------------- | ------------- | --------------------------------------- |
+| `/`                                               | No            | `useRouteContext({ from: '__root__' })` |
+| `/login`                                          | No            | `context.viewer` in `beforeLoad`        |
+| `/_app/*` (`/movies`, `/favorites`, `/watchlist`) | Yes           | `useViewer()` in `AppShell`             |
 
 `viewerMiddleware` is attached to `/_app`, not required for public routes, so the landing page and login stay reachable while signed out.
 
@@ -223,8 +223,14 @@ pnpm build            # Production build
 pnpm deploy           # Build + Wrangler deploy
 pnpm db:migrate:local # Apply D1 migrations locally
 pnpm test             # Vitest
+pnpm test:e2e         # Playwright (headless)
+pnpm test:e2e:ui      # Playwright UI mode
 pnpm lint             # ESLint
 ```
+
+### E2E tests
+
+There is a small Playwright suite in `e2e/` — not comprehensive, but it covers the main happy path: browse grid → movie detail → recommendations → favorites/watchlist. TMDB responses are mocked via fixtures in `mock/` (no live API calls). `VITE_BYPASS_AUTH=true` is set automatically by `playwright.config.ts` so Google OAuth is skipped in test mode.
 
 ## Routing
 
@@ -237,10 +243,10 @@ File-based routes live in `src/routes`. TanStack Router generates `src/routeTree
 
 ## Data fetching
 
-| Layer | Responsibility |
-| --- | --- |
-| Hono TMDB proxy (`src/server/tmdb-routes.ts`) | Server-side TMDB calls with `TMDB_API_KEY` |
-| TanStack Query (`src/data-access-layer/tmdb/query-options.ts`) | HTTP fetch helpers, pagination metadata |
+| Layer                                                          | Responsibility                                            |
+| -------------------------------------------------------------- | --------------------------------------------------------- |
+| Hono TMDB proxy (`src/server/tmdb-routes.ts`)                  | Server-side TMDB calls with `TMDB_API_KEY`                |
+| TanStack Query (`src/data-access-layer/tmdb/query-options.ts`) | HTTP fetch helpers, pagination metadata                   |
 | TanStack DB (`src/data-access-layer/tmdb/query-collection.ts`) | Collections, live queries, joins with local library state |
 
 Movie browse uses `useLiveQuery` for the grid (movies + favorites + watchlist) and a parallel `useQuery` only where TanStack Query still owns pagination totals. Movie detail routes can prefetch via loaders where SSR is enabled.

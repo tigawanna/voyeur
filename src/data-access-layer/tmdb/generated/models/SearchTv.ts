@@ -7,33 +7,33 @@ export type SearchTvQueryParams = {
   /**
    * @type string
    */
-  query: string
+  query: string;
   /**
    * @description Search only the first air date. Valid values are: 1000..9999
    * @type integer | undefined, int32
    */
-  first_air_date_year?: number
+  first_air_date_year?: number;
   /**
    * @default false
    * @type boolean | undefined
    */
-  include_adult?: boolean
+  include_adult?: boolean;
   /**
    * @default "en-US"
    * @type string | undefined
    */
-  language?: string
+  language?: string;
   /**
    * @default 1
    * @type integer | undefined, int32
    */
-  page?: number
+  page?: number;
   /**
    * @description Search the first air date and all episode air dates. Valid values are: 1000..9999
    * @type integer | undefined, int32
    */
-  year?: number
-}
+  year?: number;
+};
 
 /**
  * @description 200
@@ -43,7 +43,7 @@ export type SearchTv200 = {
    * @default 0
    * @type integer | undefined
    */
-  page?: number
+  page?: number;
   /**
    * @type array | undefined
    */
@@ -52,80 +52,80 @@ export type SearchTv200 = {
      * @default true
      * @type boolean | undefined
      */
-    adult?: boolean
+    adult?: boolean;
     /**
      * @type string | undefined
      */
-    backdrop_path?: string
+    backdrop_path?: string;
     /**
      * @type array | undefined
      */
-    genre_ids?: number[]
+    genre_ids?: number[];
     /**
      * @default 0
      * @type integer | undefined
      */
-    id?: number
+    id?: number;
     /**
      * @type array | undefined
      */
-    origin_country?: string[]
+    origin_country?: string[];
     /**
      * @type string | undefined
      */
-    original_language?: string
+    original_language?: string;
     /**
      * @type string | undefined
      */
-    original_name?: string
+    original_name?: string;
     /**
      * @type string | undefined
      */
-    overview?: string
+    overview?: string;
     /**
      * @default 0
      * @type number | undefined
      */
-    popularity?: number
+    popularity?: number;
     /**
      * @type string | undefined
      */
-    poster_path?: string
+    poster_path?: string;
     /**
      * @type string | undefined
      */
-    first_air_date?: string
+    first_air_date?: string;
     /**
      * @type string | undefined
      */
-    name?: string
+    name?: string;
     /**
      * @default 0
      * @type number | undefined
      */
-    vote_average?: number
+    vote_average?: number;
     /**
      * @default 0
      * @type integer | undefined
      */
-    vote_count?: number
-  }[]
+    vote_count?: number;
+  }[];
   /**
    * @default 0
    * @type integer | undefined
    */
-  total_pages?: number
+  total_pages?: number;
   /**
    * @default 0
    * @type integer | undefined
    */
-  total_results?: number
-}
+  total_results?: number;
+};
 
-export type SearchTvQueryResponse = SearchTv200
+export type SearchTvQueryResponse = SearchTv200;
 
 export type SearchTvQuery = {
-  Response: SearchTv200
-  QueryParams: SearchTvQueryParams
-  Errors: any
-}
+  Response: SearchTv200;
+  QueryParams: SearchTvQueryParams;
+  Errors: any;
+};

@@ -7,13 +7,13 @@ export type SearchKeywordQueryParams = {
   /**
    * @type string
    */
-  query: string
+  query: string;
   /**
    * @default 1
    * @type integer | undefined, int32
    */
-  page?: number
-}
+  page?: number;
+};
 
 /**
  * @description 200
@@ -23,7 +23,7 @@ export type SearchKeyword200 = {
    * @default 0
    * @type integer | undefined
    */
-  page?: number
+  page?: number;
   /**
    * @type array | undefined
    */
@@ -32,28 +32,28 @@ export type SearchKeyword200 = {
      * @default 0
      * @type integer | undefined
      */
-    id?: number
+    id?: number;
     /**
      * @type string | undefined
      */
-    name?: string
-  }[]
+    name?: string;
+  }[];
   /**
    * @default 0
    * @type integer | undefined
    */
-  total_pages?: number
+  total_pages?: number;
   /**
    * @default 0
    * @type integer | undefined
    */
-  total_results?: number
-}
+  total_results?: number;
+};
 
-export type SearchKeywordQueryResponse = SearchKeyword200
+export type SearchKeywordQueryResponse = SearchKeyword200;
 
 export type SearchKeywordQuery = {
-  Response: SearchKeyword200
-  QueryParams: SearchKeywordQueryParams
-  Errors: any
-}
+  Response: SearchKeyword200;
+  QueryParams: SearchKeywordQueryParams;
+  Errors: any;
+};

@@ -221,9 +221,7 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "required": [
-                  "RAW_BODY"
-                ],
+                "required": ["RAW_BODY"],
                 "properties": {
                   "RAW_BODY": {
                     "type": "string",
@@ -303,9 +301,7 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "required": [
-                  "RAW_BODY"
-                ],
+                "required": ["RAW_BODY"],
                 "properties": {
                   "RAW_BODY": {
                     "type": "string",
@@ -401,10 +397,7 @@
             "in": "query",
             "schema": {
               "type": "string",
-              "enum": [
-                "created_at.asc",
-                "created_at.desc"
-              ],
+              "enum": ["created_at.asc", "created_at.desc"],
               "default": "created_at.asc"
             }
           }
@@ -565,10 +558,7 @@
             "in": "query",
             "schema": {
               "type": "string",
-              "enum": [
-                "created_at.asc",
-                "created_at.desc"
-              ],
+              "enum": ["created_at.asc", "created_at.desc"],
               "default": "created_at.asc"
             }
           }
@@ -773,9 +763,7 @@
                             "type": "string",
                             "example": "Test Alpha Sort"
                           },
-                          "poster_path": {
-
-                          }
+                          "poster_path": {}
                         }
                       }
                     },
@@ -843,10 +831,7 @@
             "in": "query",
             "schema": {
               "type": "string",
-              "enum": [
-                "created_at.asc",
-                "created_at.desc"
-              ],
+              "enum": ["created_at.asc", "created_at.desc"],
               "default": "created_at.asc"
             }
           }
@@ -1012,10 +997,7 @@
             "in": "query",
             "schema": {
               "type": "string",
-              "enum": [
-                "created_at.asc",
-                "created_at.desc"
-              ],
+              "enum": ["created_at.asc", "created_at.desc"],
               "default": "created_at.asc"
             }
           }
@@ -1183,10 +1165,7 @@
             "in": "query",
             "schema": {
               "type": "string",
-              "enum": [
-                "created_at.asc",
-                "created_at.desc"
-              ],
+              "enum": ["created_at.asc", "created_at.desc"],
               "default": "created_at.asc"
             }
           }
@@ -1341,10 +1320,7 @@
             "in": "query",
             "schema": {
               "type": "string",
-              "enum": [
-                "created_at.asc",
-                "created_at.desc"
-              ],
+              "enum": ["created_at.asc", "created_at.desc"],
               "default": "created_at.asc"
             }
           }
@@ -1505,10 +1481,7 @@
             "in": "query",
             "schema": {
               "type": "string",
-              "enum": [
-                "created_at.asc",
-                "created_at.desc"
-              ],
+              "enum": ["created_at.asc", "created_at.desc"],
               "default": "created_at.asc"
             }
           }
@@ -1716,9 +1689,7 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "required": [
-                  "RAW_BODY"
-                ],
+                "required": ["RAW_BODY"],
                 "properties": {
                   "RAW_BODY": {
                     "type": "string",
@@ -1777,9 +1748,7 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "required": [
-                  "RAW_BODY"
-                ],
+                "required": ["RAW_BODY"],
                 "properties": {
                   "RAW_BODY": {
                     "type": "string",
@@ -1838,9 +1807,7 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "required": [
-                  "RAW_BODY"
-                ],
+                "required": ["RAW_BODY"],
                 "properties": {
                   "RAW_BODY": {
                     "type": "string",
@@ -1905,9 +1872,7 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "required": [
-                  "RAW_BODY"
-                ],
+                "required": ["RAW_BODY"],
                 "properties": {
                   "RAW_BODY": {
                     "type": "string",
@@ -4279,9 +4244,7 @@
                             "example": 1080,
                             "default": 0
                           },
-                          "iso_639_1": {
-
-                          },
+                          "iso_639_1": {},
                           "file_path": {
                             "type": "string",
                             "example": "/d8duYyyC9J5T825Hg7grmaabfxQ.jpg"
@@ -4496,9 +4459,7 @@
                       "type": "string",
                       "example": "US"
                     },
-                    "parent_company": {
-
-                    }
+                    "parent_company": {}
                   }
                 }
               }
@@ -6297,10 +6258,7 @@
             "in": "query",
             "schema": {
               "type": "string",
-              "enum": [
-                "created_at.asc",
-                "created_at.desc"
-              ],
+              "enum": ["created_at.asc", "created_at.desc"],
               "default": "created_at.asc"
             }
           }
@@ -6457,10 +6415,7 @@
             "in": "query",
             "schema": {
               "type": "string",
-              "enum": [
-                "created_at.asc",
-                "created_at.desc"
-              ],
+              "enum": ["created_at.asc", "created_at.desc"],
               "default": "created_at.asc"
             }
           }
@@ -6619,10 +6574,7 @@
             "in": "query",
             "schema": {
               "type": "string",
-              "enum": [
-                "created_at.asc",
-                "created_at.desc"
-              ],
+              "enum": ["created_at.asc", "created_at.desc"],
               "default": "created_at.asc"
             }
           }
@@ -7160,9 +7112,7 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "required": [
-                  "RAW_BODY"
-                ],
+                "required": ["RAW_BODY"],
                 "properties": {
                   "RAW_BODY": {
                     "type": "string",
@@ -7472,9 +7422,7 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "required": [
-                  "RAW_BODY"
-                ],
+                "required": ["RAW_BODY"],
                 "properties": {
                   "RAW_BODY": {
                     "type": "string",
@@ -8188,9 +8136,7 @@
                       "homepage": "http://www.starwars.com/films/star-wars-episode-iv-a-new-hope",
                       "id": 11,
                       "imdb_id": "tt0076759",
-                      "origin_country": [
-                        "US"
-                      ],
+                      "origin_country": ["US"],
                       "original_language": "en",
                       "original_title": "Star Wars",
                       "overview": "Princess Leia is captured and held hostage by the evil Imperial forces in their effort to take over the galactic Empire. Venturesome Luke Skywalker and dashing captain Han Solo team together with the loveable robot duo R2-D2 and C-3PO to rescue the beautiful princess and restore peace and justice in the Empire.",
@@ -8915,19 +8861,13 @@
                       "type": "string",
                       "example": "tt0137523"
                     },
-                    "wikidata_id": {
-
-                    },
+                    "wikidata_id": {},
                     "facebook_id": {
                       "type": "string",
                       "example": "FightClub"
                     },
-                    "instagram_id": {
-
-                    },
-                    "twitter_id": {
-
-                    }
+                    "instagram_id": {},
+                    "twitter_id": {}
                   }
                 }
               }
@@ -8996,9 +8936,7 @@
                             "example": 800,
                             "default": 0
                           },
-                          "iso_639_1": {
-
-                          },
+                          "iso_639_1": {},
                           "file_path": {
                             "type": "string",
                             "example": "/hZkgoQYus5vegHoetLkCJzb17zJ.jpg"
@@ -9199,12 +9137,8 @@
                       "example": false,
                       "default": true
                     },
-                    "backdrop_path": {
-
-                    },
-                    "belongs_to_collection": {
-
-                    },
+                    "backdrop_path": {},
+                    "belongs_to_collection": {},
                     "budget": {
                       "type": "integer",
                       "example": 0,
@@ -9222,9 +9156,7 @@
                       "example": 1119232,
                       "default": 0
                     },
-                    "imdb_id": {
-
-                    },
+                    "imdb_id": {},
                     "original_language": {
                       "type": "string",
                       "example": "fr"
@@ -9242,9 +9174,7 @@
                       "example": 0,
                       "default": 0
                     },
-                    "poster_path": {
-
-                    },
+                    "poster_path": {},
                     "production_companies": {
                       "type": "array"
                     },
@@ -9396,9 +9326,7 @@
                             "type": "string",
                             "example": "My Movies"
                           },
-                          "poster_path": {
-
-                          }
+                          "poster_path": {}
                         }
                       }
                     },
@@ -9466,9 +9394,7 @@
                 },
                 "schema": {
                   "type": "object",
-                  "properties": {
-
-                  }
+                  "properties": {}
                 }
               }
             }
@@ -9644,9 +9570,7 @@
                                 "type": "string",
                                 "example": "/https://secure.gravatar.com/avatar/f248ec34f953bc62cafcbdd81fddd6b6.jpg"
                               },
-                              "rating": {
-
-                              }
+                              "rating": {}
                             }
                           },
                           "content": {
@@ -16124,9 +16048,7 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "required": [
-                  "RAW_BODY"
-                ],
+                "required": ["RAW_BODY"],
                 "properties": {
                   "RAW_BODY": {
                     "type": "string",
@@ -16691,17 +16613,13 @@
                       "type": "string",
                       "example": "1956-07-09"
                     },
-                    "deathday": {
-
-                    },
+                    "deathday": {},
                     "gender": {
                       "type": "integer",
                       "example": 2,
                       "default": 0
                     },
-                    "homepage": {
-
-                    },
+                    "homepage": {},
                     "id": {
                       "type": "integer",
                       "example": 31,
@@ -17150,9 +17068,7 @@
                       "type": "string",
                       "example": "tomhanks"
                     },
-                    "youtube_id": {
-
-                    }
+                    "youtube_id": {}
                   }
                 }
               }
@@ -17211,9 +17127,7 @@
                             "example": 980,
                             "default": 0
                           },
-                          "iso_639_1": {
-
-                          },
+                          "iso_639_1": {},
                           "file_path": {
                             "type": "string",
                             "example": "/cckcYc2v0yh1tc9QjRelptcOBko.jpg"
@@ -17275,46 +17189,32 @@
                       "type": "string",
                       "example": ""
                     },
-                    "birthday": {
-
-                    },
-                    "deathday": {
-
-                    },
+                    "birthday": {},
+                    "deathday": {},
                     "gender": {
                       "type": "integer",
                       "example": 0,
                       "default": 0
                     },
-                    "homepage": {
-
-                    },
+                    "homepage": {},
                     "id": {
                       "type": "integer",
                       "example": 4064343,
                       "default": 0
                     },
-                    "imdb_id": {
-
-                    },
-                    "known_for_department": {
-
-                    },
+                    "imdb_id": {},
+                    "known_for_department": {},
                     "name": {
                       "type": "string",
                       "example": "Ángel Cruz"
                     },
-                    "place_of_birth": {
-
-                    },
+                    "place_of_birth": {},
                     "popularity": {
                       "type": "integer",
                       "example": 0,
                       "default": 0
                     },
-                    "profile_path": {
-
-                    }
+                    "profile_path": {}
                   }
                 }
               }
@@ -18717,9 +18617,7 @@
                           "first_air_date": "2022-09-21",
                           "vote_average": 8.223,
                           "vote_count": 671,
-                          "origin_country": [
-                            "US"
-                          ]
+                          "origin_country": ["US"]
                         },
                         {
                           "adult": false,
@@ -18736,10 +18634,7 @@
                           "first_air_date": "2021-09-22",
                           "vote_average": 7.304,
                           "vote_count": 237,
-                          "origin_country": [
-                            "JP",
-                            "US"
-                          ]
+                          "origin_country": ["JP", "US"]
                         },
                         {
                           "adult": false,
@@ -18756,9 +18651,7 @@
                           "first_air_date": "2008-10-03",
                           "vote_average": 8.48,
                           "vote_count": 1649,
-                          "origin_country": [
-                            "US"
-                          ]
+                          "origin_country": ["US"]
                         },
                         {
                           "adult": false,
@@ -18775,9 +18668,7 @@
                           "first_air_date": "2021-05-04",
                           "vote_average": 8.334,
                           "vote_count": 738,
-                          "origin_country": [
-                            "US"
-                          ]
+                          "origin_country": ["US"]
                         },
                         {
                           "adult": false,
@@ -18794,9 +18685,7 @@
                           "first_air_date": "2014-10-13",
                           "vote_average": 7.667,
                           "vote_count": 650,
-                          "origin_country": [
-                            "US"
-                          ]
+                          "origin_country": ["US"]
                         },
                         {
                           "adult": false,
@@ -18949,9 +18838,7 @@
                           "first_air_date": "2022-10-26",
                           "vote_average": 8.102,
                           "vote_count": 172,
-                          "origin_country": [
-                            "US"
-                          ]
+                          "origin_country": ["US"]
                         },
                         {
                           "adult": false,
@@ -18968,9 +18855,7 @@
                           "first_air_date": "2020-05-04",
                           "vote_average": 7.3,
                           "vote_count": 45,
-                          "origin_country": [
-                            "US"
-                          ]
+                          "origin_country": ["US"]
                         },
                         {
                           "adult": false,
@@ -19004,9 +18889,7 @@
                           "first_air_date": "2018-10-07",
                           "vote_average": 6.417,
                           "vote_count": 96,
-                          "origin_country": [
-                            "US"
-                          ]
+                          "origin_country": ["US"]
                         },
                         {
                           "adult": false,
@@ -19523,10 +19406,7 @@
             "in": "path",
             "schema": {
               "type": "string",
-              "enum": [
-                "day",
-                "week"
-              ],
+              "enum": ["day", "week"],
               "default": "day"
             },
             "required": true
@@ -19667,10 +19547,7 @@
             "in": "path",
             "schema": {
               "type": "string",
-              "enum": [
-                "day",
-                "week"
-              ],
+              "enum": ["day", "week"],
               "default": "day"
             },
             "required": true
@@ -19811,10 +19688,7 @@
             "in": "path",
             "schema": {
               "type": "string",
-              "enum": [
-                "day",
-                "week"
-              ],
+              "enum": ["day", "week"],
               "default": "day"
             },
             "required": true
@@ -20003,10 +19877,7 @@
             "in": "path",
             "schema": {
               "type": "string",
-              "enum": [
-                "day",
-                "week"
-              ],
+              "enum": ["day", "week"],
               "default": "day"
             },
             "required": true
@@ -20882,9 +20753,7 @@
                       "type": "string",
                       "example": "Game of Thrones"
                     },
-                    "next_episode_to_air": {
-
-                    },
+                    "next_episode_to_air": {},
                     "networks": {
                       "type": "array",
                       "items": {
@@ -22027,9 +21896,7 @@
                             "example": 800,
                             "default": 0
                           },
-                          "iso_639_1": {
-
-                          },
+                          "iso_639_1": {},
                           "file_path": {
                             "type": "string",
                             "example": "/hZkgoQYus5vegHoetLkCJzb17zJ.jpg"
@@ -22231,9 +22098,7 @@
                       "example": false,
                       "default": true
                     },
-                    "backdrop_path": {
-
-                    },
+                    "backdrop_path": {},
                     "created_by": {
                       "type": "array"
                     },
@@ -22307,9 +22172,7 @@
                           "type": "string",
                           "example": ""
                         },
-                        "runtime": {
-
-                        },
+                        "runtime": {},
                         "season_number": {
                           "type": "integer",
                           "example": 1,
@@ -22320,18 +22183,14 @@
                           "example": 225491,
                           "default": 0
                         },
-                        "still_path": {
-
-                        }
+                        "still_path": {}
                       }
                     },
                     "name": {
                       "type": "string",
                       "example": "妖怪传"
                     },
-                    "next_episode_to_air": {
-
-                    },
+                    "next_episode_to_air": {},
                     "networks": {
                       "type": "array"
                     },
@@ -22369,9 +22228,7 @@
                       "example": 0,
                       "default": 0
                     },
-                    "poster_path": {
-
-                    },
+                    "poster_path": {},
                     "production_companies": {
                       "type": "array"
                     },
@@ -22383,9 +22240,7 @@
                       "items": {
                         "type": "object",
                         "properties": {
-                          "air_date": {
-
-                          },
+                          "air_date": {},
                           "episode_count": {
                             "type": "integer",
                             "example": 1,
@@ -22404,9 +22259,7 @@
                             "type": "string",
                             "example": ""
                           },
-                          "poster_path": {
-
-                          },
+                          "poster_path": {},
                           "season_number": {
                             "type": "integer",
                             "example": 1,
@@ -22541,9 +22394,7 @@
                             "type": "string",
                             "example": "Done"
                           },
-                          "poster_path": {
-
-                          }
+                          "poster_path": {}
                         }
                       }
                     },
@@ -26919,9 +26770,7 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "required": [
-                  "RAW_BODY"
-                ],
+                "required": ["RAW_BODY"],
                 "properties": {
                   "RAW_BODY": {
                     "type": "string",
@@ -27592,9 +27441,7 @@
                             "example": 0.995,
                             "default": 0
                           },
-                          "profile_path": {
-
-                          },
+                          "profile_path": {},
                           "jobs": {
                             "type": "array",
                             "items": {
@@ -27890,9 +27737,7 @@
                             "example": 0.694,
                             "default": 0
                           },
-                          "profile_path": {
-
-                          },
+                          "profile_path": {},
                           "credit_id": {
                             "type": "string",
                             "example": "5256c8c419c2956ff604867c"
@@ -27978,9 +27823,7 @@
                       "example": 364731,
                       "default": 0
                     },
-                    "tvrage_id": {
-
-                    },
+                    "tvrage_id": {},
                     "wikidata_id": {
                       "type": "string",
                       "example": "Q1658029"
@@ -34666,9 +34509,7 @@
                             "example": 1080,
                             "default": 0
                           },
-                          "iso_639_1": {
-
-                          },
+                          "iso_639_1": {},
                           "file_path": {
                             "type": "string",
                             "example": "/9hGF3WUkBf7cSjMg0cdMDHJkByd.jpg"
@@ -34987,9 +34828,7 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "required": [
-                  "RAW_BODY"
-                ],
+                "required": ["RAW_BODY"],
                 "properties": {
                   "RAW_BODY": {
                     "type": "string",
@@ -35214,9 +35053,7 @@
                                   "type": "string",
                                   "example": ""
                                 },
-                                "runtime": {
-
-                                },
+                                "runtime": {},
                                 "season_number": {
                                   "type": "integer",
                                   "example": 6,

@@ -1,20 +1,20 @@
-import { BrowseListPagination } from '@/components/pagination/BrowseListPagination'
-import { browseSearchDefaults, getBrowseHeading } from '#/types/browse'
-import type { BrowseSearch } from '#/types/browse'
-import { getMovieSortOrder, MOVIE_SORT_OPTIONS } from '#/types/movie-sort'
-import { cn } from '@/lib/utils'
-import { getRouteApi } from '@tanstack/react-router'
-import { Loader } from 'lucide-react'
-import { MovieFilters } from './MovieListFilters'
-import { MoviesBrowseHeader } from './MoviesBrowseHeader'
+import { BrowseListPagination } from "@/components/pagination/BrowseListPagination";
+import { browseSearchDefaults, getBrowseHeading } from "#/types/browse";
+import type { BrowseSearch } from "#/types/browse";
+import { getMovieSortOrder, MOVIE_SORT_OPTIONS } from "#/types/movie-sort";
+import { cn } from "@/lib/utils";
+import { getRouteApi } from "@tanstack/react-router";
+import { Loader } from "lucide-react";
+import { MovieFilters } from "./MovieListFilters";
+import { MoviesBrowseHeader } from "./MoviesBrowseHeader";
 
-const browseRouteApi = getRouteApi('/_app/movies/')
+const browseRouteApi = getRouteApi("/_app/movies/");
 
 interface MoviesListWrapperProps {
-  children: React.ReactNode
-  totalResults?: number
-  totalPages?: number
-  isRefetching?: boolean
+  children: React.ReactNode;
+  totalResults?: number;
+  totalPages?: number;
+  isRefetching?: boolean;
 }
 
 export function MoviesListWrapper({
@@ -23,17 +23,17 @@ export function MoviesListWrapper({
   totalPages,
   isRefetching,
 }: MoviesListWrapperProps) {
-  const browseSearch = browseRouteApi.useSearch()
-  const navigate = browseRouteApi.useNavigate()
+  const browseSearch = browseRouteApi.useSearch();
+  const navigate = browseRouteApi.useNavigate();
 
-  function handleSearchChange(updates: Partial<Pick<BrowseSearch, 'q' | 'sortBy'>>) {
+  function handleSearchChange(updates: Partial<Pick<BrowseSearch, "q" | "sortBy">>) {
     void navigate({
       search: {
         ...browseSearch,
         ...updates,
         page: 1,
       },
-    })
+    });
   }
 
   return (
@@ -46,7 +46,7 @@ export function MoviesListWrapper({
           />
         </div>
         <MovieFilters
-          q={browseSearch.q ?? ''}
+          q={browseSearch.q ?? ""}
           sortBy={browseSearch.sortBy}
           sortOrder={getMovieSortOrder(browseSearch.sortBy)}
           sortOptions={MOVIE_SORT_OPTIONS}
@@ -55,7 +55,7 @@ export function MoviesListWrapper({
         />
       </div>
       <div className="relative min-h-0 flex-1 overflow-y-auto">
-        <div className={cn(isRefetching && 'pointer-events-none')}>{children}</div>
+        <div className={cn(isRefetching && "pointer-events-none")}>{children}</div>
         {isRefetching ? (
           <div
             aria-busy="true"
@@ -68,11 +68,11 @@ export function MoviesListWrapper({
       </div>
       {totalPages != null ? <BrowseListPagination totalPages={totalPages} /> : null}
     </div>
-  )
+  );
 }
 
 export function useClearBrowseFilters() {
-  const navigate = browseRouteApi.useNavigate()
+  const navigate = browseRouteApi.useNavigate();
 
   return () => {
     void navigate({
@@ -80,6 +80,6 @@ export function useClearBrowseFilters() {
         ...browseSearchDefaults,
         q: undefined,
       },
-    })
-  }
+    });
+  };
 }

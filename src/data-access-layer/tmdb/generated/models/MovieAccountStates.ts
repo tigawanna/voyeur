@@ -7,19 +7,19 @@ export type MovieAccountStatesPathParams = {
   /**
    * @type integer, int32
    */
-  movie_id: number
-}
+  movie_id: number;
+};
 
 export type MovieAccountStatesQueryParams = {
   /**
    * @type string | undefined
    */
-  session_id?: string
+  session_id?: string;
   /**
    * @type string | undefined
    */
-  guest_session_id?: string
-}
+  guest_session_id?: string;
+};
 
 /**
  * @description 200
@@ -29,12 +29,12 @@ export type MovieAccountStates200 = {
    * @default 0
    * @type integer | undefined
    */
-  id?: number
+  id?: number;
   /**
    * @default true
    * @type boolean | undefined
    */
-  favorite?: boolean
+  favorite?: boolean;
   /**
    * @type object | undefined
    */
@@ -43,20 +43,20 @@ export type MovieAccountStates200 = {
      * @default 0
      * @type integer | undefined
      */
-    value?: number
-  }
+    value?: number;
+  };
   /**
    * @default true
    * @type boolean | undefined
    */
-  watchlist?: boolean
-}
+  watchlist?: boolean;
+};
 
-export type MovieAccountStatesQueryResponse = MovieAccountStates200
+export type MovieAccountStatesQueryResponse = MovieAccountStates200;
 
 export type MovieAccountStatesQuery = {
-  Response: MovieAccountStates200
-  PathParams: MovieAccountStatesPathParams
-  QueryParams: MovieAccountStatesQueryParams
-  Errors: any
-}
+  Response: MovieAccountStates200;
+  PathParams: MovieAccountStatesPathParams;
+  QueryParams: MovieAccountStatesQueryParams;
+  Errors: any;
+};

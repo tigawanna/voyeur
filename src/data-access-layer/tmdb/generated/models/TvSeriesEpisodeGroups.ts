@@ -7,8 +7,8 @@ export type TvSeriesEpisodeGroupsPathParams = {
   /**
    * @type integer, int32
    */
-  series_id: number
-}
+  series_id: number;
+};
 
 /**
  * @description 200
@@ -21,25 +21,25 @@ export type TvSeriesEpisodeGroups200 = {
     /**
      * @type string | undefined
      */
-    description?: string
+    description?: string;
     /**
      * @default 0
      * @type integer | undefined
      */
-    episode_count?: number
+    episode_count?: number;
     /**
      * @default 0
      * @type integer | undefined
      */
-    group_count?: number
+    group_count?: number;
     /**
      * @type string | undefined
      */
-    id?: string
+    id?: string;
     /**
      * @type string | undefined
      */
-    name?: string
+    name?: string;
     /**
      * @type object | undefined
      */
@@ -48,37 +48,37 @@ export type TvSeriesEpisodeGroups200 = {
        * @default 0
        * @type integer | undefined
        */
-      id?: number
+      id?: number;
       /**
        * @type string | undefined
        */
-      logo_path?: string
+      logo_path?: string;
       /**
        * @type string | undefined
        */
-      name?: string
+      name?: string;
       /**
        * @type string | undefined
        */
-      origin_country?: string
-    }
+      origin_country?: string;
+    };
     /**
      * @default 0
      * @type integer | undefined
      */
-    type?: number
-  }[]
+    type?: number;
+  }[];
   /**
    * @default 0
    * @type integer | undefined
    */
-  id?: number
-}
+  id?: number;
+};
 
-export type TvSeriesEpisodeGroupsQueryResponse = TvSeriesEpisodeGroups200
+export type TvSeriesEpisodeGroupsQueryResponse = TvSeriesEpisodeGroups200;
 
 export type TvSeriesEpisodeGroupsQuery = {
-  Response: TvSeriesEpisodeGroups200
-  PathParams: TvSeriesEpisodeGroupsPathParams
-  Errors: any
-}
+  Response: TvSeriesEpisodeGroups200;
+  PathParams: TvSeriesEpisodeGroupsPathParams;
+  Errors: any;
+};

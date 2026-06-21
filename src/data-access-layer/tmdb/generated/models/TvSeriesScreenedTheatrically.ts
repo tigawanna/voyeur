@@ -7,8 +7,8 @@ export type TvSeriesScreenedTheatricallyPathParams = {
   /**
    * @type integer, int32
    */
-  series_id: number
-}
+  series_id: number;
+};
 
 /**
  * @description 200
@@ -18,7 +18,7 @@ export type TvSeriesScreenedTheatrically200 = {
    * @default 0
    * @type integer | undefined
    */
-  id?: number
+  id?: number;
   /**
    * @type array | undefined
    */
@@ -27,25 +27,24 @@ export type TvSeriesScreenedTheatrically200 = {
      * @default 0
      * @type integer | undefined
      */
-    id?: number
+    id?: number;
     /**
      * @default 0
      * @type integer | undefined
      */
-    episode_number?: number
+    episode_number?: number;
     /**
      * @default 0
      * @type integer | undefined
      */
-    season_number?: number
-  }[]
-}
+    season_number?: number;
+  }[];
+};
 
-export type TvSeriesScreenedTheatricallyQueryResponse =
-  TvSeriesScreenedTheatrically200
+export type TvSeriesScreenedTheatricallyQueryResponse = TvSeriesScreenedTheatrically200;
 
 export type TvSeriesScreenedTheatricallyQuery = {
-  Response: TvSeriesScreenedTheatrically200
-  PathParams: TvSeriesScreenedTheatricallyPathParams
-  Errors: any
-}
+  Response: TvSeriesScreenedTheatrically200;
+  PathParams: TvSeriesScreenedTheatricallyPathParams;
+  Errors: any;
+};

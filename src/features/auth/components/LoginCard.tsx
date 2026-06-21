@@ -1,28 +1,28 @@
-import { authClient } from '#/lib/better-auth/client'
-import { clientEnv } from '#/lib/client-env'
-import { AppConfig } from '#/utils/system'
-import { Button } from '@/components/ui/button'
-import { useMutation } from '@tanstack/react-query'
-import { toast } from 'sonner'
+import { authClient } from "#/lib/better-auth/client";
+import { clientEnv } from "#/lib/client-env";
+import { AppConfig } from "#/utils/system";
+import { Button } from "@/components/ui/button";
+import { useMutation } from "@tanstack/react-query";
+import { toast } from "sonner";
 
 interface GoogleSignInButtonProps {
-  returnTo: string
+  returnTo: string;
 }
 
 export function GoogleSignInButton({ returnTo }: GoogleSignInButtonProps) {
   const mutation = useMutation({
     mutationFn: async () => {
       await authClient.signIn.social({
-        provider: 'google',
+        provider: "google",
         callbackURL: `${clientEnv.VITE_APP_URL}${returnTo}`,
-      })
+      });
     },
     onError: (error: unknown) => {
-      toast.error('Google sign-in failed', {
-        description: error instanceof Error ? error.message : 'Please try again.',
-      })
+      toast.error("Google sign-in failed", {
+        description: error instanceof Error ? error.message : "Please try again.",
+      });
     },
-  })
+  });
 
   return (
     <Button
@@ -31,13 +31,13 @@ export function GoogleSignInButton({ returnTo }: GoogleSignInButtonProps) {
       disabled={mutation.isPending}
       onClick={() => mutation.mutate()}
     >
-      {mutation.isPending ? 'Redirecting…' : 'Continue with Google'}
+      {mutation.isPending ? "Redirecting…" : "Continue with Google"}
     </Button>
-  )
+  );
 }
 
 export function LoginCard({ returnTo }: GoogleSignInButtonProps) {
-  const Icon = AppConfig.icon
+  const Icon = AppConfig.icon;
 
   return (
     <div className="island-shell rise-in relative w-full max-w-md overflow-hidden rounded-4xl px-8 py-10 sm:px-10">
@@ -56,5 +56,5 @@ export function LoginCard({ returnTo }: GoogleSignInButtonProps) {
         <GoogleSignInButton returnTo={returnTo} />
       </div>
     </div>
-  )
+  );
 }

@@ -11,17 +11,17 @@ export type AuthenticationValidateKey200 = {
    * @default true
    * @type boolean | undefined
    */
-  success?: boolean
+  success?: boolean;
   /**
    * @default 0
    * @type integer | undefined
    */
-  status_code?: number
+  status_code?: number;
   /**
    * @type string | undefined
    */
-  status_message?: string
-}
+  status_message?: string;
+};
 
 /**
  * @description 401
@@ -31,22 +31,21 @@ export type AuthenticationValidateKey401 = {
    * @default 0
    * @type integer | undefined
    */
-  status_code?: number
+  status_code?: number;
   /**
    * @type string | undefined
    */
-  status_message?: string
+  status_message?: string;
   /**
    * @default true
    * @type boolean | undefined
    */
-  success?: boolean
-}
+  success?: boolean;
+};
 
-export type AuthenticationValidateKeyQueryResponse =
-  AuthenticationValidateKey200
+export type AuthenticationValidateKeyQueryResponse = AuthenticationValidateKey200;
 
 export type AuthenticationValidateKeyQuery = {
-  Response: AuthenticationValidateKey200
-  Errors: AuthenticationValidateKey401
-}
+  Response: AuthenticationValidateKey200;
+  Errors: AuthenticationValidateKey401;
+};

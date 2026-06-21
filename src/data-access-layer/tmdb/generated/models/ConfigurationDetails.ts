@@ -14,41 +14,41 @@ export type ConfigurationDetails200 = {
     /**
      * @type string | undefined
      */
-    base_url?: string
+    base_url?: string;
     /**
      * @type string | undefined
      */
-    secure_base_url?: string
+    secure_base_url?: string;
     /**
      * @type array | undefined
      */
-    backdrop_sizes?: string[]
+    backdrop_sizes?: string[];
     /**
      * @type array | undefined
      */
-    logo_sizes?: string[]
+    logo_sizes?: string[];
     /**
      * @type array | undefined
      */
-    poster_sizes?: string[]
+    poster_sizes?: string[];
     /**
      * @type array | undefined
      */
-    profile_sizes?: string[]
+    profile_sizes?: string[];
     /**
      * @type array | undefined
      */
-    still_sizes?: string[]
-  }
+    still_sizes?: string[];
+  };
   /**
    * @type array | undefined
    */
-  change_keys?: string[]
-}
+  change_keys?: string[];
+};
 
-export type ConfigurationDetailsQueryResponse = ConfigurationDetails200
+export type ConfigurationDetailsQueryResponse = ConfigurationDetails200;
 
 export type ConfigurationDetailsQuery = {
-  Response: ConfigurationDetails200
-  Errors: any
-}
+  Response: ConfigurationDetails200;
+  Errors: any;
+};

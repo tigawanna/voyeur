@@ -8,38 +8,38 @@ export type AccountRatedTvPathParams = {
    * @default null
    * @type integer, int32
    */
-  account_id: number
-}
+  account_id: number;
+};
 
 export const accountRatedTvQueryParamsSortByEnum = {
-  'created_at.asc': 'created_at.asc',
-  'created_at.desc': 'created_at.desc',
-} as const
+  "created_at.asc": "created_at.asc",
+  "created_at.desc": "created_at.desc",
+} as const;
 
 export type AccountRatedTvQueryParamsSortByEnumKey =
-  (typeof accountRatedTvQueryParamsSortByEnum)[keyof typeof accountRatedTvQueryParamsSortByEnum]
+  (typeof accountRatedTvQueryParamsSortByEnum)[keyof typeof accountRatedTvQueryParamsSortByEnum];
 
 export type AccountRatedTvQueryParams = {
   /**
    * @default "en-US"
    * @type string | undefined
    */
-  language?: string
+  language?: string;
   /**
    * @default 1
    * @type integer | undefined, int32
    */
-  page?: number
+  page?: number;
   /**
    * @type string | undefined
    */
-  session_id?: string
+  session_id?: string;
   /**
    * @default "created_at.asc"
    * @type string | undefined
    */
-  sort_by?: AccountRatedTvQueryParamsSortByEnumKey
-}
+  sort_by?: AccountRatedTvQueryParamsSortByEnumKey;
+};
 
 /**
  * @description 200
@@ -49,7 +49,7 @@ export type AccountRatedTv200 = {
    * @default 0
    * @type integer | undefined
    */
-  page?: number
+  page?: number;
   /**
    * @type array | undefined
    */
@@ -58,86 +58,86 @@ export type AccountRatedTv200 = {
      * @default true
      * @type boolean | undefined
      */
-    adult?: boolean
+    adult?: boolean;
     /**
      * @type string | undefined
      */
-    backdrop_path?: string
+    backdrop_path?: string;
     /**
      * @type array | undefined
      */
-    genre_ids?: number[]
+    genre_ids?: number[];
     /**
      * @default 0
      * @type integer | undefined
      */
-    id?: number
+    id?: number;
     /**
      * @type array | undefined
      */
-    origin_country?: string[]
+    origin_country?: string[];
     /**
      * @type string | undefined
      */
-    original_language?: string
+    original_language?: string;
     /**
      * @type string | undefined
      */
-    original_name?: string
+    original_name?: string;
     /**
      * @type string | undefined
      */
-    overview?: string
+    overview?: string;
     /**
      * @default 0
      * @type number | undefined
      */
-    popularity?: number
+    popularity?: number;
     /**
      * @type string | undefined
      */
-    poster_path?: string
+    poster_path?: string;
     /**
      * @type string | undefined
      */
-    first_air_date?: string
+    first_air_date?: string;
     /**
      * @type string | undefined
      */
-    name?: string
+    name?: string;
     /**
      * @default 0
      * @type number | undefined
      */
-    vote_average?: number
+    vote_average?: number;
     /**
      * @default 0
      * @type integer | undefined
      */
-    vote_count?: number
+    vote_count?: number;
     /**
      * @default 0
      * @type integer | undefined
      */
-    rating?: number
-  }[]
+    rating?: number;
+  }[];
   /**
    * @default 0
    * @type integer | undefined
    */
-  total_pages?: number
+  total_pages?: number;
   /**
    * @default 0
    * @type integer | undefined
    */
-  total_results?: number
-}
+  total_results?: number;
+};
 
-export type AccountRatedTvQueryResponse = AccountRatedTv200
+export type AccountRatedTvQueryResponse = AccountRatedTv200;
 
 export type AccountRatedTvQuery = {
-  Response: AccountRatedTv200
-  PathParams: AccountRatedTvPathParams
-  QueryParams: AccountRatedTvQueryParams
-  Errors: any
-}
+  Response: AccountRatedTv200;
+  PathParams: AccountRatedTvPathParams;
+  QueryParams: AccountRatedTvQueryParams;
+  Errors: any;
+};

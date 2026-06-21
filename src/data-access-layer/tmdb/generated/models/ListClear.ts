@@ -7,20 +7,20 @@ export type ListClearPathParams = {
   /**
    * @type integer, int32
    */
-  list_id: number
-}
+  list_id: number;
+};
 
 export type ListClearQueryParams = {
   /**
    * @type string
    */
-  session_id: string
+  session_id: string;
   /**
    * @default false
    * @type boolean
    */
-  confirm: boolean
-}
+  confirm: boolean;
+};
 
 /**
  * @description 200
@@ -30,18 +30,18 @@ export type ListClear200 = {
    * @default 0
    * @type integer | undefined
    */
-  status_code?: number
+  status_code?: number;
   /**
    * @type string | undefined
    */
-  status_message?: string
-}
+  status_message?: string;
+};
 
-export type ListClearMutationResponse = ListClear200
+export type ListClearMutationResponse = ListClear200;
 
 export type ListClearMutation = {
-  Response: ListClear200
-  PathParams: ListClearPathParams
-  QueryParams: ListClearQueryParams
-  Errors: any
-}
+  Response: ListClear200;
+  PathParams: ListClearPathParams;
+  QueryParams: ListClearQueryParams;
+  Errors: any;
+};

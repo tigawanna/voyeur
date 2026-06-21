@@ -8,38 +8,38 @@ export type AccountWatchlistMoviesPathParams = {
    * @default null
    * @type integer, int32
    */
-  account_id: number
-}
+  account_id: number;
+};
 
 export const accountWatchlistMoviesQueryParamsSortByEnum = {
-  'created_at.asc': 'created_at.asc',
-  'created_at.desc': 'created_at.desc',
-} as const
+  "created_at.asc": "created_at.asc",
+  "created_at.desc": "created_at.desc",
+} as const;
 
 export type AccountWatchlistMoviesQueryParamsSortByEnumKey =
-  (typeof accountWatchlistMoviesQueryParamsSortByEnum)[keyof typeof accountWatchlistMoviesQueryParamsSortByEnum]
+  (typeof accountWatchlistMoviesQueryParamsSortByEnum)[keyof typeof accountWatchlistMoviesQueryParamsSortByEnum];
 
 export type AccountWatchlistMoviesQueryParams = {
   /**
    * @default "en-US"
    * @type string | undefined
    */
-  language?: string
+  language?: string;
   /**
    * @default 1
    * @type integer | undefined, int32
    */
-  page?: number
+  page?: number;
   /**
    * @type string | undefined
    */
-  session_id?: string
+  session_id?: string;
   /**
    * @default "created_at.asc"
    * @type string | undefined
    */
-  sort_by?: AccountWatchlistMoviesQueryParamsSortByEnumKey
-}
+  sort_by?: AccountWatchlistMoviesQueryParamsSortByEnumKey;
+};
 
 /**
  * @description 200
@@ -49,7 +49,7 @@ export type AccountWatchlistMovies200 = {
    * @default 0
    * @type integer | undefined
    */
-  page?: number
+  page?: number;
   /**
    * @type array | undefined
    */
@@ -58,82 +58,82 @@ export type AccountWatchlistMovies200 = {
      * @default true
      * @type boolean | undefined
      */
-    adult?: boolean
+    adult?: boolean;
     /**
      * @type string | undefined
      */
-    backdrop_path?: string
+    backdrop_path?: string;
     /**
      * @type array | undefined
      */
-    genre_ids?: number[]
+    genre_ids?: number[];
     /**
      * @default 0
      * @type integer | undefined
      */
-    id?: number
+    id?: number;
     /**
      * @type string | undefined
      */
-    original_language?: string
+    original_language?: string;
     /**
      * @type string | undefined
      */
-    original_title?: string
+    original_title?: string;
     /**
      * @type string | undefined
      */
-    overview?: string
+    overview?: string;
     /**
      * @default 0
      * @type number | undefined
      */
-    popularity?: number
+    popularity?: number;
     /**
      * @type string | undefined
      */
-    poster_path?: string
+    poster_path?: string;
     /**
      * @type string | undefined
      */
-    release_date?: string
+    release_date?: string;
     /**
      * @type string | undefined
      */
-    title?: string
+    title?: string;
     /**
      * @default true
      * @type boolean | undefined
      */
-    video?: boolean
+    video?: boolean;
     /**
      * @default 0
      * @type number | undefined
      */
-    vote_average?: number
+    vote_average?: number;
     /**
      * @default 0
      * @type integer | undefined
      */
-    vote_count?: number
-  }[]
+    vote_count?: number;
+  }[];
   /**
    * @default 0
    * @type integer | undefined
    */
-  total_pages?: number
+  total_pages?: number;
   /**
    * @default 0
    * @type integer | undefined
    */
-  total_results?: number
-}
+  total_results?: number;
+};
 
-export type AccountWatchlistMoviesQueryResponse = AccountWatchlistMovies200
+export type AccountWatchlistMoviesQueryResponse = AccountWatchlistMovies200;
 
 export type AccountWatchlistMoviesQuery = {
-  Response: AccountWatchlistMovies200
-  PathParams: AccountWatchlistMoviesPathParams
-  QueryParams: AccountWatchlistMoviesQueryParams
-  Errors: any
-}
+  Response: AccountWatchlistMovies200;
+  PathParams: AccountWatchlistMoviesPathParams;
+  QueryParams: AccountWatchlistMoviesQueryParams;
+  Errors: any;
+};

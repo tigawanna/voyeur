@@ -1,17 +1,20 @@
-import { favoritesCollection, movieBasicCollection } from '#/data-access-layer/tmdb/query-collection'
-import { SavedMovieCard } from '#/features/movies/components/SavedMovieCard'
-import { LoadingState } from '@/components/common/LoadingState'
-import { Empty, EmptyDescription, EmptyHeader, EmptyTitle } from '@/components/ui/empty'
-import { useLiveQuery } from '@tanstack/react-db'
-import { createFileRoute } from '@tanstack/react-router'
-import type { SavedMovieRef } from '#/types/movie'
+import {
+  favoritesCollection,
+  movieBasicCollection,
+} from "#/data-access-layer/tmdb/query-collection";
+import { SavedMovieCard } from "#/features/movies/components/SavedMovieCard";
+import { LoadingState } from "@/components/common/LoadingState";
+import { Empty, EmptyDescription, EmptyHeader, EmptyTitle } from "@/components/ui/empty";
+import { useLiveQuery } from "@tanstack/react-db";
+import { createFileRoute } from "@tanstack/react-router";
+import type { SavedMovieRef } from "#/types/movie";
 
-export const Route = createFileRoute('/_app/favorites/')({
+export const Route = createFileRoute("/_app/favorites/")({
   component: FavoritesPage,
-})
+});
 
 function FavoritesPage() {
-  useLiveQuery((q) => q.from({ movie: movieBasicCollection }), [])
+  useLiveQuery((q) => q.from({ movie: movieBasicCollection }), []);
 
   const { data, isLoading } = useLiveQuery(
     (query) =>
@@ -22,9 +25,9 @@ function FavoritesPage() {
         addedAt: favorite.addedAt,
       })),
     [],
-  )
+  );
 
-  const favorites = (data ?? []) as SavedMovieRef[]
+  const favorites = (data ?? []) as SavedMovieRef[];
 
   return (
     <section>
@@ -45,11 +48,14 @@ function FavoritesPage() {
           </EmptyHeader>
         </Empty>
       ) : null}
-      <div className="grid grid-cols-3 gap-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7" data-testid="favorites-grid">
+      <div
+        className="grid grid-cols-3 gap-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7"
+        data-testid="favorites-grid"
+      >
         {favorites.map((movie) => (
           <SavedMovieCard key={movie.movieId} movie={movie} kind="favorite" />
         ))}
       </div>
     </section>
-  )
+  );
 }

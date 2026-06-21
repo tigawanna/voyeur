@@ -7,8 +7,8 @@ export type PersonExternalIdsPathParams = {
   /**
    * @type integer, int32
    */
-  person_id: number
-}
+  person_id: number;
+};
 
 /**
  * @description 200
@@ -18,51 +18,51 @@ export type PersonExternalIds200 = {
    * @default 0
    * @type integer | undefined
    */
-  id?: number
+  id?: number;
   /**
    * @type string | undefined
    */
-  freebase_mid?: string
+  freebase_mid?: string;
   /**
    * @type string | undefined
    */
-  freebase_id?: string
+  freebase_id?: string;
   /**
    * @type string | undefined
    */
-  imdb_id?: string
+  imdb_id?: string;
   /**
    * @default 0
    * @type integer | undefined
    */
-  tvrage_id?: number
+  tvrage_id?: number;
   /**
    * @type string | undefined
    */
-  wikidata_id?: string
+  wikidata_id?: string;
   /**
    * @type string | undefined
    */
-  facebook_id?: string
+  facebook_id?: string;
   /**
    * @type string | undefined
    */
-  instagram_id?: string
+  instagram_id?: string;
   /**
    * @type string | undefined
    */
-  tiktok_id?: string
+  tiktok_id?: string;
   /**
    * @type string | undefined
    */
-  twitter_id?: string
-  youtube_id?: any
-}
+  twitter_id?: string;
+  youtube_id?: any;
+};
 
-export type PersonExternalIdsQueryResponse = PersonExternalIds200
+export type PersonExternalIdsQueryResponse = PersonExternalIds200;
 
 export type PersonExternalIdsQuery = {
-  Response: PersonExternalIds200
-  PathParams: PersonExternalIdsPathParams
-  Errors: any
-}
+  Response: PersonExternalIds200;
+  PathParams: PersonExternalIdsPathParams;
+  Errors: any;
+};

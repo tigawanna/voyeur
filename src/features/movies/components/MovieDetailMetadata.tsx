@@ -1,21 +1,21 @@
-import { movieDetailCollection } from '#/data-access-layer/tmdb/query-collection'
+import { movieDetailCollection } from "#/data-access-layer/tmdb/query-collection";
 import {
   formatMovieCurrency,
   formatMovieLanguageCode,
   formatMovieRuntime,
-} from '#/utils/format-movie-detail'
-import { mapTmdbMovieDetail } from '#/utils/tmdb-images'
-import { eq, useLiveQuery } from '@tanstack/react-db'
-import { Loader } from 'lucide-react'
-import type { ReactNode } from 'react'
-import type { MovieDetail } from '#/types/movie'
+} from "#/utils/format-movie-detail";
+import { mapTmdbMovieDetail } from "#/utils/tmdb-images";
+import { eq, useLiveQuery } from "@tanstack/react-db";
+import { Loader } from "lucide-react";
+import type { ReactNode } from "react";
+import type { MovieDetail } from "#/types/movie";
 
 interface MovieDetailMetadataProps {
-  movieId: number
+  movieId: number;
 }
 
 function MetadataItem({ label, children }: { label: string; children: ReactNode }) {
-  if (!children) return null
+  if (!children) return null;
 
   return (
     <div>
@@ -24,17 +24,17 @@ function MetadataItem({ label, children }: { label: string; children: ReactNode 
       </dt>
       <dd className="mt-1 text-sm text-foreground">{children}</dd>
     </div>
-  )
+  );
 }
 
 function MovieDetailMetadataContent({ movie }: { movie: MovieDetail }) {
-  const runtime = formatMovieRuntime(movie.runtime)
-  const budget = formatMovieCurrency(movie.budget)
-  const revenue = formatMovieCurrency(movie.revenue)
-  const originalLanguage = formatMovieLanguageCode(movie.originalLanguage)
-  const hasNamedGenres = movie.genres.some((genre) => genre.name)
+  const runtime = formatMovieRuntime(movie.runtime);
+  const budget = formatMovieCurrency(movie.budget);
+  const revenue = formatMovieCurrency(movie.revenue);
+  const originalLanguage = formatMovieLanguageCode(movie.originalLanguage);
+  const hasNamedGenres = movie.genres.some((genre) => genre.name);
   const showOriginalTitle =
-    movie.originalTitle && movie.originalTitle !== movie.title ? movie.originalTitle : null
+    movie.originalTitle && movie.originalTitle !== movie.title ? movie.originalTitle : null;
 
   return (
     <>
@@ -64,20 +64,16 @@ function MovieDetailMetadataContent({ movie }: { movie: MovieDetail }) {
         <MetadataItem label="Original title">{showOriginalTitle}</MetadataItem>
         <MetadataItem label="Original language">{originalLanguage}</MetadataItem>
         <MetadataItem label="Origin">
-          {movie.originCountries.length > 0 ? movie.originCountries.join(', ') : null}
+          {movie.originCountries.length > 0 ? movie.originCountries.join(", ") : null}
         </MetadataItem>
         <MetadataItem label="Production">
-          {movie.productionCompanies.length > 0
-            ? movie.productionCompanies.join(', ')
-            : null}
+          {movie.productionCompanies.length > 0 ? movie.productionCompanies.join(", ") : null}
         </MetadataItem>
         <MetadataItem label="Countries">
-          {movie.productionCountries.length > 0
-            ? movie.productionCountries.join(', ')
-            : null}
+          {movie.productionCountries.length > 0 ? movie.productionCountries.join(", ") : null}
         </MetadataItem>
         <MetadataItem label="Languages">
-          {movie.spokenLanguages.length > 0 ? movie.spokenLanguages.join(', ') : null}
+          {movie.spokenLanguages.length > 0 ? movie.spokenLanguages.join(", ") : null}
         </MetadataItem>
         <MetadataItem label="Website">
           {movie.homepage ? (
@@ -105,19 +101,20 @@ function MovieDetailMetadataContent({ movie }: { movie: MovieDetail }) {
         </MetadataItem>
       </dl>
     </>
-  )
+  );
 }
 
 export function MovieDetailMetadata({ movieId }: MovieDetailMetadataProps) {
   // Full TMDB detail for the metadata block (runtime, budget, genres, …).
   // Shares the same query cache as the detail page’s movieDetailCollection live query.
-  const { data: detailRows, isLoading, isError } = useLiveQuery(
-    (q) =>
-      q
-        .from({ movie: movieDetailCollection })
-        .where(({ movie }) => eq(movie.id, movieId)),
+  const {
+    data: detailRows,
+    isLoading,
+    isError,
+  } = useLiveQuery(
+    (q) => q.from({ movie: movieDetailCollection }).where(({ movie }) => eq(movie.id, movieId)),
     [movieId],
-  )
+  );
 
   if (isLoading) {
     return (
@@ -130,14 +127,14 @@ export function MovieDetailMetadata({ movieId }: MovieDetailMetadataProps) {
           <Loader className="size-5 animate-spin text-primary" />
         </div>
       </section>
-    )
+    );
   }
 
   if (isError || detailRows.length === 0) {
-    return null
+    return null;
   }
 
-  const movie = mapTmdbMovieDetail(detailRows[0])
+  const movie = mapTmdbMovieDetail(detailRows[0]);
 
   return (
     <section
@@ -147,5 +144,5 @@ export function MovieDetailMetadata({ movieId }: MovieDetailMetadataProps) {
       <h2 className="island-kicker mb-4">Details</h2>
       <MovieDetailMetadataContent movie={movie} />
     </section>
-  )
+  );
 }

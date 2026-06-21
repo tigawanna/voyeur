@@ -7,8 +7,8 @@ export type KeywordDetailsPathParams = {
   /**
    * @type integer, int32
    */
-  keyword_id: number
-}
+  keyword_id: number;
+};
 
 /**
  * @description 200
@@ -18,17 +18,17 @@ export type KeywordDetails200 = {
    * @default 0
    * @type integer | undefined
    */
-  id?: number
+  id?: number;
   /**
    * @type string | undefined
    */
-  name?: string
-}
+  name?: string;
+};
 
-export type KeywordDetailsQueryResponse = KeywordDetails200
+export type KeywordDetailsQueryResponse = KeywordDetails200;
 
 export type KeywordDetailsQuery = {
-  Response: KeywordDetails200
-  PathParams: KeywordDetailsPathParams
-  Errors: any
-}
+  Response: KeywordDetails200;
+  PathParams: KeywordDetailsPathParams;
+  Errors: any;
+};

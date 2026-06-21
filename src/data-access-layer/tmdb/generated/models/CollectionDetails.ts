@@ -7,16 +7,16 @@ export type CollectionDetailsPathParams = {
   /**
    * @type integer, int32
    */
-  collection_id: number
-}
+  collection_id: number;
+};
 
 export type CollectionDetailsQueryParams = {
   /**
    * @default "en-US"
    * @type string | undefined
    */
-  language?: string
-}
+  language?: string;
+};
 
 /**
  * @description 200
@@ -26,31 +26,31 @@ export type CollectionDetails200 = {
    * @default 0
    * @type integer | undefined
    */
-  id?: number
+  id?: number;
   /**
    * @type string | undefined
    */
-  name?: string
+  name?: string;
   /**
    * @type string | undefined
    */
-  original_language?: string
+  original_language?: string;
   /**
    * @type string | undefined
    */
-  original_name?: string
+  original_name?: string;
   /**
    * @type string | undefined
    */
-  overview?: string
+  overview?: string;
   /**
    * @type string | undefined
    */
-  poster_path?: string
+  poster_path?: string;
   /**
    * @type string | undefined
    */
-  backdrop_path?: string
+  backdrop_path?: string;
   /**
    * @type array | undefined
    */
@@ -59,76 +59,76 @@ export type CollectionDetails200 = {
      * @default true
      * @type boolean | undefined
      */
-    adult?: boolean
+    adult?: boolean;
     /**
      * @type string | undefined
      */
-    backdrop_path?: string
+    backdrop_path?: string;
     /**
      * @default 0
      * @type integer | undefined
      */
-    id?: number
+    id?: number;
     /**
      * @type string | undefined
      */
-    name?: string
+    name?: string;
     /**
      * @type string | undefined
      */
-    original_name?: string
+    original_name?: string;
     /**
      * @type string | undefined
      */
-    overview?: string
+    overview?: string;
     /**
      * @type string | undefined
      */
-    poster_path?: string
+    poster_path?: string;
     /**
      * @type string | undefined
      */
-    media_type?: string
+    media_type?: string;
     /**
      * @type string | undefined
      */
-    original_language?: string
+    original_language?: string;
     /**
      * @type array | undefined
      */
-    genre_ids?: number[]
+    genre_ids?: number[];
     /**
      * @default 0
      * @type number | undefined
      */
-    popularity?: number
+    popularity?: number;
     /**
      * @type string | undefined
      */
-    release_date?: string
+    release_date?: string;
     /**
      * @default true
      * @type boolean | undefined
      */
-    video?: boolean
+    video?: boolean;
     /**
      * @default 0
      * @type number | undefined
      */
-    vote_average?: number
+    vote_average?: number;
     /**
      * @default 0
      * @type integer | undefined
      */
-    vote_count?: number
-  }[]
-}
+    vote_count?: number;
+  }[];
+};
 
-export type CollectionDetailsQueryResponse = CollectionDetails200
+export type CollectionDetailsQueryResponse = CollectionDetails200;
 
 export type CollectionDetailsQuery = {
-  Response: CollectionDetails200
-  PathParams: CollectionDetailsPathParams
-  QueryParams: CollectionDetailsQueryParams
-  Errors: any
-}
+  Response: CollectionDetails200;
+  PathParams: CollectionDetailsPathParams;
+  QueryParams: CollectionDetailsQueryParams;
+  Errors: any;
+};

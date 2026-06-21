@@ -3,9 +3,9 @@ import {
   movieBasicCollection,
   moviesCollection,
   watchlistCollection,
-} from '#/data-access-layer/tmdb/query-collection'
-import { MovieCard } from '#/features/movies/components/MovieCard'
-import { Button } from '@/components/ui/button'
+} from "#/data-access-layer/tmdb/query-collection";
+import { MovieCard } from "#/features/movies/components/MovieCard";
+import { Button } from "@/components/ui/button";
 import {
   Empty,
   EmptyContent,
@@ -13,25 +13,29 @@ import {
   EmptyHeader,
   EmptyMedia,
   EmptyTitle,
-} from '@/components/ui/empty'
-import { and, eq, isUndefined, not, useLiveQuery } from '@tanstack/react-db'
-import { getRouteApi } from '@tanstack/react-router'
-import { AlertCircle, Loader, SearchX } from 'lucide-react'
-import { useEffect } from 'react'
-import { toast } from 'sonner'
-import { MoviesListWrapper, useClearBrowseFilters } from './movies-list-wrapper'
+} from "@/components/ui/empty";
+import { and, eq, isUndefined, not, useLiveQuery } from "@tanstack/react-db";
+import { getRouteApi } from "@tanstack/react-router";
+import { AlertCircle, Loader, SearchX } from "lucide-react";
+import { useEffect } from "react";
+import { toast } from "sonner";
+import { MoviesListWrapper, useClearBrowseFilters } from "./movies-list-wrapper";
 
-const browseRouteApi = getRouteApi('/_app/movies/')
+const browseRouteApi = getRouteApi("/_app/movies/");
 
 export function MoviesList() {
-  const browseSearch = browseRouteApi.useSearch()
-  const clearFilters = useClearBrowseFilters()
+  const browseSearch = browseRouteApi.useSearch();
+  const clearFilters = useClearBrowseFilters();
 
-  useLiveQuery((q) => q.from({ movie: movieBasicCollection }), [])
+  useLiveQuery((q) => q.from({ movie: movieBasicCollection }), []);
 
   // Join browse movies with local library flags. The where clause matches stamped browse
   // context so query-driven sync fetches the correct TMDB page for the URL search params.
-  const { data: movies, isLoading: isMoviesLoading, isError } = useLiveQuery(
+  const {
+    data: movies,
+    isLoading: isMoviesLoading,
+    isError,
+  } = useLiveQuery(
     (q) =>
       q
         .from({ movie: moviesCollection })
@@ -48,10 +52,10 @@ export function MoviesList() {
             eq(movie.region, browseSearch.region),
             eq(movie.language, browseSearch.language),
             eq(movie.sortBy, browseSearch.sortBy),
-            eq(movie.q, browseSearch.q?.trim() ?? ''),
+            eq(movie.q, browseSearch.q?.trim() ?? ""),
           ),
         )
-        .orderBy(({ movie }) => movie.popularity, 'desc')
+        .orderBy(({ movie }) => movie.popularity, "desc")
         .limit(40)
         .select(({ movie, favorite, watchlist }) => ({
           ...movie,
@@ -59,25 +63,24 @@ export function MoviesList() {
           isWatchlisted: not(isUndefined(watchlist)),
         })),
     [browseSearch],
-  )
+  );
 
   const browseMeta = movies[0]
     ? {
         totalResults: movies[0].totalResults,
         totalPages: movies[0].totalPages,
       }
-    : undefined
-  const isRefetching = isMoviesLoading && movies.length > 0
-  const hasPreviousResults = isError && movies.length > 0
+    : undefined;
+  const isRefetching = isMoviesLoading && movies.length > 0;
+  const hasPreviousResults = isError && movies.length > 0;
 
   useEffect(() => {
-    if (!hasPreviousResults) return
+    if (!hasPreviousResults) return;
 
-    toast.error('Something went wrong', {
-      description:
-        "We couldn't update the movie list. Showing your previous results.",
-    })
-  }, [hasPreviousResults])
+    toast.error("Something went wrong", {
+      description: "We couldn't update the movie list. Showing your previous results.",
+    });
+  }, [hasPreviousResults]);
 
   if (isMoviesLoading && movies.length === 0) {
     return (
@@ -86,7 +89,7 @@ export function MoviesList() {
           <Loader className="size-6 animate-spin text-primary" />
         </div>
       </MoviesListWrapper>
-    )
+    );
   }
 
   if (isError && movies.length === 0) {
@@ -109,7 +112,7 @@ export function MoviesList() {
           </Empty>
         </div>
       </MoviesListWrapper>
-    )
+    );
   }
 
   if (movies.length === 0) {
@@ -129,7 +132,7 @@ export function MoviesList() {
               <EmptyDescription>
                 {browseSearch.q?.trim()
                   ? `Nothing matched "${browseSearch.q}". Try broadening your search or adjusting the sort.`
-                  : 'No movies match the current filters.'}
+                  : "No movies match the current filters."}
               </EmptyDescription>
             </EmptyHeader>
             <EmptyContent className="flex-row justify-center gap-2">
@@ -140,7 +143,7 @@ export function MoviesList() {
           </Empty>
         </div>
       </MoviesListWrapper>
-    )
+    );
   }
 
   return (
@@ -149,11 +152,14 @@ export function MoviesList() {
       totalPages={browseMeta?.totalPages}
       isRefetching={isRefetching}
     >
-      <div className="grid w-full grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5" data-testid="movies-browse-grid">
+      <div
+        className="grid w-full grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5"
+        data-testid="movies-browse-grid"
+      >
         {movies.map((movie) => (
           <MovieCard key={movie.id} movie={movie} />
         ))}
       </div>
     </MoviesListWrapper>
-  )
+  );
 }

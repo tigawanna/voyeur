@@ -7,15 +7,15 @@ export type ListDeletePathParams = {
   /**
    * @type integer, int32
    */
-  list_id: number
-}
+  list_id: number;
+};
 
 export type ListDeleteQueryParams = {
   /**
    * @type string
    */
-  session_id: string
-}
+  session_id: string;
+};
 
 /**
  * @description 200
@@ -25,18 +25,18 @@ export type ListDelete200 = {
    * @default 0
    * @type integer | undefined
    */
-  status_code?: number
+  status_code?: number;
   /**
    * @type string | undefined
    */
-  status_message?: string
-}
+  status_message?: string;
+};
 
-export type ListDeleteMutationResponse = ListDelete200
+export type ListDeleteMutationResponse = ListDelete200;
 
 export type ListDeleteMutation = {
-  Response: ListDelete200
-  PathParams: ListDeletePathParams
-  QueryParams: ListDeleteQueryParams
-  Errors: any
-}
+  Response: ListDelete200;
+  PathParams: ListDeletePathParams;
+  QueryParams: ListDeleteQueryParams;
+  Errors: any;
+};

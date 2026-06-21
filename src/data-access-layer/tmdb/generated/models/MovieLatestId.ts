@@ -11,104 +11,104 @@ export type MovieLatestId200 = {
    * @default true
    * @type boolean | undefined
    */
-  adult?: boolean
-  backdrop_path?: any
-  belongs_to_collection?: any
+  adult?: boolean;
+  backdrop_path?: any;
+  belongs_to_collection?: any;
   /**
    * @default 0
    * @type integer | undefined
    */
-  budget?: number
+  budget?: number;
   /**
    * @type array | undefined
    */
-  genres?: any[]
+  genres?: any[];
   /**
    * @type string | undefined
    */
-  homepage?: string
+  homepage?: string;
   /**
    * @default 0
    * @type integer | undefined
    */
-  id?: number
-  imdb_id?: any
+  id?: number;
+  imdb_id?: any;
   /**
    * @type string | undefined
    */
-  original_language?: string
+  original_language?: string;
   /**
    * @type string | undefined
    */
-  original_title?: string
+  original_title?: string;
   /**
    * @type string | undefined
    */
-  overview?: string
+  overview?: string;
   /**
    * @default 0
    * @type integer | undefined
    */
-  popularity?: number
-  poster_path?: any
+  popularity?: number;
+  poster_path?: any;
   /**
    * @type array | undefined
    */
-  production_companies?: any[]
+  production_companies?: any[];
   /**
    * @type array | undefined
    */
-  production_countries?: any[]
+  production_countries?: any[];
   /**
    * @type string | undefined
    */
-  release_date?: string
+  release_date?: string;
   /**
    * @default 0
    * @type integer | undefined
    */
-  revenue?: number
+  revenue?: number;
   /**
    * @default 0
    * @type integer | undefined
    */
-  runtime?: number
+  runtime?: number;
   /**
    * @type array | undefined
    */
-  spoken_languages?: any[]
+  spoken_languages?: any[];
   /**
    * @type string | undefined
    */
-  status?: string
+  status?: string;
   /**
    * @type string | undefined
    */
-  tagline?: string
+  tagline?: string;
   /**
    * @type string | undefined
    */
-  title?: string
+  title?: string;
   /**
    * @default true
    * @type boolean | undefined
    */
-  video?: boolean
+  video?: boolean;
   /**
    * @default 0
    * @type integer | undefined
    */
-  vote_average?: number
+  vote_average?: number;
   /**
    * @default 0
    * @type integer | undefined
    */
-  vote_count?: number
-}
+  vote_count?: number;
+};
 
-export type MovieLatestIdQueryResponse = MovieLatestId200
+export type MovieLatestIdQueryResponse = MovieLatestId200;
 
 export type MovieLatestIdQuery = {
-  Response: MovieLatestId200
-  Errors: any
-}
+  Response: MovieLatestId200;
+  Errors: any;
+};

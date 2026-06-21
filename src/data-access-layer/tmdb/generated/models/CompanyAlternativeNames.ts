@@ -7,8 +7,8 @@ export type CompanyAlternativeNamesPathParams = {
   /**
    * @type integer, int32
    */
-  company_id: number
-}
+  company_id: number;
+};
 
 /**
  * @description 200
@@ -18,7 +18,7 @@ export type CompanyAlternativeNames200 = {
    * @default 0
    * @type integer | undefined
    */
-  id?: number
+  id?: number;
   /**
    * @type array | undefined
    */
@@ -26,18 +26,18 @@ export type CompanyAlternativeNames200 = {
     /**
      * @type string | undefined
      */
-    name?: string
+    name?: string;
     /**
      * @type string | undefined
      */
-    type?: string
-  }[]
-}
+    type?: string;
+  }[];
+};
 
-export type CompanyAlternativeNamesQueryResponse = CompanyAlternativeNames200
+export type CompanyAlternativeNamesQueryResponse = CompanyAlternativeNames200;
 
 export type CompanyAlternativeNamesQuery = {
-  Response: CompanyAlternativeNames200
-  PathParams: CompanyAlternativeNamesPathParams
-  Errors: any
-}
+  Response: CompanyAlternativeNames200;
+  PathParams: CompanyAlternativeNamesPathParams;
+  Errors: any;
+};

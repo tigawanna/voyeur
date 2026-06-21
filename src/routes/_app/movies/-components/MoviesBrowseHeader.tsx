@@ -1,6 +1,6 @@
 interface MoviesBrowseHeaderProps {
-  heading: string
-  totalResults?: number
+  heading: string;
+  totalResults?: number;
 }
 
 export function MoviesBrowseHeader({ heading, totalResults }: MoviesBrowseHeaderProps) {
@@ -18,5 +18,5 @@ export function MoviesBrowseHeader({ heading, totalResults }: MoviesBrowseHeader
         </div>
       ) : null}
     </header>
-  )
+  );
 }

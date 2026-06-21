@@ -1,20 +1,20 @@
-import { TanStackDevtools } from '@tanstack/react-devtools'
-import { ReactQueryDevtoolsPanel } from '@tanstack/react-query-devtools'
-import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools'
+import { TanStackDevtools } from "@tanstack/react-devtools";
+import { ReactQueryDevtoolsPanel } from "@tanstack/react-query-devtools";
+import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools";
 
 export function AppDevtools() {
   return (
     <TanStackDevtools
       plugins={[
         {
-          name: 'TanStack Query',
+          name: "TanStack Query",
           render: <ReactQueryDevtoolsPanel />,
         },
         {
-          name: 'TanStack Router',
+          name: "TanStack Router",
           render: <TanStackRouterDevtoolsPanel />,
         },
       ]}
     />
-  )
+  );
 }

@@ -7,21 +7,21 @@ export type MovieListsPathParams = {
   /**
    * @type integer, int32
    */
-  movie_id: number
-}
+  movie_id: number;
+};
 
 export type MovieListsQueryParams = {
   /**
    * @default "en-US"
    * @type string | undefined
    */
-  language?: string
+  language?: string;
   /**
    * @default 1
    * @type integer | undefined, int32
    */
-  page?: number
-}
+  page?: number;
+};
 
 /**
  * @description 200
@@ -31,12 +31,12 @@ export type MovieLists200 = {
    * @default 0
    * @type integer | undefined
    */
-  id?: number
+  id?: number;
   /**
    * @default 0
    * @type integer | undefined
    */
-  page?: number
+  page?: number;
   /**
    * @type array | undefined
    */
@@ -44,53 +44,53 @@ export type MovieLists200 = {
     /**
      * @type string | undefined
      */
-    description?: string
+    description?: string;
     /**
      * @default 0
      * @type integer | undefined
      */
-    favorite_count?: number
+    favorite_count?: number;
     /**
      * @default 0
      * @type integer | undefined
      */
-    id?: number
+    id?: number;
     /**
      * @default 0
      * @type integer | undefined
      */
-    item_count?: number
+    item_count?: number;
     /**
      * @type string | undefined
      */
-    iso_639_1?: string
+    iso_639_1?: string;
     /**
      * @type string | undefined
      */
-    list_type?: string
+    list_type?: string;
     /**
      * @type string | undefined
      */
-    name?: string
-    poster_path?: any
-  }[]
+    name?: string;
+    poster_path?: any;
+  }[];
   /**
    * @default 0
    * @type integer | undefined
    */
-  total_pages?: number
+  total_pages?: number;
   /**
    * @default 0
    * @type integer | undefined
    */
-  total_results?: number
-}
+  total_results?: number;
+};
 
-export type MovieListsQueryResponse = MovieLists200
+export type MovieListsQueryResponse = MovieLists200;
 
 export type MovieListsQuery = {
-  Response: MovieLists200
-  PathParams: MovieListsPathParams
-  QueryParams: MovieListsQueryParams
-  Errors: any
-}
+  Response: MovieLists200;
+  PathParams: MovieListsPathParams;
+  QueryParams: MovieListsQueryParams;
+  Errors: any;
+};

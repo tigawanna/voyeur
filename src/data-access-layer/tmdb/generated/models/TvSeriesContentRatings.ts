@@ -7,8 +7,8 @@ export type TvSeriesContentRatingsPathParams = {
   /**
    * @type integer, int32
    */
-  series_id: number
-}
+  series_id: number;
+};
 
 /**
  * @description 200
@@ -21,27 +21,27 @@ export type TvSeriesContentRatings200 = {
     /**
      * @type array | undefined
      */
-    descriptors?: any[]
+    descriptors?: any[];
     /**
      * @type string | undefined
      */
-    iso_3166_1?: string
+    iso_3166_1?: string;
     /**
      * @type string | undefined
      */
-    rating?: string
-  }[]
+    rating?: string;
+  }[];
   /**
    * @default 0
    * @type integer | undefined
    */
-  id?: number
-}
+  id?: number;
+};
 
-export type TvSeriesContentRatingsQueryResponse = TvSeriesContentRatings200
+export type TvSeriesContentRatingsQueryResponse = TvSeriesContentRatings200;
 
 export type TvSeriesContentRatingsQuery = {
-  Response: TvSeriesContentRatings200
-  PathParams: TvSeriesContentRatingsPathParams
-  Errors: any
-}
+  Response: TvSeriesContentRatings200;
+  PathParams: TvSeriesContentRatingsPathParams;
+  Errors: any;
+};

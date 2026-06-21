@@ -7,29 +7,29 @@ export type TvEpisodeDetailsPathParams = {
   /**
    * @type integer, int32
    */
-  series_id: number
+  series_id: number;
   /**
    * @type integer, int32
    */
-  season_number: number
+  season_number: number;
   /**
    * @type integer, int32
    */
-  episode_number: number
-}
+  episode_number: number;
+};
 
 export type TvEpisodeDetailsQueryParams = {
   /**
    * @description comma separated list of endpoints within this namespace, 20 items max
    * @type string | undefined
    */
-  append_to_response?: string
+  append_to_response?: string;
   /**
    * @default "en-US"
    * @type string | undefined
    */
-  language?: string
-}
+  language?: string;
+};
 
 /**
  * @description 200
@@ -38,7 +38,7 @@ export type TvEpisodeDetails200 = {
   /**
    * @type string | undefined
    */
-  air_date?: string
+  air_date?: string;
   /**
    * @type array | undefined
    */
@@ -46,57 +46,57 @@ export type TvEpisodeDetails200 = {
     /**
      * @type string | undefined
      */
-    department?: string
+    department?: string;
     /**
      * @type string | undefined
      */
-    job?: string
+    job?: string;
     /**
      * @type string | undefined
      */
-    credit_id?: string
+    credit_id?: string;
     /**
      * @default true
      * @type boolean | undefined
      */
-    adult?: boolean
+    adult?: boolean;
     /**
      * @default 0
      * @type integer | undefined
      */
-    gender?: number
+    gender?: number;
     /**
      * @default 0
      * @type integer | undefined
      */
-    id?: number
+    id?: number;
     /**
      * @type string | undefined
      */
-    known_for_department?: string
+    known_for_department?: string;
     /**
      * @type string | undefined
      */
-    name?: string
+    name?: string;
     /**
      * @type string | undefined
      */
-    original_name?: string
+    original_name?: string;
     /**
      * @default 0
      * @type number | undefined
      */
-    popularity?: number
+    popularity?: number;
     /**
      * @type string | undefined
      */
-    profile_path?: string
-  }[]
+    profile_path?: string;
+  }[];
   /**
    * @default 0
    * @type integer | undefined
    */
-  episode_number?: number
+  episode_number?: number;
   /**
    * @type array | undefined
    */
@@ -104,101 +104,101 @@ export type TvEpisodeDetails200 = {
     /**
      * @type string | undefined
      */
-    character?: string
+    character?: string;
     /**
      * @type string | undefined
      */
-    credit_id?: string
+    credit_id?: string;
     /**
      * @default 0
      * @type integer | undefined
      */
-    order?: number
+    order?: number;
     /**
      * @default true
      * @type boolean | undefined
      */
-    adult?: boolean
+    adult?: boolean;
     /**
      * @default 0
      * @type integer | undefined
      */
-    gender?: number
+    gender?: number;
     /**
      * @default 0
      * @type integer | undefined
      */
-    id?: number
+    id?: number;
     /**
      * @type string | undefined
      */
-    known_for_department?: string
+    known_for_department?: string;
     /**
      * @type string | undefined
      */
-    name?: string
+    name?: string;
     /**
      * @type string | undefined
      */
-    original_name?: string
+    original_name?: string;
     /**
      * @default 0
      * @type number | undefined
      */
-    popularity?: number
+    popularity?: number;
     /**
      * @type string | undefined
      */
-    profile_path?: string
-  }[]
+    profile_path?: string;
+  }[];
   /**
    * @type string | undefined
    */
-  name?: string
+  name?: string;
   /**
    * @type string | undefined
    */
-  overview?: string
+  overview?: string;
   /**
    * @default 0
    * @type integer | undefined
    */
-  id?: number
+  id?: number;
   /**
    * @type string | undefined
    */
-  production_code?: string
+  production_code?: string;
   /**
    * @default 0
    * @type integer | undefined
    */
-  runtime?: number
+  runtime?: number;
   /**
    * @default 0
    * @type integer | undefined
    */
-  season_number?: number
+  season_number?: number;
   /**
    * @type string | undefined
    */
-  still_path?: string
+  still_path?: string;
   /**
    * @default 0
    * @type number | undefined
    */
-  vote_average?: number
+  vote_average?: number;
   /**
    * @default 0
    * @type integer | undefined
    */
-  vote_count?: number
-}
+  vote_count?: number;
+};
 
-export type TvEpisodeDetailsQueryResponse = TvEpisodeDetails200
+export type TvEpisodeDetailsQueryResponse = TvEpisodeDetails200;
 
 export type TvEpisodeDetailsQuery = {
-  Response: TvEpisodeDetails200
-  PathParams: TvEpisodeDetailsPathParams
-  QueryParams: TvEpisodeDetailsQueryParams
-  Errors: any
-}
+  Response: TvEpisodeDetails200;
+  PathParams: TvEpisodeDetailsPathParams;
+  QueryParams: TvEpisodeDetailsQueryParams;
+  Errors: any;
+};

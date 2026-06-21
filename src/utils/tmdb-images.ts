@@ -1,47 +1,51 @@
-import type { MovieDetails200 } from '#/data-access-layer/tmdb/generated/models/MovieDetails'
-import type { MoviePopularList200 } from '#/data-access-layer/tmdb/generated/models/MoviePopularList'
-import type { Movie, MovieDetail } from '#/types/movie'
-import type { TmdbMovieResult } from '#/types/tmdb'
+import type { MovieDetails200 } from "#/data-access-layer/tmdb/generated/models/MovieDetails";
+import type { MoviePopularList200 } from "#/data-access-layer/tmdb/generated/models/MoviePopularList";
+import type { Movie, MovieDetail } from "#/types/movie";
+import type { TmdbMovieResult } from "#/types/tmdb";
 
-const TMDB_IMAGE_BASE = 'https://image.tmdb.org/t/p'
+const TMDB_IMAGE_BASE = "https://image.tmdb.org/t/p";
 
-type PopularMovieResult = NonNullable<MoviePopularList200['results']>[number]
+type PopularMovieResult = NonNullable<MoviePopularList200["results"]>[number];
 
-export function posterUrl(path: string | null | undefined, size: 'w342' | 'w500' | 'original' = 'w500') {
-  if (!path) return null
-  return `${TMDB_IMAGE_BASE}/${size}${path}`
+export function posterUrl(
+  path: string | null | undefined,
+  size: "w342" | "w500" | "original" = "w500",
+) {
+  if (!path) return null;
+  return `${TMDB_IMAGE_BASE}/${size}${path}`;
 }
 
-export function backdropUrl(path: string | null | undefined, size: 'w780' | 'w1280' | 'original' = 'w1280') {
-  if (!path) return null
-  return `${TMDB_IMAGE_BASE}/${size}${path}`
+export function backdropUrl(
+  path: string | null | undefined,
+  size: "w780" | "w1280" | "original" = "w1280",
+) {
+  if (!path) return null;
+  return `${TMDB_IMAGE_BASE}/${size}${path}`;
 }
 
-export function movieHeroImageUrl(movie: Movie, size: 'w780' | 'w1280' | 'original' = 'w1280') {
-  return backdropUrl(movie.backdropPath, size) ?? posterUrl(movie.posterPath, 'w500')
+export function movieHeroImageUrl(movie: Movie, size: "w780" | "w1280" | "original" = "w1280") {
+  return backdropUrl(movie.backdropPath, size) ?? posterUrl(movie.posterPath, "w500");
 }
 
-export function mapTmdbMovie(
-  movie: PopularMovieResult | MovieDetails200 | TmdbMovieResult,
-): Movie {
+export function mapTmdbMovie(movie: PopularMovieResult | MovieDetails200 | TmdbMovieResult): Movie {
   const genreIds =
-    'genres' in movie && movie.genres
+    "genres" in movie && movie.genres
       ? movie.genres.map((genre) => genre.id ?? 0)
-      : 'genre_ids' in movie
+      : "genre_ids" in movie
         ? (movie.genre_ids ?? [])
-        : []
+        : [];
 
   return {
     id: movie.id ?? 0,
-    title: movie.title ?? '',
-    overview: movie.overview ?? '',
+    title: movie.title ?? "",
+    overview: movie.overview ?? "",
     posterPath: movie.poster_path ?? null,
     backdropPath: movie.backdrop_path ?? null,
-    releaseDate: movie.release_date ?? '',
+    releaseDate: movie.release_date ?? "",
     voteAverage: movie.vote_average ?? 0,
     voteCount: movie.vote_count ?? 0,
     genreIds,
-  }
+  };
 }
 
 function emptyMovieDetail(base: Movie): MovieDetail {
@@ -52,26 +56,26 @@ function emptyMovieDetail(base: Movie): MovieDetail {
     productionCountries: [],
     spokenLanguages: [],
     originCountries: [],
-  }
+  };
 }
 
 function isMovieDetailsRecord(
   movie: PopularMovieResult | MovieDetails200 | TmdbMovieResult,
 ): movie is MovieDetails200 {
   return (
-    'runtime' in movie ||
-    'production_companies' in movie ||
-    Boolean('genres' in movie && movie.genres?.some((genre) => genre.name))
-  )
+    "runtime" in movie ||
+    "production_companies" in movie ||
+    Boolean("genres" in movie && movie.genres?.some((genre) => genre.name))
+  );
 }
 
 export function mapTmdbMovieDetail(
   movie: PopularMovieResult | MovieDetails200 | TmdbMovieResult,
 ): MovieDetail {
-  const base = mapTmdbMovie(movie)
+  const base = mapTmdbMovie(movie);
 
   if (!isMovieDetailsRecord(movie)) {
-    return emptyMovieDetail(base)
+    return emptyMovieDetail(base);
   }
 
   const collection =
@@ -80,7 +84,7 @@ export function mapTmdbMovieDetail(
           id: movie.belongs_to_collection.id,
           name: movie.belongs_to_collection.name,
         }
-      : undefined
+      : undefined;
 
   return {
     ...base,
@@ -107,5 +111,5 @@ export function mapTmdbMovieDetail(
     originalTitle: movie.original_title,
     originalLanguage: movie.original_language,
     originCountries: movie.origin_country ?? [],
-  }
+  };
 }

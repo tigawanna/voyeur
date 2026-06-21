@@ -7,8 +7,8 @@ export type ListCreateQueryParams = {
   /**
    * @type string
    */
-  session_id: string
-}
+  session_id: string;
+};
 
 /**
  * @description 200
@@ -17,36 +17,36 @@ export type ListCreate200 = {
   /**
    * @type string | undefined
    */
-  status_message?: string
+  status_message?: string;
   /**
    * @default true
    * @type boolean | undefined
    */
-  success?: boolean
+  success?: boolean;
   /**
    * @default 0
    * @type integer | undefined
    */
-  status_code?: number
+  status_code?: number;
   /**
    * @default 0
    * @type integer | undefined
    */
-  list_id?: number
-}
+  list_id?: number;
+};
 
 export type ListCreateMutationRequest = {
   /**
    * @type string, json
    */
-  RAW_BODY: string
-}
+  RAW_BODY: string;
+};
 
-export type ListCreateMutationResponse = ListCreate200
+export type ListCreateMutationResponse = ListCreate200;
 
 export type ListCreateMutation = {
-  Response: ListCreate200
-  Request: ListCreateMutationRequest
-  QueryParams: ListCreateQueryParams
-  Errors: any
-}
+  Response: ListCreate200;
+  Request: ListCreateMutationRequest;
+  QueryParams: ListCreateQueryParams;
+  Errors: any;
+};

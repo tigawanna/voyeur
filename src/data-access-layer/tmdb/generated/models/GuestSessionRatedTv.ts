@@ -7,34 +7,34 @@ export type GuestSessionRatedTvPathParams = {
   /**
    * @type string
    */
-  guest_session_id: string
-}
+  guest_session_id: string;
+};
 
 export const guestSessionRatedTvQueryParamsSortByEnum = {
-  'created_at.asc': 'created_at.asc',
-  'created_at.desc': 'created_at.desc',
-} as const
+  "created_at.asc": "created_at.asc",
+  "created_at.desc": "created_at.desc",
+} as const;
 
 export type GuestSessionRatedTvQueryParamsSortByEnumKey =
-  (typeof guestSessionRatedTvQueryParamsSortByEnum)[keyof typeof guestSessionRatedTvQueryParamsSortByEnum]
+  (typeof guestSessionRatedTvQueryParamsSortByEnum)[keyof typeof guestSessionRatedTvQueryParamsSortByEnum];
 
 export type GuestSessionRatedTvQueryParams = {
   /**
    * @default "en-US"
    * @type string | undefined
    */
-  language?: string
+  language?: string;
   /**
    * @default 1
    * @type integer | undefined, int32
    */
-  page?: number
+  page?: number;
   /**
    * @default "created_at.asc"
    * @type string | undefined
    */
-  sort_by?: GuestSessionRatedTvQueryParamsSortByEnumKey
-}
+  sort_by?: GuestSessionRatedTvQueryParamsSortByEnumKey;
+};
 
 /**
  * @description 200
@@ -44,7 +44,7 @@ export type GuestSessionRatedTv200 = {
    * @default 0
    * @type integer | undefined
    */
-  page?: number
+  page?: number;
   /**
    * @type array | undefined
    */
@@ -53,86 +53,86 @@ export type GuestSessionRatedTv200 = {
      * @default true
      * @type boolean | undefined
      */
-    adult?: boolean
+    adult?: boolean;
     /**
      * @type string | undefined
      */
-    backdrop_path?: string
+    backdrop_path?: string;
     /**
      * @type array | undefined
      */
-    genre_ids?: number[]
+    genre_ids?: number[];
     /**
      * @default 0
      * @type integer | undefined
      */
-    id?: number
+    id?: number;
     /**
      * @type array | undefined
      */
-    origin_country?: string[]
+    origin_country?: string[];
     /**
      * @type string | undefined
      */
-    original_language?: string
+    original_language?: string;
     /**
      * @type string | undefined
      */
-    original_name?: string
+    original_name?: string;
     /**
      * @type string | undefined
      */
-    overview?: string
+    overview?: string;
     /**
      * @default 0
      * @type number | undefined
      */
-    popularity?: number
+    popularity?: number;
     /**
      * @type string | undefined
      */
-    poster_path?: string
+    poster_path?: string;
     /**
      * @type string | undefined
      */
-    first_air_date?: string
+    first_air_date?: string;
     /**
      * @type string | undefined
      */
-    name?: string
+    name?: string;
     /**
      * @default 0
      * @type number | undefined
      */
-    vote_average?: number
+    vote_average?: number;
     /**
      * @default 0
      * @type integer | undefined
      */
-    vote_count?: number
+    vote_count?: number;
     /**
      * @default 0
      * @type number | undefined
      */
-    rating?: number
-  }[]
+    rating?: number;
+  }[];
   /**
    * @default 0
    * @type integer | undefined
    */
-  total_pages?: number
+  total_pages?: number;
   /**
    * @default 0
    * @type integer | undefined
    */
-  total_results?: number
-}
+  total_results?: number;
+};
 
-export type GuestSessionRatedTvQueryResponse = GuestSessionRatedTv200
+export type GuestSessionRatedTvQueryResponse = GuestSessionRatedTv200;
 
 export type GuestSessionRatedTvQuery = {
-  Response: GuestSessionRatedTv200
-  PathParams: GuestSessionRatedTvPathParams
-  QueryParams: GuestSessionRatedTvQueryParams
-  Errors: any
-}
+  Response: GuestSessionRatedTv200;
+  PathParams: GuestSessionRatedTvPathParams;
+  QueryParams: GuestSessionRatedTvQueryParams;
+  Errors: any;
+};

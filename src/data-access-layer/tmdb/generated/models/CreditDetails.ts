@@ -7,16 +7,16 @@ export type CreditDetailsPathParams = {
   /**
    * @type string
    */
-  credit_id: string
-}
+  credit_id: string;
+};
 
 export type CreditDetailsQueryParams = {
   /**
    * @default "en-US"
    * @type string | undefined
    */
-  language?: string
-}
+  language?: string;
+};
 
 /**
  * @description 200
@@ -25,15 +25,15 @@ export type CreditDetails200 = {
   /**
    * @type string | undefined
    */
-  credit_type?: string
+  credit_type?: string;
   /**
    * @type string | undefined
    */
-  department?: string
+  department?: string;
   /**
    * @type string | undefined
    */
-  job?: string
+  job?: string;
   /**
    * @type object | undefined
    */
@@ -42,75 +42,75 @@ export type CreditDetails200 = {
      * @default true
      * @type boolean | undefined
      */
-    adult?: boolean
+    adult?: boolean;
     /**
      * @type string | undefined
      */
-    backdrop_path?: string
+    backdrop_path?: string;
     /**
      * @default 0
      * @type integer | undefined
      */
-    id?: number
+    id?: number;
     /**
      * @type string | undefined
      */
-    name?: string
+    name?: string;
     /**
      * @type string | undefined
      */
-    original_language?: string
+    original_language?: string;
     /**
      * @type string | undefined
      */
-    original_name?: string
+    original_name?: string;
     /**
      * @type string | undefined
      */
-    overview?: string
+    overview?: string;
     /**
      * @type string | undefined
      */
-    poster_path?: string
+    poster_path?: string;
     /**
      * @type string | undefined
      */
-    media_type?: string
+    media_type?: string;
     /**
      * @type array | undefined
      */
-    genre_ids?: number[]
+    genre_ids?: number[];
     /**
      * @default 0
      * @type number | undefined
      */
-    popularity?: number
+    popularity?: number;
     /**
      * @type string | undefined
      */
-    first_air_date?: string
+    first_air_date?: string;
     /**
      * @default 0
      * @type number | undefined
      */
-    vote_average?: number
+    vote_average?: number;
     /**
      * @default 0
      * @type integer | undefined
      */
-    vote_count?: number
+    vote_count?: number;
     /**
      * @type array | undefined
      */
-    origin_country?: string[]
+    origin_country?: string[];
     /**
      * @type string | undefined
      */
-    character?: string
+    character?: string;
     /**
      * @type array | undefined
      */
-    episodes?: any[]
+    episodes?: any[];
     /**
      * @type array | undefined
      */
@@ -118,49 +118,49 @@ export type CreditDetails200 = {
       /**
        * @type string | undefined
        */
-      air_date?: string
+      air_date?: string;
       /**
        * @default 0
        * @type integer | undefined
        */
-      episode_count?: number
+      episode_count?: number;
       /**
        * @default 0
        * @type integer | undefined
        */
-      id?: number
+      id?: number;
       /**
        * @type string | undefined
        */
-      name?: string
+      name?: string;
       /**
        * @type string | undefined
        */
-      overview?: string
+      overview?: string;
       /**
        * @type string | undefined
        */
-      poster_path?: string
+      poster_path?: string;
       /**
        * @default 0
        * @type integer | undefined
        */
-      season_number?: number
+      season_number?: number;
       /**
        * @default 0
        * @type integer | undefined
        */
-      show_id?: number
-    }[]
-  }
+      show_id?: number;
+    }[];
+  };
   /**
    * @type string | undefined
    */
-  media_type?: string
+  media_type?: string;
   /**
    * @type string | undefined
    */
-  id?: string
+  id?: string;
   /**
    * @type object | undefined
    */
@@ -169,50 +169,50 @@ export type CreditDetails200 = {
      * @default true
      * @type boolean | undefined
      */
-    adult?: boolean
+    adult?: boolean;
     /**
      * @default 0
      * @type integer | undefined
      */
-    id?: number
+    id?: number;
     /**
      * @type string | undefined
      */
-    name?: string
+    name?: string;
     /**
      * @type string | undefined
      */
-    original_name?: string
+    original_name?: string;
     /**
      * @type string | undefined
      */
-    media_type?: string
+    media_type?: string;
     /**
      * @default 0
      * @type number | undefined
      */
-    popularity?: number
+    popularity?: number;
     /**
      * @default 0
      * @type integer | undefined
      */
-    gender?: number
+    gender?: number;
     /**
      * @type string | undefined
      */
-    known_for_department?: string
+    known_for_department?: string;
     /**
      * @type string | undefined
      */
-    profile_path?: string
-  }
-}
+    profile_path?: string;
+  };
+};
 
-export type CreditDetailsQueryResponse = CreditDetails200
+export type CreditDetailsQueryResponse = CreditDetails200;
 
 export type CreditDetailsQuery = {
-  Response: CreditDetails200
-  PathParams: CreditDetailsPathParams
-  QueryParams: CreditDetailsQueryParams
-  Errors: any
-}
+  Response: CreditDetails200;
+  PathParams: CreditDetailsPathParams;
+  QueryParams: CreditDetailsQueryParams;
+  Errors: any;
+};

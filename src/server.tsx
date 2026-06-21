@@ -1,15 +1,15 @@
-import handler, { createServerEntry } from '@tanstack/react-start/server-entry'
-import { honoApp } from '#/server/api-routes'
+import handler, { createServerEntry } from "@tanstack/react-start/server-entry";
+import { honoApp } from "#/server/api-routes";
 
 type RequestContext = {
-  isServer: true
-}
+  isServer: true;
+};
 
-declare module '@tanstack/react-start' {
+declare module "@tanstack/react-start" {
   interface Register {
     server: {
-      requestContext: RequestContext
-    }
+      requestContext: RequestContext;
+    };
   }
 }
 
@@ -18,23 +18,23 @@ type CloudflareServerEntry = {
     request: Request,
     env: CloudflareBindings,
     ctx: ExecutionContext,
-  ) => Promise<Response> | Response
-}
+  ) => Promise<Response> | Response;
+};
 
 function isTmdbApiRoute(pathname: string) {
-  return pathname.startsWith('/api/tmdb')
+  return pathname.startsWith("/api/tmdb");
 }
 
 const serverEntry: CloudflareServerEntry = {
   async fetch(request, env, ctx) {
-    const pathname = new URL(request.url).pathname
+    const pathname = new URL(request.url).pathname;
 
     if (isTmdbApiRoute(pathname)) {
-      return honoApp.fetch(request, env, ctx)
+      return honoApp.fetch(request, env, ctx);
     }
 
-    return handler.fetch(request)
+    return handler.fetch(request);
   },
-}
+};
 
-export default createServerEntry(serverEntry as unknown as Parameters<typeof createServerEntry>[0])
+export default createServerEntry(serverEntry as unknown as Parameters<typeof createServerEntry>[0]);

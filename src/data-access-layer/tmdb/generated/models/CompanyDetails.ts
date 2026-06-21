@@ -7,8 +7,8 @@ export type CompanyDetailsPathParams = {
   /**
    * @type integer, int32
    */
-  company_id: number
-}
+  company_id: number;
+};
 
 /**
  * @description 200
@@ -17,39 +17,39 @@ export type CompanyDetails200 = {
   /**
    * @type string | undefined
    */
-  description?: string
+  description?: string;
   /**
    * @type string | undefined
    */
-  headquarters?: string
+  headquarters?: string;
   /**
    * @type string | undefined
    */
-  homepage?: string
+  homepage?: string;
   /**
    * @default 0
    * @type integer | undefined
    */
-  id?: number
+  id?: number;
   /**
    * @type string | undefined
    */
-  logo_path?: string
+  logo_path?: string;
   /**
    * @type string | undefined
    */
-  name?: string
+  name?: string;
   /**
    * @type string | undefined
    */
-  origin_country?: string
-  parent_company?: any
-}
+  origin_country?: string;
+  parent_company?: any;
+};
 
-export type CompanyDetailsQueryResponse = CompanyDetails200
+export type CompanyDetailsQueryResponse = CompanyDetails200;
 
 export type CompanyDetailsQuery = {
-  Response: CompanyDetails200
-  PathParams: CompanyDetailsPathParams
-  Errors: any
-}
+  Response: CompanyDetails200;
+  PathParams: CompanyDetailsPathParams;
+  Errors: any;
+};

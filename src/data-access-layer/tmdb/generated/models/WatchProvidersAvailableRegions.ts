@@ -8,8 +8,8 @@ export type WatchProvidersAvailableRegionsQueryParams = {
    * @default "en-US"
    * @type string | undefined
    */
-  language?: string
-}
+  language?: string;
+};
 
 /**
  * @description 200
@@ -22,23 +22,22 @@ export type WatchProvidersAvailableRegions200 = {
     /**
      * @type string | undefined
      */
-    iso_3166_1?: string
+    iso_3166_1?: string;
     /**
      * @type string | undefined
      */
-    english_name?: string
+    english_name?: string;
     /**
      * @type string | undefined
      */
-    native_name?: string
-  }[]
-}
+    native_name?: string;
+  }[];
+};
 
-export type WatchProvidersAvailableRegionsQueryResponse =
-  WatchProvidersAvailableRegions200
+export type WatchProvidersAvailableRegionsQueryResponse = WatchProvidersAvailableRegions200;
 
 export type WatchProvidersAvailableRegionsQuery = {
-  Response: WatchProvidersAvailableRegions200
-  QueryParams: WatchProvidersAvailableRegionsQueryParams
-  Errors: any
-}
+  Response: WatchProvidersAvailableRegions200;
+  QueryParams: WatchProvidersAvailableRegionsQueryParams;
+  Errors: any;
+};

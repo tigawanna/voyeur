@@ -18,17 +18,17 @@ export type CertificationsTvList200 = {
       /**
        * @type string | undefined
        */
-      certification?: string
+      certification?: string;
       /**
        * @type string | undefined
        */
-      meaning?: string
+      meaning?: string;
       /**
        * @default 0
        * @type integer | undefined
        */
-      order?: number
-    }[]
+      order?: number;
+    }[];
     /**
      * @type array | undefined
      */
@@ -36,17 +36,17 @@ export type CertificationsTvList200 = {
       /**
        * @type string | undefined
        */
-      certification?: string
+      certification?: string;
       /**
        * @type string | undefined
        */
-      meaning?: string
+      meaning?: string;
       /**
        * @default 0
        * @type integer | undefined
        */
-      order?: number
-    }[]
+      order?: number;
+    }[];
     /**
      * @type array | undefined
      */
@@ -54,35 +54,35 @@ export type CertificationsTvList200 = {
       /**
        * @type string | undefined
        */
-      certification?: string
+      certification?: string;
       /**
        * @type string | undefined
        */
-      meaning?: string
+      meaning?: string;
       /**
        * @default 0
        * @type integer | undefined
        */
-      order?: number
-    }[]
+      order?: number;
+    }[];
     /**
      * @type array | undefined
      */
-    'CA-QC'?: {
+    "CA-QC"?: {
       /**
        * @type string | undefined
        */
-      certification?: string
+      certification?: string;
       /**
        * @type string | undefined
        */
-      meaning?: string
+      meaning?: string;
       /**
        * @default 0
        * @type integer | undefined
        */
-      order?: number
-    }[]
+      order?: number;
+    }[];
     /**
      * @type array | undefined
      */
@@ -90,17 +90,17 @@ export type CertificationsTvList200 = {
       /**
        * @type string | undefined
        */
-      certification?: string
+      certification?: string;
       /**
        * @type string | undefined
        */
-      meaning?: string
+      meaning?: string;
       /**
        * @default 0
        * @type integer | undefined
        */
-      order?: number
-    }[]
+      order?: number;
+    }[];
     /**
      * @type array | undefined
      */
@@ -108,17 +108,17 @@ export type CertificationsTvList200 = {
       /**
        * @type string | undefined
        */
-      certification?: string
+      certification?: string;
       /**
        * @type string | undefined
        */
-      meaning?: string
+      meaning?: string;
       /**
        * @default 0
        * @type integer | undefined
        */
-      order?: number
-    }[]
+      order?: number;
+    }[];
     /**
      * @type array | undefined
      */
@@ -126,17 +126,17 @@ export type CertificationsTvList200 = {
       /**
        * @type string | undefined
        */
-      certification?: string
+      certification?: string;
       /**
        * @type string | undefined
        */
-      meaning?: string
+      meaning?: string;
       /**
        * @default 0
        * @type integer | undefined
        */
-      order?: number
-    }[]
+      order?: number;
+    }[];
     /**
      * @type array | undefined
      */
@@ -144,17 +144,17 @@ export type CertificationsTvList200 = {
       /**
        * @type string | undefined
        */
-      certification?: string
+      certification?: string;
       /**
        * @type string | undefined
        */
-      meaning?: string
+      meaning?: string;
       /**
        * @default 0
        * @type integer | undefined
        */
-      order?: number
-    }[]
+      order?: number;
+    }[];
     /**
      * @type array | undefined
      */
@@ -162,17 +162,17 @@ export type CertificationsTvList200 = {
       /**
        * @type string | undefined
        */
-      certification?: string
+      certification?: string;
       /**
        * @type string | undefined
        */
-      meaning?: string
+      meaning?: string;
       /**
        * @default 0
        * @type integer | undefined
        */
-      order?: number
-    }[]
+      order?: number;
+    }[];
     /**
      * @type array | undefined
      */
@@ -180,17 +180,17 @@ export type CertificationsTvList200 = {
       /**
        * @type string | undefined
        */
-      certification?: string
+      certification?: string;
       /**
        * @type string | undefined
        */
-      meaning?: string
+      meaning?: string;
       /**
        * @default 0
        * @type integer | undefined
        */
-      order?: number
-    }[]
+      order?: number;
+    }[];
     /**
      * @type array | undefined
      */
@@ -198,17 +198,17 @@ export type CertificationsTvList200 = {
       /**
        * @type string | undefined
        */
-      certification?: string
+      certification?: string;
       /**
        * @type string | undefined
        */
-      meaning?: string
+      meaning?: string;
       /**
        * @default 0
        * @type integer | undefined
        */
-      order?: number
-    }[]
+      order?: number;
+    }[];
     /**
      * @type array | undefined
      */
@@ -216,17 +216,17 @@ export type CertificationsTvList200 = {
       /**
        * @type string | undefined
        */
-      certification?: string
+      certification?: string;
       /**
        * @type string | undefined
        */
-      meaning?: string
+      meaning?: string;
       /**
        * @default 0
        * @type integer | undefined
        */
-      order?: number
-    }[]
+      order?: number;
+    }[];
     /**
      * @type array | undefined
      */
@@ -234,17 +234,17 @@ export type CertificationsTvList200 = {
       /**
        * @type string | undefined
        */
-      certification?: string
+      certification?: string;
       /**
        * @type string | undefined
        */
-      meaning?: string
+      meaning?: string;
       /**
        * @default 0
        * @type integer | undefined
        */
-      order?: number
-    }[]
+      order?: number;
+    }[];
     /**
      * @type array | undefined
      */
@@ -252,17 +252,17 @@ export type CertificationsTvList200 = {
       /**
        * @type string | undefined
        */
-      certification?: string
+      certification?: string;
       /**
        * @type string | undefined
        */
-      meaning?: string
+      meaning?: string;
       /**
        * @default 0
        * @type integer | undefined
        */
-      order?: number
-    }[]
+      order?: number;
+    }[];
     /**
      * @type array | undefined
      */
@@ -270,17 +270,17 @@ export type CertificationsTvList200 = {
       /**
        * @type string | undefined
        */
-      certification?: string
+      certification?: string;
       /**
        * @type string | undefined
        */
-      meaning?: string
+      meaning?: string;
       /**
        * @default 0
        * @type integer | undefined
        */
-      order?: number
-    }[]
+      order?: number;
+    }[];
     /**
      * @type array | undefined
      */
@@ -288,17 +288,17 @@ export type CertificationsTvList200 = {
       /**
        * @type string | undefined
        */
-      certification?: string
+      certification?: string;
       /**
        * @type string | undefined
        */
-      meaning?: string
+      meaning?: string;
       /**
        * @default 0
        * @type integer | undefined
        */
-      order?: number
-    }[]
+      order?: number;
+    }[];
     /**
      * @type array | undefined
      */
@@ -306,17 +306,17 @@ export type CertificationsTvList200 = {
       /**
        * @type string | undefined
        */
-      certification?: string
+      certification?: string;
       /**
        * @type string | undefined
        */
-      meaning?: string
+      meaning?: string;
       /**
        * @default 0
        * @type integer | undefined
        */
-      order?: number
-    }[]
+      order?: number;
+    }[];
     /**
      * @type array | undefined
      */
@@ -324,17 +324,17 @@ export type CertificationsTvList200 = {
       /**
        * @type string | undefined
        */
-      certification?: string
+      certification?: string;
       /**
        * @type string | undefined
        */
-      meaning?: string
+      meaning?: string;
       /**
        * @default 0
        * @type integer | undefined
        */
-      order?: number
-    }[]
+      order?: number;
+    }[];
     /**
      * @type array | undefined
      */
@@ -342,17 +342,17 @@ export type CertificationsTvList200 = {
       /**
        * @type string | undefined
        */
-      certification?: string
+      certification?: string;
       /**
        * @type string | undefined
        */
-      meaning?: string
+      meaning?: string;
       /**
        * @default 0
        * @type integer | undefined
        */
-      order?: number
-    }[]
+      order?: number;
+    }[];
     /**
      * @type array | undefined
      */
@@ -360,17 +360,17 @@ export type CertificationsTvList200 = {
       /**
        * @type string | undefined
        */
-      certification?: string
+      certification?: string;
       /**
        * @type string | undefined
        */
-      meaning?: string
+      meaning?: string;
       /**
        * @default 0
        * @type integer | undefined
        */
-      order?: number
-    }[]
+      order?: number;
+    }[];
     /**
      * @type array | undefined
      */
@@ -378,17 +378,17 @@ export type CertificationsTvList200 = {
       /**
        * @type string | undefined
        */
-      certification?: string
+      certification?: string;
       /**
        * @type string | undefined
        */
-      meaning?: string
+      meaning?: string;
       /**
        * @default 0
        * @type integer | undefined
        */
-      order?: number
-    }[]
+      order?: number;
+    }[];
     /**
      * @type array | undefined
      */
@@ -396,17 +396,17 @@ export type CertificationsTvList200 = {
       /**
        * @type string | undefined
        */
-      certification?: string
+      certification?: string;
       /**
        * @type string | undefined
        */
-      meaning?: string
+      meaning?: string;
       /**
        * @default 0
        * @type integer | undefined
        */
-      order?: number
-    }[]
+      order?: number;
+    }[];
     /**
      * @type array | undefined
      */
@@ -414,17 +414,17 @@ export type CertificationsTvList200 = {
       /**
        * @type string | undefined
        */
-      certification?: string
+      certification?: string;
       /**
        * @type string | undefined
        */
-      meaning?: string
+      meaning?: string;
       /**
        * @default 0
        * @type integer | undefined
        */
-      order?: number
-    }[]
+      order?: number;
+    }[];
     /**
      * @type array | undefined
      */
@@ -432,17 +432,17 @@ export type CertificationsTvList200 = {
       /**
        * @type string | undefined
        */
-      certification?: string
+      certification?: string;
       /**
        * @type string | undefined
        */
-      meaning?: string
+      meaning?: string;
       /**
        * @default 0
        * @type integer | undefined
        */
-      order?: number
-    }[]
+      order?: number;
+    }[];
     /**
      * @type array | undefined
      */
@@ -450,17 +450,17 @@ export type CertificationsTvList200 = {
       /**
        * @type string | undefined
        */
-      certification?: string
+      certification?: string;
       /**
        * @type string | undefined
        */
-      meaning?: string
+      meaning?: string;
       /**
        * @default 0
        * @type integer | undefined
        */
-      order?: number
-    }[]
+      order?: number;
+    }[];
     /**
      * @type array | undefined
      */
@@ -468,17 +468,17 @@ export type CertificationsTvList200 = {
       /**
        * @type string | undefined
        */
-      certification?: string
+      certification?: string;
       /**
        * @type string | undefined
        */
-      meaning?: string
+      meaning?: string;
       /**
        * @default 0
        * @type integer | undefined
        */
-      order?: number
-    }[]
+      order?: number;
+    }[];
     /**
      * @type array | undefined
      */
@@ -486,17 +486,17 @@ export type CertificationsTvList200 = {
       /**
        * @type string | undefined
        */
-      certification?: string
+      certification?: string;
       /**
        * @type string | undefined
        */
-      meaning?: string
+      meaning?: string;
       /**
        * @default 0
        * @type integer | undefined
        */
-      order?: number
-    }[]
+      order?: number;
+    }[];
     /**
      * @type array | undefined
      */
@@ -504,17 +504,17 @@ export type CertificationsTvList200 = {
       /**
        * @type string | undefined
        */
-      certification?: string
+      certification?: string;
       /**
        * @type string | undefined
        */
-      meaning?: string
+      meaning?: string;
       /**
        * @default 0
        * @type integer | undefined
        */
-      order?: number
-    }[]
+      order?: number;
+    }[];
     /**
      * @type array | undefined
      */
@@ -522,17 +522,17 @@ export type CertificationsTvList200 = {
       /**
        * @type string | undefined
        */
-      certification?: string
+      certification?: string;
       /**
        * @type string | undefined
        */
-      meaning?: string
+      meaning?: string;
       /**
        * @default 0
        * @type integer | undefined
        */
-      order?: number
-    }[]
+      order?: number;
+    }[];
     /**
      * @type array | undefined
      */
@@ -540,17 +540,17 @@ export type CertificationsTvList200 = {
       /**
        * @type string | undefined
        */
-      certification?: string
+      certification?: string;
       /**
        * @type string | undefined
        */
-      meaning?: string
+      meaning?: string;
       /**
        * @default 0
        * @type integer | undefined
        */
-      order?: number
-    }[]
+      order?: number;
+    }[];
     /**
      * @type array | undefined
      */
@@ -558,17 +558,17 @@ export type CertificationsTvList200 = {
       /**
        * @type string | undefined
        */
-      certification?: string
+      certification?: string;
       /**
        * @type string | undefined
        */
-      meaning?: string
+      meaning?: string;
       /**
        * @default 0
        * @type integer | undefined
        */
-      order?: number
-    }[]
+      order?: number;
+    }[];
     /**
      * @type array | undefined
      */
@@ -576,17 +576,17 @@ export type CertificationsTvList200 = {
       /**
        * @type string | undefined
        */
-      certification?: string
+      certification?: string;
       /**
        * @type string | undefined
        */
-      meaning?: string
+      meaning?: string;
       /**
        * @default 0
        * @type integer | undefined
        */
-      order?: number
-    }[]
+      order?: number;
+    }[];
     /**
      * @type array | undefined
      */
@@ -594,17 +594,17 @@ export type CertificationsTvList200 = {
       /**
        * @type string | undefined
        */
-      certification?: string
+      certification?: string;
       /**
        * @type string | undefined
        */
-      meaning?: string
+      meaning?: string;
       /**
        * @default 0
        * @type integer | undefined
        */
-      order?: number
-    }[]
+      order?: number;
+    }[];
     /**
      * @type array | undefined
      */
@@ -612,17 +612,17 @@ export type CertificationsTvList200 = {
       /**
        * @type string | undefined
        */
-      certification?: string
+      certification?: string;
       /**
        * @type string | undefined
        */
-      meaning?: string
+      meaning?: string;
       /**
        * @default 0
        * @type integer | undefined
        */
-      order?: number
-    }[]
+      order?: number;
+    }[];
     /**
      * @type array | undefined
      */
@@ -630,17 +630,17 @@ export type CertificationsTvList200 = {
       /**
        * @type string | undefined
        */
-      certification?: string
+      certification?: string;
       /**
        * @type string | undefined
        */
-      meaning?: string
+      meaning?: string;
       /**
        * @default 0
        * @type integer | undefined
        */
-      order?: number
-    }[]
+      order?: number;
+    }[];
     /**
      * @type array | undefined
      */
@@ -648,17 +648,17 @@ export type CertificationsTvList200 = {
       /**
        * @type string | undefined
        */
-      certification?: string
+      certification?: string;
       /**
        * @type string | undefined
        */
-      meaning?: string
+      meaning?: string;
       /**
        * @default 0
        * @type integer | undefined
        */
-      order?: number
-    }[]
+      order?: number;
+    }[];
     /**
      * @type array | undefined
      */
@@ -666,17 +666,17 @@ export type CertificationsTvList200 = {
       /**
        * @type string | undefined
        */
-      certification?: string
+      certification?: string;
       /**
        * @type string | undefined
        */
-      meaning?: string
+      meaning?: string;
       /**
        * @default 0
        * @type integer | undefined
        */
-      order?: number
-    }[]
+      order?: number;
+    }[];
     /**
      * @type array | undefined
      */
@@ -684,17 +684,17 @@ export type CertificationsTvList200 = {
       /**
        * @type string | undefined
        */
-      certification?: string
+      certification?: string;
       /**
        * @type string | undefined
        */
-      meaning?: string
+      meaning?: string;
       /**
        * @default 0
        * @type integer | undefined
        */
-      order?: number
-    }[]
+      order?: number;
+    }[];
     /**
      * @type array | undefined
      */
@@ -702,17 +702,17 @@ export type CertificationsTvList200 = {
       /**
        * @type string | undefined
        */
-      certification?: string
+      certification?: string;
       /**
        * @type string | undefined
        */
-      meaning?: string
+      meaning?: string;
       /**
        * @default 0
        * @type integer | undefined
        */
-      order?: number
-    }[]
+      order?: number;
+    }[];
     /**
      * @type array | undefined
      */
@@ -720,23 +720,23 @@ export type CertificationsTvList200 = {
       /**
        * @type string | undefined
        */
-      certification?: string
+      certification?: string;
       /**
        * @type string | undefined
        */
-      meaning?: string
+      meaning?: string;
       /**
        * @default 0
        * @type integer | undefined
        */
-      order?: number
-    }[]
-  }
-}
+      order?: number;
+    }[];
+  };
+};
 
-export type CertificationsTvListQueryResponse = CertificationsTvList200
+export type CertificationsTvListQueryResponse = CertificationsTvList200;
 
 export type CertificationsTvListQuery = {
-  Response: CertificationsTvList200
-  Errors: any
-}
+  Response: CertificationsTvList200;
+  Errors: any;
+};

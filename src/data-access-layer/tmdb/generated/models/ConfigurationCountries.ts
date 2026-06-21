@@ -8,8 +8,8 @@ export type ConfigurationCountriesQueryParams = {
    * @default "en-US"
    * @type string | undefined
    */
-  language?: string
-}
+  language?: string;
+};
 
 /**
  * @description 200
@@ -18,21 +18,21 @@ export type ConfigurationCountries200 = {
   /**
    * @type string | undefined
    */
-  iso_3166_1?: string
+  iso_3166_1?: string;
   /**
    * @type string | undefined
    */
-  english_name?: string
+  english_name?: string;
   /**
    * @type string | undefined
    */
-  native_name?: string
-}[]
+  native_name?: string;
+}[];
 
-export type ConfigurationCountriesQueryResponse = ConfigurationCountries200
+export type ConfigurationCountriesQueryResponse = ConfigurationCountries200;
 
 export type ConfigurationCountriesQuery = {
-  Response: ConfigurationCountries200
-  QueryParams: ConfigurationCountriesQueryParams
-  Errors: any
-}
+  Response: ConfigurationCountries200;
+  QueryParams: ConfigurationCountriesQueryParams;
+  Errors: any;
+};

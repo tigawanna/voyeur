@@ -7,23 +7,23 @@ export type TvSeasonAccountStatesPathParams = {
   /**
    * @type integer, int32
    */
-  series_id: number
+  series_id: number;
   /**
    * @type integer, int32
    */
-  season_number: number
-}
+  season_number: number;
+};
 
 export type TvSeasonAccountStatesQueryParams = {
   /**
    * @type string | undefined
    */
-  session_id?: string
+  session_id?: string;
   /**
    * @type string | undefined
    */
-  guest_session_id?: string
-}
+  guest_session_id?: string;
+};
 
 /**
  * @description 200
@@ -33,7 +33,7 @@ export type TvSeasonAccountStates200 = {
    * @default 0
    * @type integer | undefined
    */
-  id?: number
+  id?: number;
   /**
    * @type array | undefined
    */
@@ -42,12 +42,12 @@ export type TvSeasonAccountStates200 = {
      * @default 0
      * @type integer | undefined
      */
-    id?: number
+    id?: number;
     /**
      * @default 0
      * @type integer | undefined
      */
-    episode_number?: number
+    episode_number?: number;
     /**
      * @type object | undefined
      */
@@ -56,16 +56,16 @@ export type TvSeasonAccountStates200 = {
        * @default 0
        * @type integer | undefined
        */
-      value?: number
-    }
-  }[]
-}
+      value?: number;
+    };
+  }[];
+};
 
-export type TvSeasonAccountStatesQueryResponse = TvSeasonAccountStates200
+export type TvSeasonAccountStatesQueryResponse = TvSeasonAccountStates200;
 
 export type TvSeasonAccountStatesQuery = {
-  Response: TvSeasonAccountStates200
-  PathParams: TvSeasonAccountStatesPathParams
-  QueryParams: TvSeasonAccountStatesQueryParams
-  Errors: any
-}
+  Response: TvSeasonAccountStates200;
+  PathParams: TvSeasonAccountStatesPathParams;
+  QueryParams: TvSeasonAccountStatesQueryParams;
+  Errors: any;
+};

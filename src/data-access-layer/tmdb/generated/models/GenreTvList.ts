@@ -8,8 +8,8 @@ export type GenreTvListQueryParams = {
    * @default "en"
    * @type string | undefined
    */
-  language?: string
-}
+  language?: string;
+};
 
 /**
  * @description 200
@@ -23,18 +23,18 @@ export type GenreTvList200 = {
      * @default 0
      * @type integer | undefined
      */
-    id?: number
+    id?: number;
     /**
      * @type string | undefined
      */
-    name?: string
-  }[]
-}
+    name?: string;
+  }[];
+};
 
-export type GenreTvListQueryResponse = GenreTvList200
+export type GenreTvListQueryResponse = GenreTvList200;
 
 export type GenreTvListQuery = {
-  Response: GenreTvList200
-  QueryParams: GenreTvListQueryParams
-  Errors: any
-}
+  Response: GenreTvList200;
+  QueryParams: GenreTvListQueryParams;
+  Errors: any;
+};

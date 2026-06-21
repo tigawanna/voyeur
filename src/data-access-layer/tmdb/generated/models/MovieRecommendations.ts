@@ -7,32 +7,32 @@ export type MovieRecommendationsPathParams = {
   /**
    * @type integer, int32
    */
-  movie_id: number
-}
+  movie_id: number;
+};
 
 export type MovieRecommendationsQueryParams = {
   /**
    * @default "en-US"
    * @type string | undefined
    */
-  language?: string
+  language?: string;
   /**
    * @default 1
    * @type integer | undefined, int32
    */
-  page?: number
-}
+  page?: number;
+};
 
 /**
  * @description 200
  */
-export type MovieRecommendations200 = object
+export type MovieRecommendations200 = object;
 
-export type MovieRecommendationsQueryResponse = MovieRecommendations200
+export type MovieRecommendationsQueryResponse = MovieRecommendations200;
 
 export type MovieRecommendationsQuery = {
-  Response: MovieRecommendations200
-  PathParams: MovieRecommendationsPathParams
-  QueryParams: MovieRecommendationsQueryParams
-  Errors: any
-}
+  Response: MovieRecommendations200;
+  PathParams: MovieRecommendationsPathParams;
+  QueryParams: MovieRecommendationsQueryParams;
+  Errors: any;
+};

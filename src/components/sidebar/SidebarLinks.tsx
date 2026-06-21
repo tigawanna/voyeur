@@ -9,7 +9,7 @@ import {
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { Link, useRouterState } from "@tanstack/react-router";
 import { ChevronRight } from "lucide-react";
-import type { SidebarItem } from './types'
+import type { SidebarItem } from "./types";
 
 interface SidebarLinksProps {
   links: SidebarItem[];

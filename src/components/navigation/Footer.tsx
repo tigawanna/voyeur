@@ -1,9 +1,9 @@
-import { AppConfig } from '#/utils/system'
-import { Link } from '@tanstack/react-router'
+import { AppConfig } from "#/utils/system";
+import { Link } from "@tanstack/react-router";
 
 export function Footer() {
-  const currentYear = new Date().getFullYear()
-  const Icon = AppConfig.icon
+  const currentYear = new Date().getFullYear();
+  const Icon = AppConfig.icon;
 
   return (
     <footer className="mt-auto border-t border-border bg-background">
@@ -21,7 +21,11 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link to="/login" search={{ returnTo: '/movies' }} className="no-underline transition hover:text-foreground">
+                <Link
+                  to="/login"
+                  search={{ returnTo: "/movies" }}
+                  className="no-underline transition hover:text-foreground"
+                >
                   Sign in
                 </Link>
               </li>
@@ -33,5 +37,5 @@ export function Footer() {
         </p>
       </div>
     </footer>
-  )
+  );
 }

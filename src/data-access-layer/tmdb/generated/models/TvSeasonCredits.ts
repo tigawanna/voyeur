@@ -7,20 +7,20 @@ export type TvSeasonCreditsPathParams = {
   /**
    * @type integer, int32
    */
-  series_id: number
+  series_id: number;
   /**
    * @type integer, int32
    */
-  season_number: number
-}
+  season_number: number;
+};
 
 export type TvSeasonCreditsQueryParams = {
   /**
    * @default "en-US"
    * @type string | undefined
    */
-  language?: string
-}
+  language?: string;
+};
 
 /**
  * @description 200
@@ -34,52 +34,52 @@ export type TvSeasonCredits200 = {
      * @default true
      * @type boolean | undefined
      */
-    adult?: boolean
+    adult?: boolean;
     /**
      * @default 0
      * @type integer | undefined
      */
-    gender?: number
+    gender?: number;
     /**
      * @default 0
      * @type integer | undefined
      */
-    id?: number
+    id?: number;
     /**
      * @type string | undefined
      */
-    known_for_department?: string
+    known_for_department?: string;
     /**
      * @type string | undefined
      */
-    name?: string
+    name?: string;
     /**
      * @type string | undefined
      */
-    original_name?: string
+    original_name?: string;
     /**
      * @default 0
      * @type number | undefined
      */
-    popularity?: number
+    popularity?: number;
     /**
      * @type string | undefined
      */
-    profile_path?: string
+    profile_path?: string;
     /**
      * @type string | undefined
      */
-    character?: string
+    character?: string;
     /**
      * @type string | undefined
      */
-    credit_id?: string
+    credit_id?: string;
     /**
      * @default 0
      * @type integer | undefined
      */
-    order?: number
-  }[]
+    order?: number;
+  }[];
   /**
    * @type array | undefined
    */
@@ -88,60 +88,60 @@ export type TvSeasonCredits200 = {
      * @default true
      * @type boolean | undefined
      */
-    adult?: boolean
+    adult?: boolean;
     /**
      * @default 0
      * @type integer | undefined
      */
-    gender?: number
+    gender?: number;
     /**
      * @default 0
      * @type integer | undefined
      */
-    id?: number
+    id?: number;
     /**
      * @type string | undefined
      */
-    known_for_department?: string
+    known_for_department?: string;
     /**
      * @type string | undefined
      */
-    name?: string
+    name?: string;
     /**
      * @type string | undefined
      */
-    original_name?: string
+    original_name?: string;
     /**
      * @default 0
      * @type number | undefined
      */
-    popularity?: number
-    profile_path?: any
+    popularity?: number;
+    profile_path?: any;
     /**
      * @type string | undefined
      */
-    credit_id?: string
+    credit_id?: string;
     /**
      * @type string | undefined
      */
-    department?: string
+    department?: string;
     /**
      * @type string | undefined
      */
-    job?: string
-  }[]
+    job?: string;
+  }[];
   /**
    * @default 0
    * @type integer | undefined
    */
-  id?: number
-}
+  id?: number;
+};
 
-export type TvSeasonCreditsQueryResponse = TvSeasonCredits200
+export type TvSeasonCreditsQueryResponse = TvSeasonCredits200;
 
 export type TvSeasonCreditsQuery = {
-  Response: TvSeasonCredits200
-  PathParams: TvSeasonCreditsPathParams
-  QueryParams: TvSeasonCreditsQueryParams
-  Errors: any
-}
+  Response: TvSeasonCredits200;
+  PathParams: TvSeasonCreditsPathParams;
+  QueryParams: TvSeasonCreditsQueryParams;
+  Errors: any;
+};

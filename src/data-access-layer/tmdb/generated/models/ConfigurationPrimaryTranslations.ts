@@ -6,12 +6,11 @@
 /**
  * @description 200
  */
-export type ConfigurationPrimaryTranslations200 = string[]
+export type ConfigurationPrimaryTranslations200 = string[];
 
-export type ConfigurationPrimaryTranslationsQueryResponse =
-  ConfigurationPrimaryTranslations200
+export type ConfigurationPrimaryTranslationsQueryResponse = ConfigurationPrimaryTranslations200;
 
 export type ConfigurationPrimaryTranslationsQuery = {
-  Response: ConfigurationPrimaryTranslations200
-  Errors: any
-}
+  Response: ConfigurationPrimaryTranslations200;
+  Errors: any;
+};

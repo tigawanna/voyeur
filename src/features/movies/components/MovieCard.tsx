@@ -1,36 +1,36 @@
-import { fromCardMovieToBasicRecord } from '#/data-access-layer/tmdb/movie-basic-record'
-import { movieBasicCollection } from '#/data-access-layer/tmdb/query-collection'
-import { MovieLibraryActions } from '#/features/movies/components/MovieLibraryActions'
-import type { MovieCardMovie } from '#/types/movie'
-import { posterUrl, mapTmdbMovie } from '#/utils/tmdb-images'
-import { movieViewTransitionName } from '#/utils/movie-view-transition'
-import { withViewTransition } from '#/utils/viewTransition'
-import { cn } from '@/lib/utils'
-import { Link, useNavigate } from '@tanstack/react-router'
-import { useCallback, useRef } from 'react'
+import { fromCardMovieToBasicRecord } from "#/data-access-layer/tmdb/movie-basic-record";
+import { movieBasicCollection } from "#/data-access-layer/tmdb/query-collection";
+import { MovieLibraryActions } from "#/features/movies/components/MovieLibraryActions";
+import type { MovieCardMovie } from "#/types/movie";
+import { posterUrl, mapTmdbMovie } from "#/utils/tmdb-images";
+import { movieViewTransitionName } from "#/utils/movie-view-transition";
+import { withViewTransition } from "#/utils/viewTransition";
+import { cn } from "@/lib/utils";
+import { Link, useNavigate } from "@tanstack/react-router";
+import { useCallback, useRef } from "react";
 
 interface MovieCardProps {
-  movie: MovieCardMovie
-  className?: string
+  movie: MovieCardMovie;
+  className?: string;
 }
 
 export function MovieCard({ movie, className }: MovieCardProps) {
-  const navigate = useNavigate()
-  const seededBasicRef = useRef(false)
-  const timelineMovie = mapTmdbMovie(movie)
-  const image = posterUrl(timelineMovie.posterPath, 'w342')
+  const navigate = useNavigate();
+  const seededBasicRef = useRef(false);
+  const timelineMovie = mapTmdbMovie(movie);
+  const image = posterUrl(timelineMovie.posterPath, "w342");
 
   const seedBasicOnIntent = useCallback(() => {
-    if (seededBasicRef.current) return
-    seededBasicRef.current = true
-    movieBasicCollection.utils.writeUpsert(fromCardMovieToBasicRecord(movie))
-  }, [movie])
+    if (seededBasicRef.current) return;
+    seededBasicRef.current = true;
+    movieBasicCollection.utils.writeUpsert(fromCardMovieToBasicRecord(movie));
+  }, [movie]);
 
   return (
     <article
       data-testid={`movie-card-${timelineMovie.id}`}
       className={cn(
-        'group island-shell rise-in overflow-hidden rounded-2xl border border-border bg-card',
+        "group island-shell rise-in overflow-hidden rounded-2xl border border-border bg-card",
         className,
       )}
     >
@@ -41,14 +41,14 @@ export function MovieCard({ movie, className }: MovieCardProps) {
         onMouseEnter={seedBasicOnIntent}
         onTouchStart={seedBasicOnIntent}
         onClick={(event) => {
-          event.preventDefault()
-          seedBasicOnIntent()
+          event.preventDefault();
+          seedBasicOnIntent();
           withViewTransition(() => {
             void navigate({
-              to: '/movies/movie/$movieId',
+              to: "/movies/movie/$movieId",
               params: { movieId: String(timelineMovie.id) },
-            })
-          })
+            });
+          });
         }}
       >
         <div className="relative aspect-2/3 overflow-hidden bg-muted">
@@ -70,7 +70,7 @@ export function MovieCard({ movie, className }: MovieCardProps) {
               {timelineMovie.title}
             </h3>
             <p className="mt-1 text-xs text-white/70">
-              {timelineMovie.releaseDate ? timelineMovie.releaseDate.slice(0, 4) : 'TBA'} · ★{' '}
+              {timelineMovie.releaseDate ? timelineMovie.releaseDate.slice(0, 4) : "TBA"} · ★{" "}
               {timelineMovie.voteAverage.toFixed(1)}
             </p>
           </div>
@@ -86,5 +86,5 @@ export function MovieCard({ movie, className }: MovieCardProps) {
         />
       </div>
     </article>
-  )
+  );
 }

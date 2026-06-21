@@ -10,16 +10,16 @@ export type ConfigurationTimezones200 = {
   /**
    * @type string | undefined
    */
-  iso_3166_1?: string
+  iso_3166_1?: string;
   /**
    * @type array | undefined
    */
-  zones?: string[]
-}[]
+  zones?: string[];
+}[];
 
-export type ConfigurationTimezonesQueryResponse = ConfigurationTimezones200
+export type ConfigurationTimezonesQueryResponse = ConfigurationTimezones200;
 
 export type ConfigurationTimezonesQuery = {
-  Response: ConfigurationTimezones200
-  Errors: any
-}
+  Response: ConfigurationTimezones200;
+  Errors: any;
+};

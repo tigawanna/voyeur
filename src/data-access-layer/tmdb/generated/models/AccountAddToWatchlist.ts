@@ -8,15 +8,15 @@ export type AccountAddToWatchlistPathParams = {
    * @default null
    * @type integer, int32
    */
-  account_id: number
-}
+  account_id: number;
+};
 
 export type AccountAddToWatchlistQueryParams = {
   /**
    * @type string | undefined
    */
-  session_id?: string
-}
+  session_id?: string;
+};
 
 /**
  * @description 200
@@ -26,26 +26,26 @@ export type AccountAddToWatchlist200 = {
    * @default 0
    * @type integer | undefined
    */
-  status_code?: number
+  status_code?: number;
   /**
    * @type string | undefined
    */
-  status_message?: string
-}
+  status_message?: string;
+};
 
 export type AccountAddToWatchlistMutationRequest = {
   /**
    * @type string, json
    */
-  RAW_BODY: string
-}
+  RAW_BODY: string;
+};
 
-export type AccountAddToWatchlistMutationResponse = AccountAddToWatchlist200
+export type AccountAddToWatchlistMutationResponse = AccountAddToWatchlist200;
 
 export type AccountAddToWatchlistMutation = {
-  Response: AccountAddToWatchlist200
-  Request: AccountAddToWatchlistMutationRequest
-  PathParams: AccountAddToWatchlistPathParams
-  QueryParams: AccountAddToWatchlistQueryParams
-  Errors: any
-}
+  Response: AccountAddToWatchlist200;
+  Request: AccountAddToWatchlistMutationRequest;
+  PathParams: AccountAddToWatchlistPathParams;
+  QueryParams: AccountAddToWatchlistQueryParams;
+  Errors: any;
+};

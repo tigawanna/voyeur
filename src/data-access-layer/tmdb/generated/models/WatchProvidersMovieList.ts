@@ -8,12 +8,12 @@ export type WatchProvidersMovieListQueryParams = {
    * @default "en-US"
    * @type string | undefined
    */
-  language?: string
+  language?: string;
   /**
    * @type string | undefined
    */
-  watch_region?: string
-}
+  watch_region?: string;
+};
 
 /**
  * @description 200
@@ -31,343 +31,343 @@ export type WatchProvidersMovieList200 = {
        * @default 0
        * @type integer | undefined
        */
-      CA?: number
+      CA?: number;
       /**
        * @default 0
        * @type integer | undefined
        */
-      AE?: number
+      AE?: number;
       /**
        * @default 0
        * @type integer | undefined
        */
-      AR?: number
+      AR?: number;
       /**
        * @default 0
        * @type integer | undefined
        */
-      AT?: number
+      AT?: number;
       /**
        * @default 0
        * @type integer | undefined
        */
-      AU?: number
+      AU?: number;
       /**
        * @default 0
        * @type integer | undefined
        */
-      BE?: number
+      BE?: number;
       /**
        * @default 0
        * @type integer | undefined
        */
-      BO?: number
+      BO?: number;
       /**
        * @default 0
        * @type integer | undefined
        */
-      BR?: number
+      BR?: number;
       /**
        * @default 0
        * @type integer | undefined
        */
-      BG?: number
+      BG?: number;
       /**
        * @default 0
        * @type integer | undefined
        */
-      CH?: number
+      CH?: number;
       /**
        * @default 0
        * @type integer | undefined
        */
-      CL?: number
+      CL?: number;
       /**
        * @default 0
        * @type integer | undefined
        */
-      CO?: number
+      CO?: number;
       /**
        * @default 0
        * @type integer | undefined
        */
-      CR?: number
+      CR?: number;
       /**
        * @default 0
        * @type integer | undefined
        */
-      CZ?: number
+      CZ?: number;
       /**
        * @default 0
        * @type integer | undefined
        */
-      DE?: number
+      DE?: number;
       /**
        * @default 0
        * @type integer | undefined
        */
-      DK?: number
+      DK?: number;
       /**
        * @default 0
        * @type integer | undefined
        */
-      EC?: number
+      EC?: number;
       /**
        * @default 0
        * @type integer | undefined
        */
-      EE?: number
+      EE?: number;
       /**
        * @default 0
        * @type integer | undefined
        */
-      EG?: number
+      EG?: number;
       /**
        * @default 0
        * @type integer | undefined
        */
-      ES?: number
+      ES?: number;
       /**
        * @default 0
        * @type integer | undefined
        */
-      FI?: number
+      FI?: number;
       /**
        * @default 0
        * @type integer | undefined
        */
-      FR?: number
+      FR?: number;
       /**
        * @default 0
        * @type integer | undefined
        */
-      GB?: number
+      GB?: number;
       /**
        * @default 0
        * @type integer | undefined
        */
-      GR?: number
+      GR?: number;
       /**
        * @default 0
        * @type integer | undefined
        */
-      GT?: number
+      GT?: number;
       /**
        * @default 0
        * @type integer | undefined
        */
-      HK?: number
+      HK?: number;
       /**
        * @default 0
        * @type integer | undefined
        */
-      HN?: number
+      HN?: number;
       /**
        * @default 0
        * @type integer | undefined
        */
-      HU?: number
+      HU?: number;
       /**
        * @default 0
        * @type integer | undefined
        */
-      ID?: number
+      ID?: number;
       /**
        * @default 0
        * @type integer | undefined
        */
-      IE?: number
+      IE?: number;
       /**
        * @default 0
        * @type integer | undefined
        */
-      IN?: number
+      IN?: number;
       /**
        * @default 0
        * @type integer | undefined
        */
-      IT?: number
+      IT?: number;
       /**
        * @default 0
        * @type integer | undefined
        */
-      JP?: number
+      JP?: number;
       /**
        * @default 0
        * @type integer | undefined
        */
-      LT?: number
+      LT?: number;
       /**
        * @default 0
        * @type integer | undefined
        */
-      LV?: number
+      LV?: number;
       /**
        * @default 0
        * @type integer | undefined
        */
-      MX?: number
+      MX?: number;
       /**
        * @default 0
        * @type integer | undefined
        */
-      MY?: number
+      MY?: number;
       /**
        * @default 0
        * @type integer | undefined
        */
-      NL?: number
+      NL?: number;
       /**
        * @default 0
        * @type integer | undefined
        */
-      NO?: number
+      NO?: number;
       /**
        * @default 0
        * @type integer | undefined
        */
-      NZ?: number
+      NZ?: number;
       /**
        * @default 0
        * @type integer | undefined
        */
-      PE?: number
+      PE?: number;
       /**
        * @default 0
        * @type integer | undefined
        */
-      PH?: number
+      PH?: number;
       /**
        * @default 0
        * @type integer | undefined
        */
-      PL?: number
+      PL?: number;
       /**
        * @default 0
        * @type integer | undefined
        */
-      PT?: number
+      PT?: number;
       /**
        * @default 0
        * @type integer | undefined
        */
-      PY?: number
+      PY?: number;
       /**
        * @default 0
        * @type integer | undefined
        */
-      RU?: number
+      RU?: number;
       /**
        * @default 0
        * @type integer | undefined
        */
-      SA?: number
+      SA?: number;
       /**
        * @default 0
        * @type integer | undefined
        */
-      SE?: number
+      SE?: number;
       /**
        * @default 0
        * @type integer | undefined
        */
-      SG?: number
+      SG?: number;
       /**
        * @default 0
        * @type integer | undefined
        */
-      SK?: number
+      SK?: number;
       /**
        * @default 0
        * @type integer | undefined
        */
-      TH?: number
+      TH?: number;
       /**
        * @default 0
        * @type integer | undefined
        */
-      TR?: number
+      TR?: number;
       /**
        * @default 0
        * @type integer | undefined
        */
-      TW?: number
+      TW?: number;
       /**
        * @default 0
        * @type integer | undefined
        */
-      US?: number
+      US?: number;
       /**
        * @default 0
        * @type integer | undefined
        */
-      VE?: number
+      VE?: number;
       /**
        * @default 0
        * @type integer | undefined
        */
-      ZA?: number
+      ZA?: number;
       /**
        * @default 0
        * @type integer | undefined
        */
-      SI?: number
+      SI?: number;
       /**
        * @default 0
        * @type integer | undefined
        */
-      CV?: number
+      CV?: number;
       /**
        * @default 0
        * @type integer | undefined
        */
-      GH?: number
+      GH?: number;
       /**
        * @default 0
        * @type integer | undefined
        */
-      MU?: number
+      MU?: number;
       /**
        * @default 0
        * @type integer | undefined
        */
-      MZ?: number
+      MZ?: number;
       /**
        * @default 0
        * @type integer | undefined
        */
-      UG?: number
+      UG?: number;
       /**
        * @default 0
        * @type integer | undefined
        */
-      IL?: number
-    }
+      IL?: number;
+    };
     /**
      * @default 0
      * @type integer | undefined
      */
-    display_priority?: number
+    display_priority?: number;
     /**
      * @type string | undefined
      */
-    logo_path?: string
+    logo_path?: string;
     /**
      * @type string | undefined
      */
-    provider_name?: string
+    provider_name?: string;
     /**
      * @default 0
      * @type integer | undefined
      */
-    provider_id?: number
-  }[]
-}
+    provider_id?: number;
+  }[];
+};
 
-export type WatchProvidersMovieListQueryResponse = WatchProvidersMovieList200
+export type WatchProvidersMovieListQueryResponse = WatchProvidersMovieList200;
 
 export type WatchProvidersMovieListQuery = {
-  Response: WatchProvidersMovieList200
-  QueryParams: WatchProvidersMovieListQueryParams
-  Errors: any
-}
+  Response: WatchProvidersMovieList200;
+  QueryParams: WatchProvidersMovieListQueryParams;
+  Errors: any;
+};

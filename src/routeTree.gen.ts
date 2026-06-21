@@ -8,209 +8,209 @@
 // You should NOT make any changes in this file as it will be overwritten.
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
-import { Route as rootRouteImport } from './routes/__root'
-import { Route as LoginRouteImport } from './routes/login'
-import { Route as AppRouteRouteImport } from './routes/_app/route'
-import { Route as IndexRouteImport } from './routes/index'
-import { Route as BrowseIndexRouteImport } from './routes/browse/index'
-import { Route as AppWatchlistIndexRouteImport } from './routes/_app/watchlist/index'
-import { Route as AppMoviesIndexRouteImport } from './routes/_app/movies/index'
-import { Route as AppFavoritesIndexRouteImport } from './routes/_app/favorites/index'
-import { Route as ApiAuthSplatRouteImport } from './routes/api/auth/$'
-import { Route as AppMoviesMovieMovieIdRouteImport } from './routes/_app/movies/movie/$movieId'
+import { Route as rootRouteImport } from "./routes/__root";
+import { Route as LoginRouteImport } from "./routes/login";
+import { Route as AppRouteRouteImport } from "./routes/_app/route";
+import { Route as IndexRouteImport } from "./routes/index";
+import { Route as BrowseIndexRouteImport } from "./routes/browse/index";
+import { Route as AppWatchlistIndexRouteImport } from "./routes/_app/watchlist/index";
+import { Route as AppMoviesIndexRouteImport } from "./routes/_app/movies/index";
+import { Route as AppFavoritesIndexRouteImport } from "./routes/_app/favorites/index";
+import { Route as ApiAuthSplatRouteImport } from "./routes/api/auth/$";
+import { Route as AppMoviesMovieMovieIdRouteImport } from "./routes/_app/movies/movie/$movieId";
 
 const LoginRoute = LoginRouteImport.update({
-  id: '/login',
-  path: '/login',
+  id: "/login",
+  path: "/login",
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any);
 const AppRouteRoute = AppRouteRouteImport.update({
-  id: '/_app',
+  id: "/_app",
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any);
 const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+  id: "/",
+  path: "/",
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any);
 const BrowseIndexRoute = BrowseIndexRouteImport.update({
-  id: '/browse/',
-  path: '/browse/',
+  id: "/browse/",
+  path: "/browse/",
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any);
 const AppWatchlistIndexRoute = AppWatchlistIndexRouteImport.update({
-  id: '/watchlist/',
-  path: '/watchlist/',
+  id: "/watchlist/",
+  path: "/watchlist/",
   getParentRoute: () => AppRouteRoute,
-} as any)
+} as any);
 const AppMoviesIndexRoute = AppMoviesIndexRouteImport.update({
-  id: '/movies/',
-  path: '/movies/',
+  id: "/movies/",
+  path: "/movies/",
   getParentRoute: () => AppRouteRoute,
-} as any)
+} as any);
 const AppFavoritesIndexRoute = AppFavoritesIndexRouteImport.update({
-  id: '/favorites/',
-  path: '/favorites/',
+  id: "/favorites/",
+  path: "/favorites/",
   getParentRoute: () => AppRouteRoute,
-} as any)
+} as any);
 const ApiAuthSplatRoute = ApiAuthSplatRouteImport.update({
-  id: '/api/auth/$',
-  path: '/api/auth/$',
+  id: "/api/auth/$",
+  path: "/api/auth/$",
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any);
 const AppMoviesMovieMovieIdRoute = AppMoviesMovieMovieIdRouteImport.update({
-  id: '/movies/movie/$movieId',
-  path: '/movies/movie/$movieId',
+  id: "/movies/movie/$movieId",
+  path: "/movies/movie/$movieId",
   getParentRoute: () => AppRouteRoute,
-} as any)
+} as any);
 
 export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
-  '/login': typeof LoginRoute
-  '/browse/': typeof BrowseIndexRoute
-  '/api/auth/$': typeof ApiAuthSplatRoute
-  '/favorites/': typeof AppFavoritesIndexRoute
-  '/movies/': typeof AppMoviesIndexRoute
-  '/watchlist/': typeof AppWatchlistIndexRoute
-  '/movies/movie/$movieId': typeof AppMoviesMovieMovieIdRoute
+  "/": typeof IndexRoute;
+  "/login": typeof LoginRoute;
+  "/browse/": typeof BrowseIndexRoute;
+  "/api/auth/$": typeof ApiAuthSplatRoute;
+  "/favorites/": typeof AppFavoritesIndexRoute;
+  "/movies/": typeof AppMoviesIndexRoute;
+  "/watchlist/": typeof AppWatchlistIndexRoute;
+  "/movies/movie/$movieId": typeof AppMoviesMovieMovieIdRoute;
 }
 export interface FileRoutesByTo {
-  '/': typeof IndexRoute
-  '/login': typeof LoginRoute
-  '/browse': typeof BrowseIndexRoute
-  '/api/auth/$': typeof ApiAuthSplatRoute
-  '/favorites': typeof AppFavoritesIndexRoute
-  '/movies': typeof AppMoviesIndexRoute
-  '/watchlist': typeof AppWatchlistIndexRoute
-  '/movies/movie/$movieId': typeof AppMoviesMovieMovieIdRoute
+  "/": typeof IndexRoute;
+  "/login": typeof LoginRoute;
+  "/browse": typeof BrowseIndexRoute;
+  "/api/auth/$": typeof ApiAuthSplatRoute;
+  "/favorites": typeof AppFavoritesIndexRoute;
+  "/movies": typeof AppMoviesIndexRoute;
+  "/watchlist": typeof AppWatchlistIndexRoute;
+  "/movies/movie/$movieId": typeof AppMoviesMovieMovieIdRoute;
 }
 export interface FileRoutesById {
-  __root__: typeof rootRouteImport
-  '/': typeof IndexRoute
-  '/_app': typeof AppRouteRouteWithChildren
-  '/login': typeof LoginRoute
-  '/browse/': typeof BrowseIndexRoute
-  '/api/auth/$': typeof ApiAuthSplatRoute
-  '/_app/favorites/': typeof AppFavoritesIndexRoute
-  '/_app/movies/': typeof AppMoviesIndexRoute
-  '/_app/watchlist/': typeof AppWatchlistIndexRoute
-  '/_app/movies/movie/$movieId': typeof AppMoviesMovieMovieIdRoute
+  __root__: typeof rootRouteImport;
+  "/": typeof IndexRoute;
+  "/_app": typeof AppRouteRouteWithChildren;
+  "/login": typeof LoginRoute;
+  "/browse/": typeof BrowseIndexRoute;
+  "/api/auth/$": typeof ApiAuthSplatRoute;
+  "/_app/favorites/": typeof AppFavoritesIndexRoute;
+  "/_app/movies/": typeof AppMoviesIndexRoute;
+  "/_app/watchlist/": typeof AppWatchlistIndexRoute;
+  "/_app/movies/movie/$movieId": typeof AppMoviesMovieMovieIdRoute;
 }
 export interface FileRouteTypes {
-  fileRoutesByFullPath: FileRoutesByFullPath
+  fileRoutesByFullPath: FileRoutesByFullPath;
   fullPaths:
-    | '/'
-    | '/login'
-    | '/browse/'
-    | '/api/auth/$'
-    | '/favorites/'
-    | '/movies/'
-    | '/watchlist/'
-    | '/movies/movie/$movieId'
-  fileRoutesByTo: FileRoutesByTo
+    | "/"
+    | "/login"
+    | "/browse/"
+    | "/api/auth/$"
+    | "/favorites/"
+    | "/movies/"
+    | "/watchlist/"
+    | "/movies/movie/$movieId";
+  fileRoutesByTo: FileRoutesByTo;
   to:
-    | '/'
-    | '/login'
-    | '/browse'
-    | '/api/auth/$'
-    | '/favorites'
-    | '/movies'
-    | '/watchlist'
-    | '/movies/movie/$movieId'
+    | "/"
+    | "/login"
+    | "/browse"
+    | "/api/auth/$"
+    | "/favorites"
+    | "/movies"
+    | "/watchlist"
+    | "/movies/movie/$movieId";
   id:
-    | '__root__'
-    | '/'
-    | '/_app'
-    | '/login'
-    | '/browse/'
-    | '/api/auth/$'
-    | '/_app/favorites/'
-    | '/_app/movies/'
-    | '/_app/watchlist/'
-    | '/_app/movies/movie/$movieId'
-  fileRoutesById: FileRoutesById
+    | "__root__"
+    | "/"
+    | "/_app"
+    | "/login"
+    | "/browse/"
+    | "/api/auth/$"
+    | "/_app/favorites/"
+    | "/_app/movies/"
+    | "/_app/watchlist/"
+    | "/_app/movies/movie/$movieId";
+  fileRoutesById: FileRoutesById;
 }
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute
-  AppRouteRoute: typeof AppRouteRouteWithChildren
-  LoginRoute: typeof LoginRoute
-  BrowseIndexRoute: typeof BrowseIndexRoute
-  ApiAuthSplatRoute: typeof ApiAuthSplatRoute
+  IndexRoute: typeof IndexRoute;
+  AppRouteRoute: typeof AppRouteRouteWithChildren;
+  LoginRoute: typeof LoginRoute;
+  BrowseIndexRoute: typeof BrowseIndexRoute;
+  ApiAuthSplatRoute: typeof ApiAuthSplatRoute;
 }
 
-declare module '@tanstack/react-router' {
+declare module "@tanstack/react-router" {
   interface FileRoutesByPath {
-    '/login': {
-      id: '/login'
-      path: '/login'
-      fullPath: '/login'
-      preLoaderRoute: typeof LoginRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_app': {
-      id: '/_app'
-      path: ''
-      fullPath: '/'
-      preLoaderRoute: typeof AppRouteRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/browse/': {
-      id: '/browse/'
-      path: '/browse'
-      fullPath: '/browse/'
-      preLoaderRoute: typeof BrowseIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_app/watchlist/': {
-      id: '/_app/watchlist/'
-      path: '/watchlist'
-      fullPath: '/watchlist/'
-      preLoaderRoute: typeof AppWatchlistIndexRouteImport
-      parentRoute: typeof AppRouteRoute
-    }
-    '/_app/movies/': {
-      id: '/_app/movies/'
-      path: '/movies'
-      fullPath: '/movies/'
-      preLoaderRoute: typeof AppMoviesIndexRouteImport
-      parentRoute: typeof AppRouteRoute
-    }
-    '/_app/favorites/': {
-      id: '/_app/favorites/'
-      path: '/favorites'
-      fullPath: '/favorites/'
-      preLoaderRoute: typeof AppFavoritesIndexRouteImport
-      parentRoute: typeof AppRouteRoute
-    }
-    '/api/auth/$': {
-      id: '/api/auth/$'
-      path: '/api/auth/$'
-      fullPath: '/api/auth/$'
-      preLoaderRoute: typeof ApiAuthSplatRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_app/movies/movie/$movieId': {
-      id: '/_app/movies/movie/$movieId'
-      path: '/movies/movie/$movieId'
-      fullPath: '/movies/movie/$movieId'
-      preLoaderRoute: typeof AppMoviesMovieMovieIdRouteImport
-      parentRoute: typeof AppRouteRoute
-    }
+    "/login": {
+      id: "/login";
+      path: "/login";
+      fullPath: "/login";
+      preLoaderRoute: typeof LoginRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
+    "/_app": {
+      id: "/_app";
+      path: "";
+      fullPath: "/";
+      preLoaderRoute: typeof AppRouteRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
+    "/": {
+      id: "/";
+      path: "/";
+      fullPath: "/";
+      preLoaderRoute: typeof IndexRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
+    "/browse/": {
+      id: "/browse/";
+      path: "/browse";
+      fullPath: "/browse/";
+      preLoaderRoute: typeof BrowseIndexRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
+    "/_app/watchlist/": {
+      id: "/_app/watchlist/";
+      path: "/watchlist";
+      fullPath: "/watchlist/";
+      preLoaderRoute: typeof AppWatchlistIndexRouteImport;
+      parentRoute: typeof AppRouteRoute;
+    };
+    "/_app/movies/": {
+      id: "/_app/movies/";
+      path: "/movies";
+      fullPath: "/movies/";
+      preLoaderRoute: typeof AppMoviesIndexRouteImport;
+      parentRoute: typeof AppRouteRoute;
+    };
+    "/_app/favorites/": {
+      id: "/_app/favorites/";
+      path: "/favorites";
+      fullPath: "/favorites/";
+      preLoaderRoute: typeof AppFavoritesIndexRouteImport;
+      parentRoute: typeof AppRouteRoute;
+    };
+    "/api/auth/$": {
+      id: "/api/auth/$";
+      path: "/api/auth/$";
+      fullPath: "/api/auth/$";
+      preLoaderRoute: typeof ApiAuthSplatRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
+    "/_app/movies/movie/$movieId": {
+      id: "/_app/movies/movie/$movieId";
+      path: "/movies/movie/$movieId";
+      fullPath: "/movies/movie/$movieId";
+      preLoaderRoute: typeof AppMoviesMovieMovieIdRouteImport;
+      parentRoute: typeof AppRouteRoute;
+    };
   }
 }
 
 interface AppRouteRouteChildren {
-  AppFavoritesIndexRoute: typeof AppFavoritesIndexRoute
-  AppMoviesIndexRoute: typeof AppMoviesIndexRoute
-  AppWatchlistIndexRoute: typeof AppWatchlistIndexRoute
-  AppMoviesMovieMovieIdRoute: typeof AppMoviesMovieMovieIdRoute
+  AppFavoritesIndexRoute: typeof AppFavoritesIndexRoute;
+  AppMoviesIndexRoute: typeof AppMoviesIndexRoute;
+  AppWatchlistIndexRoute: typeof AppWatchlistIndexRoute;
+  AppMoviesMovieMovieIdRoute: typeof AppMoviesMovieMovieIdRoute;
 }
 
 const AppRouteRouteChildren: AppRouteRouteChildren = {
@@ -218,11 +218,9 @@ const AppRouteRouteChildren: AppRouteRouteChildren = {
   AppMoviesIndexRoute: AppMoviesIndexRoute,
   AppWatchlistIndexRoute: AppWatchlistIndexRoute,
   AppMoviesMovieMovieIdRoute: AppMoviesMovieMovieIdRoute,
-}
+};
 
-const AppRouteRouteWithChildren = AppRouteRoute._addFileChildren(
-  AppRouteRouteChildren,
-)
+const AppRouteRouteWithChildren = AppRouteRoute._addFileChildren(AppRouteRouteChildren);
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
@@ -230,16 +228,16 @@ const rootRouteChildren: RootRouteChildren = {
   LoginRoute: LoginRoute,
   BrowseIndexRoute: BrowseIndexRoute,
   ApiAuthSplatRoute: ApiAuthSplatRoute,
-}
+};
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
-  ._addFileTypes<FileRouteTypes>()
+  ._addFileTypes<FileRouteTypes>();
 
-import type { getRouter } from './router.tsx'
-import type { createStart } from '@tanstack/react-start'
-declare module '@tanstack/react-start' {
+import type { getRouter } from "./router.tsx";
+import type { createStart } from "@tanstack/react-start";
+declare module "@tanstack/react-start" {
   interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
+    ssr: true;
+    router: Awaited<ReturnType<typeof getRouter>>;
   }
 }

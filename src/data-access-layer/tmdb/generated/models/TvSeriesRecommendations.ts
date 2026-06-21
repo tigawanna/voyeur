@@ -7,21 +7,21 @@ export type TvSeriesRecommendationsPathParams = {
   /**
    * @type integer, int32
    */
-  series_id: number
-}
+  series_id: number;
+};
 
 export type TvSeriesRecommendationsQueryParams = {
   /**
    * @default "en-US"
    * @type string | undefined
    */
-  language?: string
+  language?: string;
   /**
    * @default 1
    * @type integer | undefined, int32
    */
-  page?: number
-}
+  page?: number;
+};
 
 /**
  * @description 200
@@ -31,7 +31,7 @@ export type TvSeriesRecommendations200 = {
    * @default 0
    * @type integer | undefined
    */
-  page?: number
+  page?: number;
   /**
    * @type array | undefined
    */
@@ -40,85 +40,85 @@ export type TvSeriesRecommendations200 = {
      * @default true
      * @type boolean | undefined
      */
-    adult?: boolean
+    adult?: boolean;
     /**
      * @type string | undefined
      */
-    backdrop_path?: string
+    backdrop_path?: string;
     /**
      * @default 0
      * @type integer | undefined
      */
-    id?: number
+    id?: number;
     /**
      * @type string | undefined
      */
-    name?: string
+    name?: string;
     /**
      * @type string | undefined
      */
-    original_language?: string
+    original_language?: string;
     /**
      * @type string | undefined
      */
-    original_name?: string
+    original_name?: string;
     /**
      * @type string | undefined
      */
-    overview?: string
+    overview?: string;
     /**
      * @type string | undefined
      */
-    poster_path?: string
+    poster_path?: string;
     /**
      * @type string | undefined
      */
-    media_type?: string
+    media_type?: string;
     /**
      * @type array | undefined
      */
-    genre_ids?: number[]
+    genre_ids?: number[];
     /**
      * @default 0
      * @type number | undefined
      */
-    popularity?: number
+    popularity?: number;
     /**
      * @type string | undefined
      */
-    first_air_date?: string
+    first_air_date?: string;
     /**
      * @default 0
      * @type number | undefined
      */
-    vote_average?: number
+    vote_average?: number;
     /**
      * @default 0
      * @type integer | undefined
      */
-    vote_count?: number
+    vote_count?: number;
     /**
      * @type array | undefined
      */
-    origin_country?: string[]
-  }[]
+    origin_country?: string[];
+  }[];
   /**
    * @default 0
    * @type integer | undefined
    */
-  total_pages?: number
+  total_pages?: number;
   /**
    * @default 0
    * @type integer | undefined
    */
-  total_results?: number
-}
+  total_results?: number;
+};
 
-export type TvSeriesRecommendationsQueryResponse = TvSeriesRecommendations200
+export type TvSeriesRecommendationsQueryResponse = TvSeriesRecommendations200;
 
 export type TvSeriesRecommendationsQuery = {
-  Response: TvSeriesRecommendations200
-  PathParams: TvSeriesRecommendationsPathParams
-  QueryParams: TvSeriesRecommendationsQueryParams
-  Errors: any
-}
+  Response: TvSeriesRecommendations200;
+  PathParams: TvSeriesRecommendationsPathParams;
+  QueryParams: TvSeriesRecommendationsQueryParams;
+  Errors: any;
+};

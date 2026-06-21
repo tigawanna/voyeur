@@ -7,27 +7,27 @@ export type TvSeriesDeleteRatingPathParams = {
   /**
    * @type integer, int32
    */
-  series_id: number
-}
+  series_id: number;
+};
 
 export type TvSeriesDeleteRatingQueryParams = {
   /**
    * @type string | undefined
    */
-  guest_session_id?: string
+  guest_session_id?: string;
   /**
    * @type string | undefined
    */
-  session_id?: string
-}
+  session_id?: string;
+};
 
 export type TvSeriesDeleteRatingHeaderParams = {
   /**
    * @default "application/json;charset=utf-8"
    * @type string | undefined
    */
-  'Content-Type'?: string
-}
+  "Content-Type"?: string;
+};
 
 /**
  * @description 200
@@ -37,19 +37,19 @@ export type TvSeriesDeleteRating200 = {
    * @default 0
    * @type integer | undefined
    */
-  status_code?: number
+  status_code?: number;
   /**
    * @type string | undefined
    */
-  status_message?: string
-}
+  status_message?: string;
+};
 
-export type TvSeriesDeleteRatingMutationResponse = TvSeriesDeleteRating200
+export type TvSeriesDeleteRatingMutationResponse = TvSeriesDeleteRating200;
 
 export type TvSeriesDeleteRatingMutation = {
-  Response: TvSeriesDeleteRating200
-  PathParams: TvSeriesDeleteRatingPathParams
-  QueryParams: TvSeriesDeleteRatingQueryParams
-  HeaderParams: TvSeriesDeleteRatingHeaderParams
-  Errors: any
-}
+  Response: TvSeriesDeleteRating200;
+  PathParams: TvSeriesDeleteRatingPathParams;
+  QueryParams: TvSeriesDeleteRatingQueryParams;
+  HeaderParams: TvSeriesDeleteRatingHeaderParams;
+  Errors: any;
+};

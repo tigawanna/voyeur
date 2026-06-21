@@ -8,8 +8,8 @@ export type GenreMovieListQueryParams = {
    * @default "en"
    * @type string | undefined
    */
-  language?: string
-}
+  language?: string;
+};
 
 /**
  * @description 200
@@ -23,18 +23,18 @@ export type GenreMovieList200 = {
      * @default 0
      * @type integer | undefined
      */
-    id?: number
+    id?: number;
     /**
      * @type string | undefined
      */
-    name?: string
-  }[]
-}
+    name?: string;
+  }[];
+};
 
-export type GenreMovieListQueryResponse = GenreMovieList200
+export type GenreMovieListQueryResponse = GenreMovieList200;
 
 export type GenreMovieListQuery = {
-  Response: GenreMovieList200
-  QueryParams: GenreMovieListQueryParams
-  Errors: any
-}
+  Response: GenreMovieList200;
+  QueryParams: GenreMovieListQueryParams;
+  Errors: any;
+};

@@ -4,198 +4,198 @@
  */
 
 export const discoverMovieQueryParamsSortByEnum = {
-  'original_title.asc': 'original_title.asc',
-  'original_title.desc': 'original_title.desc',
-  'popularity.asc': 'popularity.asc',
-  'popularity.desc': 'popularity.desc',
-  'revenue.asc': 'revenue.asc',
-  'revenue.desc': 'revenue.desc',
-  'primary_release_date.asc': 'primary_release_date.asc',
-  'title.asc': 'title.asc',
-  'title.desc': 'title.desc',
-  'primary_release_date.desc': 'primary_release_date.desc',
-  'vote_average.asc': 'vote_average.asc',
-  'vote_average.desc': 'vote_average.desc',
-  'vote_count.asc': 'vote_count.asc',
-  'vote_count.desc': 'vote_count.desc',
-} as const
+  "original_title.asc": "original_title.asc",
+  "original_title.desc": "original_title.desc",
+  "popularity.asc": "popularity.asc",
+  "popularity.desc": "popularity.desc",
+  "revenue.asc": "revenue.asc",
+  "revenue.desc": "revenue.desc",
+  "primary_release_date.asc": "primary_release_date.asc",
+  "title.asc": "title.asc",
+  "title.desc": "title.desc",
+  "primary_release_date.desc": "primary_release_date.desc",
+  "vote_average.asc": "vote_average.asc",
+  "vote_average.desc": "vote_average.desc",
+  "vote_count.asc": "vote_count.asc",
+  "vote_count.desc": "vote_count.desc",
+} as const;
 
 export type DiscoverMovieQueryParamsSortByEnumKey =
-  (typeof discoverMovieQueryParamsSortByEnum)[keyof typeof discoverMovieQueryParamsSortByEnum]
+  (typeof discoverMovieQueryParamsSortByEnum)[keyof typeof discoverMovieQueryParamsSortByEnum];
 
 export type DiscoverMovieQueryParams = {
   /**
    * @description use in conjunction with `region`
    * @type string | undefined
    */
-  certification?: string
+  certification?: string;
   /**
    * @description use in conjunction with `region`
    * @type string | undefined
    */
-  'certification.gte'?: string
+  "certification.gte"?: string;
   /**
    * @description use in conjunction with `region`
    * @type string | undefined
    */
-  'certification.lte'?: string
+  "certification.lte"?: string;
   /**
    * @description use in conjunction with the `certification`, `certification.gte` and `certification.lte` filters
    * @type string | undefined
    */
-  certification_country?: string
+  certification_country?: string;
   /**
    * @default false
    * @type boolean | undefined
    */
-  include_adult?: boolean
+  include_adult?: boolean;
   /**
    * @default false
    * @type boolean | undefined
    */
-  include_video?: boolean
+  include_video?: boolean;
   /**
    * @default "en-US"
    * @type string | undefined
    */
-  language?: string
+  language?: string;
   /**
    * @default 1
    * @type integer | undefined, int32
    */
-  page?: number
+  page?: number;
   /**
    * @type integer | undefined, int32
    */
-  primary_release_year?: number
+  primary_release_year?: number;
   /**
    * @type string | undefined, date
    */
-  'primary_release_date.gte'?: string
+  "primary_release_date.gte"?: string;
   /**
    * @type string | undefined, date
    */
-  'primary_release_date.lte'?: string
+  "primary_release_date.lte"?: string;
   /**
    * @type string | undefined
    */
-  region?: string
+  region?: string;
   /**
    * @type string | undefined, date
    */
-  'release_date.gte'?: string
+  "release_date.gte"?: string;
   /**
    * @type string | undefined, date
    */
-  'release_date.lte'?: string
+  "release_date.lte"?: string;
   /**
    * @default "popularity.desc"
    * @type string | undefined
    */
-  sort_by?: DiscoverMovieQueryParamsSortByEnumKey
+  sort_by?: DiscoverMovieQueryParamsSortByEnumKey;
   /**
    * @type number | undefined, float
    */
-  'vote_average.gte'?: number
+  "vote_average.gte"?: number;
   /**
    * @type number | undefined, float
    */
-  'vote_average.lte'?: number
+  "vote_average.lte"?: number;
   /**
    * @type number | undefined, float
    */
-  'vote_count.gte'?: number
+  "vote_count.gte"?: number;
   /**
    * @type number | undefined, float
    */
-  'vote_count.lte'?: number
+  "vote_count.lte"?: number;
   /**
    * @description use in conjunction with `with_watch_monetization_types ` or `with_watch_providers `
    * @type string | undefined
    */
-  watch_region?: string
+  watch_region?: string;
   /**
    * @description can be a comma (`AND`) or pipe (`OR`) separated query
    * @type string | undefined
    */
-  with_cast?: string
+  with_cast?: string;
   /**
    * @description can be a comma (`AND`) or pipe (`OR`) separated query
    * @type string | undefined
    */
-  with_companies?: string
+  with_companies?: string;
   /**
    * @description can be a comma (`AND`) or pipe (`OR`) separated query
    * @type string | undefined
    */
-  with_crew?: string
+  with_crew?: string;
   /**
    * @description can be a comma (`AND`) or pipe (`OR`) separated query
    * @type string | undefined
    */
-  with_genres?: string
+  with_genres?: string;
   /**
    * @description can be a comma (`AND`) or pipe (`OR`) separated query
    * @type string | undefined
    */
-  with_keywords?: string
+  with_keywords?: string;
   /**
    * @type string | undefined
    */
-  with_origin_country?: string
+  with_origin_country?: string;
   /**
    * @type string | undefined
    */
-  with_original_language?: string
+  with_original_language?: string;
   /**
    * @description can be a comma (`AND`) or pipe (`OR`) separated query
    * @type string | undefined
    */
-  with_people?: string
+  with_people?: string;
   /**
    * @description possible values are: [1, 2, 3, 4, 5, 6] can be a comma (`AND`) or pipe (`OR`) separated query, can be used in conjunction with `region`
    * @type integer | undefined, int32
    */
-  with_release_type?: number
+  with_release_type?: number;
   /**
    * @type integer | undefined, int32
    */
-  'with_runtime.gte'?: number
+  "with_runtime.gte"?: number;
   /**
    * @type integer | undefined, int32
    */
-  'with_runtime.lte'?: number
+  "with_runtime.lte"?: number;
   /**
    * @description possible values are: [flatrate, free, ads, rent, buy] use in conjunction with `watch_region`, can be a comma (`AND`) or pipe (`OR`) separated query
    * @type string | undefined
    */
-  with_watch_monetization_types?: string
+  with_watch_monetization_types?: string;
   /**
    * @description use in conjunction with `watch_region`, can be a comma (`AND`) or pipe (`OR`) separated query
    * @type string | undefined
    */
-  with_watch_providers?: string
+  with_watch_providers?: string;
   /**
    * @type string | undefined
    */
-  without_companies?: string
+  without_companies?: string;
   /**
    * @type string | undefined
    */
-  without_genres?: string
+  without_genres?: string;
   /**
    * @type string | undefined
    */
-  without_keywords?: string
+  without_keywords?: string;
   /**
    * @type string | undefined
    */
-  without_watch_providers?: string
+  without_watch_providers?: string;
   /**
    * @type integer | undefined, int32
    */
-  year?: number
-}
+  year?: number;
+};
 
 /**
  * @description 200
@@ -205,7 +205,7 @@ export type DiscoverMovie200 = {
    * @default 0
    * @type integer | undefined
    */
-  page?: number
+  page?: number;
   /**
    * @type array | undefined
    */
@@ -214,81 +214,81 @@ export type DiscoverMovie200 = {
      * @default true
      * @type boolean | undefined
      */
-    adult?: boolean
+    adult?: boolean;
     /**
      * @type string | undefined
      */
-    backdrop_path?: string
+    backdrop_path?: string;
     /**
      * @type array | undefined
      */
-    genre_ids?: number[]
+    genre_ids?: number[];
     /**
      * @default 0
      * @type integer | undefined
      */
-    id?: number
+    id?: number;
     /**
      * @type string | undefined
      */
-    original_language?: string
+    original_language?: string;
     /**
      * @type string | undefined
      */
-    original_title?: string
+    original_title?: string;
     /**
      * @type string | undefined
      */
-    overview?: string
+    overview?: string;
     /**
      * @default 0
      * @type number | undefined
      */
-    popularity?: number
+    popularity?: number;
     /**
      * @type string | undefined
      */
-    poster_path?: string
+    poster_path?: string;
     /**
      * @type string | undefined
      */
-    release_date?: string
+    release_date?: string;
     /**
      * @type string | undefined
      */
-    title?: string
+    title?: string;
     /**
      * @default true
      * @type boolean | undefined
      */
-    video?: boolean
+    video?: boolean;
     /**
      * @default 0
      * @type number | undefined
      */
-    vote_average?: number
+    vote_average?: number;
     /**
      * @default 0
      * @type integer | undefined
      */
-    vote_count?: number
-  }[]
+    vote_count?: number;
+  }[];
   /**
    * @default 0
    * @type integer | undefined
    */
-  total_pages?: number
+  total_pages?: number;
   /**
    * @default 0
    * @type integer | undefined
    */
-  total_results?: number
-}
+  total_results?: number;
+};
 
-export type DiscoverMovieQueryResponse = DiscoverMovie200
+export type DiscoverMovieQueryResponse = DiscoverMovie200;
 
 export type DiscoverMovieQuery = {
-  Response: DiscoverMovie200
-  QueryParams: DiscoverMovieQueryParams
-  Errors: any
-}
+  Response: DiscoverMovie200;
+  QueryParams: DiscoverMovieQueryParams;
+  Errors: any;
+};

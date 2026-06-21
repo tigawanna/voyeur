@@ -7,16 +7,16 @@ export type PersonTaggedImagesPathParams = {
   /**
    * @type integer, int32
    */
-  person_id: number
-}
+  person_id: number;
+};
 
 export type PersonTaggedImagesQueryParams = {
   /**
    * @default 1
    * @type integer | undefined, int32
    */
-  page?: number
-}
+  page?: number;
+};
 
 /**
  * @description 200
@@ -26,12 +26,12 @@ export type PersonTaggedImages200 = {
    * @default 0
    * @type integer | undefined
    */
-  id?: number
+  id?: number;
   /**
    * @default 0
    * @type integer | undefined
    */
-  page?: number
+  page?: number;
   /**
    * @type array | undefined
    */
@@ -40,43 +40,43 @@ export type PersonTaggedImages200 = {
      * @default 0
      * @type number | undefined
      */
-    aspect_ratio?: number
+    aspect_ratio?: number;
     /**
      * @type string | undefined
      */
-    file_path?: string
+    file_path?: string;
     /**
      * @default 0
      * @type integer | undefined
      */
-    height?: number
+    height?: number;
     /**
      * @type string | undefined
      */
-    id?: string
+    id?: string;
     /**
      * @type string | undefined
      */
-    iso_639_1?: string
+    iso_639_1?: string;
     /**
      * @default 0
      * @type number | undefined
      */
-    vote_average?: number
+    vote_average?: number;
     /**
      * @default 0
      * @type integer | undefined
      */
-    vote_count?: number
+    vote_count?: number;
     /**
      * @default 0
      * @type integer | undefined
      */
-    width?: number
+    width?: number;
     /**
      * @type string | undefined
      */
-    image_type?: string
+    image_type?: string;
     /**
      * @type object | undefined
      */
@@ -85,91 +85,91 @@ export type PersonTaggedImages200 = {
        * @default true
        * @type boolean | undefined
        */
-      adult?: boolean
+      adult?: boolean;
       /**
        * @type string | undefined
        */
-      backdrop_path?: string
+      backdrop_path?: string;
       /**
        * @default 0
        * @type integer | undefined
        */
-      id?: number
+      id?: number;
       /**
        * @type string | undefined
        */
-      title?: string
+      title?: string;
       /**
        * @type string | undefined
        */
-      original_language?: string
+      original_language?: string;
       /**
        * @type string | undefined
        */
-      original_title?: string
+      original_title?: string;
       /**
        * @type string | undefined
        */
-      overview?: string
+      overview?: string;
       /**
        * @type string | undefined
        */
-      poster_path?: string
+      poster_path?: string;
       /**
        * @type string | undefined
        */
-      media_type?: string
+      media_type?: string;
       /**
        * @type array | undefined
        */
-      genre_ids?: number[]
+      genre_ids?: number[];
       /**
        * @default 0
        * @type number | undefined
        */
-      popularity?: number
+      popularity?: number;
       /**
        * @type string | undefined
        */
-      release_date?: string
+      release_date?: string;
       /**
        * @default true
        * @type boolean | undefined
        */
-      video?: boolean
+      video?: boolean;
       /**
        * @default 0
        * @type number | undefined
        */
-      vote_average?: number
+      vote_average?: number;
       /**
        * @default 0
        * @type integer | undefined
        */
-      vote_count?: number
-    }
+      vote_count?: number;
+    };
     /**
      * @type string | undefined
      */
-    media_type?: string
-  }[]
+    media_type?: string;
+  }[];
   /**
    * @default 0
    * @type integer | undefined
    */
-  total_pages?: number
+  total_pages?: number;
   /**
    * @default 0
    * @type integer | undefined
    */
-  total_results?: number
-}
+  total_results?: number;
+};
 
-export type PersonTaggedImagesQueryResponse = PersonTaggedImages200
+export type PersonTaggedImagesQueryResponse = PersonTaggedImages200;
 
 export type PersonTaggedImagesQuery = {
-  Response: PersonTaggedImages200
-  PathParams: PersonTaggedImagesPathParams
-  QueryParams: PersonTaggedImagesQueryParams
-  Errors: any
-}
+  Response: PersonTaggedImages200;
+  PathParams: PersonTaggedImagesPathParams;
+  QueryParams: PersonTaggedImagesQueryParams;
+  Errors: any;
+};

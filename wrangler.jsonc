@@ -1,15 +1,15 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "reelroom",
+  "name": "voyeur",
   "compatibility_date": "2026-06-19",
   "compatibility_flags": ["nodejs_compat"],
   "main": "src/server.tsx",
   "d1_databases": [
     {
       "binding": "DB",
-      "database_name": "reelroom-db",
+      "database_name": "voyeur-db",
       "database_id": "00000000-0000-0000-0000-000000000001",
-      "migrations_dir": "drizzle"
-    }
-  ]
+      "migrations_dir": "drizzle",
+    },
+  ],
 }

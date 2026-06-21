@@ -1,31 +1,31 @@
-import { browseSearchDefaults } from '#/types/browse'
-import { AppConfig } from '#/utils/system'
-import { withViewTransition } from '#/utils/viewTransition'
-import { Button } from '@/components/ui/button'
-import { Link, useNavigate, useRouterState } from '@tanstack/react-router'
-import { Film, Home } from 'lucide-react'
+import { browseSearchDefaults } from "#/types/browse";
+import { AppConfig } from "#/utils/system";
+import { withViewTransition } from "#/utils/viewTransition";
+import { Button } from "@/components/ui/button";
+import { Link, useNavigate, useRouterState } from "@tanstack/react-router";
+import { Film, Home } from "lucide-react";
 
 export function NotFoundPage() {
-  const pathname = useRouterState({ select: (state) => state.location.pathname })
-  const navigate = useNavigate()
-  const Icon = AppConfig.icon
+  const pathname = useRouterState({ select: (state) => state.location.pathname });
+  const navigate = useNavigate();
+  const Icon = AppConfig.icon;
 
   function goBack() {
     withViewTransition(() => {
-      window.history.back()
-    })
+      window.history.back();
+    });
   }
 
   function goToBrowse() {
     withViewTransition(() => {
-      void navigate({ to: '/movies', search: browseSearchDefaults })
-    })
+      void navigate({ to: "/movies", search: browseSearchDefaults });
+    });
   }
 
   function goHome() {
     withViewTransition(() => {
-      void navigate({ to: '/' })
-    })
+      void navigate({ to: "/" });
+    });
   }
 
   return (
@@ -84,5 +84,5 @@ export function NotFoundPage() {
         </section>
       </main>
     </div>
-  )
+  );
 }

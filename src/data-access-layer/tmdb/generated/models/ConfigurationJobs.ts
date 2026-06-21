@@ -10,16 +10,16 @@ export type ConfigurationJobs200 = {
   /**
    * @type string | undefined
    */
-  department?: string
+  department?: string;
   /**
    * @type array | undefined
    */
-  jobs?: string[]
-}[]
+  jobs?: string[];
+}[];
 
-export type ConfigurationJobsQueryResponse = ConfigurationJobs200
+export type ConfigurationJobsQueryResponse = ConfigurationJobs200;
 
 export type ConfigurationJobsQuery = {
-  Response: ConfigurationJobs200
-  Errors: any
-}
+  Response: ConfigurationJobs200;
+  Errors: any;
+};

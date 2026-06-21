@@ -1,37 +1,37 @@
-import { fromSavedMovieRefToBasicRecord } from '#/data-access-layer/tmdb/movie-basic-record'
-import { movieBasicCollection } from '#/data-access-layer/tmdb/query-collection'
-import type { SavedMovieRef } from '#/types/movie'
-import { movieViewTransitionName } from '#/utils/movie-view-transition'
-import { posterUrl } from '#/utils/tmdb-images'
-import { withViewTransition } from '#/utils/viewTransition'
-import { cn } from '@/lib/utils'
-import { Link, useNavigate } from '@tanstack/react-router'
-import { Bookmark, Star } from 'lucide-react'
-import { useCallback, useRef } from 'react'
+import { fromSavedMovieRefToBasicRecord } from "#/data-access-layer/tmdb/movie-basic-record";
+import { movieBasicCollection } from "#/data-access-layer/tmdb/query-collection";
+import type { SavedMovieRef } from "#/types/movie";
+import { movieViewTransitionName } from "#/utils/movie-view-transition";
+import { posterUrl } from "#/utils/tmdb-images";
+import { withViewTransition } from "#/utils/viewTransition";
+import { cn } from "@/lib/utils";
+import { Link, useNavigate } from "@tanstack/react-router";
+import { Bookmark, Star } from "lucide-react";
+import { useCallback, useRef } from "react";
 
 interface SavedMovieCardProps {
-  movie: SavedMovieRef
-  kind: 'favorite' | 'watchlist'
-  className?: string
+  movie: SavedMovieRef;
+  kind: "favorite" | "watchlist";
+  className?: string;
 }
 
 export function SavedMovieCard({ movie, kind, className }: SavedMovieCardProps) {
-  const navigate = useNavigate()
-  const seededBasicRef = useRef(false)
-  const image = posterUrl(movie.posterPath, 'w342')
-  const Icon = kind === 'favorite' ? Star : Bookmark
+  const navigate = useNavigate();
+  const seededBasicRef = useRef(false);
+  const image = posterUrl(movie.posterPath, "w342");
+  const Icon = kind === "favorite" ? Star : Bookmark;
 
   const seedBasicOnIntent = useCallback(() => {
-    if (seededBasicRef.current) return
-    seededBasicRef.current = true
-    movieBasicCollection.utils.writeUpsert(fromSavedMovieRefToBasicRecord(movie))
-  }, [movie])
+    if (seededBasicRef.current) return;
+    seededBasicRef.current = true;
+    movieBasicCollection.utils.writeUpsert(fromSavedMovieRefToBasicRecord(movie));
+  }, [movie]);
 
   return (
     <article
       data-testid={`saved-movie-card-${movie.movieId}`}
       className={cn(
-        'group overflow-hidden rounded-xl border border-border bg-card text-card-foreground shadow-sm',
+        "group overflow-hidden rounded-xl border border-border bg-card text-card-foreground shadow-sm",
         className,
       )}
     >
@@ -42,14 +42,14 @@ export function SavedMovieCard({ movie, kind, className }: SavedMovieCardProps) 
         onMouseEnter={seedBasicOnIntent}
         onTouchStart={seedBasicOnIntent}
         onClick={(event) => {
-          event.preventDefault()
-          seedBasicOnIntent()
+          event.preventDefault();
+          seedBasicOnIntent();
           withViewTransition(() => {
             void navigate({
-              to: '/movies/movie/$movieId',
+              to: "/movies/movie/$movieId",
               params: { movieId: String(movie.movieId) },
-            })
-          })
+            });
+          });
         }}
       >
         <div className="relative aspect-2/3 overflow-hidden bg-muted">
@@ -71,7 +71,7 @@ export function SavedMovieCard({ movie, kind, className }: SavedMovieCardProps) 
           )}
           <div className="absolute top-2 left-2 flex items-center gap-1 rounded-full bg-black/55 px-2 py-1 text-[10px] font-semibold tracking-wide text-white uppercase backdrop-blur-sm">
             <Icon className="size-3" />
-            {kind === 'favorite' ? 'Starred' : 'Queued'}
+            {kind === "favorite" ? "Starred" : "Queued"}
           </div>
         </div>
         <div className="space-y-1 p-2.5">
@@ -84,5 +84,5 @@ export function SavedMovieCard({ movie, kind, className }: SavedMovieCardProps) 
         </div>
       </Link>
     </article>
-  )
+  );
 }

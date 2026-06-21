@@ -4,20 +4,20 @@
  */
 
 export const trendingAllPathParamsTimeWindowEnum = {
-  day: 'day',
-  week: 'week',
-} as const
+  day: "day",
+  week: "week",
+} as const;
 
 export type TrendingAllPathParamsTimeWindowEnumKey =
-  (typeof trendingAllPathParamsTimeWindowEnum)[keyof typeof trendingAllPathParamsTimeWindowEnum]
+  (typeof trendingAllPathParamsTimeWindowEnum)[keyof typeof trendingAllPathParamsTimeWindowEnum];
 
 export type TrendingAllPathParams = {
   /**
    * @default "day"
    * @type string
    */
-  time_window: TrendingAllPathParamsTimeWindowEnumKey
-}
+  time_window: TrendingAllPathParamsTimeWindowEnumKey;
+};
 
 export type TrendingAllQueryParams = {
   /**
@@ -25,8 +25,8 @@ export type TrendingAllQueryParams = {
    * @default "en-US"
    * @type string | undefined
    */
-  language?: string
-}
+  language?: string;
+};
 
 /**
  * @description 200
@@ -36,7 +36,7 @@ export type TrendingAll200 = {
    * @default 0
    * @type integer | undefined
    */
-  page?: number
+  page?: number;
   /**
    * @type array | undefined
    */
@@ -45,86 +45,86 @@ export type TrendingAll200 = {
      * @default true
      * @type boolean | undefined
      */
-    adult?: boolean
+    adult?: boolean;
     /**
      * @type string | undefined
      */
-    backdrop_path?: string
+    backdrop_path?: string;
     /**
      * @default 0
      * @type integer | undefined
      */
-    id?: number
+    id?: number;
     /**
      * @type string | undefined
      */
-    title?: string
+    title?: string;
     /**
      * @type string | undefined
      */
-    original_language?: string
+    original_language?: string;
     /**
      * @type string | undefined
      */
-    original_title?: string
+    original_title?: string;
     /**
      * @type string | undefined
      */
-    overview?: string
+    overview?: string;
     /**
      * @type string | undefined
      */
-    poster_path?: string
+    poster_path?: string;
     /**
      * @type string | undefined
      */
-    media_type?: string
+    media_type?: string;
     /**
      * @type array | undefined
      */
-    genre_ids?: number[]
+    genre_ids?: number[];
     /**
      * @default 0
      * @type number | undefined
      */
-    popularity?: number
+    popularity?: number;
     /**
      * @type string | undefined
      */
-    release_date?: string
+    release_date?: string;
     /**
      * @default true
      * @type boolean | undefined
      */
-    video?: boolean
+    video?: boolean;
     /**
      * @default 0
      * @type number | undefined
      */
-    vote_average?: number
+    vote_average?: number;
     /**
      * @default 0
      * @type integer | undefined
      */
-    vote_count?: number
-  }[]
+    vote_count?: number;
+  }[];
   /**
    * @default 0
    * @type integer | undefined
    */
-  total_pages?: number
+  total_pages?: number;
   /**
    * @default 0
    * @type integer | undefined
    */
-  total_results?: number
-}
+  total_results?: number;
+};
 
-export type TrendingAllQueryResponse = TrendingAll200
+export type TrendingAllQueryResponse = TrendingAll200;
 
 export type TrendingAllQuery = {
-  Response: TrendingAll200
-  PathParams: TrendingAllPathParams
-  QueryParams: TrendingAllQueryParams
-  Errors: any
-}
+  Response: TrendingAll200;
+  PathParams: TrendingAllPathParams;
+  QueryParams: TrendingAllQueryParams;
+  Errors: any;
+};

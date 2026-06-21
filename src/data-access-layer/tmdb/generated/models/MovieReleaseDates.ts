@@ -7,8 +7,8 @@ export type MovieReleaseDatesPathParams = {
   /**
    * @type integer, int32
    */
-  movie_id: number
-}
+  movie_id: number;
+};
 
 /**
  * @description 200
@@ -18,7 +18,7 @@ export type MovieReleaseDates200 = {
    * @default 0
    * @type integer | undefined
    */
-  id?: number
+  id?: number;
   /**
    * @type array | undefined
    */
@@ -26,7 +26,7 @@ export type MovieReleaseDates200 = {
     /**
      * @type string | undefined
      */
-    iso_3166_1?: string
+    iso_3166_1?: string;
     /**
      * @type array | undefined
      */
@@ -34,36 +34,36 @@ export type MovieReleaseDates200 = {
       /**
        * @type string | undefined
        */
-      certification?: string
+      certification?: string;
       /**
        * @type array | undefined
        */
-      descriptors?: any[]
+      descriptors?: any[];
       /**
        * @type string | undefined
        */
-      iso_639_1?: string
+      iso_639_1?: string;
       /**
        * @type string | undefined
        */
-      note?: string
+      note?: string;
       /**
        * @type string | undefined
        */
-      release_date?: string
+      release_date?: string;
       /**
        * @default 0
        * @type integer | undefined
        */
-      type?: number
-    }[]
-  }[]
-}
+      type?: number;
+    }[];
+  }[];
+};
 
-export type MovieReleaseDatesQueryResponse = MovieReleaseDates200
+export type MovieReleaseDatesQueryResponse = MovieReleaseDates200;
 
 export type MovieReleaseDatesQuery = {
-  Response: MovieReleaseDates200
-  PathParams: MovieReleaseDatesPathParams
-  Errors: any
-}
+  Response: MovieReleaseDates200;
+  PathParams: MovieReleaseDatesPathParams;
+  Errors: any;
+};

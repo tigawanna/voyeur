@@ -7,20 +7,20 @@ export type TvSeasonWatchProvidersPathParams = {
   /**
    * @type integer, int32
    */
-  series_id: number
+  series_id: number;
   /**
    * @type integer, int32
    */
-  season_number: number
-}
+  season_number: number;
+};
 
 export type TvSeasonWatchProvidersQueryParams = {
   /**
    * @default "en-US"
    * @type string | undefined
    */
-  language?: string
-}
+  language?: string;
+};
 
 /**
  * @description 200
@@ -30,7 +30,7 @@ export type TvSeasonWatchProviders200 = {
    * @default 0
    * @type integer | undefined
    */
-  id?: number
+  id?: number;
   /**
    * @type object | undefined
    */
@@ -42,7 +42,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -50,23 +50,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -74,7 +74,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -82,23 +82,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -106,7 +106,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -114,23 +114,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -138,7 +138,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -146,23 +146,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -170,7 +170,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -178,22 +178,22 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -201,23 +201,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -225,7 +225,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -233,22 +233,22 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -256,23 +256,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -280,7 +280,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -288,23 +288,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -312,7 +312,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -320,23 +320,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -344,7 +344,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -352,22 +352,22 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -375,23 +375,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -399,7 +399,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -407,23 +407,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -431,7 +431,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -439,23 +439,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -463,7 +463,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -471,23 +471,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -495,7 +495,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -503,23 +503,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -527,7 +527,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -535,23 +535,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -559,7 +559,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -567,23 +567,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -591,7 +591,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -599,22 +599,22 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -622,23 +622,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -646,7 +646,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -654,22 +654,22 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -677,23 +677,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -701,7 +701,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -709,23 +709,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -733,7 +733,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -741,23 +741,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -765,7 +765,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -773,23 +773,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -797,7 +797,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -805,23 +805,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -829,7 +829,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -837,23 +837,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -861,7 +861,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -869,23 +869,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -893,7 +893,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -901,22 +901,22 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -924,23 +924,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -948,7 +948,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -956,23 +956,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -980,7 +980,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -988,23 +988,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -1012,7 +1012,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -1020,23 +1020,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -1044,7 +1044,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -1052,23 +1052,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -1076,7 +1076,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -1084,22 +1084,22 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -1107,23 +1107,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -1131,7 +1131,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -1139,22 +1139,22 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -1162,23 +1162,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -1186,7 +1186,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -1194,22 +1194,22 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -1217,23 +1217,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -1241,7 +1241,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -1249,22 +1249,22 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -1272,23 +1272,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -1296,7 +1296,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -1304,23 +1304,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -1328,7 +1328,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -1336,23 +1336,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -1360,7 +1360,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -1368,23 +1368,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -1392,7 +1392,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -1400,23 +1400,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -1424,7 +1424,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -1432,23 +1432,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -1456,7 +1456,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -1464,23 +1464,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -1488,7 +1488,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -1496,23 +1496,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -1520,7 +1520,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -1528,23 +1528,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -1552,7 +1552,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -1560,23 +1560,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -1584,7 +1584,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -1592,22 +1592,22 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -1615,23 +1615,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -1639,7 +1639,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -1647,23 +1647,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -1671,7 +1671,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -1679,23 +1679,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -1703,7 +1703,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -1711,22 +1711,22 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -1734,23 +1734,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -1758,7 +1758,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -1766,23 +1766,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -1790,7 +1790,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -1798,23 +1798,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -1822,7 +1822,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -1830,22 +1830,22 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -1853,22 +1853,22 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -1876,23 +1876,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -1900,7 +1900,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -1908,23 +1908,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -1932,7 +1932,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -1940,23 +1940,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -1964,7 +1964,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -1972,23 +1972,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -1996,7 +1996,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -2004,23 +2004,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -2028,7 +2028,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -2036,23 +2036,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -2060,7 +2060,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -2068,23 +2068,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -2092,7 +2092,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -2100,23 +2100,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -2124,7 +2124,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -2132,23 +2132,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -2156,7 +2156,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -2164,23 +2164,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -2188,7 +2188,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -2196,23 +2196,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -2220,7 +2220,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -2228,23 +2228,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -2252,7 +2252,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -2260,23 +2260,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -2284,7 +2284,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -2292,23 +2292,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -2316,7 +2316,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -2324,23 +2324,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -2348,7 +2348,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -2356,23 +2356,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -2380,7 +2380,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -2388,23 +2388,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -2412,7 +2412,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -2420,22 +2420,22 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -2443,23 +2443,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -2467,7 +2467,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -2475,23 +2475,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -2499,7 +2499,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -2507,22 +2507,22 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -2530,23 +2530,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -2554,7 +2554,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -2562,23 +2562,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -2586,7 +2586,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -2594,23 +2594,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -2618,7 +2618,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -2626,23 +2626,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -2650,7 +2650,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -2658,23 +2658,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -2682,7 +2682,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -2690,22 +2690,22 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -2713,23 +2713,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -2737,7 +2737,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -2745,22 +2745,22 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -2768,23 +2768,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -2792,7 +2792,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -2800,23 +2800,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -2824,7 +2824,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -2832,23 +2832,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -2856,7 +2856,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -2864,23 +2864,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -2888,7 +2888,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -2896,23 +2896,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -2920,7 +2920,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -2928,23 +2928,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -2952,7 +2952,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -2960,23 +2960,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -2984,7 +2984,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -2992,23 +2992,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -3016,7 +3016,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -3024,22 +3024,22 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -3047,23 +3047,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -3071,7 +3071,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -3079,23 +3079,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -3103,7 +3103,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -3111,23 +3111,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -3135,7 +3135,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -3143,23 +3143,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -3167,7 +3167,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -3175,23 +3175,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -3199,7 +3199,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -3207,23 +3207,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -3231,7 +3231,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -3239,23 +3239,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -3263,7 +3263,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -3271,23 +3271,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -3295,7 +3295,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -3303,23 +3303,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -3327,7 +3327,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -3335,23 +3335,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -3359,7 +3359,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -3367,23 +3367,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -3391,7 +3391,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -3399,23 +3399,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -3423,7 +3423,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -3431,22 +3431,22 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
+        display_priority?: number;
+      }[];
       /**
        * @type array | undefined
        */
@@ -3454,23 +3454,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -3478,7 +3478,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -3486,23 +3486,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -3510,7 +3510,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -3518,23 +3518,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -3542,7 +3542,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -3550,23 +3550,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -3574,7 +3574,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -3582,23 +3582,23 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
+        display_priority?: number;
+      }[];
+    };
     /**
      * @type object | undefined
      */
@@ -3606,7 +3606,7 @@ export type TvSeasonWatchProviders200 = {
       /**
        * @type string | undefined
        */
-      link?: string
+      link?: string;
       /**
        * @type array | undefined
        */
@@ -3614,31 +3614,31 @@ export type TvSeasonWatchProviders200 = {
         /**
          * @type string | undefined
          */
-        logo_path?: string
+        logo_path?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        provider_id?: number
+        provider_id?: number;
         /**
          * @type string | undefined
          */
-        provider_name?: string
+        provider_name?: string;
         /**
          * @default 0
          * @type integer | undefined
          */
-        display_priority?: number
-      }[]
-    }
-  }
-}
+        display_priority?: number;
+      }[];
+    };
+  };
+};
 
-export type TvSeasonWatchProvidersQueryResponse = TvSeasonWatchProviders200
+export type TvSeasonWatchProvidersQueryResponse = TvSeasonWatchProviders200;
 
 export type TvSeasonWatchProvidersQuery = {
-  Response: TvSeasonWatchProviders200
-  PathParams: TvSeasonWatchProvidersPathParams
-  QueryParams: TvSeasonWatchProvidersQueryParams
-  Errors: any
-}
+  Response: TvSeasonWatchProviders200;
+  PathParams: TvSeasonWatchProvidersPathParams;
+  QueryParams: TvSeasonWatchProvidersQueryParams;
+  Errors: any;
+};

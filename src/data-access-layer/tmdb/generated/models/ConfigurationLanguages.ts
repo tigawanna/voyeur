@@ -10,20 +10,20 @@ export type ConfigurationLanguages200 = {
   /**
    * @type string | undefined
    */
-  iso_639_1?: string
+  iso_639_1?: string;
   /**
    * @type string | undefined
    */
-  english_name?: string
+  english_name?: string;
   /**
    * @type string | undefined
    */
-  name?: string
-}[]
+  name?: string;
+}[];
 
-export type ConfigurationLanguagesQueryResponse = ConfigurationLanguages200
+export type ConfigurationLanguagesQueryResponse = ConfigurationLanguages200;
 
 export type ConfigurationLanguagesQuery = {
-  Response: ConfigurationLanguages200
-  Errors: any
-}
+  Response: ConfigurationLanguages200;
+  Errors: any;
+};

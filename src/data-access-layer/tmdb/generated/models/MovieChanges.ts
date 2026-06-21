@@ -7,24 +7,24 @@ export type MovieChangesPathParams = {
   /**
    * @type integer, int32
    */
-  movie_id: number
-}
+  movie_id: number;
+};
 
 export type MovieChangesQueryParams = {
   /**
    * @type string | undefined, date
    */
-  end_date?: string
+  end_date?: string;
   /**
    * @default 1
    * @type integer | undefined, int32
    */
-  page?: number
+  page?: number;
   /**
    * @type string | undefined, date
    */
-  start_date?: string
-}
+  start_date?: string;
+};
 
 /**
  * @description 200
@@ -37,7 +37,7 @@ export type MovieChanges200 = {
     /**
      * @type string | undefined
      */
-    key?: string
+    key?: string;
     /**
      * @type array | undefined
      */
@@ -45,23 +45,23 @@ export type MovieChanges200 = {
       /**
        * @type string | undefined
        */
-      id?: string
+      id?: string;
       /**
        * @type string | undefined
        */
-      action?: string
+      action?: string;
       /**
        * @type string | undefined
        */
-      time?: string
+      time?: string;
       /**
        * @type string | undefined
        */
-      iso_639_1?: string
+      iso_639_1?: string;
       /**
        * @type string | undefined
        */
-      iso_3166_1?: string
+      iso_3166_1?: string;
       /**
        * @type object | undefined
        */
@@ -73,18 +73,18 @@ export type MovieChanges200 = {
           /**
            * @type string | undefined
            */
-          file_path?: string
-        }
-      }
-    }[]
-  }[]
-}
+          file_path?: string;
+        };
+      };
+    }[];
+  }[];
+};
 
-export type MovieChangesQueryResponse = MovieChanges200
+export type MovieChangesQueryResponse = MovieChanges200;
 
 export type MovieChangesQuery = {
-  Response: MovieChanges200
-  PathParams: MovieChangesPathParams
-  QueryParams: MovieChangesQueryParams
-  Errors: any
-}
+  Response: MovieChanges200;
+  PathParams: MovieChangesPathParams;
+  QueryParams: MovieChangesQueryParams;
+  Errors: any;
+};

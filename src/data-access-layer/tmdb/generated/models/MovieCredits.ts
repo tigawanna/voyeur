@@ -7,16 +7,16 @@ export type MovieCreditsPathParams = {
   /**
    * @type integer, int32
    */
-  movie_id: number
-}
+  movie_id: number;
+};
 
 export type MovieCreditsQueryParams = {
   /**
    * @default "en-US"
    * @type string | undefined
    */
-  language?: string
-}
+  language?: string;
+};
 
 /**
  * @description 200
@@ -26,7 +26,7 @@ export type MovieCredits200 = {
    * @default 0
    * @type integer | undefined
    */
-  id?: number
+  id?: number;
   /**
    * @type array | undefined
    */
@@ -35,57 +35,57 @@ export type MovieCredits200 = {
      * @default true
      * @type boolean | undefined
      */
-    adult?: boolean
+    adult?: boolean;
     /**
      * @default 0
      * @type integer | undefined
      */
-    gender?: number
+    gender?: number;
     /**
      * @default 0
      * @type integer | undefined
      */
-    id?: number
+    id?: number;
     /**
      * @type string | undefined
      */
-    known_for_department?: string
+    known_for_department?: string;
     /**
      * @type string | undefined
      */
-    name?: string
+    name?: string;
     /**
      * @type string | undefined
      */
-    original_name?: string
+    original_name?: string;
     /**
      * @default 0
      * @type number | undefined
      */
-    popularity?: number
+    popularity?: number;
     /**
      * @type string | undefined
      */
-    profile_path?: string
+    profile_path?: string;
     /**
      * @default 0
      * @type integer | undefined
      */
-    cast_id?: number
+    cast_id?: number;
     /**
      * @type string | undefined
      */
-    character?: string
+    character?: string;
     /**
      * @type string | undefined
      */
-    credit_id?: string
+    credit_id?: string;
     /**
      * @default 0
      * @type integer | undefined
      */
-    order?: number
-  }[]
+    order?: number;
+  }[];
   /**
    * @type array | undefined
    */
@@ -94,58 +94,58 @@ export type MovieCredits200 = {
      * @default true
      * @type boolean | undefined
      */
-    adult?: boolean
+    adult?: boolean;
     /**
      * @default 0
      * @type integer | undefined
      */
-    gender?: number
+    gender?: number;
     /**
      * @default 0
      * @type integer | undefined
      */
-    id?: number
+    id?: number;
     /**
      * @type string | undefined
      */
-    known_for_department?: string
+    known_for_department?: string;
     /**
      * @type string | undefined
      */
-    name?: string
+    name?: string;
     /**
      * @type string | undefined
      */
-    original_name?: string
+    original_name?: string;
     /**
      * @default 0
      * @type number | undefined
      */
-    popularity?: number
+    popularity?: number;
     /**
      * @type string | undefined
      */
-    profile_path?: string
+    profile_path?: string;
     /**
      * @type string | undefined
      */
-    credit_id?: string
+    credit_id?: string;
     /**
      * @type string | undefined
      */
-    department?: string
+    department?: string;
     /**
      * @type string | undefined
      */
-    job?: string
-  }[]
-}
+    job?: string;
+  }[];
+};
 
-export type MovieCreditsQueryResponse = MovieCredits200
+export type MovieCreditsQueryResponse = MovieCredits200;
 
 export type MovieCreditsQuery = {
-  Response: MovieCredits200
-  PathParams: MovieCreditsPathParams
-  QueryParams: MovieCreditsQueryParams
-  Errors: any
-}
+  Response: MovieCredits200;
+  PathParams: MovieCreditsPathParams;
+  QueryParams: MovieCreditsQueryParams;
+  Errors: any;
+};

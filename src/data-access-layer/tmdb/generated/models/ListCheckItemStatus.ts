@@ -7,20 +7,20 @@ export type ListCheckItemStatusPathParams = {
   /**
    * @type integer, int32
    */
-  list_id: number
-}
+  list_id: number;
+};
 
 export type ListCheckItemStatusQueryParams = {
   /**
    * @default "en-US"
    * @type string | undefined
    */
-  language?: string
+  language?: string;
   /**
    * @type integer | undefined, int32
    */
-  movie_id?: number
-}
+  movie_id?: number;
+};
 
 /**
  * @description 200
@@ -30,19 +30,19 @@ export type ListCheckItemStatus200 = {
    * @default 0
    * @type integer | undefined
    */
-  id?: number
+  id?: number;
   /**
    * @default true
    * @type boolean | undefined
    */
-  item_present?: boolean
-}
+  item_present?: boolean;
+};
 
-export type ListCheckItemStatusQueryResponse = ListCheckItemStatus200
+export type ListCheckItemStatusQueryResponse = ListCheckItemStatus200;
 
 export type ListCheckItemStatusQuery = {
-  Response: ListCheckItemStatus200
-  PathParams: ListCheckItemStatusPathParams
-  QueryParams: ListCheckItemStatusQueryParams
-  Errors: any
-}
+  Response: ListCheckItemStatus200;
+  PathParams: ListCheckItemStatusPathParams;
+  QueryParams: ListCheckItemStatusQueryParams;
+  Errors: any;
+};

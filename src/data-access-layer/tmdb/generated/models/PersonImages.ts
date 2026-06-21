@@ -7,8 +7,8 @@ export type PersonImagesPathParams = {
   /**
    * @type integer, int32
    */
-  person_id: number
-}
+  person_id: number;
+};
 
 /**
  * @description 200
@@ -18,7 +18,7 @@ export type PersonImages200 = {
    * @default 0
    * @type integer | undefined
    */
-  id?: number
+  id?: number;
   /**
    * @type array | undefined
    */
@@ -27,39 +27,39 @@ export type PersonImages200 = {
      * @default 0
      * @type number | undefined
      */
-    aspect_ratio?: number
+    aspect_ratio?: number;
     /**
      * @default 0
      * @type integer | undefined
      */
-    height?: number
-    iso_639_1?: any
+    height?: number;
+    iso_639_1?: any;
     /**
      * @type string | undefined
      */
-    file_path?: string
+    file_path?: string;
     /**
      * @default 0
      * @type number | undefined
      */
-    vote_average?: number
+    vote_average?: number;
     /**
      * @default 0
      * @type integer | undefined
      */
-    vote_count?: number
+    vote_count?: number;
     /**
      * @default 0
      * @type integer | undefined
      */
-    width?: number
-  }[]
-}
+    width?: number;
+  }[];
+};
 
-export type PersonImagesQueryResponse = PersonImages200
+export type PersonImagesQueryResponse = PersonImages200;
 
 export type PersonImagesQuery = {
-  Response: PersonImages200
-  PathParams: PersonImagesPathParams
-  Errors: any
-}
+  Response: PersonImages200;
+  PathParams: PersonImagesPathParams;
+  Errors: any;
+};

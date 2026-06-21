@@ -7,27 +7,27 @@ export type MovieAddRatingPathParams = {
   /**
    * @type integer, int32
    */
-  movie_id: number
-}
+  movie_id: number;
+};
 
 export type MovieAddRatingQueryParams = {
   /**
    * @type string | undefined
    */
-  guest_session_id?: string
+  guest_session_id?: string;
   /**
    * @type string | undefined
    */
-  session_id?: string
-}
+  session_id?: string;
+};
 
 export type MovieAddRatingHeaderParams = {
   /**
    * @default "application/json;charset=utf-8"
    * @type string
    */
-  'Content-Type': string
-}
+  "Content-Type": string;
+};
 
 /**
  * @description 200
@@ -37,27 +37,27 @@ export type MovieAddRating200 = {
    * @default 0
    * @type integer | undefined
    */
-  status_code?: number
+  status_code?: number;
   /**
    * @type string | undefined
    */
-  status_message?: string
-}
+  status_message?: string;
+};
 
 export type MovieAddRatingMutationRequest = {
   /**
    * @type string, json
    */
-  RAW_BODY: string
-}
+  RAW_BODY: string;
+};
 
-export type MovieAddRatingMutationResponse = MovieAddRating200
+export type MovieAddRatingMutationResponse = MovieAddRating200;
 
 export type MovieAddRatingMutation = {
-  Response: MovieAddRating200
-  Request: MovieAddRatingMutationRequest
-  PathParams: MovieAddRatingPathParams
-  QueryParams: MovieAddRatingQueryParams
-  HeaderParams: MovieAddRatingHeaderParams
-  Errors: any
-}
+  Response: MovieAddRating200;
+  Request: MovieAddRatingMutationRequest;
+  PathParams: MovieAddRatingPathParams;
+  QueryParams: MovieAddRatingQueryParams;
+  HeaderParams: MovieAddRatingHeaderParams;
+  Errors: any;
+};

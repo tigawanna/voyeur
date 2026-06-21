@@ -7,8 +7,8 @@ export type NetworkDetailsPathParams = {
   /**
    * @type integer, int32
    */
-  network_id: number
-}
+  network_id: number;
+};
 
 /**
  * @description 200
@@ -17,34 +17,34 @@ export type NetworkDetails200 = {
   /**
    * @type string | undefined
    */
-  headquarters?: string
+  headquarters?: string;
   /**
    * @type string | undefined
    */
-  homepage?: string
+  homepage?: string;
   /**
    * @default 0
    * @type integer | undefined
    */
-  id?: number
+  id?: number;
   /**
    * @type string | undefined
    */
-  logo_path?: string
+  logo_path?: string;
   /**
    * @type string | undefined
    */
-  name?: string
+  name?: string;
   /**
    * @type string | undefined
    */
-  origin_country?: string
-}
+  origin_country?: string;
+};
 
-export type NetworkDetailsQueryResponse = NetworkDetails200
+export type NetworkDetailsQueryResponse = NetworkDetails200;
 
 export type NetworkDetailsQuery = {
-  Response: NetworkDetails200
-  PathParams: NetworkDetailsPathParams
-  Errors: any
-}
+  Response: NetworkDetails200;
+  PathParams: NetworkDetailsPathParams;
+  Errors: any;
+};

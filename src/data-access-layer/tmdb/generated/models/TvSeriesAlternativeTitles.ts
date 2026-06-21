@@ -7,8 +7,8 @@ export type TvSeriesAlternativeTitlesPathParams = {
   /**
    * @type integer, int32
    */
-  series_id: number
-}
+  series_id: number;
+};
 
 /**
  * @description 200
@@ -18,7 +18,7 @@ export type TvSeriesAlternativeTitles200 = {
    * @default 0
    * @type integer | undefined
    */
-  id?: number
+  id?: number;
   /**
    * @type array | undefined
    */
@@ -26,23 +26,22 @@ export type TvSeriesAlternativeTitles200 = {
     /**
      * @type string | undefined
      */
-    iso_3166_1?: string
+    iso_3166_1?: string;
     /**
      * @type string | undefined
      */
-    title?: string
+    title?: string;
     /**
      * @type string | undefined
      */
-    type?: string
-  }[]
-}
+    type?: string;
+  }[];
+};
 
-export type TvSeriesAlternativeTitlesQueryResponse =
-  TvSeriesAlternativeTitles200
+export type TvSeriesAlternativeTitlesQueryResponse = TvSeriesAlternativeTitles200;
 
 export type TvSeriesAlternativeTitlesQuery = {
-  Response: TvSeriesAlternativeTitles200
-  PathParams: TvSeriesAlternativeTitlesPathParams
-  Errors: any
-}
+  Response: TvSeriesAlternativeTitles200;
+  PathParams: TvSeriesAlternativeTitlesPathParams;
+  Errors: any;
+};

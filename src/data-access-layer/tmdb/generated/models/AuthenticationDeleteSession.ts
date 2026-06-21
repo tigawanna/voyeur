@@ -11,21 +11,20 @@ export type AuthenticationDeleteSession200 = {
    * @default true
    * @type boolean | undefined
    */
-  success?: boolean
-}
+  success?: boolean;
+};
 
 export type AuthenticationDeleteSessionMutationRequest = {
   /**
    * @type string, json
    */
-  RAW_BODY: string
-}
+  RAW_BODY: string;
+};
 
-export type AuthenticationDeleteSessionMutationResponse =
-  AuthenticationDeleteSession200
+export type AuthenticationDeleteSessionMutationResponse = AuthenticationDeleteSession200;
 
 export type AuthenticationDeleteSessionMutation = {
-  Response: AuthenticationDeleteSession200
-  Request: AuthenticationDeleteSessionMutationRequest
-  Errors: any
-}
+  Response: AuthenticationDeleteSession200;
+  Request: AuthenticationDeleteSessionMutationRequest;
+  Errors: any;
+};

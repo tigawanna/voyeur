@@ -7,28 +7,28 @@ export type TvEpisodeImagesPathParams = {
   /**
    * @type integer, int32
    */
-  series_id: number
+  series_id: number;
   /**
    * @type integer, int32
    */
-  season_number: number
+  season_number: number;
   /**
    * @type integer, int32
    */
-  episode_number: number
-}
+  episode_number: number;
+};
 
 export type TvEpisodeImagesQueryParams = {
   /**
    * @description specify a comma separated list of ISO-639-1 values to query, for example: `en-US,null`
    * @type string | undefined
    */
-  include_image_language?: string
+  include_image_language?: string;
   /**
    * @type string | undefined
    */
-  language?: string
-}
+  language?: string;
+};
 
 /**
  * @description 200
@@ -38,7 +38,7 @@ export type TvEpisodeImages200 = {
    * @default 0
    * @type integer | undefined
    */
-  id?: number
+  id?: number;
   /**
    * @type array | undefined
    */
@@ -47,40 +47,40 @@ export type TvEpisodeImages200 = {
      * @default 0
      * @type number | undefined
      */
-    aspect_ratio?: number
+    aspect_ratio?: number;
     /**
      * @default 0
      * @type integer | undefined
      */
-    height?: number
-    iso_639_1?: any
+    height?: number;
+    iso_639_1?: any;
     /**
      * @type string | undefined
      */
-    file_path?: string
+    file_path?: string;
     /**
      * @default 0
      * @type number | undefined
      */
-    vote_average?: number
+    vote_average?: number;
     /**
      * @default 0
      * @type integer | undefined
      */
-    vote_count?: number
+    vote_count?: number;
     /**
      * @default 0
      * @type integer | undefined
      */
-    width?: number
-  }[]
-}
+    width?: number;
+  }[];
+};
 
-export type TvEpisodeImagesQueryResponse = TvEpisodeImages200
+export type TvEpisodeImagesQueryResponse = TvEpisodeImages200;
 
 export type TvEpisodeImagesQuery = {
-  Response: TvEpisodeImages200
-  PathParams: TvEpisodeImagesPathParams
-  QueryParams: TvEpisodeImagesQueryParams
-  Errors: any
-}
+  Response: TvEpisodeImages200;
+  PathParams: TvEpisodeImagesPathParams;
+  QueryParams: TvEpisodeImagesQueryParams;
+  Errors: any;
+};

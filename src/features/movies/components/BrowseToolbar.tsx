@@ -1,4 +1,4 @@
-import { Globe2, Languages, Search } from 'lucide-react'
+import { Globe2, Languages, Search } from "lucide-react";
 import {
   BROWSE_LANGUAGES,
   BROWSE_REGIONS,
@@ -6,18 +6,18 @@ import {
   BROWSE_VIEW_LABELS,
   type BrowseLanguageCode,
   type BrowseRegionCode,
-} from '#/types/browse'
-import { useBrowseSearchInput } from '#/features/movies/hooks/useBrowseSearchInput'
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
+} from "#/types/browse";
+import { useBrowseSearchInput } from "#/features/movies/hooks/useBrowseSearchInput";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select'
-import { cn } from '@/lib/utils'
+} from "@/components/ui/select";
+import { cn } from "@/lib/utils";
 
 export function BrowseToolbar() {
   const {
@@ -31,8 +31,8 @@ export function BrowseToolbar() {
     language,
     q,
     isSearchPending,
-  } = useBrowseSearchInput()
-  const isSearchActive = Boolean(q?.trim())
+  } = useBrowseSearchInput();
+  const isSearchActive = Boolean(q?.trim());
 
   return (
     <div className="space-y-4">
@@ -45,7 +45,7 @@ export function BrowseToolbar() {
             onChange={(event) => onSearchChange(event.target.value)}
             placeholder="Search movies by title"
             aria-label="Search movies"
-            className={cn('h-10 pl-9', isSearchPending && 'pr-24')}
+            className={cn("h-10 pl-9", isSearchPending && "pr-24")}
           />
           {isSearchPending ? (
             <span className="pointer-events-none absolute top-1/2 right-3 -translate-y-1/2 text-xs text-muted-foreground">
@@ -57,7 +57,10 @@ export function BrowseToolbar() {
         <div className="flex flex-wrap items-center gap-2">
           <div className="flex items-center gap-2">
             <Globe2 className="size-4 shrink-0 text-muted-foreground" aria-hidden />
-            <Select value={region} onValueChange={(value) => onRegionChange(value as BrowseRegionCode)}>
+            <Select
+              value={region}
+              onValueChange={(value) => onRegionChange(value as BrowseRegionCode)}
+            >
               <SelectTrigger className="h-10 w-44 bg-background" aria-label="Cinema region">
                 <SelectValue placeholder="Region" />
               </SelectTrigger>
@@ -73,7 +76,10 @@ export function BrowseToolbar() {
 
           <div className="flex items-center gap-2">
             <Languages className="size-4 shrink-0 text-muted-foreground" aria-hidden />
-            <Select value={language} onValueChange={(value) => onLanguageChange(value as BrowseLanguageCode)}>
+            <Select
+              value={language}
+              onValueChange={(value) => onLanguageChange(value as BrowseLanguageCode)}
+            >
               <SelectTrigger className="h-10 w-48 bg-background" aria-label="Language">
                 <SelectValue placeholder="Language" />
               </SelectTrigger>
@@ -95,7 +101,7 @@ export function BrowseToolbar() {
             key={browseView}
             type="button"
             size="sm"
-            variant={!isSearchActive && view === browseView ? 'default' : 'secondary'}
+            variant={!isSearchActive && view === browseView ? "default" : "secondary"}
             onClick={() => onViewChange(browseView)}
           >
             {BROWSE_VIEW_LABELS[browseView]}
@@ -103,5 +109,5 @@ export function BrowseToolbar() {
         ))}
       </div>
     </div>
-  )
+  );
 }

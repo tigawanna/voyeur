@@ -7,8 +7,8 @@ export type ReviewDetailsPathParams = {
   /**
    * @type string
    */
-  review_id: string
-}
+  review_id: string;
+};
 
 /**
  * @description 200
@@ -17,11 +17,11 @@ export type ReviewDetails200 = {
   /**
    * @type string | undefined
    */
-  id?: string
+  id?: string;
   /**
    * @type string | undefined
    */
-  author?: string
+  author?: string;
   /**
    * @type object | undefined
    */
@@ -29,60 +29,60 @@ export type ReviewDetails200 = {
     /**
      * @type string | undefined
      */
-    name?: string
+    name?: string;
     /**
      * @type string | undefined
      */
-    username?: string
+    username?: string;
     /**
      * @type string | undefined
      */
-    avatar_path?: string
+    avatar_path?: string;
     /**
      * @default 0
      * @type integer | undefined
      */
-    rating?: number
-  }
+    rating?: number;
+  };
   /**
    * @type string | undefined
    */
-  content?: string
+  content?: string;
   /**
    * @type string | undefined
    */
-  created_at?: string
+  created_at?: string;
   /**
    * @type string | undefined
    */
-  iso_639_1?: string
+  iso_639_1?: string;
   /**
    * @default 0
    * @type integer | undefined
    */
-  media_id?: number
+  media_id?: number;
   /**
    * @type string | undefined
    */
-  media_title?: string
+  media_title?: string;
   /**
    * @type string | undefined
    */
-  media_type?: string
+  media_type?: string;
   /**
    * @type string | undefined
    */
-  updated_at?: string
+  updated_at?: string;
   /**
    * @type string | undefined
    */
-  url?: string
-}
+  url?: string;
+};
 
-export type ReviewDetailsQueryResponse = ReviewDetails200
+export type ReviewDetailsQueryResponse = ReviewDetails200;
 
 export type ReviewDetailsQuery = {
-  Response: ReviewDetails200
-  PathParams: ReviewDetailsPathParams
-  Errors: any
-}
+  Response: ReviewDetails200;
+  PathParams: ReviewDetailsPathParams;
+  Errors: any;
+};

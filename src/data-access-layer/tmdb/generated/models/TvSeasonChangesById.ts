@@ -7,24 +7,24 @@ export type TvSeasonChangesByIdPathParams = {
   /**
    * @type integer, int32
    */
-  season_id: number
-}
+  season_id: number;
+};
 
 export type TvSeasonChangesByIdQueryParams = {
   /**
    * @type string | undefined
    */
-  end_date?: string
+  end_date?: string;
   /**
    * @default 1
    * @type integer | undefined, int32
    */
-  page?: number
+  page?: number;
   /**
    * @type string | undefined
    */
-  start_date?: string
-}
+  start_date?: string;
+};
 
 /**
  * @description 200
@@ -37,7 +37,7 @@ export type TvSeasonChangesById200 = {
     /**
      * @type string | undefined
      */
-    key?: string
+    key?: string;
     /**
      * @type array | undefined
      */
@@ -45,15 +45,15 @@ export type TvSeasonChangesById200 = {
       /**
        * @type string | undefined
        */
-      id?: string
+      id?: string;
       /**
        * @type string | undefined
        */
-      action?: string
+      action?: string;
       /**
        * @type string | undefined
        */
-      time?: string
+      time?: string;
       /**
        * @type object | undefined
        */
@@ -62,22 +62,22 @@ export type TvSeasonChangesById200 = {
          * @default 0
          * @type integer | undefined
          */
-        episode_id?: number
+        episode_id?: number;
         /**
          * @default 0
          * @type integer | undefined
          */
-        episode_number?: number
-      }
-    }[]
-  }[]
-}
+        episode_number?: number;
+      };
+    }[];
+  }[];
+};
 
-export type TvSeasonChangesByIdQueryResponse = TvSeasonChangesById200
+export type TvSeasonChangesByIdQueryResponse = TvSeasonChangesById200;
 
 export type TvSeasonChangesByIdQuery = {
-  Response: TvSeasonChangesById200
-  PathParams: TvSeasonChangesByIdPathParams
-  QueryParams: TvSeasonChangesByIdQueryParams
-  Errors: any
-}
+  Response: TvSeasonChangesById200;
+  PathParams: TvSeasonChangesByIdPathParams;
+  QueryParams: TvSeasonChangesByIdQueryParams;
+  Errors: any;
+};

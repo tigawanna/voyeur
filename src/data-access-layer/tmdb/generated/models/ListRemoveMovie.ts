@@ -7,15 +7,15 @@ export type ListRemoveMoviePathParams = {
   /**
    * @type integer, int32
    */
-  list_id: number
-}
+  list_id: number;
+};
 
 export type ListRemoveMovieQueryParams = {
   /**
    * @type string
    */
-  session_id: string
-}
+  session_id: string;
+};
 
 /**
  * @description 200
@@ -25,26 +25,26 @@ export type ListRemoveMovie200 = {
    * @default 0
    * @type integer | undefined
    */
-  status_code?: number
+  status_code?: number;
   /**
    * @type string | undefined
    */
-  status_message?: string
-}
+  status_message?: string;
+};
 
 export type ListRemoveMovieMutationRequest = {
   /**
    * @type string, json
    */
-  RAW_BODY: string
-}
+  RAW_BODY: string;
+};
 
-export type ListRemoveMovieMutationResponse = ListRemoveMovie200
+export type ListRemoveMovieMutationResponse = ListRemoveMovie200;
 
 export type ListRemoveMovieMutation = {
-  Response: ListRemoveMovie200
-  Request: ListRemoveMovieMutationRequest
-  PathParams: ListRemoveMoviePathParams
-  QueryParams: ListRemoveMovieQueryParams
-  Errors: any
-}
+  Response: ListRemoveMovie200;
+  Request: ListRemoveMovieMutationRequest;
+  PathParams: ListRemoveMoviePathParams;
+  QueryParams: ListRemoveMovieQueryParams;
+  Errors: any;
+};

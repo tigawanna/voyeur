@@ -7,24 +7,24 @@ export type TvSeriesChangesPathParams = {
   /**
    * @type integer, int32
    */
-  series_id: number
-}
+  series_id: number;
+};
 
 export type TvSeriesChangesQueryParams = {
   /**
    * @type string | undefined
    */
-  end_date?: string
+  end_date?: string;
   /**
    * @default 1
    * @type integer | undefined, int32
    */
-  page?: number
+  page?: number;
   /**
    * @type string | undefined
    */
-  start_date?: string
-}
+  start_date?: string;
+};
 
 /**
  * @description 200
@@ -37,7 +37,7 @@ export type TvSeriesChanges200 = {
     /**
      * @type string | undefined
      */
-    key?: string
+    key?: string;
     /**
      * @type array | undefined
      */
@@ -45,23 +45,23 @@ export type TvSeriesChanges200 = {
       /**
        * @type string | undefined
        */
-      id?: string
+      id?: string;
       /**
        * @type string | undefined
        */
-      action?: string
+      action?: string;
       /**
        * @type string | undefined
        */
-      time?: string
+      time?: string;
       /**
        * @type string | undefined
        */
-      iso_639_1?: string
+      iso_639_1?: string;
       /**
        * @type string | undefined
        */
-      iso_3166_1?: string
+      iso_3166_1?: string;
       /**
        * @type object | undefined
        */
@@ -73,13 +73,13 @@ export type TvSeriesChanges200 = {
           /**
            * @type string | undefined
            */
-          file_path?: string
+          file_path?: string;
           /**
            * @type string | undefined
            */
-          iso_639_1?: string
-        }
-      }
+          iso_639_1?: string;
+        };
+      };
       /**
        * @type object | undefined
        */
@@ -91,22 +91,22 @@ export type TvSeriesChanges200 = {
           /**
            * @type string | undefined
            */
-          file_path?: string
+          file_path?: string;
           /**
            * @type string | undefined
            */
-          iso_639_1?: string
-        }
-      }
-    }[]
-  }[]
-}
+          iso_639_1?: string;
+        };
+      };
+    }[];
+  }[];
+};
 
-export type TvSeriesChangesQueryResponse = TvSeriesChanges200
+export type TvSeriesChangesQueryResponse = TvSeriesChanges200;
 
 export type TvSeriesChangesQuery = {
-  Response: TvSeriesChanges200
-  PathParams: TvSeriesChangesPathParams
-  QueryParams: TvSeriesChangesQueryParams
-  Errors: any
-}
+  Response: TvSeriesChanges200;
+  PathParams: TvSeriesChangesPathParams;
+  QueryParams: TvSeriesChangesQueryParams;
+  Errors: any;
+};

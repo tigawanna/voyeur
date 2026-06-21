@@ -8,38 +8,38 @@ export type AccountRatedTvEpisodesPathParams = {
    * @default null
    * @type integer, int32
    */
-  account_id: number
-}
+  account_id: number;
+};
 
 export const accountRatedTvEpisodesQueryParamsSortByEnum = {
-  'created_at.asc': 'created_at.asc',
-  'created_at.desc': 'created_at.desc',
-} as const
+  "created_at.asc": "created_at.asc",
+  "created_at.desc": "created_at.desc",
+} as const;
 
 export type AccountRatedTvEpisodesQueryParamsSortByEnumKey =
-  (typeof accountRatedTvEpisodesQueryParamsSortByEnum)[keyof typeof accountRatedTvEpisodesQueryParamsSortByEnum]
+  (typeof accountRatedTvEpisodesQueryParamsSortByEnum)[keyof typeof accountRatedTvEpisodesQueryParamsSortByEnum];
 
 export type AccountRatedTvEpisodesQueryParams = {
   /**
    * @default "en-US"
    * @type string | undefined
    */
-  language?: string
+  language?: string;
   /**
    * @default 1
    * @type integer | undefined, int32
    */
-  page?: number
+  page?: number;
   /**
    * @type string | undefined
    */
-  session_id?: string
+  session_id?: string;
   /**
    * @default "created_at.asc"
    * @type string | undefined
    */
-  sort_by?: AccountRatedTvEpisodesQueryParamsSortByEnumKey
-}
+  sort_by?: AccountRatedTvEpisodesQueryParamsSortByEnumKey;
+};
 
 /**
  * @description 200
@@ -49,7 +49,7 @@ export type AccountRatedTvEpisodes200 = {
    * @default 0
    * @type integer | undefined
    */
-  page?: number
+  page?: number;
   /**
    * @type array | undefined
    */
@@ -57,81 +57,81 @@ export type AccountRatedTvEpisodes200 = {
     /**
      * @type string | undefined
      */
-    air_date?: string
+    air_date?: string;
     /**
      * @default 0
      * @type integer | undefined
      */
-    episode_number?: number
+    episode_number?: number;
     /**
      * @default 0
      * @type integer | undefined
      */
-    id?: number
+    id?: number;
     /**
      * @type string | undefined
      */
-    name?: string
+    name?: string;
     /**
      * @type string | undefined
      */
-    overview?: string
+    overview?: string;
     /**
      * @type string | undefined
      */
-    production_code?: string
+    production_code?: string;
     /**
      * @default 0
      * @type integer | undefined
      */
-    runtime?: number
+    runtime?: number;
     /**
      * @default 0
      * @type integer | undefined
      */
-    season_number?: number
+    season_number?: number;
     /**
      * @default 0
      * @type integer | undefined
      */
-    show_id?: number
+    show_id?: number;
     /**
      * @type string | undefined
      */
-    still_path?: string
+    still_path?: string;
     /**
      * @default 0
      * @type number | undefined
      */
-    vote_average?: number
+    vote_average?: number;
     /**
      * @default 0
      * @type integer | undefined
      */
-    vote_count?: number
+    vote_count?: number;
     /**
      * @default 0
      * @type integer | undefined
      */
-    rating?: number
-  }[]
+    rating?: number;
+  }[];
   /**
    * @default 0
    * @type integer | undefined
    */
-  total_pages?: number
+  total_pages?: number;
   /**
    * @default 0
    * @type integer | undefined
    */
-  total_results?: number
-}
+  total_results?: number;
+};
 
-export type AccountRatedTvEpisodesQueryResponse = AccountRatedTvEpisodes200
+export type AccountRatedTvEpisodesQueryResponse = AccountRatedTvEpisodes200;
 
 export type AccountRatedTvEpisodesQuery = {
-  Response: AccountRatedTvEpisodes200
-  PathParams: AccountRatedTvEpisodesPathParams
-  QueryParams: AccountRatedTvEpisodesQueryParams
-  Errors: any
-}
+  Response: AccountRatedTvEpisodes200;
+  PathParams: AccountRatedTvEpisodesPathParams;
+  QueryParams: AccountRatedTvEpisodesQueryParams;
+  Errors: any;
+};

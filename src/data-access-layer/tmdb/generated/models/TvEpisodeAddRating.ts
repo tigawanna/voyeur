@@ -7,35 +7,35 @@ export type TvEpisodeAddRatingPathParams = {
   /**
    * @type integer, int32
    */
-  series_id: number
+  series_id: number;
   /**
    * @type integer, int32
    */
-  season_number: number
+  season_number: number;
   /**
    * @type integer, int32
    */
-  episode_number: number
-}
+  episode_number: number;
+};
 
 export type TvEpisodeAddRatingQueryParams = {
   /**
    * @type string | undefined
    */
-  guest_session_id?: string
+  guest_session_id?: string;
   /**
    * @type string | undefined
    */
-  session_id?: string
-}
+  session_id?: string;
+};
 
 export type TvEpisodeAddRatingHeaderParams = {
   /**
    * @default "application/json;charset=utf-8"
    * @type string
    */
-  'Content-Type': string
-}
+  "Content-Type": string;
+};
 
 /**
  * @description 200
@@ -45,27 +45,27 @@ export type TvEpisodeAddRating200 = {
    * @default 0
    * @type integer | undefined
    */
-  status_code?: number
+  status_code?: number;
   /**
    * @type string | undefined
    */
-  status_message?: string
-}
+  status_message?: string;
+};
 
 export type TvEpisodeAddRatingMutationRequest = {
   /**
    * @type string, json
    */
-  RAW_BODY: string
-}
+  RAW_BODY: string;
+};
 
-export type TvEpisodeAddRatingMutationResponse = TvEpisodeAddRating200
+export type TvEpisodeAddRatingMutationResponse = TvEpisodeAddRating200;
 
 export type TvEpisodeAddRatingMutation = {
-  Response: TvEpisodeAddRating200
-  Request: TvEpisodeAddRatingMutationRequest
-  PathParams: TvEpisodeAddRatingPathParams
-  QueryParams: TvEpisodeAddRatingQueryParams
-  HeaderParams: TvEpisodeAddRatingHeaderParams
-  Errors: any
-}
+  Response: TvEpisodeAddRating200;
+  Request: TvEpisodeAddRatingMutationRequest;
+  PathParams: TvEpisodeAddRatingPathParams;
+  QueryParams: TvEpisodeAddRatingQueryParams;
+  HeaderParams: TvEpisodeAddRatingHeaderParams;
+  Errors: any;
+};

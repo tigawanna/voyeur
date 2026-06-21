@@ -11,21 +11,20 @@ export type AuthenticationCreateRequestToken200 = {
    * @default true
    * @type boolean | undefined
    */
-  success?: boolean
+  success?: boolean;
   /**
    * @type string | undefined
    */
-  expires_at?: string
+  expires_at?: string;
   /**
    * @type string | undefined
    */
-  request_token?: string
-}
+  request_token?: string;
+};
 
-export type AuthenticationCreateRequestTokenQueryResponse =
-  AuthenticationCreateRequestToken200
+export type AuthenticationCreateRequestTokenQueryResponse = AuthenticationCreateRequestToken200;
 
 export type AuthenticationCreateRequestTokenQuery = {
-  Response: AuthenticationCreateRequestToken200
-  Errors: any
-}
+  Response: AuthenticationCreateRequestToken200;
+  Errors: any;
+};

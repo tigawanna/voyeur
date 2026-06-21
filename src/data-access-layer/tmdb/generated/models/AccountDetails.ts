@@ -8,15 +8,15 @@ export type AccountDetailsPathParams = {
    * @default null
    * @type integer, int32
    */
-  account_id: number
-}
+  account_id: number;
+};
 
 export type AccountDetailsQueryParams = {
   /**
    * @type string | undefined
    */
-  session_id?: string
-}
+  session_id?: string;
+};
 
 /**
  * @description 200
@@ -33,8 +33,8 @@ export type AccountDetails200 = {
       /**
        * @type string | undefined
        */
-      hash?: string
-    }
+      hash?: string;
+    };
     /**
      * @type object | undefined
      */
@@ -42,42 +42,42 @@ export type AccountDetails200 = {
       /**
        * @type string | undefined
        */
-      avatar_path?: string
-    }
-  }
+      avatar_path?: string;
+    };
+  };
   /**
    * @default 0
    * @type integer | undefined
    */
-  id?: number
+  id?: number;
   /**
    * @type string | undefined
    */
-  iso_639_1?: string
+  iso_639_1?: string;
   /**
    * @type string | undefined
    */
-  iso_3166_1?: string
+  iso_3166_1?: string;
   /**
    * @type string | undefined
    */
-  name?: string
+  name?: string;
   /**
    * @default true
    * @type boolean | undefined
    */
-  include_adult?: boolean
+  include_adult?: boolean;
   /**
    * @type string | undefined
    */
-  username?: string
-}
+  username?: string;
+};
 
-export type AccountDetailsQueryResponse = AccountDetails200
+export type AccountDetailsQueryResponse = AccountDetails200;
 
 export type AccountDetailsQuery = {
-  Response: AccountDetails200
-  PathParams: AccountDetailsPathParams
-  QueryParams: AccountDetailsQueryParams
-  Errors: any
-}
+  Response: AccountDetails200;
+  PathParams: AccountDetailsPathParams;
+  QueryParams: AccountDetailsQueryParams;
+  Errors: any;
+};

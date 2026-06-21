@@ -7,8 +7,8 @@ export type TranslationsPathParams = {
   /**
    * @type integer, int32
    */
-  person_id: number
-}
+  person_id: number;
+};
 
 /**
  * @description 200
@@ -18,7 +18,7 @@ export type Translations200 = {
    * @default 0
    * @type integer | undefined
    */
-  id?: number
+  id?: number;
   /**
    * @type array | undefined
    */
@@ -26,19 +26,19 @@ export type Translations200 = {
     /**
      * @type string | undefined
      */
-    iso_3166_1?: string
+    iso_3166_1?: string;
     /**
      * @type string | undefined
      */
-    iso_639_1?: string
+    iso_639_1?: string;
     /**
      * @type string | undefined
      */
-    name?: string
+    name?: string;
     /**
      * @type string | undefined
      */
-    english_name?: string
+    english_name?: string;
     /**
      * @type object | undefined
      */
@@ -46,19 +46,19 @@ export type Translations200 = {
       /**
        * @type string | undefined
        */
-      biography?: string
+      biography?: string;
       /**
        * @type string | undefined
        */
-      name?: string
-    }
-  }[]
-}
+      name?: string;
+    };
+  }[];
+};
 
-export type TranslationsQueryResponse = Translations200
+export type TranslationsQueryResponse = Translations200;
 
 export type TranslationsQuery = {
-  Response: Translations200
-  PathParams: TranslationsPathParams
-  Errors: any
-}
+  Response: Translations200;
+  PathParams: TranslationsPathParams;
+  Errors: any;
+};

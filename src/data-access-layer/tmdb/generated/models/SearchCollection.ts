@@ -7,27 +7,27 @@ export type SearchCollectionQueryParams = {
   /**
    * @type string
    */
-  query: string
+  query: string;
   /**
    * @default false
    * @type boolean | undefined
    */
-  include_adult?: boolean
+  include_adult?: boolean;
   /**
    * @default "en-US"
    * @type string | undefined
    */
-  language?: string
+  language?: string;
   /**
    * @default 1
    * @type integer | undefined, int32
    */
-  page?: number
+  page?: number;
   /**
    * @type string | undefined
    */
-  region?: string
-}
+  region?: string;
+};
 
 /**
  * @description 200
@@ -37,7 +37,7 @@ export type SearchCollection200 = {
    * @default 0
    * @type integer | undefined
    */
-  page?: number
+  page?: number;
   /**
    * @type array | undefined
    */
@@ -46,53 +46,53 @@ export type SearchCollection200 = {
      * @default true
      * @type boolean | undefined
      */
-    adult?: boolean
+    adult?: boolean;
     /**
      * @type string | undefined
      */
-    backdrop_path?: string
+    backdrop_path?: string;
     /**
      * @default 0
      * @type integer | undefined
      */
-    id?: number
+    id?: number;
     /**
      * @type string | undefined
      */
-    name?: string
+    name?: string;
     /**
      * @type string | undefined
      */
-    original_language?: string
+    original_language?: string;
     /**
      * @type string | undefined
      */
-    original_name?: string
+    original_name?: string;
     /**
      * @type string | undefined
      */
-    overview?: string
+    overview?: string;
     /**
      * @type string | undefined
      */
-    poster_path?: string
-  }[]
+    poster_path?: string;
+  }[];
   /**
    * @default 0
    * @type integer | undefined
    */
-  total_pages?: number
+  total_pages?: number;
   /**
    * @default 0
    * @type integer | undefined
    */
-  total_results?: number
-}
+  total_results?: number;
+};
 
-export type SearchCollectionQueryResponse = SearchCollection200
+export type SearchCollectionQueryResponse = SearchCollection200;
 
 export type SearchCollectionQuery = {
-  Response: SearchCollection200
-  QueryParams: SearchCollectionQueryParams
-  Errors: any
-}
+  Response: SearchCollection200;
+  QueryParams: SearchCollectionQueryParams;
+  Errors: any;
+};
