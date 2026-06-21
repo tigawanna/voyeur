@@ -98,19 +98,73 @@ The dev server runs at [http://localhost:3072](http://localhost:3072).
 
 ### Environment variables
 
-| Variable               | Where                  | Purpose                                       |
-| ---------------------- | ---------------------- | --------------------------------------------- |
-| `TMDB_API_KEY`         | `.dev.vars` / Wrangler | TMDB API access (server-only)                 |
-| `BETTER_AUTH_SECRET`   | `.dev.vars` / Wrangler | Session signing secret                        |
-| `BETTER_AUTH_URL`      | `.dev.vars` / Wrangler | Public app URL (e.g. `http://localhost:3072`) |
-| `GOOGLE_CLIENT_ID`     | `.dev.vars` / Wrangler | Google OAuth client ID                        |
-| `GOOGLE_CLIENT_SECRET` | `.dev.vars` / Wrangler | Google OAuth client secret                    |
-| `BYPASS_AUTH`          | `.dev.vars` / Wrangler | Skip auth guards when `true` (server-only)    |
-| `VITE_APP_URL`         | `.env`                 | Client-side app URL for auth redirects        |
+There are **three separate env systems** in this stack. They do not overlap — putting a value in the wrong place is the most common production bug.
 
-`BETTER_AUTH_URL` and `VITE_APP_URL` must match in local development. Configure the same redirect URI in the Google Cloud console (`{BETTER_AUTH_URL}/api/auth/callback/google`).
+| Variable | Where to set | Read how | In client bundle? |
+| --- | --- | --- | --- |
+| `TMDB_API_KEY` | `.dev.vars` / Wrangler secrets | `getWorkerEnv()` on server | No |
+| `BETTER_AUTH_SECRET` | `.dev.vars` / Wrangler secrets | `getWorkerEnv()` on server | No |
+| `BETTER_AUTH_URL` | `.dev.vars` / Wrangler secrets | `getWorkerEnv()` on server | No |
+| `GOOGLE_CLIENT_ID` | `.dev.vars` / Wrangler secrets | `getWorkerEnv()` on server | No |
+| `GOOGLE_CLIENT_SECRET` | `.dev.vars` / Wrangler secrets | `getWorkerEnv()` on server | No |
+| `BYPASS_AUTH` | `wrangler.jsonc` `vars` or Cloudflare dashboard | `getWorkerEnv()` → `getRuntimeConfig` server fn → root loader | No |
+| `VITE_APP_URL` | `.env` or build-time shell env | `import.meta.env` (client); fallback via `getAppUrl()` uses `window.location.origin` in browser | Yes, if set at build |
 
-`BYPASS_AUTH` is a **Worker runtime variable** (set in `wrangler.jsonc` `vars` or Cloudflare dashboard — not a `VITE_` build var). It is read per-request via `getWorkerEnv()` inside server functions and middleware, then passed to the client through `getRuntimeConfig` in the root loader (see [TanStack Start runtime env vars](https://tanstack.com/start/v0/docs/framework/react/guide/environment-variables#runtime-client-environment-variables-in-production)).
+#### 1. Client bundle — `import.meta.env.VITE_*` (build-time only)
+
+Vite replaces `import.meta.env.VITE_*` when you run `pnpm build`. These values are **baked into `dist/client/`** JavaScript.
+
+- Set in **`.env`** at the project root (or pass inline: `VITE_APP_URL=https://… pnpm build`).
+- **Not** read from `.dev.vars` — that file is Wrangler/dev-server only and never touches the client bundle.
+- **Not** read from `wrangler.jsonc` `vars` — those are Worker runtime bindings, not Vite build inputs.
+
+Verified locally (`pnpm build` + search `dist/client/`):
+
+```bash
+rg "BYPASS|VITE_BYPASS" dist/client          # 0 matches — bypass never lands in client JS
+rg "localhost:3072" dist/client/assets/client-env*.js   # default when VITE_APP_URL unset at build
+VITE_APP_URL=https://example.test pnpm build
+rg "example.test" dist/client/assets/client-env*.js     # value is inlined
+```
+
+`import.meta.env` **does work** with TanStack Start + Cloudflare — but only for `VITE_` vars present **during the build step**. Cloudflare Workers Builds must set them under **Build environment variables**, not Worker runtime secrets.
+
+For URLs like auth redirects, this project prefers `getAppUrl()` (`window.location.origin` in the browser) so production does not depend on a build-time URL.
+
+#### 2. Worker runtime — `wrangler.jsonc` `vars` + Wrangler secrets (request-time, server-only)
+
+Plain `vars` in `wrangler.jsonc` deploy as Worker bindings. Secrets go in `.dev.vars` locally and **Wrangler secrets / dashboard** in production. The build copies these into `dist/server/`:
+
+- `dist/server/wrangler.json` — includes `"vars": { "BYPASS_AUTH": "true" }` when set in config
+- `dist/server/.dev.vars` — secrets for deploy (never committed)
+
+Read them **per request** via `getWorkerEnv()` inside server functions and middleware — never at module scope ([TanStack Start env guide](https://tanstack.com/start/v0/docs/framework/react/guide/environment-variables)).
+
+Verified locally:
+
+```bash
+pnpm build
+python3 -c "import json; print(json.load(open('dist/server/wrangler.json'))['vars'])"
+# {'BYPASS_AUTH': 'true'}  — runtime config, not in dist/client/
+
+# Remove vars from wrangler.jsonc, rebuild:
+python3 -c "import json; print(json.load(open('dist/server/wrangler.json'))['vars'])"
+# {}  — gone from deploy manifest; still 0 BYPASS matches in dist/client/
+```
+
+Removing `BYPASS_AUTH` from `wrangler.jsonc` removes it from the **deployed Worker binding**. It does **not** remove anything from the client bundle (it was never there). Server code still contains the *lookup logic* for bypass; only the runtime value disappears.
+
+#### 3. Passing runtime server values to the client
+
+Client code cannot read Worker `vars` or secrets directly. Use a server function + loader (what we do for `BYPASS_AUTH`):
+
+1. Server fn reads `getWorkerEnv().BYPASS_AUTH` inside `.handler()`
+2. Root `loader` calls `getRuntimeConfig()`
+3. Result lands in router context as `authBypassEnabled`
+
+Do **not** use `VITE_BYPASS_AUTH` for production bypass — it is build-time and will not reach client guards reliably on Cloudflare.
+
+`BETTER_AUTH_URL` and `VITE_APP_URL` should match in local development. Configure the same redirect URI in Google Cloud Console (`{BETTER_AUTH_URL}/api/auth/callback/google`).
 
 ### Database
 

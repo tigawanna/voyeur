@@ -25,7 +25,7 @@ function LandingPage() {
       void navigate({ to: "/login", search: { returnTo: "/movies" } });
     });
   }
-
+console.log('== index.tsx : import.meta.env ==: ', import.meta.env)
   return (
     <div className="flex min-h-dvh flex-col bg-background">
       <header className="sticky top-0 z-50 border-b border-border bg-background/85 backdrop-blur-md">
