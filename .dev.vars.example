@@ -5,4 +5,5 @@ GOOGLE_CLIENT_ID=your_google_client_id
 GOOGLE_CLIENT_SECRET=your_google_client_secret
 
 # Set to true for Playwright E2E or local testing without Google OAuth
+# Skip auth guards (no fake session). Protected routes work without sign-in.
 # VITE_BYPASS_AUTH=true

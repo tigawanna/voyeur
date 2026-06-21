@@ -1,6 +1,5 @@
 import paginationCss from "#/components/pagination/pagination.css?url";
 import type { TViewer } from "#/data-access-layer/auth/viewer";
-import { bypassViewer, isAuthBypassEnabled } from "#/data-access-layer/auth/auth-bypass";
 import { viewerqueryOptions } from "#/data-access-layer/auth/viewer";
 import {
   TanstackQueryProvider,
@@ -10,6 +9,7 @@ import { AppDevtools } from "#/lib/tanstack/devtools/app-devtools";
 import { NotFoundPage } from "#/routes/-components/NotFoundPage";
 import appCss from "#/styles.css?url";
 import { AppConfig } from "#/utils/system";
+import { getAppUrl } from "#/lib/client-env";
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { ThemeProvider } from "@/lib/tanstack/router/theme-provider";
@@ -24,29 +24,39 @@ interface RouterContext {
 export const Route = createRootRouteWithContext<RouterContext>()({
   notFoundComponent: NotFoundPage,
   beforeLoad: async ({ context }) => {
-    if (isAuthBypassEnabled()) {
-      return { viewer: bypassViewer };
-    }
-
     const viewer = await context.queryClient.ensureQueryData(viewerqueryOptions);
     return { viewer: viewer.data ?? undefined };
   },
-  head: () => ({
-    meta: [
-      { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: AppConfig.name },
-      { name: "description", content: AppConfig.description },
-    ],
-    links: [
-      { rel: "stylesheet", href: appCss },
-      { rel: "stylesheet", href: paginationCss },
-      { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
-      { rel: "icon", href: "/favicon.ico", sizes: "48x48" },
-      { rel: "apple-touch-icon", href: "/logo192.png" },
-      { rel: "manifest", href: "/manifest.json" },
-    ],
-  }),
+  head: () => {
+    const ogImageUrl = `${getAppUrl()}/og.png`;
+
+    return {
+      meta: [
+        { charSet: "utf-8" },
+        { name: "viewport", content: "width=device-width, initial-scale=1" },
+        { title: AppConfig.name },
+        { name: "description", content: AppConfig.description },
+        { property: "og:type", content: "website" },
+        { property: "og:title", content: AppConfig.name },
+        { property: "og:description", content: AppConfig.description },
+        { property: "og:image", content: ogImageUrl },
+        { property: "og:image:width", content: "1200" },
+        { property: "og:image:height", content: "630" },
+        { name: "twitter:card", content: "summary_large_image" },
+        { name: "twitter:title", content: AppConfig.name },
+        { name: "twitter:description", content: AppConfig.description },
+        { name: "twitter:image", content: ogImageUrl },
+      ],
+      links: [
+        { rel: "stylesheet", href: appCss },
+        { rel: "stylesheet", href: paginationCss },
+        { rel: "icon", href: "/icon.svg", type: "image/svg+xml" },
+        { rel: "icon", href: "/favicon.png", type: "image/png", sizes: "48x48" },
+        { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
+        { rel: "manifest", href: "/manifest.json" },
+      ],
+    };
+  },
   component: RootDocument,
 });
 

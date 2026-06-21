@@ -230,7 +230,7 @@ pnpm lint             # ESLint
 
 ### E2E tests
 
-There is a small Playwright suite in `e2e/` — not comprehensive, but it covers the main happy path: browse grid → movie detail → recommendations → favorites/watchlist. TMDB responses are mocked via fixtures in `mock/` (no live API calls). `VITE_BYPASS_AUTH=true` is set automatically by `playwright.config.ts` so Google OAuth is skipped in test mode.
+There is a small Playwright suite in `e2e/` — not comprehensive, but it covers the main happy path: browse grid → movie detail → recommendations → favorites/watchlist. TMDB responses are mocked via fixtures in `mock/` (no live API calls). `VITE_BYPASS_AUTH=true` is set automatically by `playwright.config.ts` so auth guards are skipped in test mode (no fake session injected).
 
 ## Routing
 

@@ -1,6 +1,6 @@
 import { getSession } from "#/lib/auth.functions";
 import { getAuth } from "#/lib/auth";
-import { bypassViewer, isAuthBypassEnabled } from "#/data-access-layer/auth/auth-bypass";
+import { isAuthBypassEnabled } from "#/data-access-layer/auth/auth-bypass";
 import { authClient, type BetterAuthSession } from "#/lib/better-auth/client";
 import { safeStringToUrl } from "#/utils/url";
 import { queryOptions, useMutation, useQueryClient, useSuspenseQuery } from "@tanstack/react-query";
@@ -52,11 +52,7 @@ export function useViewer() {
 
 export const viewerMiddleware = createMiddleware().server(async ({ next, request }) => {
   if (isAuthBypassEnabled()) {
-    return await next({
-      context: {
-        viewer: bypassViewer,
-      },
-    });
+    return await next();
   }
 
   const session = await getAuth().api.getSession({ headers: request.headers });
