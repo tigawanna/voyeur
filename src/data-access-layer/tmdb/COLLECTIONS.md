@@ -11,6 +11,7 @@ All collections are created in `query-collection.ts`.
 | `moviesCollection` | TanStack Query + TMDB proxy | Yes — browse pages (popular, trending, search, …) | No (in-memory / query cache) |
 | `movieBasicCollection` | TanStack Query | **No** — `queryFn` returns `[]` | No |
 | `movieDetailCollection` | TanStack Query + TMDB proxy | Yes — `GET /api/tmdb/movies/:id` | No |
+| `movieRecommendationsCollection` | TanStack Query + TMDB proxy | Yes — `GET /api/tmdb/movies/:id/recommendations` | No |
 | `favoritesCollection` | Browser SQLite (OPFS) | No | Yes |
 | `watchlistCollection` | Browser SQLite (OPFS) | No | Yes |
 
@@ -39,6 +40,15 @@ There is **no manual seeding** on navigation (no `onClick` writes). The collecti
 - **Side effect:** On success, writes a trimmed record into `movieBasicCollection` (see above).
 - **Query key:** Per movie id — `['movie', 'detail', id]`.
 
+### `movieRecommendationsCollection` (related movies)
+
+- **Purpose:** TMDB recommendations for a **source** movie (the detail page you are viewing).
+- **Sync mode:** `on-demand` — live query `where eq(movie.sourceMovieId, sourceId)` drives the fetch.
+- **Parsing:** `parseRecommendationSourceId()` in `movies-recommendations-subset.ts`.
+- **Stamping:** Each row includes `sourceMovieId` so multiple recommendation lists can coexist.
+- **Indexes:** `sourceMovieId`, `id`.
+- **Detail fallback:** If you open a recommended movie, `recommendationRows` on the detail page can supply instant hero data (same pattern as browse).
+
 ### `favoritesCollection` / `watchlistCollection` (local library)
 
 - **Purpose:** Per-device saved movies (`SavedMovieRef`: `movieId`, `title`, `posterPath`, `addedAt`).
@@ -54,13 +64,14 @@ File: `src/routes/_app/movies/movie/$movieId.tsx`
 The hero (poster, title, overview) and the metadata block (runtime, budget, …) load on **different timelines**.
 
 ```
-summaryRow = basicRows ?? browseRows ?? detailRows
+summaryRow = basicRows ?? browseRows ?? recommendationRows ?? detailRows
 ```
 
 | Source | When it has data |
 | --- | --- |
 | `movieBasicCollection` | After a **previous** detail fetch wrote the summary |
 | `moviesCollection` | User **came from the browse grid** and that movie is still in the browse cache |
+| `movieRecommendationsCollection` | User **came from a recommendations grid** and that movie is still in the recommendations cache |
 | `movieDetailCollection` | After the **current** detail API fetch completes |
 
 **Full-page spinner:** Shown only when `summaryRow` is missing **and** the detail fetch is still loading.
@@ -98,6 +109,10 @@ Five queries:
 ### Detail metadata — `MovieDetailMetadata.tsx`
 
 One query on `movieDetailCollection` by `movieId`. Duplicates the detail fetch at the TanStack Query layer (same cache key) — safe to have two subscribers.
+
+### Recommendations — `MovieRecommendations.tsx`
+
+One query joins `movieRecommendationsCollection` with favorites and watchlist, filtered by `sourceMovieId`. Renders `MovieCard` in the same grid as browse (`grid-cols-2 … 2xl:grid-cols-5`). Rows stay in the collection for instant hero fallback on the detail page when navigating between recommendations.
 
 ### Favorites — `favorites/index.tsx`
 

@@ -71,3 +71,11 @@ export type BrowseMovieWithLibrary = PopularMovieResult & {
   isFavorite: boolean
   isWatchlisted: boolean
 }
+
+export type RecommendationMovieWithLibrary = PopularMovieResult & {
+  sourceMovieId: number
+  isFavorite: boolean
+  isWatchlisted: boolean
+}
+
+export type MovieCardMovie = BrowseMovieWithLibrary | RecommendationMovieWithLibrary

@@ -5,7 +5,7 @@ import type {
 import type { SearchMovieQueryResponse } from '#/data-access-layer/tmdb/generated/models/SearchMovie'
 import {
   fetchMovieById,
-  fetchMovieRecommendations,
+  fetchMovieRecommendations as fetchMovieRecommendationsPage,
   fetchNowPlayingMoviesPage,
   fetchPopularMoviesPage,
   fetchSearchMoviesPage,
@@ -20,6 +20,7 @@ export const popularMoviesQueryKey = ['movies', 'popular'] as const
 export const browseMoviesQueryKey = ['movies', 'browse'] as const
 export const movieDetailQueryKey = ['movie', 'detail'] as const
 export const movieBasicQueryKey = ['movie', 'basic'] as const
+export const movieRecommendationsQueryKey = ['movie', 'recommendations'] as const
 
 export const popularMoviesDefaultParams = {
   page: 1,
@@ -117,19 +118,7 @@ export async function fetchMovieDetails(
   return fetchMovieById(movieId)
 }
 
-export function movieDetailsQueryOptions(movieId: number) {
-  return queryOptions({
-    queryKey: ['movie', movieId],
-    queryFn: () => fetchMovieDetails(movieId),
-    staleTime: 0,
-  })
-}
-
-export function movieRecommendationsQueryOptions(movieId: number, page = 1) {
-  return queryOptions({
-    queryKey: ['movie-recommendations', movieId, page],
-    queryFn: () => fetchMovieRecommendations(movieId, page),
-    staleTime: 1000 * 60 * 30,
-  })
+export async function fetchMovieRecommendations(movieId: number, page = 1) {
+  return fetchMovieRecommendationsPage(movieId, page)
 }
 

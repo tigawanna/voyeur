@@ -13,10 +13,11 @@ We use [TanStack DB](https://tanstack.com/db) to mix **live API-backed collectio
 | `moviesCollection` | TMDB via server proxy | Browse results, loaded on demand from the API |
 | `movieBasicCollection` | Written by detail fetch (`writeUpsert`) | Cached hero summary (poster, title, overview) per movie id |
 | `movieDetailCollection` | TMDB via server proxy | Full movie detail; seeds `movieBasicCollection` on success |
+| `movieRecommendationsCollection` | TMDB via server proxy | Recommendations per source movie; joinable with library collections |
 | `favoritesCollection` | Browser persistence (SQLite / OPFS) | Per-device favorites |
 | `watchlistCollection` | Browser persistence (SQLite / OPFS) | Per-device watchlist |
 
-**Movie detail loading** — the detail route uses multiple live queries: browse cache for instant hero when coming from the grid, `movieBasicCollection` for return visits, and `movieDetailCollection` for the API fetch. Extra fields (runtime, budget, …) render in `MovieDetailMetadata` with its own loading state. See `src/data-access-layer/tmdb/COLLECTIONS.md` for the full flow.
+**Movie detail loading** — the detail route uses multiple live queries: browse or recommendations cache for instant hero when coming from a grid, `movieBasicCollection` for return visits, and `movieDetailCollection` for the API fetch. Extra fields (runtime, budget, …) render in `MovieDetailMetadata` with its own loading state. See `src/data-access-layer/tmdb/COLLECTIONS.md` for the full flow.
 
 **Movies from the API** — `moviesCollection` is defined with `queryCollectionOptions` and TanStack Query. It is fully driven by our Hono TMDB proxy: the API key never leaves the server, and fetched pages are stamped with browse context (page, filters, sort) so multiple views can coexist in the same collection.
 

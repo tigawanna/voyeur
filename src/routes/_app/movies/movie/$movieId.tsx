@@ -2,6 +2,7 @@ import {
   favoritesCollection,
   movieBasicCollection,
   movieDetailCollection,
+  movieRecommendationsCollection,
   moviesCollection,
   watchlistCollection,
 } from '#/data-access-layer/tmdb/query-collection'
@@ -54,6 +55,15 @@ function MovieDetailsPage() {
     [id],
   )
 
+  // Recommendation row for this id when the user navigated from the recommendations grid.
+  const { data: recommendationRows } = useLiveQuery(
+    (q) =>
+      q
+        .from({ movie: movieRecommendationsCollection })
+        .where(({ movie }) => eq(movie.id, id)),
+    [id],
+  )
+
   // Full detail fetch; triggers the TMDB API and seeds movieBasicCollection on success.
   // Also used as the last fallback for summaryRow on hard refresh / direct URL.
   const {
@@ -86,8 +96,12 @@ function MovieDetailsPage() {
     [id],
   )
 
-  // First available source wins: cached basic → browse → freshly fetched detail.
-  const summaryRow = basicRows.at(0) ?? browseRows.at(0) ?? detailRows.at(0)
+  // First available source wins: cached basic → browse → recommendations → freshly fetched detail.
+  const summaryRow =
+    basicRows.at(0) ??
+    browseRows.at(0) ??
+    recommendationRows.at(0) ??
+    detailRows.at(0)
   // Full-page spinner only when nothing to show yet and the detail fetch is in flight.
   const showPageLoader = summaryRow == null && isDetailLoading
 

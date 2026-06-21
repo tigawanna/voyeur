@@ -1,5 +1,5 @@
 import { MovieLibraryActions } from '#/features/movies/components/MovieLibraryActions'
-import type { BrowseMovieWithLibrary } from '#/types/movie'
+import type { MovieCardMovie } from '#/types/movie'
 import { posterUrl, mapTmdbMovie } from '#/utils/tmdb-images'
 import { movieViewTransitionName } from '#/utils/movie-view-transition'
 import { withViewTransition } from '#/utils/viewTransition'
@@ -7,7 +7,7 @@ import { cn } from '@/lib/utils'
 import { Link, useNavigate } from '@tanstack/react-router'
 
 interface MovieCardProps {
-  movie: BrowseMovieWithLibrary
+  movie: MovieCardMovie
   className?: string
 }
 
