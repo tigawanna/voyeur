@@ -1,6 +1,6 @@
 import {
   favoritesCollection,
-  moviesCollection,
+  movieDetailCollection,
   watchlistCollection,
 } from '#/data-access-layer/tmdb/query-collection'
 import { MovieLibraryActions } from '#/features/movies/components/MovieLibraryActions'
@@ -39,7 +39,7 @@ function MovieDetailsPage() {
   } = useLiveQuery(
     (q) =>
       q
-        .from({ movie: moviesCollection })
+        .from({ movie: movieDetailCollection })
         .leftJoin({ favorite: favoritesCollection }, ({ movie, favorite }) =>
           eq(movie.id, favorite.movieId),
         )
@@ -47,8 +47,6 @@ function MovieDetailsPage() {
           eq(movie.id, watchlist.movieId),
         )
         .where(({ movie }) => eq(movie.id, id))
-        .orderBy(({ movie }) => movie.id, 'asc')
-        .limit(1)
         .select(({ movie, favorite, watchlist }) => ({
           ...movie,
           isFavorite: not(isUndefined(favorite)),

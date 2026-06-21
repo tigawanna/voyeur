@@ -10,7 +10,6 @@ const BROWSE_FILTER_FIELDS = [
   'region',
   'language',
   'sortBy',
-  'id',
 ] as const
 
 type BrowseFilterField = (typeof BROWSE_FILTER_FIELDS)[number]
@@ -22,7 +21,6 @@ export type MoviesBrowseSubset = {
   language: BrowseLanguageCode
   sortBy: string
   page: number
-  id?: number
   limit?: number
 }
 
@@ -70,9 +68,6 @@ function applyBrowseFilter(
       break
     case 'sortBy':
       subset.sortBy = String(filter.value)
-      break
-    case 'id':
-      subset.id = Number(filter.value)
       break
   }
 }

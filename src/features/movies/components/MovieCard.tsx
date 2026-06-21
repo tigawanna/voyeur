@@ -1,3 +1,4 @@
+import { seedMovieDetailFromBrowse } from '#/data-access-layer/tmdb/seed-movie-detail'
 import { MovieLibraryActions } from '#/features/movies/components/MovieLibraryActions'
 import type { BrowseMovieWithLibrary } from '#/types/movie'
 import { posterUrl, mapTmdbMovie } from '#/utils/tmdb-images'
@@ -29,6 +30,7 @@ export function MovieCard({ movie, className }: MovieCardProps) {
         className="block no-underline"
         onClick={(event) => {
           event.preventDefault()
+          seedMovieDetailFromBrowse(movie)
           withViewTransition(() => {
             void navigate({
               to: '/movies/movie/$movieId',

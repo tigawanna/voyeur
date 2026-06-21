@@ -1,9 +1,16 @@
+import { parseMovieDetailId } from '#/data-access-layer/tmdb/movie-detail-subset'
 import {
   parseMoviesBrowseSubset,
   moviesBrowseSubsetToFetchParams,
   stampMovieBrowseContext,
 } from '#/data-access-layer/tmdb/movies-browse-subset'
-import { browseMoviesQueryKey, fetchBrowseMovies, fetchMovieDetails } from '#/data-access-layer/tmdb/query-options'
+import {
+  browseMoviesQueryKey,
+  fetchBrowseMovies,
+  fetchMovieDetails,
+  movieDetailQueryKey,
+} from '#/data-access-layer/tmdb/query-options'
+import type { MovieDetailsQueryResponse } from '#/data-access-layer/tmdb/generated/models/MovieDetails'
 import { getTanstackQueryContext } from '#/lib/tanstack/query/query-provider'
 import type { SavedMovieRef } from '#/types/movie'
 import {
@@ -22,19 +29,6 @@ export const moviesCollection = createCollection(
     queryKey: browseMoviesQueryKey,
     queryFn: async (ctx) => {
       const subset = parseMoviesBrowseSubset(ctx.meta?.loadSubsetOptions)
-
-      console.log({subset}) 
-
-      if (subset.id != null && Number.isFinite(subset.id)) {
-        const details = await fetchMovieDetails(subset.id)
-        return [
-          stampMovieBrowseContext(details, subset, 1, {
-            total_results: 1,
-            total_pages: 1,
-          }),
-        ]
-      }
-
       const response = await fetchBrowseMovies(
         moviesBrowseSubsetToFetchParams(subset),
       )
@@ -51,6 +45,29 @@ export const moviesCollection = createCollection(
     syncMode: 'on-demand',
     defaultIndexType: BasicIndex,
     staleTime: 1000 * 60 * 60, // 5 minutes
+  }),
+)
+
+export const movieDetailCollection = createCollection(
+  queryCollectionOptions({
+    queryKey: (opts) => {
+      const movieId = parseMovieDetailId(opts)
+      return movieId != null ? [...movieDetailQueryKey, movieId] : movieDetailQueryKey
+    },
+    queryFn: async (ctx) => {
+      const movieId = parseMovieDetailId(ctx.meta?.loadSubsetOptions)
+      if (movieId == null || !Number.isFinite(movieId)) {
+        return []
+      }
+
+      const details = await fetchMovieDetails(movieId)
+      return [details]
+    },
+    getKey: (item: MovieDetailsQueryResponse) => item.id!,
+    queryClient: globalQc,
+    syncMode: 'on-demand',
+    defaultIndexType: BasicIndex,
+    staleTime: 1000 * 60 * 60,
   }),
 )
 

@@ -18,6 +18,7 @@ import { keepPreviousData, queryOptions } from '@tanstack/react-query'
 
 export const popularMoviesQueryKey = ['movies', 'popular'] as const
 export const browseMoviesQueryKey = ['movies', 'browse'] as const
+export const movieDetailQueryKey = ['movie', 'detail'] as const
 
 export const popularMoviesDefaultParams = {
   page: 1,
