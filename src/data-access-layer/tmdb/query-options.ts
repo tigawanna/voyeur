@@ -125,7 +125,7 @@ export function movieDetailsQueryOptions(movieId: number) {
 
 export function movieRecommendationsQueryOptions(movieId: number, page = 1) {
   return queryOptions({
-    queryKey: ['movie', movieId, 'recommendations', page],
+    queryKey: ['movie-recommendations', movieId, page],
     queryFn: () => fetchMovieRecommendations(movieId, page),
     staleTime: 1000 * 60 * 30,
   })
