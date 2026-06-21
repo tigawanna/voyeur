@@ -11,6 +11,7 @@ export const Route = createFileRoute('/_app/watchlist/')({
 })
 
 function WatchlistPage() {
+  // All locally persisted watchlist rows — no TMDB fetch.
   const { data, isLoading } = useLiveQuery(
     (query) =>
       query.from({ watchlist: watchlistCollection }).select(({ watchlist }) => ({

@@ -1,3 +1,8 @@
+/**
+ * TanStack DB collection definitions for movies and the local library.
+ *
+ * See COLLECTIONS.md in this folder for architecture, live-query usage, and detail-page loading.
+ */
 import { parseMovieDetailId } from '#/data-access-layer/tmdb/movie-detail-subset'
 import { toBasicMovieRecord } from '#/data-access-layer/tmdb/movie-basic-record'
 import {
@@ -26,6 +31,7 @@ import { queryCollectionOptions } from '@tanstack/query-db-collection'
 
 const globalQc = getTanstackQueryContext().queryClient
 
+// Browse grid: on-demand TMDB list pages. queryFn receives filters/page/sort from useLiveQuery.
 export const moviesCollection = createCollection(
   queryCollectionOptions({
     queryKey: browseMoviesQueryKey,
@@ -46,10 +52,11 @@ export const moviesCollection = createCollection(
     queryClient: globalQc,
     syncMode: 'on-demand',
     defaultIndexType: BasicIndex,
-    staleTime: 1000 * 60 * 60, // 5 minutes
+    staleTime: 1000 * 60 * 60,
   }),
 )
 
+// Detail hero cache: never fetches. Populated via writeUpsert when movieDetailCollection loads.
 export const movieBasicCollection = createCollection(
   queryCollectionOptions({
     queryKey: (opts) => {
@@ -65,6 +72,7 @@ export const movieBasicCollection = createCollection(
   }),
 )
 
+// Full detail: fetches GET /api/tmdb/movies/:id and seeds movieBasicCollection on success.
 export const movieDetailCollection = createCollection(
   queryCollectionOptions({
     queryKey: (opts) => {
@@ -105,6 +113,7 @@ const persistence = createBrowserWASQLitePersistence({
   coordinator,
 })
 
+// Local library — persisted to browser SQLite, mutated via insert/delete in MovieLibraryActions.
 export const favoritesCollection = createCollection(
   persistedCollectionOptions<SavedMovieRef, number>({
     id: 'favorites',

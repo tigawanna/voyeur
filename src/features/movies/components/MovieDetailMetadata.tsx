@@ -109,6 +109,8 @@ function MovieDetailMetadataContent({ movie }: { movie: MovieDetail }) {
 }
 
 export function MovieDetailMetadata({ movieId }: MovieDetailMetadataProps) {
+  // Full TMDB detail for the metadata block (runtime, budget, genres, …).
+  // Shares the same query cache as the detail page’s movieDetailCollection live query.
   const { data: detailRows, isLoading, isError } = useLiveQuery(
     (q) =>
       q

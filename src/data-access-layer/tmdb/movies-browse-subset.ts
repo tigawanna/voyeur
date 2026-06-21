@@ -1,3 +1,5 @@
+// Maps TanStack DB loadSubsetOptions from MoviesList useLiveQuery into TMDB browse params.
+// See COLLECTIONS.md for how query-driven sync connects live queries to moviesCollection.queryFn.
 import type { BrowseLanguageCode, BrowseRegionCode, BrowseView } from '#/types/browse'
 import { defaultMovieSortBy } from '#/types/movie-sort'
 import type { FieldPath, SimpleComparison } from '@tanstack/db'

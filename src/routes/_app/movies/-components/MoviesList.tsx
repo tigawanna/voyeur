@@ -26,6 +26,8 @@ export function MoviesList() {
   const browseSearch = browseRouteApi.useSearch()
   const clearFilters = useClearBrowseFilters()
 
+  // Join browse movies with local library flags. The where clause matches stamped browse
+  // context so query-driven sync fetches the correct TMDB page for the URL search params.
   const { data: movies, isLoading: isMoviesLoading, isError } = useLiveQuery(
     (q) =>
       q

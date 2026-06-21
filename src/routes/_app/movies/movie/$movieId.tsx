@@ -34,6 +34,8 @@ function MovieDetailsPage() {
   const router = useRouter()
   const id = Number(movieId)
 
+  // Cached summary (poster, title, overview) written by movieDetailCollection after a prior fetch.
+  // Used on return visits when browse data is not loaded.
   const { data: basicRows } = useLiveQuery(
     (q) =>
       q
@@ -42,6 +44,8 @@ function MovieDetailsPage() {
     [id],
   )
 
+  // Browse list row for this id when the user navigated from the movies grid.
+  // Gives instant hero content without waiting for the detail API.
   const { data: browseRows } = useLiveQuery(
     (q) =>
       q
@@ -50,6 +54,8 @@ function MovieDetailsPage() {
     [id],
   )
 
+  // Full detail fetch; triggers the TMDB API and seeds movieBasicCollection on success.
+  // Also used as the last fallback for summaryRow on hard refresh / direct URL.
   const {
     data: detailRows,
     isLoading: isDetailLoading,
@@ -62,6 +68,7 @@ function MovieDetailsPage() {
     [id],
   )
 
+  // Local favorites collection — drives the favorite toggle state.
   const { data: favoriteRows } = useLiveQuery(
     (q) =>
       q
@@ -70,6 +77,7 @@ function MovieDetailsPage() {
     [id],
   )
 
+  // Local watchlist collection — drives the watchlist toggle state.
   const { data: watchlistRows } = useLiveQuery(
     (q) =>
       q
@@ -78,8 +86,10 @@ function MovieDetailsPage() {
     [id],
   )
 
-  const summaryRow = basicRows[0] ?? browseRows[0] ?? detailRows[0]
-  const showPageLoader = !summaryRow && isDetailLoading
+  // First available source wins: cached basic → browse → freshly fetched detail.
+  const summaryRow = basicRows.at(0) ?? browseRows.at(0) ?? detailRows.at(0)
+  // Full-page spinner only when nothing to show yet and the detail fetch is in flight.
+  const showPageLoader = summaryRow == null && isDetailLoading
 
   function goBack() {
     withViewTransition(() => {
@@ -106,7 +116,7 @@ function MovieDetailsPage() {
     )
   }
 
-  if (!summaryRow) {
+  if (summaryRow == null) {
     return (
       <Empty className="my-12 rounded-2xl border border-border bg-card">
         <EmptyHeader>

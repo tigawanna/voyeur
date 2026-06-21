@@ -1,5 +1,7 @@
 import type { MovieDetailsQueryResponse } from '#/data-access-layer/tmdb/generated/models/MovieDetails'
 
+// Strips a full TMDB detail response down to hero fields for movieBasicCollection.writeUpsert.
+// Called automatically from movieDetailCollection queryFn — not from UI navigation.
 export function toBasicMovieRecord(
   details: MovieDetailsQueryResponse,
 ): MovieDetailsQueryResponse {

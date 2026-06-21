@@ -11,6 +11,7 @@ export const Route = createFileRoute('/_app/favorites/')({
 })
 
 function FavoritesPage() {
+  // All locally persisted favorites — no TMDB fetch.
   const { data, isLoading } = useLiveQuery(
     (query) =>
       query.from({ favorite: favoritesCollection }).select(({ favorite }) => ({

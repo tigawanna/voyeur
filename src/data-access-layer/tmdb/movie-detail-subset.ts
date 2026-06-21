@@ -1,5 +1,6 @@
 import { parseLoadSubsetOptions } from '@tanstack/db'
 
+// Reads movie id from TanStack DB loadSubsetOptions (where eq(movie.id, id) on detail live queries).
 export function parseMovieDetailId(
   loadSubsetOptions: Parameters<typeof parseLoadSubsetOptions>[0],
 ): number | undefined {
