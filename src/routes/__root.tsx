@@ -1,7 +1,7 @@
 import paginationCss from "#/components/pagination/pagination.css?url";
 import type { TViewer } from "#/data-access-layer/auth/viewer";
 import { bypassViewer, isAuthBypassEnabled } from "#/data-access-layer/auth/auth-bypass";
-import { viewerMiddleware, viewerqueryOptions } from "#/data-access-layer/auth/viewer";
+import { viewerqueryOptions } from "#/data-access-layer/auth/viewer";
 import {
   TanstackQueryProvider,
   getTanstackQueryContext,
@@ -23,9 +23,6 @@ interface RouterContext {
 
 export const Route = createRootRouteWithContext<RouterContext>()({
   notFoundComponent: NotFoundPage,
-  server: {
-    middleware: [viewerMiddleware],
-  },
   beforeLoad: async ({ context }) => {
     if (isAuthBypassEnabled()) {
       return { viewer: bypassViewer };

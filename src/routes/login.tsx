@@ -10,8 +10,9 @@ const loginSearchSchema = z.object({
 export const Route = createFileRoute("/login")({
   validateSearch: loginSearchSchema,
   beforeLoad: ({ context, search }) => {
+    const returnTo = search.returnTo === "/login" ? "/movies" : search.returnTo;
     if (context.viewer?.user) {
-      throw redirect({ to: search.returnTo });
+      throw redirect({ to: returnTo });
     }
   },
   head: () => ({

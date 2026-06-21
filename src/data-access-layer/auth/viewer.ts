@@ -61,7 +61,8 @@ export const viewerMiddleware = createMiddleware().server(async ({ next, request
 
   const session = await getAuth().api.getSession({ headers: request.headers });
   if (!session) {
-    const returnTo = safeStringToUrl(request.url)?.pathname ?? "/";
+    const pathname = safeStringToUrl(request.url)?.pathname ?? "/";
+    const returnTo = pathname === "/login" ? "/movies" : pathname;
     throw redirect({ to: "/login", search: { returnTo } });
   }
   return await next({
