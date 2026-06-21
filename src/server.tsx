@@ -1,5 +1,6 @@
 import handler, { createServerEntry } from "@tanstack/react-start/server-entry";
 import { honoApp } from "#/server/api-routes";
+import { runWithWorkerEnv } from "#/lib/worker-env";
 
 type RequestContext = {
   isServer: true;
@@ -33,7 +34,7 @@ const serverEntry: CloudflareServerEntry = {
       return honoApp.fetch(request, env, ctx);
     }
 
-    return handler.fetch(request);
+    return runWithWorkerEnv(env, () => handler.fetch(request));
   },
 };
 

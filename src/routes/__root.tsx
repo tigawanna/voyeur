@@ -2,6 +2,7 @@ import paginationCss from "#/components/pagination/pagination.css?url";
 import type { TViewer } from "#/data-access-layer/auth/viewer";
 import { viewerqueryOptions } from "#/data-access-layer/auth/viewer";
 import { runtimeConfigQueryOptions } from "#/lib/runtime-config";
+import { getRuntimeConfig } from "#/lib/runtime-config.functions";
 import {
   TanstackQueryProvider,
   getTanstackQueryContext,
@@ -25,15 +26,17 @@ interface RouterContext {
 
 export const Route = createRootRouteWithContext<RouterContext>()({
   notFoundComponent: NotFoundPage,
+  loader: async () => {
+    const runtimeConfig = await getRuntimeConfig();
+    console.log("[voyeur:auth-bypass]", "__root:loader", runtimeConfig);
+    return runtimeConfig;
+  },
   beforeLoad: async ({ context }) => {
-    let runtimeConfig = { authBypassEnabled: false };
-
     try {
-      const [viewer, config] = await Promise.all([
+      const [viewer, runtimeConfig] = await Promise.all([
         context.queryClient.ensureQueryData(viewerqueryOptions),
         context.queryClient.ensureQueryData(runtimeConfigQueryOptions),
       ]);
-      runtimeConfig = config;
 
       const result = {
         viewer: viewer.data ?? undefined,

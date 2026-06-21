@@ -110,7 +110,7 @@ The dev server runs at [http://localhost:3072](http://localhost:3072).
 
 `BETTER_AUTH_URL` and `VITE_APP_URL` must match in local development. Configure the same redirect URI in the Google Cloud console (`{BETTER_AUTH_URL}/api/auth/callback/google`).
 
-`BYPASS_AUTH` is read on the Worker at request time via `cloudflare:workers` and passed to the client through `getRuntimeConfig` (see [TanStack Start env vars](https://tanstack.com/start/v0/docs/framework/react/guide/environment-variables)). Do not rely on `VITE_BYPASS_AUTH` in production — it is build-time only and will not reach client guards on Cloudflare.
+`BYPASS_AUTH` is a **Worker runtime variable** (set in `wrangler.jsonc` `vars` or Cloudflare dashboard — not a `VITE_` build var). It is read per-request via `getWorkerEnv()` inside server functions and middleware, then passed to the client through `getRuntimeConfig` in the root loader (see [TanStack Start runtime env vars](https://tanstack.com/start/v0/docs/framework/react/guide/environment-variables#runtime-client-environment-variables-in-production)).
 
 ### Database
 

@@ -4,8 +4,20 @@
   "compatibility_date": "2026-06-19",
   "compatibility_flags": ["nodejs_compat"],
   "main": "src/server.tsx",
-    "observability": {
-    "enabled": false
+  "observability": {
+    "enabled": false,
+    "head_sampling_rate": 1,
+    "logs": {
+      "enabled": true,
+      "head_sampling_rate": 1,
+      "persist": true,
+      "invocation_logs": true
+    },
+    "traces": {
+      "enabled": false,
+      "persist": true,
+      "head_sampling_rate": 1
+    }
   },
   "d1_databases": [
     {
@@ -15,4 +27,7 @@
       "migrations_dir": "drizzle",
     },
   ],
+  "vars": {
+    "BYPASS_AUTH": "true",
+  },
 }

@@ -4,5 +4,5 @@ BETTER_AUTH_URL=http://localhost:3072
 GOOGLE_CLIENT_ID=your_google_client_id
 GOOGLE_CLIENT_SECRET=your_google_client_secret
 
-# Set to true to skip auth guards (no fake session). Server-only — use here or Cloudflare Worker vars, not VITE_.
+# Server-only. Skip auth guards when true. Also set in wrangler.jsonc vars for production.
 # BYPASS_AUTH=true

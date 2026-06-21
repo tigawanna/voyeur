@@ -1,7 +1,7 @@
 import { getSession } from "#/lib/auth.functions";
 import { getAuth } from "#/lib/auth";
 import { isAuthBypassEnabledOnServer } from "#/data-access-layer/auth/auth-bypass";
-import { env } from "cloudflare:workers";
+import { getWorkerEnv } from "#/lib/worker-env";
 import { authClient, type BetterAuthSession } from "#/lib/better-auth/client";
 import { safeStringToUrl } from "#/utils/url";
 import { queryOptions, useMutation, useQueryClient, useSuspenseQuery } from "@tanstack/react-query";
@@ -64,10 +64,8 @@ export function useViewer() {
 
 export const viewerMiddleware = createMiddleware().server(async ({ next, request }) => {
   const pathname = safeStringToUrl(request.url)?.pathname ?? "/";
-  const authBypassEnabled = isAuthBypassEnabledOnServer(
-    env as CloudflareBindings,
-    "viewerMiddleware",
-  );
+  const workerEnv = getWorkerEnv();
+  const authBypassEnabled = isAuthBypassEnabledOnServer(workerEnv, "viewerMiddleware");
 
   if (authBypassEnabled) {
     console.log("[voyeur:auth-bypass]", "viewerMiddleware:allow", { pathname, reason: "bypass" });
