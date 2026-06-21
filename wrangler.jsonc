@@ -8,7 +8,7 @@
     {
       "binding": "DB",
       "database_name": "voyeur-db",
-      "database_id": "00000000-0000-0000-0000-000000000001",
+      "database_id": "e2ac5305-5167-4df6-aba2-bf0b4bb682bc",
       "migrations_dir": "drizzle",
     },
   ],
