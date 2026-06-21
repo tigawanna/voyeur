@@ -1,12 +1,13 @@
 import { fromCardMovieToBasicRecord } from '#/data-access-layer/tmdb/movie-basic-record'
+import { movieBasicCollection } from '#/data-access-layer/tmdb/query-collection'
 import { MovieLibraryActions } from '#/features/movies/components/MovieLibraryActions'
-import { useMovieDetailIntent } from '#/features/movies/hooks/useMovieDetailIntent'
 import type { MovieCardMovie } from '#/types/movie'
 import { posterUrl, mapTmdbMovie } from '#/utils/tmdb-images'
 import { movieViewTransitionName } from '#/utils/movie-view-transition'
+import { withViewTransition } from '#/utils/viewTransition'
 import { cn } from '@/lib/utils'
-import { Link } from '@tanstack/react-router'
-import { useCallback } from 'react'
+import { Link, useNavigate } from '@tanstack/react-router'
+import { useCallback, useRef } from 'react'
 
 interface MovieCardProps {
   movie: MovieCardMovie
@@ -14,12 +15,16 @@ interface MovieCardProps {
 }
 
 export function MovieCard({ movie, className }: MovieCardProps) {
+  const navigate = useNavigate()
+  const seededBasicRef = useRef(false)
   const timelineMovie = mapTmdbMovie(movie)
   const image = posterUrl(timelineMovie.posterPath, 'w342')
-  const { seedOnIntent, goToDetail } = useMovieDetailIntent(
-    timelineMovie.id,
-    useCallback(() => fromCardMovieToBasicRecord(movie), [movie]),
-  )
+
+  const seedBasicOnIntent = useCallback(() => {
+    if (seededBasicRef.current) return
+    seededBasicRef.current = true
+    movieBasicCollection.utils.writeUpsert(fromCardMovieToBasicRecord(movie))
+  }, [movie])
 
   return (
     <article
@@ -32,11 +37,17 @@ export function MovieCard({ movie, className }: MovieCardProps) {
         to="/movies/movie/$movieId"
         params={{ movieId: String(timelineMovie.id) }}
         className="block no-underline"
-        onMouseEnter={seedOnIntent}
-        onTouchStart={seedOnIntent}
+        onMouseEnter={seedBasicOnIntent}
+        onTouchStart={seedBasicOnIntent}
         onClick={(event) => {
           event.preventDefault()
-          goToDetail()
+          seedBasicOnIntent()
+          withViewTransition(() => {
+            void navigate({
+              to: '/movies/movie/$movieId',
+              params: { movieId: String(timelineMovie.id) },
+            })
+          })
         }}
       >
         <div className="relative aspect-2/3 overflow-hidden bg-muted">

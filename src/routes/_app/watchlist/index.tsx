@@ -1,4 +1,4 @@
-import { watchlistCollection } from '#/data-access-layer/tmdb/query-collection'
+import { movieBasicCollection, watchlistCollection } from '#/data-access-layer/tmdb/query-collection'
 import { SavedMovieCard } from '#/features/movies/components/SavedMovieCard'
 import { LoadingState } from '@/components/common/LoadingState'
 import { Empty, EmptyDescription, EmptyHeader, EmptyTitle } from '@/components/ui/empty'
@@ -11,7 +11,8 @@ export const Route = createFileRoute('/_app/watchlist/')({
 })
 
 function WatchlistPage() {
-  // All locally persisted watchlist rows — no TMDB fetch.
+  useLiveQuery((q) => q.from({ movie: movieBasicCollection }), [])
+
   const { data, isLoading } = useLiveQuery(
     (query) =>
       query.from({ watchlist: watchlistCollection }).select(({ watchlist }) => ({

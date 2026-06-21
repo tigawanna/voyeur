@@ -1,5 +1,6 @@
 import {
   favoritesCollection,
+  movieBasicCollection,
   moviesCollection,
   watchlistCollection,
 } from '#/data-access-layer/tmdb/query-collection'
@@ -25,6 +26,8 @@ const browseRouteApi = getRouteApi('/_app/movies/')
 export function MoviesList() {
   const browseSearch = browseRouteApi.useSearch()
   const clearFilters = useClearBrowseFilters()
+
+  useLiveQuery((q) => q.from({ movie: movieBasicCollection }), [])
 
   // Join browse movies with local library flags. The where clause matches stamped browse
   // context so query-driven sync fetches the correct TMDB page for the URL search params.

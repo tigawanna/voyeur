@@ -1,12 +1,13 @@
 import { fromSavedMovieRefToBasicRecord } from '#/data-access-layer/tmdb/movie-basic-record'
-import { useMovieDetailIntent } from '#/features/movies/hooks/useMovieDetailIntent'
+import { movieBasicCollection } from '#/data-access-layer/tmdb/query-collection'
 import type { SavedMovieRef } from '#/types/movie'
 import { movieViewTransitionName } from '#/utils/movie-view-transition'
 import { posterUrl } from '#/utils/tmdb-images'
+import { withViewTransition } from '#/utils/viewTransition'
 import { cn } from '@/lib/utils'
-import { Link } from '@tanstack/react-router'
+import { Link, useNavigate } from '@tanstack/react-router'
 import { Bookmark, Star } from 'lucide-react'
-import { useCallback } from 'react'
+import { useCallback, useRef } from 'react'
 
 interface SavedMovieCardProps {
   movie: SavedMovieRef
@@ -15,12 +16,16 @@ interface SavedMovieCardProps {
 }
 
 export function SavedMovieCard({ movie, kind, className }: SavedMovieCardProps) {
+  const navigate = useNavigate()
+  const seededBasicRef = useRef(false)
   const image = posterUrl(movie.posterPath, 'w342')
   const Icon = kind === 'favorite' ? Star : Bookmark
-  const { seedOnIntent, goToDetail } = useMovieDetailIntent(
-    movie.movieId,
-    useCallback(() => fromSavedMovieRefToBasicRecord(movie), [movie]),
-  )
+
+  const seedBasicOnIntent = useCallback(() => {
+    if (seededBasicRef.current) return
+    seededBasicRef.current = true
+    movieBasicCollection.utils.writeUpsert(fromSavedMovieRefToBasicRecord(movie))
+  }, [movie])
 
   return (
     <article
@@ -33,11 +38,17 @@ export function SavedMovieCard({ movie, kind, className }: SavedMovieCardProps) 
         to="/movies/movie/$movieId"
         params={{ movieId: String(movie.movieId) }}
         className="block no-underline"
-        onMouseEnter={seedOnIntent}
-        onTouchStart={seedOnIntent}
+        onMouseEnter={seedBasicOnIntent}
+        onTouchStart={seedBasicOnIntent}
         onClick={(event) => {
           event.preventDefault()
-          goToDetail()
+          seedBasicOnIntent()
+          withViewTransition(() => {
+            void navigate({
+              to: '/movies/movie/$movieId',
+              params: { movieId: String(movie.movieId) },
+            })
+          })
         }}
       >
         <div className="relative aspect-2/3 overflow-hidden bg-muted">

@@ -24,7 +24,6 @@ import {
 import { eq, useLiveQuery } from '@tanstack/react-db'
 import { createFileRoute, useRouter } from '@tanstack/react-router'
 import { AlertCircle, Loader } from 'lucide-react'
-import { useEffect } from 'react'
 
 export const Route = createFileRoute('/_app/movies/movie/$movieId')({
   component: MovieDetailsPage,
@@ -106,41 +105,6 @@ function MovieDetailsPage() {
   // Full-page spinner only when nothing to show yet and the detail fetch is in flight.
   const showPageLoader = summaryRow == null && isDetailLoading
 
-  useEffect(() => {
-    console.log('[movie-detail] page state', {
-      id,
-      basicRowsCount: basicRows.length,
-      basicRowId: basicRows.at(0)?.id,
-      browseRowsCount: browseRows.length,
-      browseRowId: browseRows.at(0)?.id,
-      recommendationRowsCount: recommendationRows.length,
-      recommendationRowId: recommendationRows.at(0)?.id,
-      detailRowsCount: detailRows.length,
-      detailRowId: detailRows.at(0)?.id,
-      isDetailLoading,
-      summaryRowSource: basicRows.at(0)
-        ? 'basic'
-        : browseRows.at(0)
-          ? 'browse'
-          : recommendationRows.at(0)
-            ? 'recommendation'
-            : detailRows.at(0)
-              ? 'detail'
-              : null,
-      summaryRowId: summaryRow?.id,
-      showPageLoader,
-    })
-  }, [
-    id,
-    basicRows,
-    browseRows,
-    recommendationRows,
-    detailRows,
-    isDetailLoading,
-    summaryRow,
-    showPageLoader,
-  ])
-
   function goBack() {
     withViewTransition(() => {
       router.history.back()
@@ -159,7 +123,6 @@ function MovieDetailsPage() {
   }
 
   if (showPageLoader) {
-    console.log('[movie-detail] showing full-page spinner', { id })
     return (
       <div className="flex min-h-[50vh] items-center justify-center">
         <Loader className="size-6 animate-spin text-primary" />

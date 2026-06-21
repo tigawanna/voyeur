@@ -1,4 +1,4 @@
-import { favoritesCollection } from '#/data-access-layer/tmdb/query-collection'
+import { favoritesCollection, movieBasicCollection } from '#/data-access-layer/tmdb/query-collection'
 import { SavedMovieCard } from '#/features/movies/components/SavedMovieCard'
 import { LoadingState } from '@/components/common/LoadingState'
 import { Empty, EmptyDescription, EmptyHeader, EmptyTitle } from '@/components/ui/empty'
@@ -11,7 +11,8 @@ export const Route = createFileRoute('/_app/favorites/')({
 })
 
 function FavoritesPage() {
-  // All locally persisted favorites — no TMDB fetch.
+  useLiveQuery((q) => q.from({ movie: movieBasicCollection }), [])
+
   const { data, isLoading } = useLiveQuery(
     (query) =>
       query.from({ favorite: favoritesCollection }).select(({ favorite }) => ({
