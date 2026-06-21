@@ -44,7 +44,7 @@ function FavoritesPage() {
           </EmptyHeader>
         </Empty>
       ) : null}
-      <div className="grid gap-4">
+      <div className="grid grid-cols-3 gap-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7">
         {favorites.map((movie) => (
           <SavedMovieCard key={movie.movieId} movie={movie} kind="favorite" />
         ))}

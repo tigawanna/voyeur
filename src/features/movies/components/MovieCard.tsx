@@ -1,10 +1,12 @@
+import { fromCardMovieToBasicRecord } from '#/data-access-layer/tmdb/movie-basic-record'
 import { MovieLibraryActions } from '#/features/movies/components/MovieLibraryActions'
+import { useMovieDetailIntent } from '#/features/movies/hooks/useMovieDetailIntent'
 import type { MovieCardMovie } from '#/types/movie'
 import { posterUrl, mapTmdbMovie } from '#/utils/tmdb-images'
 import { movieViewTransitionName } from '#/utils/movie-view-transition'
-import { withViewTransition } from '#/utils/viewTransition'
 import { cn } from '@/lib/utils'
-import { Link, useNavigate } from '@tanstack/react-router'
+import { Link } from '@tanstack/react-router'
+import { useCallback } from 'react'
 
 interface MovieCardProps {
   movie: MovieCardMovie
@@ -12,9 +14,12 @@ interface MovieCardProps {
 }
 
 export function MovieCard({ movie, className }: MovieCardProps) {
-  const navigate = useNavigate()
   const timelineMovie = mapTmdbMovie(movie)
   const image = posterUrl(timelineMovie.posterPath, 'w342')
+  const { seedOnIntent, goToDetail } = useMovieDetailIntent(
+    timelineMovie.id,
+    useCallback(() => fromCardMovieToBasicRecord(movie), [movie]),
+  )
 
   return (
     <article
@@ -27,14 +32,11 @@ export function MovieCard({ movie, className }: MovieCardProps) {
         to="/movies/movie/$movieId"
         params={{ movieId: String(timelineMovie.id) }}
         className="block no-underline"
+        onMouseEnter={seedOnIntent}
+        onTouchStart={seedOnIntent}
         onClick={(event) => {
           event.preventDefault()
-          withViewTransition(() => {
-            void navigate({
-              to: '/movies/movie/$movieId',
-              params: { movieId: String(timelineMovie.id) },
-            })
-          })
+          goToDetail()
         }}
       >
         <div className="relative aspect-2/3 overflow-hidden bg-muted">
