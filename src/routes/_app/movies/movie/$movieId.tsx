@@ -9,7 +9,7 @@ import {
   MovieDetailsBackButton,
 } from '#/features/movies/components/MovieDetails'
 import { MovieRecommendations } from '#/features/movies/components/MovieRecommendations'
-import { mapTmdbMovie } from '#/utils/tmdb-images'
+import { mapTmdbMovieDetail } from '#/utils/tmdb-images'
 import { withViewTransition } from '#/utils/viewTransition'
 import {
   Empty,
@@ -100,7 +100,7 @@ function MovieDetailsPage() {
     )
   }
 
-  const movie = mapTmdbMovie(collectionRows[0])
+  const movie = mapTmdbMovieDetail(collectionRows[0])
 
   return (
     <>

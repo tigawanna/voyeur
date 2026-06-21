@@ -15,6 +15,34 @@ export interface Movie {
   genreIds: number[]
 }
 
+export interface MovieGenre {
+  id: number
+  name: string
+}
+
+export interface MovieCollectionRef {
+  id: number
+  name: string
+}
+
+export interface MovieDetail extends Movie {
+  tagline?: string
+  genres: MovieGenre[]
+  runtime?: number
+  status?: string
+  budget?: number
+  revenue?: number
+  collection?: MovieCollectionRef
+  productionCompanies: string[]
+  productionCountries: string[]
+  spokenLanguages: string[]
+  homepage?: string
+  imdbId?: string
+  originalTitle?: string
+  originalLanguage?: string
+  originCountries: string[]
+}
+
 export interface MovieListResponse {
   page: number
   totalPages: number

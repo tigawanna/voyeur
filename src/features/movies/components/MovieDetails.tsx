@@ -1,12 +1,14 @@
 import type { ComponentProps, ReactNode } from 'react'
-import type { Movie } from '#/types/movie'
+import { MovieDetailMetadata } from '#/features/movies/components/MovieDetailMetadata'
+import type { MovieDetail } from '#/types/movie'
 import { movieHeroImageUrl, posterUrl } from '#/utils/tmdb-images'
+import { formatMovieRuntime } from '#/utils/format-movie-detail'
 import { movieViewTransitionName } from '#/utils/movie-view-transition'
 import { cn } from '@/lib/utils'
 import { ArrowLeft } from 'lucide-react'
 
 interface MovieDetailsProps {
-  movie: Movie
+  movie: MovieDetail
   className?: string
   backAction: ReactNode
   libraryActions?: ReactNode
@@ -16,6 +18,14 @@ export function MovieDetails({ movie, className, backAction, libraryActions }: M
   const poster = posterUrl(movie.posterPath, 'w500')
   const heroImage = movieHeroImageUrl(movie)
   const year = movie.releaseDate ? movie.releaseDate.slice(0, 4) : 'TBA'
+  const runtime = formatMovieRuntime(movie.runtime)
+  const metaParts = [
+    year,
+    runtime,
+    movie.status,
+    `★ ${movie.voteAverage.toFixed(1)}`,
+    movie.voteCount > 0 ? `${movie.voteCount.toLocaleString()} votes` : null,
+  ].filter(Boolean)
 
   return (
     <article className={cn('relative isolate', className)}>
@@ -62,14 +72,13 @@ export function MovieDetails({ movie, className, backAction, libraryActions }: M
               <h1 className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
                 {movie.title}
               </h1>
-              <p className="mt-2 text-sm text-muted-foreground">
-                {year} · ★ {movie.voteAverage.toFixed(1)}
-              </p>
+              <p className="mt-2 text-sm text-muted-foreground">{metaParts.join(' · ')}</p>
             </div>
             <p className="max-w-2xl text-base leading-relaxed text-muted-foreground">
               {movie.overview || 'No overview available.'}
             </p>
             {libraryActions ? <div>{libraryActions}</div> : null}
+            <MovieDetailMetadata movie={movie} />
           </div>
         </div>
       </div>

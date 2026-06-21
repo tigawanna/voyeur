@@ -1,6 +1,6 @@
 import type { MovieDetails200 } from '#/data-access-layer/tmdb/generated/models/MovieDetails'
 import type { MoviePopularList200 } from '#/data-access-layer/tmdb/generated/models/MoviePopularList'
-import type { Movie } from '#/types/movie'
+import type { Movie, MovieDetail } from '#/types/movie'
 import type { TmdbMovieResult } from '#/types/tmdb'
 
 const TMDB_IMAGE_BASE = 'https://image.tmdb.org/t/p'
@@ -41,5 +41,71 @@ export function mapTmdbMovie(
     voteAverage: movie.vote_average ?? 0,
     voteCount: movie.vote_count ?? 0,
     genreIds,
+  }
+}
+
+function emptyMovieDetail(base: Movie): MovieDetail {
+  return {
+    ...base,
+    genres: [],
+    productionCompanies: [],
+    productionCountries: [],
+    spokenLanguages: [],
+    originCountries: [],
+  }
+}
+
+function isMovieDetailsRecord(
+  movie: PopularMovieResult | MovieDetails200 | TmdbMovieResult,
+): movie is MovieDetails200 {
+  return (
+    'runtime' in movie ||
+    'production_companies' in movie ||
+    Boolean('genres' in movie && movie.genres?.some((genre) => genre.name))
+  )
+}
+
+export function mapTmdbMovieDetail(
+  movie: PopularMovieResult | MovieDetails200 | TmdbMovieResult,
+): MovieDetail {
+  const base = mapTmdbMovie(movie)
+
+  if (!isMovieDetailsRecord(movie)) {
+    return emptyMovieDetail(base)
+  }
+
+  const collection =
+    movie.belongs_to_collection?.id != null && movie.belongs_to_collection.name
+      ? {
+          id: movie.belongs_to_collection.id,
+          name: movie.belongs_to_collection.name,
+        }
+      : undefined
+
+  return {
+    ...base,
+    tagline: movie.tagline,
+    genres: (movie.genres ?? [])
+      .filter((genre) => genre.id != null && genre.name)
+      .map((genre) => ({ id: genre.id!, name: genre.name! })),
+    runtime: movie.runtime,
+    status: movie.status,
+    budget: movie.budget,
+    revenue: movie.revenue,
+    collection,
+    productionCompanies: (movie.production_companies ?? [])
+      .map((company) => company.name)
+      .filter((name): name is string => Boolean(name)),
+    productionCountries: (movie.production_countries ?? [])
+      .map((country) => country.name)
+      .filter((name): name is string => Boolean(name)),
+    spokenLanguages: (movie.spoken_languages ?? [])
+      .map((language) => language.english_name ?? language.name)
+      .filter((name): name is string => Boolean(name)),
+    homepage: movie.homepage,
+    imdbId: movie.imdb_id,
+    originalTitle: movie.original_title,
+    originalLanguage: movie.original_language,
+    originCountries: movie.origin_country ?? [],
   }
 }
