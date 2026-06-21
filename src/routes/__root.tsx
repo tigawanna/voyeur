@@ -5,6 +5,7 @@ import {
   TanstackQueryProvider,
   getTanstackQueryContext,
 } from '#/lib/tanstack/query/query-provider'
+import { AppDevtools } from '#/lib/tanstack/devtools/app-devtools'
 import { NotFoundPage } from '#/routes/-components/NotFoundPage'
 import appCss from '#/styles.css?url'
 import { AppConfig } from '#/utils/system'
@@ -58,6 +59,7 @@ function RootDocument() {
               <Outlet />
               <Toaster />
             </TooltipProvider>
+            <AppDevtools />
           </TanstackQueryProvider>
         </ThemeProvider>
         <Scripts />
