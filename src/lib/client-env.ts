@@ -7,3 +7,11 @@ const clientEnvSchema = z.object({
 export const clientEnv = clientEnvSchema.parse({
   VITE_APP_URL: import.meta.env.VITE_APP_URL,
 });
+
+export function getAppUrl() {
+  if (typeof window !== "undefined") {
+    return window.location.origin;
+  }
+
+  return clientEnv.VITE_APP_URL;
+}

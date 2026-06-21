@@ -1,5 +1,5 @@
 import { authClient } from "#/lib/better-auth/client";
-import { clientEnv } from "#/lib/client-env";
+import { getAppUrl } from "#/lib/client-env";
 import { AppConfig } from "#/utils/system";
 import { Button } from "@/components/ui/button";
 import { useMutation } from "@tanstack/react-query";
@@ -14,7 +14,7 @@ export function GoogleSignInButton({ returnTo }: GoogleSignInButtonProps) {
     mutationFn: async () => {
       await authClient.signIn.social({
         provider: "google",
-        callbackURL: `${clientEnv.VITE_APP_URL}${returnTo}`,
+        callbackURL: `${getAppUrl()}${returnTo}`,
       });
     },
     onError: (error: unknown) => {
