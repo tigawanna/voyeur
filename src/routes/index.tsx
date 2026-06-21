@@ -1,5 +1,6 @@
 import { Footer } from "#/components/navigation/Footer";
 import { browseSearchDefaults } from "#/types/browse";
+import { canAccessApp } from "#/data-access-layer/auth/auth-bypass";
 import { AppConfig } from "#/utils/system";
 import { withViewTransition } from "#/utils/viewTransition";
 import { Button } from "@/components/ui/button";
@@ -11,13 +12,13 @@ export const Route = createFileRoute("/")({
 
 function LandingPage() {
   const navigate = Route.useNavigate();
-  const { viewer } = useRouteContext({ from: "__root__" });
+  const { viewer, authBypassEnabled } = useRouteContext({ from: "__root__" });
   const Icon = AppConfig.icon;
-  const isSignedIn = Boolean(viewer?.user);
+  const canEnterApp = canAccessApp({ viewer, authBypassEnabled });
 
   function handleContinue() {
     withViewTransition(() => {
-      if (isSignedIn) {
+      if (canEnterApp) {
         void navigate({ to: "/movies", search: browseSearchDefaults });
         return;
       }
@@ -36,7 +37,7 @@ function LandingPage() {
               <span className="text-primary">.</span>
             </span>
           </div>
-          {isSignedIn ? (
+          {canEnterApp ? (
             <Button
               type="button"
               variant="outline"
@@ -84,8 +85,19 @@ function LandingPage() {
               Sign in once with Google, then pick up right where you left off on any device.
             </p>
             <Button type="button" size="lg" onClick={handleContinue}>
-              {isSignedIn ? "Continue to movies →" : "Sign in to continue →"}
+              {canEnterApp ? "Continue to movies →" : "Sign in to continue →"}
             </Button>
+            <p className="mx-auto mt-6 max-w-lg text-xs text-muted-foreground">
+              By using {AppConfig.name}, you agree to our{" "}
+              <a href="/terms" className="text-foreground underline-offset-4 hover:underline">
+                Terms of Use
+              </a>{" "}
+              and{" "}
+              <a href="/privacy" className="text-foreground underline-offset-4 hover:underline">
+                Privacy Policy
+              </a>
+              .
+            </p>
           </div>
         </section>
       </main>

@@ -1,4 +1,6 @@
+import { canAccessApp } from "#/data-access-layer/auth/auth-bypass";
 import { LoginCard } from "#/features/auth/components/LoginCard";
+import { Footer } from "#/components/navigation/Footer";
 import { AppConfig } from "#/utils/system";
 import { Link, createFileRoute, redirect } from "@tanstack/react-router";
 import { z } from "zod";
@@ -11,7 +13,18 @@ export const Route = createFileRoute("/login")({
   validateSearch: loginSearchSchema,
   beforeLoad: ({ context, search }) => {
     const returnTo = search.returnTo === "/login" ? "/movies" : search.returnTo;
-    if (context.viewer?.user) {
+
+    console.log("[voyeur:auth-bypass]", "login:beforeLoad", {
+      returnTo,
+      authBypassEnabled: context.authBypassEnabled,
+      hasViewer: Boolean(context.viewer?.user),
+    });
+
+    if (canAccessApp(context)) {
+      console.log("[voyeur:auth-bypass]", "login:beforeLoad:redirect", {
+        returnTo,
+        reason: context.authBypassEnabled ? "bypass" : "viewer",
+      });
       throw redirect({ to: returnTo });
     }
   },
@@ -41,6 +54,7 @@ function LoginPage() {
       <main className="flex min-h-[calc(100dvh-4rem)] items-center justify-center px-4 py-12">
         <LoginCard returnTo={returnTo} />
       </main>
+      <Footer />
     </div>
   );
 }

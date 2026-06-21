@@ -29,6 +29,16 @@ export function Footer() {
                   Sign in
                 </Link>
               </li>
+              <li>
+                <Link to="/privacy" className="no-underline transition hover:text-foreground">
+                  Privacy
+                </Link>
+              </li>
+              <li>
+                <Link to="/terms" className="no-underline transition hover:text-foreground">
+                  Terms
+                </Link>
+              </li>
             </ul>
           </nav>
         </div>

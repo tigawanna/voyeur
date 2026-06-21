@@ -105,9 +105,12 @@ The dev server runs at [http://localhost:3072](http://localhost:3072).
 | `BETTER_AUTH_URL`      | `.dev.vars` / Wrangler | Public app URL (e.g. `http://localhost:3072`) |
 | `GOOGLE_CLIENT_ID`     | `.dev.vars` / Wrangler | Google OAuth client ID                        |
 | `GOOGLE_CLIENT_SECRET` | `.dev.vars` / Wrangler | Google OAuth client secret                    |
+| `BYPASS_AUTH`          | `.dev.vars` / Wrangler | Skip auth guards when `true` (server-only)    |
 | `VITE_APP_URL`         | `.env`                 | Client-side app URL for auth redirects        |
 
 `BETTER_AUTH_URL` and `VITE_APP_URL` must match in local development. Configure the same redirect URI in the Google Cloud console (`{BETTER_AUTH_URL}/api/auth/callback/google`).
+
+`BYPASS_AUTH` is read on the Worker at request time via `cloudflare:workers` and passed to the client through `getRuntimeConfig` (see [TanStack Start env vars](https://tanstack.com/start/v0/docs/framework/react/guide/environment-variables)). Do not rely on `VITE_BYPASS_AUTH` in production — it is build-time only and will not reach client guards on Cloudflare.
 
 ### Database
 
@@ -230,7 +233,7 @@ pnpm lint             # ESLint
 
 ### E2E tests
 
-There is a small Playwright suite in `e2e/` — not comprehensive, but it covers the main happy path: browse grid → movie detail → recommendations → favorites/watchlist. TMDB responses are mocked via fixtures in `mock/` (no live API calls). `VITE_BYPASS_AUTH=true` is set automatically by `playwright.config.ts` so auth guards are skipped in test mode (no fake session injected).
+There is a small Playwright suite in `e2e/` — not comprehensive, but it covers the main happy path: browse grid → movie detail → recommendations → favorites/watchlist. TMDB responses are mocked via fixtures in `mock/` (no live API calls). `VITE_BYPASS_AUTH=true` is set on the dev server by `playwright.config.ts`; the runtime config server function picks it up so auth guards are skipped in test mode.
 
 ## Routing
 

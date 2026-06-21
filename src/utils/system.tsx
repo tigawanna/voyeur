@@ -4,6 +4,7 @@ export const AppConfig = {
   name: "Voyeur",
   wordmark: "V",
   description: "Browse films, save favorites, and build your watchlist.",
+  contactEmail: "privacy@denniskinuthiaw.com",
   themeStorageKey: "voyeur.theme",
   icon: Clapperboard,
 };

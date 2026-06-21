@@ -1,6 +1,7 @@
 import { getSession } from "#/lib/auth.functions";
 import { getAuth } from "#/lib/auth";
-import { isAuthBypassEnabled } from "#/data-access-layer/auth/auth-bypass";
+import { isAuthBypassEnabledOnServer } from "#/data-access-layer/auth/auth-bypass";
+import { env } from "cloudflare:workers";
 import { authClient, type BetterAuthSession } from "#/lib/better-auth/client";
 import { safeStringToUrl } from "#/utils/url";
 import { queryOptions, useMutation, useQueryClient, useSuspenseQuery } from "@tanstack/react-query";
@@ -38,6 +39,16 @@ export function useViewer() {
       throw redirect({ to: "/login", search: { returnTo: "/" } });
     },
   });
+  const deleteAccountMutation = useMutation({
+    mutationFn: async () => {
+      const result = await authClient.deleteUser({ callbackURL: "/" });
+      if (result.error) {
+        throw new Error(result.error.message ?? "Unable to delete account.");
+      }
+      void queryClient.invalidateQueries(viewerqueryOptions);
+      throw redirect({ to: "/" });
+    },
+  });
   const viewerQuery = useSuspenseQuery(viewerqueryOptions);
 
   return {
@@ -47,20 +58,39 @@ export function useViewer() {
       session: viewerQuery.data.data?.session,
     },
     logoutMutation,
+    deleteAccountMutation,
   } as const;
 }
 
 export const viewerMiddleware = createMiddleware().server(async ({ next, request }) => {
-  if (isAuthBypassEnabled()) {
+  const pathname = safeStringToUrl(request.url)?.pathname ?? "/";
+  const authBypassEnabled = isAuthBypassEnabledOnServer(
+    env as CloudflareBindings,
+    "viewerMiddleware",
+  );
+
+  if (authBypassEnabled) {
+    console.log("[voyeur:auth-bypass]", "viewerMiddleware:allow", { pathname, reason: "bypass" });
     return await next();
   }
 
   const session = await getAuth().api.getSession({ headers: request.headers });
   if (!session) {
-    const pathname = safeStringToUrl(request.url)?.pathname ?? "/";
     const returnTo = pathname === "/login" ? "/movies" : pathname;
+    console.log("[voyeur:auth-bypass]", "viewerMiddleware:redirect", {
+      pathname,
+      returnTo,
+      reason: "no-session",
+    });
     throw redirect({ to: "/login", search: { returnTo } });
   }
+
+  console.log("[voyeur:auth-bypass]", "viewerMiddleware:allow", {
+    pathname,
+    reason: "session",
+    userId: session.user.id,
+  });
+
   return await next({
     context: {
       viewer: { user: session.user, session: session.session },

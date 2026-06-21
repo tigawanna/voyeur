@@ -1,6 +1,7 @@
 import paginationCss from "#/components/pagination/pagination.css?url";
 import type { TViewer } from "#/data-access-layer/auth/viewer";
 import { viewerqueryOptions } from "#/data-access-layer/auth/viewer";
+import { runtimeConfigQueryOptions } from "#/lib/runtime-config";
 import {
   TanstackQueryProvider,
   getTanstackQueryContext,
@@ -19,13 +20,39 @@ import { HeadContent, Outlet, Scripts, createRootRouteWithContext } from "@tanst
 interface RouterContext {
   queryClient: QueryClient;
   viewer?: TViewer;
+  authBypassEnabled?: boolean;
 }
 
 export const Route = createRootRouteWithContext<RouterContext>()({
   notFoundComponent: NotFoundPage,
   beforeLoad: async ({ context }) => {
-    const viewer = await context.queryClient.ensureQueryData(viewerqueryOptions);
-    return { viewer: viewer.data ?? undefined };
+    let runtimeConfig = { authBypassEnabled: false };
+
+    try {
+      const [viewer, config] = await Promise.all([
+        context.queryClient.ensureQueryData(viewerqueryOptions),
+        context.queryClient.ensureQueryData(runtimeConfigQueryOptions),
+      ]);
+      runtimeConfig = config;
+
+      const result = {
+        viewer: viewer.data ?? undefined,
+        authBypassEnabled: runtimeConfig.authBypassEnabled,
+      };
+
+      console.log("[voyeur:auth-bypass]", "__root:beforeLoad", {
+        authBypassEnabled: result.authBypassEnabled,
+        hasViewer: Boolean(result.viewer?.user),
+        viewerUserId: result.viewer?.user?.id ?? null,
+      });
+
+      return result;
+    } catch (error) {
+      console.error("[voyeur:auth-bypass]", "__root:beforeLoad:error", {
+        error: error instanceof Error ? error.message : error,
+      });
+      throw error;
+    }
   },
   head: () => {
     const ogImageUrl = `${getAppUrl()}/og.png`;

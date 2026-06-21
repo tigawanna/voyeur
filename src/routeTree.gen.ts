@@ -9,16 +9,29 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TermsRouteImport } from './routes/terms'
+import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as AppRouteRouteImport } from './routes/_app/route'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as BrowseIndexRouteImport } from './routes/browse/index'
 import { Route as AppWatchlistIndexRouteImport } from './routes/_app/watchlist/index'
+import { Route as AppSettingsIndexRouteImport } from './routes/_app/settings/index'
 import { Route as AppMoviesIndexRouteImport } from './routes/_app/movies/index'
 import { Route as AppFavoritesIndexRouteImport } from './routes/_app/favorites/index'
 import { Route as ApiAuthSplatRouteImport } from './routes/api/auth/$'
 import { Route as AppMoviesMovieMovieIdRouteImport } from './routes/_app/movies/movie/$movieId'
 
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LoginRoute = LoginRouteImport.update({
   id: '/login',
   path: '/login',
@@ -41,6 +54,11 @@ const BrowseIndexRoute = BrowseIndexRouteImport.update({
 const AppWatchlistIndexRoute = AppWatchlistIndexRouteImport.update({
   id: '/watchlist/',
   path: '/watchlist/',
+  getParentRoute: () => AppRouteRoute,
+} as any)
+const AppSettingsIndexRoute = AppSettingsIndexRouteImport.update({
+  id: '/settings/',
+  path: '/settings/',
   getParentRoute: () => AppRouteRoute,
 } as any)
 const AppMoviesIndexRoute = AppMoviesIndexRouteImport.update({
@@ -67,20 +85,26 @@ const AppMoviesMovieMovieIdRoute = AppMoviesMovieMovieIdRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/login': typeof LoginRoute
+  '/privacy': typeof PrivacyRoute
+  '/terms': typeof TermsRoute
   '/browse/': typeof BrowseIndexRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/favorites/': typeof AppFavoritesIndexRoute
   '/movies/': typeof AppMoviesIndexRoute
+  '/settings/': typeof AppSettingsIndexRoute
   '/watchlist/': typeof AppWatchlistIndexRoute
   '/movies/movie/$movieId': typeof AppMoviesMovieMovieIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/login': typeof LoginRoute
+  '/privacy': typeof PrivacyRoute
+  '/terms': typeof TermsRoute
   '/browse': typeof BrowseIndexRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/favorites': typeof AppFavoritesIndexRoute
   '/movies': typeof AppMoviesIndexRoute
+  '/settings': typeof AppSettingsIndexRoute
   '/watchlist': typeof AppWatchlistIndexRoute
   '/movies/movie/$movieId': typeof AppMoviesMovieMovieIdRoute
 }
@@ -89,10 +113,13 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/_app': typeof AppRouteRouteWithChildren
   '/login': typeof LoginRoute
+  '/privacy': typeof PrivacyRoute
+  '/terms': typeof TermsRoute
   '/browse/': typeof BrowseIndexRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/_app/favorites/': typeof AppFavoritesIndexRoute
   '/_app/movies/': typeof AppMoviesIndexRoute
+  '/_app/settings/': typeof AppSettingsIndexRoute
   '/_app/watchlist/': typeof AppWatchlistIndexRoute
   '/_app/movies/movie/$movieId': typeof AppMoviesMovieMovieIdRoute
 }
@@ -101,20 +128,26 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/login'
+    | '/privacy'
+    | '/terms'
     | '/browse/'
     | '/api/auth/$'
     | '/favorites/'
     | '/movies/'
+    | '/settings/'
     | '/watchlist/'
     | '/movies/movie/$movieId'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/login'
+    | '/privacy'
+    | '/terms'
     | '/browse'
     | '/api/auth/$'
     | '/favorites'
     | '/movies'
+    | '/settings'
     | '/watchlist'
     | '/movies/movie/$movieId'
   id:
@@ -122,10 +155,13 @@ export interface FileRouteTypes {
     | '/'
     | '/_app'
     | '/login'
+    | '/privacy'
+    | '/terms'
     | '/browse/'
     | '/api/auth/$'
     | '/_app/favorites/'
     | '/_app/movies/'
+    | '/_app/settings/'
     | '/_app/watchlist/'
     | '/_app/movies/movie/$movieId'
   fileRoutesById: FileRoutesById
@@ -134,12 +170,28 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AppRouteRoute: typeof AppRouteRouteWithChildren
   LoginRoute: typeof LoginRoute
+  PrivacyRoute: typeof PrivacyRoute
+  TermsRoute: typeof TermsRoute
   BrowseIndexRoute: typeof BrowseIndexRoute
   ApiAuthSplatRoute: typeof ApiAuthSplatRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/login': {
       id: '/login'
       path: '/login'
@@ -173,6 +225,13 @@ declare module '@tanstack/react-router' {
       path: '/watchlist'
       fullPath: '/watchlist/'
       preLoaderRoute: typeof AppWatchlistIndexRouteImport
+      parentRoute: typeof AppRouteRoute
+    }
+    '/_app/settings/': {
+      id: '/_app/settings/'
+      path: '/settings'
+      fullPath: '/settings/'
+      preLoaderRoute: typeof AppSettingsIndexRouteImport
       parentRoute: typeof AppRouteRoute
     }
     '/_app/movies/': {
@@ -209,6 +268,7 @@ declare module '@tanstack/react-router' {
 interface AppRouteRouteChildren {
   AppFavoritesIndexRoute: typeof AppFavoritesIndexRoute
   AppMoviesIndexRoute: typeof AppMoviesIndexRoute
+  AppSettingsIndexRoute: typeof AppSettingsIndexRoute
   AppWatchlistIndexRoute: typeof AppWatchlistIndexRoute
   AppMoviesMovieMovieIdRoute: typeof AppMoviesMovieMovieIdRoute
 }
@@ -216,6 +276,7 @@ interface AppRouteRouteChildren {
 const AppRouteRouteChildren: AppRouteRouteChildren = {
   AppFavoritesIndexRoute: AppFavoritesIndexRoute,
   AppMoviesIndexRoute: AppMoviesIndexRoute,
+  AppSettingsIndexRoute: AppSettingsIndexRoute,
   AppWatchlistIndexRoute: AppWatchlistIndexRoute,
   AppMoviesMovieMovieIdRoute: AppMoviesMovieMovieIdRoute,
 }
@@ -228,6 +289,8 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AppRouteRoute: AppRouteRouteWithChildren,
   LoginRoute: LoginRoute,
+  PrivacyRoute: PrivacyRoute,
+  TermsRoute: TermsRoute,
   BrowseIndexRoute: BrowseIndexRoute,
   ApiAuthSplatRoute: ApiAuthSplatRoute,
 }

@@ -24,6 +24,11 @@ export function createAuth(env: CloudflareBindings) {
         clientSecret: env.GOOGLE_CLIENT_SECRET,
       },
     },
+    user: {
+      deleteUser: {
+        enabled: true,
+      },
+    },
     plugins: [tanstackStartCookies()],
   });
 }
