@@ -1,4 +1,3 @@
-import { seedMovieDetailFromMovie } from '#/data-access-layer/tmdb/seed-movie-detail'
 import { movieRecommendationsQueryOptions } from '#/data-access-layer/tmdb/query-options'
 import { posterUrl, mapTmdbMovie } from '#/utils/tmdb-images'
 import { movieViewTransitionName } from '#/utils/movie-view-transition'
@@ -54,7 +53,6 @@ export function MovieRecommendations({ movieId }: MovieRecommendationsProps) {
                 className="block no-underline"
                 onClick={(event) => {
                   event.preventDefault()
-                  seedMovieDetailFromMovie(movie)
                   withViewTransition(() => {
                     void navigate({
                       to: '/movies/movie/$movieId',

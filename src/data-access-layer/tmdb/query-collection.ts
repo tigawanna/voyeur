@@ -1,4 +1,5 @@
 import { parseMovieDetailId } from '#/data-access-layer/tmdb/movie-detail-subset'
+import { toBasicMovieRecord } from '#/data-access-layer/tmdb/movie-basic-record'
 import {
   parseMoviesBrowseSubset,
   moviesBrowseSubsetToFetchParams,
@@ -8,6 +9,7 @@ import {
   browseMoviesQueryKey,
   fetchBrowseMovies,
   fetchMovieDetails,
+  movieBasicQueryKey,
   movieDetailQueryKey,
 } from '#/data-access-layer/tmdb/query-options'
 import type { MovieDetailsQueryResponse } from '#/data-access-layer/tmdb/generated/models/MovieDetails'
@@ -48,6 +50,21 @@ export const moviesCollection = createCollection(
   }),
 )
 
+export const movieBasicCollection = createCollection(
+  queryCollectionOptions({
+    queryKey: (opts) => {
+      const movieId = parseMovieDetailId(opts)
+      return movieId != null ? [...movieBasicQueryKey, movieId] : movieBasicQueryKey
+    },
+    queryFn: async () => [],
+    getKey: (item: MovieDetailsQueryResponse) => item.id!,
+    queryClient: globalQc,
+    syncMode: 'on-demand',
+    defaultIndexType: BasicIndex,
+    staleTime: 1000 * 60 * 60,
+  }),
+)
+
 export const movieDetailCollection = createCollection(
   queryCollectionOptions({
     queryKey: (opts) => {
@@ -61,6 +78,7 @@ export const movieDetailCollection = createCollection(
       }
 
       const details = await fetchMovieDetails(movieId)
+      movieBasicCollection.utils.writeUpsert(toBasicMovieRecord(details))
       return [details]
     },
     getKey: (item: MovieDetailsQueryResponse) => item.id!,

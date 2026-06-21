@@ -1,6 +1,8 @@
 import {
   favoritesCollection,
+  movieBasicCollection,
   movieDetailCollection,
+  moviesCollection,
   watchlistCollection,
 } from '#/data-access-layer/tmdb/query-collection'
 import { MovieLibraryActions } from '#/features/movies/components/MovieLibraryActions'
@@ -9,7 +11,7 @@ import {
   MovieDetailsBackButton,
 } from '#/features/movies/components/MovieDetails'
 import { MovieRecommendations } from '#/features/movies/components/MovieRecommendations'
-import { mapTmdbMovieDetail } from '#/utils/tmdb-images'
+import { mapTmdbMovie } from '#/utils/tmdb-images'
 import { withViewTransition } from '#/utils/viewTransition'
 import {
   Empty,
@@ -18,7 +20,7 @@ import {
   EmptyMedia,
   EmptyTitle,
 } from '@/components/ui/empty'
-import { eq, isUndefined, not, useLiveQuery } from '@tanstack/react-db'
+import { eq, useLiveQuery } from '@tanstack/react-db'
 import { createFileRoute, useRouter } from '@tanstack/react-router'
 import { AlertCircle, Loader } from 'lucide-react'
 
@@ -32,30 +34,52 @@ function MovieDetailsPage() {
   const router = useRouter()
   const id = Number(movieId)
 
+  const { data: basicRows } = useLiveQuery(
+    (q) =>
+      q
+        .from({ movie: movieBasicCollection })
+        .where(({ movie }) => eq(movie.id, id)),
+    [id],
+  )
+
+  const { data: browseRows } = useLiveQuery(
+    (q) =>
+      q
+        .from({ movie: moviesCollection })
+        .where(({ movie }) => eq(movie.id, id)),
+    [id],
+  )
+
   const {
-    data: collectionRows,
-    isLoading: isCollectionLoading,
-    isError,
+    data: detailRows,
+    isLoading: isDetailLoading,
+    isError: isDetailError,
   } = useLiveQuery(
     (q) =>
       q
         .from({ movie: movieDetailCollection })
-        .leftJoin({ favorite: favoritesCollection }, ({ movie, favorite }) =>
-          eq(movie.id, favorite.movieId),
-        )
-        .leftJoin({ watchlist: watchlistCollection }, ({ movie, watchlist }) =>
-          eq(movie.id, watchlist.movieId),
-        )
-        .where(({ movie }) => eq(movie.id, id))
-        .select(({ movie, favorite, watchlist }) => ({
-          ...movie,
-          isFavorite: not(isUndefined(favorite)),
-          isWatchlisted: not(isUndefined(watchlist)),
-        })),
+        .where(({ movie }) => eq(movie.id, id)),
     [id],
   )
 
-  const hasCollectionMovie = collectionRows.length > 0
+  const { data: favoriteRows } = useLiveQuery(
+    (q) =>
+      q
+        .from({ favorite: favoritesCollection })
+        .where(({ favorite }) => eq(favorite.movieId, id)),
+    [id],
+  )
+
+  const { data: watchlistRows } = useLiveQuery(
+    (q) =>
+      q
+        .from({ watchlist: watchlistCollection })
+        .where(({ watchlist }) => eq(watchlist.movieId, id)),
+    [id],
+  )
+
+  const summaryRow = basicRows[0] ?? browseRows[0] ?? detailRows[0]
+  const showPageLoader = !summaryRow && isDetailLoading
 
   function goBack() {
     withViewTransition(() => {
@@ -74,7 +98,7 @@ function MovieDetailsPage() {
     )
   }
 
-  if (isCollectionLoading) {
+  if (showPageLoader) {
     return (
       <div className="flex min-h-[50vh] items-center justify-center">
         <Loader className="size-6 animate-spin text-primary" />
@@ -82,38 +106,41 @@ function MovieDetailsPage() {
     )
   }
 
-  if (!hasCollectionMovie) {
+  if (!summaryRow) {
     return (
       <Empty className="my-12 rounded-2xl border border-border bg-card">
         <EmptyHeader>
-          {isError ? (
+          {isDetailError ? (
             <EmptyMedia variant="icon">
               <AlertCircle />
             </EmptyMedia>
           ) : null}
           <EmptyTitle>Could not load movie</EmptyTitle>
           <EmptyDescription>
-            {isError ? 'We could not load this film.' : 'This film could not be found.'}
+            {isDetailError ? 'We could not load this film.' : 'This film could not be found.'}
           </EmptyDescription>
         </EmptyHeader>
       </Empty>
     )
   }
 
-  const movie = mapTmdbMovieDetail(collectionRows[0])
+  const movie = mapTmdbMovie(summaryRow)
+  const isFavorite = favoriteRows.length > 0
+  const isWatchlisted = watchlistRows.length > 0
 
   return (
     <>
       <MovieDetails
         movie={movie}
+        movieId={id}
         backAction={
           <MovieDetailsBackButton onClick={goBack}>Back to browse</MovieDetailsBackButton>
         }
         libraryActions={
           <MovieLibraryActions
             movie={movie}
-            isFavorite={collectionRows[0].isFavorite}
-            isWatchlisted={collectionRows[0].isWatchlisted}
+            isFavorite={isFavorite}
+            isWatchlisted={isWatchlisted}
           />
         }
       />

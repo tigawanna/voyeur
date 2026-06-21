@@ -1,28 +1,31 @@
 import type { ComponentProps, ReactNode } from 'react'
 import { MovieDetailMetadata } from '#/features/movies/components/MovieDetailMetadata'
-import type { MovieDetail } from '#/types/movie'
+import type { Movie } from '#/types/movie'
 import { movieHeroImageUrl, posterUrl } from '#/utils/tmdb-images'
-import { formatMovieRuntime } from '#/utils/format-movie-detail'
 import { movieViewTransitionName } from '#/utils/movie-view-transition'
 import { cn } from '@/lib/utils'
 import { ArrowLeft } from 'lucide-react'
 
 interface MovieDetailsProps {
-  movie: MovieDetail
+  movie: Movie
+  movieId: number
   className?: string
   backAction: ReactNode
   libraryActions?: ReactNode
 }
 
-export function MovieDetails({ movie, className, backAction, libraryActions }: MovieDetailsProps) {
+export function MovieDetails({
+  movie,
+  movieId,
+  className,
+  backAction,
+  libraryActions,
+}: MovieDetailsProps) {
   const poster = posterUrl(movie.posterPath, 'w500')
   const heroImage = movieHeroImageUrl(movie)
   const year = movie.releaseDate ? movie.releaseDate.slice(0, 4) : 'TBA'
-  const runtime = formatMovieRuntime(movie.runtime)
   const metaParts = [
     year,
-    runtime,
-    movie.status,
     `★ ${movie.voteAverage.toFixed(1)}`,
     movie.voteCount > 0 ? `${movie.voteCount.toLocaleString()} votes` : null,
   ].filter(Boolean)
@@ -78,7 +81,7 @@ export function MovieDetails({ movie, className, backAction, libraryActions }: M
               {movie.overview || 'No overview available.'}
             </p>
             {libraryActions ? <div>{libraryActions}</div> : null}
-            <MovieDetailMetadata movie={movie} />
+            <MovieDetailMetadata movieId={movieId} />
           </div>
         </div>
       </div>

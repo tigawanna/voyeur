@@ -1,13 +1,17 @@
-import type { ReactNode } from 'react'
-import type { MovieDetail } from '#/types/movie'
+import { movieDetailCollection } from '#/data-access-layer/tmdb/query-collection'
 import {
   formatMovieCurrency,
   formatMovieLanguageCode,
   formatMovieRuntime,
 } from '#/utils/format-movie-detail'
+import { mapTmdbMovieDetail } from '#/utils/tmdb-images'
+import { eq, useLiveQuery } from '@tanstack/react-db'
+import { Loader } from 'lucide-react'
+import type { ReactNode } from 'react'
+import type { MovieDetail } from '#/types/movie'
 
 interface MovieDetailMetadataProps {
-  movie: MovieDetail
+  movieId: number
 }
 
 function MetadataItem({ label, children }: { label: string; children: ReactNode }) {
@@ -23,7 +27,7 @@ function MetadataItem({ label, children }: { label: string; children: ReactNode 
   )
 }
 
-export function MovieDetailMetadata({ movie }: MovieDetailMetadataProps) {
+function MovieDetailMetadataContent({ movie }: { movie: MovieDetail }) {
   const runtime = formatMovieRuntime(movie.runtime)
   const budget = formatMovieCurrency(movie.budget)
   const revenue = formatMovieCurrency(movie.revenue)
@@ -32,29 +36,8 @@ export function MovieDetailMetadata({ movie }: MovieDetailMetadataProps) {
   const showOriginalTitle =
     movie.originalTitle && movie.originalTitle !== movie.title ? movie.originalTitle : null
 
-  const hasDetails =
-    movie.tagline ||
-    hasNamedGenres ||
-    runtime ||
-    movie.status ||
-    budget ||
-    revenue ||
-    movie.collection ||
-    movie.productionCompanies.length > 0 ||
-    movie.productionCountries.length > 0 ||
-    movie.spokenLanguages.length > 0 ||
-    movie.originCountries.length > 0 ||
-    movie.homepage ||
-    movie.imdbId ||
-    showOriginalTitle ||
-    originalLanguage
-
-  if (!hasDetails) return null
-
   return (
-    <section className="island-shell rounded-2xl border border-border bg-card/60 p-6">
-      <h2 className="island-kicker mb-4">Details</h2>
-
+    <>
       {movie.tagline ? (
         <p className="mb-5 text-lg text-muted-foreground italic">{movie.tagline}</p>
       ) : null}
@@ -121,6 +104,40 @@ export function MovieDetailMetadata({ movie }: MovieDetailMetadataProps) {
           ) : null}
         </MetadataItem>
       </dl>
+    </>
+  )
+}
+
+export function MovieDetailMetadata({ movieId }: MovieDetailMetadataProps) {
+  const { data: detailRows, isLoading, isError } = useLiveQuery(
+    (q) =>
+      q
+        .from({ movie: movieDetailCollection })
+        .where(({ movie }) => eq(movie.id, movieId)),
+    [movieId],
+  )
+
+  if (isLoading) {
+    return (
+      <section className="island-shell rounded-2xl border border-border bg-card/60 p-6">
+        <h2 className="island-kicker mb-4">Details</h2>
+        <div className="flex items-center justify-center py-10">
+          <Loader className="size-5 animate-spin text-primary" />
+        </div>
+      </section>
+    )
+  }
+
+  if (isError || detailRows.length === 0) {
+    return null
+  }
+
+  const movie = mapTmdbMovieDetail(detailRows[0])
+
+  return (
+    <section className="island-shell rounded-2xl border border-border bg-card/60 p-6">
+      <h2 className="island-kicker mb-4">Details</h2>
+      <MovieDetailMetadataContent movie={movie} />
     </section>
   )
 }
