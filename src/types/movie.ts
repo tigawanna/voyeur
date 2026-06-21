@@ -38,6 +38,8 @@ export type BrowseMovieWithLibrary = PopularMovieResult & {
   region: BrowseRegionCode
   language: BrowseLanguageCode
   sortBy: string
+  totalResults: number
+  totalPages: number
   isFavorite: boolean
   isWatchlisted: boolean
 }

@@ -1,4 +1,3 @@
-import { browseMoviesQueryOptions } from '#/data-access-layer/tmdb/query-options'
 import {
   favoritesCollection,
   moviesCollection,
@@ -15,7 +14,6 @@ import {
   EmptyTitle,
 } from '@/components/ui/empty'
 import { and, eq, isUndefined, not, useLiveQuery } from '@tanstack/react-db'
-import { useQuery } from '@tanstack/react-query'
 import { getRouteApi } from '@tanstack/react-router'
 import { AlertCircle, Loader, SearchX } from 'lucide-react'
 import { useEffect } from 'react'
@@ -28,7 +26,7 @@ export function MoviesList() {
   const browseSearch = browseRouteApi.useSearch()
   const clearFilters = useClearBrowseFilters()
 
-  const { data: movies, isLoading: isMoviesLoading } = useLiveQuery(
+  const { data: movies, isLoading: isMoviesLoading, isError } = useLiveQuery(
     (q) =>
       q
         .from({ movie: moviesCollection })
@@ -58,22 +56,13 @@ export function MoviesList() {
     [browseSearch],
   )
 
-  const {
-    data: browseMeta,
-    isError,
-    error,
-    isPlaceholderData,
-    isFetching,
-    errorUpdatedAt,
-  } = useQuery({
-    ...browseMoviesQueryOptions(browseSearch),
-    select: (response) => ({
-      totalResults: response.total_results ?? 0,
-      totalPages: response.total_pages ?? 0,
-    }),
-  })
-
-
+  const browseMeta = movies[0]
+    ? {
+        totalResults: movies[0].totalResults,
+        totalPages: movies[0].totalPages,
+      }
+    : undefined
+  const isRefetching = isMoviesLoading && movies.length > 0
   const hasPreviousResults = isError && movies.length > 0
 
   useEffect(() => {
@@ -83,7 +72,7 @@ export function MoviesList() {
       description:
         "We couldn't update the movie list. Showing your previous results.",
     })
-  }, [hasPreviousResults, errorUpdatedAt])
+  }, [hasPreviousResults])
 
   if (isMoviesLoading && movies.length === 0) {
     return (
@@ -97,7 +86,7 @@ export function MoviesList() {
 
   if (isError && movies.length === 0) {
     return (
-      <MoviesListWrapper isRefetching={isFetching}>
+      <MoviesListWrapper isRefetching={isRefetching}>
         <div className="flex h-full w-full flex-col items-center justify-center">
           <Empty className="my-8 max-h-[40%] max-w-[60%] rounded-2xl bg-base-200">
             <EmptyHeader>
@@ -105,7 +94,7 @@ export function MoviesList() {
                 <AlertCircle />
               </EmptyMedia>
               <EmptyTitle>Could not load movies</EmptyTitle>
-              <EmptyDescription>{error.message}</EmptyDescription>
+              <EmptyDescription>We could not load movies for this browse view.</EmptyDescription>
             </EmptyHeader>
             <EmptyContent className="flex-row justify-center gap-2">
               <Button variant="outline" size="sm" onClick={clearFilters}>
@@ -123,7 +112,7 @@ export function MoviesList() {
       <MoviesListWrapper
         totalResults={browseMeta?.totalResults}
         totalPages={browseMeta?.totalPages}
-        isRefetching={isPlaceholderData}
+        isRefetching={isRefetching}
       >
         <div className="flex h-full w-full flex-col items-center justify-center">
           <Empty className="my-8 max-h-[40%] max-w-[60%] rounded-2xl bg-base-200">
@@ -153,7 +142,7 @@ export function MoviesList() {
     <MoviesListWrapper
       totalResults={browseMeta?.totalResults}
       totalPages={browseMeta?.totalPages}
-      isRefetching={isPlaceholderData}
+      isRefetching={isRefetching}
     >
       <div className="grid w-full grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5">
         {movies.map((movie) => (

@@ -3,7 +3,7 @@ import {
   moviesBrowseSubsetToFetchParams,
   stampMovieBrowseContext,
 } from '#/data-access-layer/tmdb/movies-browse-subset'
-import { browseMoviesQueryKey, fetchBrowseMovies } from '#/data-access-layer/tmdb/query-options'
+import { browseMoviesQueryKey, fetchBrowseMovies, fetchMovieDetails } from '#/data-access-layer/tmdb/query-options'
 import { getTanstackQueryContext } from '#/lib/tanstack/query/query-provider'
 import type { SavedMovieRef } from '#/types/movie'
 import {
@@ -22,12 +22,26 @@ export const moviesCollection = createCollection(
     queryKey: browseMoviesQueryKey,
     queryFn: async (ctx) => {
       const subset = parseMoviesBrowseSubset(ctx.meta?.loadSubsetOptions)
+
+      if (subset.id != null && Number.isFinite(subset.id)) {
+        const details = await fetchMovieDetails(subset.id)
+        return [
+          stampMovieBrowseContext(details, subset, 1, {
+            total_results: 1,
+            total_pages: 1,
+          }),
+        ]
+      }
+
       const response = await fetchBrowseMovies(
         moviesBrowseSubsetToFetchParams(subset),
       )
 
       return (response.results ?? []).map((item) =>
-        stampMovieBrowseContext(item, subset, response.page),
+        stampMovieBrowseContext(item, subset, response.page, {
+          total_results: response.total_results,
+          total_pages: response.total_pages,
+        }),
       )
     },
     getKey: (item) => (item.id || item.title)!,

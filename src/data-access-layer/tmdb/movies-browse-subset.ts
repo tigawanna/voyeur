@@ -10,6 +10,7 @@ const BROWSE_FILTER_FIELDS = [
   'region',
   'language',
   'sortBy',
+  'id',
 ] as const
 
 type BrowseFilterField = (typeof BROWSE_FILTER_FIELDS)[number]
@@ -21,6 +22,7 @@ export type MoviesBrowseSubset = {
   language: BrowseLanguageCode
   sortBy: string
   page: number
+  id?: number
   limit?: number
 }
 
@@ -68,6 +70,9 @@ function applyBrowseFilter(
       break
     case 'sortBy':
       subset.sortBy = String(filter.value)
+      break
+    case 'id':
+      subset.id = Number(filter.value)
       break
   }
 }
@@ -120,6 +125,7 @@ export function stampMovieBrowseContext<T extends object>(
   item: T,
   subset: MoviesBrowseSubset,
   page?: number,
+  listMeta?: { total_results?: number; total_pages?: number },
 ) {
   return {
     ...item,
@@ -129,5 +135,7 @@ export function stampMovieBrowseContext<T extends object>(
     region: subset.region,
     language: subset.language,
     sortBy: subset.sortBy,
+    totalResults: listMeta?.total_results ?? 0,
+    totalPages: listMeta?.total_pages ?? 0,
   }
 }

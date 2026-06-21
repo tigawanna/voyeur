@@ -1,8 +1,4 @@
 import {
-  movieDetailsQueryOptions,
-  movieRecommendationsQueryOptions,
-} from '#/data-access-layer/tmdb/query-options'
-import {
   favoritesCollection,
   moviesCollection,
   watchlistCollection,
@@ -23,7 +19,6 @@ import {
   EmptyTitle,
 } from '@/components/ui/empty'
 import { eq, isUndefined, not, useLiveQuery } from '@tanstack/react-db'
-import { useQuery } from '@tanstack/react-query'
 import { createFileRoute, useRouter } from '@tanstack/react-router'
 import { AlertCircle, Loader } from 'lucide-react'
 
@@ -37,7 +32,11 @@ function MovieDetailsPage() {
   const router = useRouter()
   const id = Number(movieId)
 
-  const { data: collectionRows, isLoading: isCollectionLoading } = useLiveQuery(
+  const {
+    data: collectionRows,
+    isLoading: isCollectionLoading,
+    isError,
+  } = useLiveQuery(
     (q) =>
       q
         .from({ movie: moviesCollection })
@@ -59,23 +58,6 @@ function MovieDetailsPage() {
   )
 
   const hasCollectionMovie = collectionRows.length > 0
-  const collectionMovie = hasCollectionMovie ? collectionRows[0] : undefined
-
-  const {
-    data: fetchedDetails,
-    isPending: isDetailsPending,
-    isError,
-    error,
-  } = useQuery({
-    ...movieDetailsQueryOptions(id),
-    enabled: Number.isFinite(id) && !isCollectionLoading && !hasCollectionMovie,
-  })
-
-  const { data: recommendationsResponse, isPending: isRecommendationsLoading } = useQuery({
-    ...movieRecommendationsQueryOptions(id),
-    enabled: Number.isFinite(id),
-    select: (response) => response.results.map(mapTmdbMovie),
-  })
 
   function goBack() {
     withViewTransition(() => {
@@ -94,9 +76,7 @@ function MovieDetailsPage() {
     )
   }
 
-  const isPending = isCollectionLoading || (!hasCollectionMovie && isDetailsPending)
-
-  if (isPending) {
+  if (isCollectionLoading) {
     return (
       <div className="flex min-h-[50vh] items-center justify-center">
         <Loader className="size-6 animate-spin text-primary" />
@@ -104,9 +84,7 @@ function MovieDetailsPage() {
     )
   }
 
-  const detailSource = collectionMovie ?? fetchedDetails
-
-  if (!detailSource) {
+  if (!hasCollectionMovie) {
     return (
       <Empty className="my-12 rounded-2xl border border-border bg-card">
         <EmptyHeader>
@@ -117,16 +95,14 @@ function MovieDetailsPage() {
           ) : null}
           <EmptyTitle>Could not load movie</EmptyTitle>
           <EmptyDescription>
-            {isError ? error.message : 'This film could not be found.'}
+            {isError ? 'We could not load this film.' : 'This film could not be found.'}
           </EmptyDescription>
         </EmptyHeader>
       </Empty>
     )
   }
 
-  const movie = mapTmdbMovie(detailSource)
-  const isFavorite = hasCollectionMovie ? collectionRows[0].isFavorite : false
-  const isWatchlisted = hasCollectionMovie ? collectionRows[0].isWatchlisted : false
+  const movie = mapTmdbMovie(collectionRows[0])
 
   return (
     <>
@@ -138,15 +114,12 @@ function MovieDetailsPage() {
         libraryActions={
           <MovieLibraryActions
             movie={movie}
-            isFavorite={isFavorite}
-            isWatchlisted={isWatchlisted}
+            isFavorite={collectionRows[0].isFavorite}
+            isWatchlisted={collectionRows[0].isWatchlisted}
           />
         }
       />
-      <MovieRecommendations
-        recommendations={recommendationsResponse ?? []}
-        isLoading={isRecommendationsLoading}
-      />
+      <MovieRecommendations movieId={id} />
     </>
   )
 }

@@ -1,20 +1,26 @@
-import type { Movie } from '#/types/movie'
-import { posterUrl } from '#/utils/tmdb-images'
+import { movieRecommendationsQueryOptions } from '#/data-access-layer/tmdb/query-options'
+import { posterUrl, mapTmdbMovie } from '#/utils/tmdb-images'
 import { movieViewTransitionName } from '#/utils/movie-view-transition'
 import { withViewTransition } from '#/utils/viewTransition'
 import { CachedImage } from '@/components/common/CachedImage'
+import { useQuery } from '@tanstack/react-query'
 import { Link, useNavigate } from '@tanstack/react-router'
 import { Loader } from 'lucide-react'
 
 interface MovieRecommendationsProps {
-  recommendations: Movie[]
-  isLoading: boolean
+  movieId: number
 }
 
-export function MovieRecommendations({ recommendations, isLoading }: MovieRecommendationsProps) {
+export function MovieRecommendations({ movieId }: MovieRecommendationsProps) {
   const navigate = useNavigate()
 
-  if (isLoading) {
+  const { data: recommendations, isPending } = useQuery({
+    ...movieRecommendationsQueryOptions(movieId),
+    enabled: Number.isFinite(movieId),
+    select: (response) => response.results.map(mapTmdbMovie),
+  })
+
+  if (isPending) {
     return (
       <div className="flex items-center justify-center py-12">
         <Loader className="size-5 animate-spin text-primary" />
@@ -22,7 +28,7 @@ export function MovieRecommendations({ recommendations, isLoading }: MovieRecomm
     )
   }
 
-  if (recommendations.length === 0) {
+  if (!recommendations?.length) {
     return null
   }
 
