@@ -58,7 +58,8 @@ function MovieDetailsPage() {
     [id],
   )
 
-  const collectionMovie = collectionRows[0]
+  const hasCollectionMovie = collectionRows.length > 0
+  const collectionMovie = hasCollectionMovie ? collectionRows[0] : undefined
 
   const {
     data: fetchedDetails,
@@ -67,13 +68,13 @@ function MovieDetailsPage() {
     error,
   } = useQuery({
     ...movieDetailsQueryOptions(id),
-    enabled: Number.isFinite(id) && !isCollectionLoading && !collectionMovie,
+    enabled: Number.isFinite(id) && !isCollectionLoading && !hasCollectionMovie,
   })
 
   const { data: recommendationsResponse, isPending: isRecommendationsLoading } = useQuery({
     ...movieRecommendationsQueryOptions(id),
     enabled: Number.isFinite(id),
-    select: (response) => (response.results ?? []).map(mapTmdbMovie),
+    select: (response) => response.results.map(mapTmdbMovie),
   })
 
   function goBack() {
@@ -93,7 +94,7 @@ function MovieDetailsPage() {
     )
   }
 
-  const isPending = isCollectionLoading || (!collectionMovie && isDetailsPending)
+  const isPending = isCollectionLoading || (!hasCollectionMovie && isDetailsPending)
 
   if (isPending) {
     return (
@@ -103,23 +104,29 @@ function MovieDetailsPage() {
     )
   }
 
-  if (isError && !collectionMovie) {
+  const detailSource = collectionMovie ?? fetchedDetails
+
+  if (!detailSource) {
     return (
       <Empty className="my-12 rounded-2xl border border-border bg-card">
         <EmptyHeader>
-          <EmptyMedia variant="icon">
-            <AlertCircle />
-          </EmptyMedia>
+          {isError ? (
+            <EmptyMedia variant="icon">
+              <AlertCircle />
+            </EmptyMedia>
+          ) : null}
           <EmptyTitle>Could not load movie</EmptyTitle>
-          <EmptyDescription>{error.message}</EmptyDescription>
+          <EmptyDescription>
+            {isError ? error.message : 'This film could not be found.'}
+          </EmptyDescription>
         </EmptyHeader>
       </Empty>
     )
   }
 
-  const movie = mapTmdbMovie(collectionMovie ?? fetchedDetails!)
-  const isFavorite = collectionMovie?.isFavorite ?? false
-  const isWatchlisted = collectionMovie?.isWatchlisted ?? false
+  const movie = mapTmdbMovie(detailSource)
+  const isFavorite = hasCollectionMovie ? collectionRows[0].isFavorite : false
+  const isWatchlisted = hasCollectionMovie ? collectionRows[0].isWatchlisted : false
 
   return (
     <>
