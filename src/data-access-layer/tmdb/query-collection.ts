@@ -23,6 +23,8 @@ export const moviesCollection = createCollection(
     queryFn: async (ctx) => {
       const subset = parseMoviesBrowseSubset(ctx.meta?.loadSubsetOptions)
 
+      console.log({subset}) 
+
       if (subset.id != null && Number.isFinite(subset.id)) {
         const details = await fetchMovieDetails(subset.id)
         return [

@@ -2,7 +2,6 @@ import type { ComponentProps, ReactNode } from 'react'
 import type { Movie } from '#/types/movie'
 import { movieHeroImageUrl, posterUrl } from '#/utils/tmdb-images'
 import { movieViewTransitionName } from '#/utils/movie-view-transition'
-import { CachedImage } from '@/components/common/CachedImage'
 import { cn } from '@/lib/utils'
 import { ArrowLeft } from 'lucide-react'
 
@@ -25,7 +24,7 @@ export function MovieDetails({ movie, className, backAction, libraryActions }: M
           aria-hidden
           className="pointer-events-none absolute inset-x-0 top-0 h-[min(52vh,28rem)] overflow-hidden"
         >
-          <CachedImage
+          <img
             src={heroImage}
             alt=""
             className="h-full w-full scale-110 object-cover opacity-50 blur-xl"
@@ -41,7 +40,7 @@ export function MovieDetails({ movie, className, backAction, libraryActions }: M
           <div className="mx-auto w-full max-w-xs md:mx-0 md:max-w-none">
             <div className="island-shell overflow-hidden rounded-2xl border border-border bg-card shadow-lg">
               {poster ? (
-                <CachedImage
+                <img
                   src={poster}
                   alt={movie.title}
                   className="aspect-2/3 w-full object-cover"

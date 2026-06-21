@@ -2,7 +2,6 @@ import { movieRecommendationsQueryOptions } from '#/data-access-layer/tmdb/query
 import { posterUrl, mapTmdbMovie } from '#/utils/tmdb-images'
 import { movieViewTransitionName } from '#/utils/movie-view-transition'
 import { withViewTransition } from '#/utils/viewTransition'
-import { CachedImage } from '@/components/common/CachedImage'
 import { useQuery } from '@tanstack/react-query'
 import { Link, useNavigate } from '@tanstack/react-router'
 import { Loader } from 'lucide-react'
@@ -64,7 +63,7 @@ export function MovieRecommendations({ movieId }: MovieRecommendationsProps) {
               >
                 <div className="relative aspect-2/3 overflow-hidden bg-muted">
                   {image ? (
-                    <CachedImage
+                    <img
                       src={image}
                       alt={movie.title}
                       className="h-full w-full object-cover transition duration-300 hover:scale-[1.03]"
