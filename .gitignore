@@ -12,3 +12,14 @@ dist-ssr
 .vinxi
 __unconfig*
 todos.json
+
+*.sqlite
+*.sqlite3
+*.db
+
+test-results/
+playwright-report/
+blob-report/
+
+coverage/
+.cache/
