@@ -179,7 +179,7 @@ flowchart TD
 
 4. **`useViewer()`** — For components inside the protected shell. Uses `useSuspenseQuery(viewerqueryOptions)` and exposes `viewer`, `logoutMutation`. Sign-out calls `authClient.signOut()`, invalidates the viewer query, and redirects to `/login`.
 
-5. **Login** — Public route. `beforeLoad` redirects to `returnTo` (default `/movies`) when `context.viewer?.user` is already set. Google OAuth uses `authClient.signIn.social` with `callbackURL` built from `VITE_APP_URL`.
+5. **Login** — Public route. `beforeLoad` redirects to `returnTo` (default `/movies`) when `context.viewer?.user` is already set. Google OAuth uses `authClient.signIn.social` with `callbackURL` built from `getAppUrl()` (current origin in the browser; `VITE_APP_URL` for SSR/dev).
 
 ### Route access
 
@@ -199,7 +199,7 @@ flowchart TD
 
 **`getAuth()` instead of a module-level `auth` singleton** — On Cloudflare Workers the Drizzle database binding comes from `env` at request time. `getAuth()` creates the better-auth instance from `cloudflare:workers` env when needed.
 
-**Google-only for now** — Email/password and multi-session plugins are not enabled. The schema and better-auth setup are ready to extend.
+**Google-only for now** — Email/password and multi-session plugins are intentionally not enabled. Adding them means owning spam prevention (rate limits, CAPTCHA, disposable-email blocking), email delivery (transactional provider, templates, bounce handling), and password-reset flows — work that Google OAuth sidesteps for a movie-browse app. The Drizzle schema and better-auth setup are ready to extend when that scope is worth taking on.
 
 **Own backend auth instead of Clerk** — Sessions and OAuth run on our Worker + D1. No third-party auth UI or per-MAU billing; we keep the same deployment unit as the TMDB proxy.
 
@@ -246,10 +246,20 @@ File-based routes live in `src/routes`. TanStack Router generates `src/routeTree
 | Layer                                                          | Responsibility                                            |
 | -------------------------------------------------------------- | --------------------------------------------------------- |
 | Hono TMDB proxy (`src/server/tmdb-routes.ts`)                  | Server-side TMDB calls with `TMDB_API_KEY`                |
-| TanStack Query (`src/data-access-layer/tmdb/query-options.ts`) | HTTP fetch helpers, pagination metadata                   |
+| TanStack Query (`src/data-access-layer/tmdb/query-options.ts`) | `queryOptions` factories, HTTP fetch helpers, cache keys  |
 | TanStack DB (`src/data-access-layer/tmdb/query-collection.ts`) | Collections, live queries, joins with local library state |
 
 Movie browse uses `useLiveQuery` for the grid (movies + favorites + watchlist) and a parallel `useQuery` only where TanStack Query still owns pagination totals. Movie detail routes can prefetch via loaders where SSR is enabled.
+
+### Why `queryOptions` and live queries instead of custom hooks
+
+Custom hooks are kept to a minimum on purpose. Each wrapper adds indirection: you lose the ability to see what a screen is doing without opening three or four files, and subtle bugs creep in when hooks compose other hooks with slightly different assumptions. That pattern scales badly with codegen and agents, which tend to proliferate `useMovies`, `useMovieDetail`, `useFavoriteToggle`, and similar one-offs until the codebase is spaghetti that breaks in non-obvious ways.
+
+The recommended TanStack Query pattern for reusable fetch logic is **`queryOptions`** — a plain object with `queryKey`, `queryFn`, and related options that you pass straight to `useQuery`, `useSuspenseQuery`, or `ensureQueryData`. The viewer session (`viewerqueryOptions` in `src/data-access-layer/auth/viewer.ts`) and TMDB helpers in `src/data-access-layer/tmdb/query-options.ts` follow that shape: one definition, many call sites, no hidden state.
+
+For UI that mixes API catalog data with local library state, **`useLiveQuery`** on TanStack DB collections is the other half. Joins and filters are written inline in the component (or a thin colocated module), so you can read a screen and know exactly which collections and predicates it depends on — instead of tracing through a stack of custom hooks that each re-export a slice of the same data.
+
+Reach for a dedicated hook only when it encapsulates real interaction logic (mutations, form state, multi-step flows), not as a default wrapper around `useQuery`.
 
 ## Learn more
 
