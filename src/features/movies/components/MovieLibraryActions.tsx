@@ -52,6 +52,7 @@ export function MovieLibraryActions({
       <Button
         variant={isFavorite ? 'default' : 'secondary'}
         size={compact ? 'icon' : 'default'}
+        data-testid="add-favorite-button"
         aria-label={isFavorite ? 'Remove from favorites' : 'Add to favorites'}
         onClick={() => {
           withViewTransition(() => {
@@ -65,6 +66,7 @@ export function MovieLibraryActions({
       <Button
         variant={isWatchlisted ? 'default' : 'secondary'}
         size={compact ? 'icon' : 'default'}
+        data-testid="add-watchlist-button"
         aria-label={isWatchlisted ? 'Remove from watchlist' : 'Add to watchlist'}
         onClick={() => {
           withViewTransition(() => {

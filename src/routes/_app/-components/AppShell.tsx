@@ -40,6 +40,7 @@ export function AppShell() {
                 <button
                   key={item.href}
                   type="button"
+                  data-testid={`nav-${item.title.toLowerCase()}`}
                   onClick={() => {
                     if (active) return
                     withViewTransition(() => {

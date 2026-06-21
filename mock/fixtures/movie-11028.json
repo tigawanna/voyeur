@@ -1,0 +1,30 @@
+{
+  "adult": false,
+  "backdrop_path": "/recommended-pick-backdrop.jpg",
+  "genres": [
+    { "id": 27, "name": "Horror" },
+    { "id": 53, "name": "Thriller" }
+  ],
+  "id": 11028,
+  "imdb_id": "tt0110280",
+  "original_language": "en",
+  "original_title": "Recommended Pick",
+  "overview": "A recommendation fixture that should open from the detail page grid.",
+  "popularity": 88.4,
+  "poster_path": "/recommended-pick-poster.jpg",
+  "release_date": "1980-07-25",
+  "runtime": 106,
+  "status": "Released",
+  "tagline": "Recommended for testing.",
+  "title": "Recommended Pick",
+  "video": false,
+  "vote_average": 7.8,
+  "vote_count": 980,
+  "budget": 6500000,
+  "revenue": 32000000,
+  "homepage": "https://example.com/recommended-pick",
+  "production_companies": [{ "id": 2, "name": "Fixture Films" }],
+  "production_countries": [{ "iso_3166_1": "US", "name": "United States of America" }],
+  "spoken_languages": [{ "english_name": "English", "iso_639_1": "en", "name": "English" }],
+  "origin_country": ["US"]
+}

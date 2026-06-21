@@ -1,0 +1,30 @@
+{
+  "adult": false,
+  "backdrop_path": "/reel-hero-backdrop.jpg",
+  "genres": [
+    { "id": 18, "name": "Drama" },
+    { "id": 53, "name": "Thriller" }
+  ],
+  "id": 646097,
+  "imdb_id": "tt6460970",
+  "original_language": "en",
+  "original_title": "Reel Hero",
+  "overview": "A standout film used to verify the browse grid loads correctly.",
+  "popularity": 120.5,
+  "poster_path": "/reel-hero-poster.jpg",
+  "release_date": "2024-01-15",
+  "runtime": 128,
+  "status": "Released",
+  "tagline": "Every frame counts.",
+  "title": "Reel Hero",
+  "video": false,
+  "vote_average": 8.2,
+  "vote_count": 1200,
+  "budget": 42000000,
+  "revenue": 210000000,
+  "homepage": "https://example.com/reel-hero",
+  "production_companies": [{ "id": 1, "name": "Reelroom Pictures" }],
+  "production_countries": [{ "iso_3166_1": "US", "name": "United States of America" }],
+  "spoken_languages": [{ "english_name": "English", "iso_639_1": "en", "name": "English" }],
+  "origin_country": ["US"]
+}

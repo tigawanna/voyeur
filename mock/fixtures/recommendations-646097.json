@@ -1,0 +1,23 @@
+{
+  "page": 1,
+  "total_pages": 1,
+  "total_results": 1,
+  "results": [
+    {
+      "adult": false,
+      "backdrop_path": "/recommended-pick-backdrop.jpg",
+      "genre_ids": [27, 53],
+      "id": 11028,
+      "original_language": "en",
+      "original_title": "Recommended Pick",
+      "overview": "A recommendation fixture that should open from the detail page grid.",
+      "popularity": 88.4,
+      "poster_path": "/recommended-pick-poster.jpg",
+      "release_date": "1980-07-25",
+      "title": "Recommended Pick",
+      "video": false,
+      "vote_average": 7.8,
+      "vote_count": 980
+    }
+  ]
+}

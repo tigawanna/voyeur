@@ -1,0 +1,23 @@
+{
+  "page": 1,
+  "total_pages": 1,
+  "total_results": 1,
+  "results": [
+    {
+      "adult": false,
+      "backdrop_path": "/reel-hero-backdrop.jpg",
+      "genre_ids": [18, 53],
+      "id": 646097,
+      "original_language": "en",
+      "original_title": "Reel Hero",
+      "overview": "A standout film used to verify the browse grid loads correctly.",
+      "popularity": 120.5,
+      "poster_path": "/reel-hero-poster.jpg",
+      "release_date": "2024-01-15",
+      "title": "Reel Hero",
+      "video": false,
+      "vote_average": 8.2,
+      "vote_count": 1200
+    }
+  ]
+}

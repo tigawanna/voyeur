@@ -149,7 +149,7 @@ export function MoviesList() {
       totalPages={browseMeta?.totalPages}
       isRefetching={isRefetching}
     >
-      <div className="grid w-full grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5">
+      <div className="grid w-full grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5" data-testid="movies-browse-grid">
         {movies.map((movie) => (
           <MovieCard key={movie.id} movie={movie} />
         ))}

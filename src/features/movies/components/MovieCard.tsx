@@ -28,6 +28,7 @@ export function MovieCard({ movie, className }: MovieCardProps) {
 
   return (
     <article
+      data-testid={`movie-card-${timelineMovie.id}`}
       className={cn(
         'group island-shell rise-in overflow-hidden rounded-2xl border border-border bg-card',
         className,

@@ -45,7 +45,7 @@ export function MovieRecommendations({ movieId }: MovieRecommendationsProps) {
   }
 
   return (
-    <section className="mt-12 border-t border-border pt-10">
+    <section className="mt-12 border-t border-border pt-10" data-testid="movie-recommendations">
       <div className="mb-6">
         <p className="island-kicker mb-2">Because you opened this</p>
         <h2 className="text-2xl font-semibold tracking-tight text-foreground">You might also like</h2>

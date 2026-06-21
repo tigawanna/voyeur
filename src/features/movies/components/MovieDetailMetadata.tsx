@@ -121,7 +121,10 @@ export function MovieDetailMetadata({ movieId }: MovieDetailMetadataProps) {
 
   if (isLoading) {
     return (
-      <section className="island-shell rounded-2xl border border-border bg-card/60 p-6">
+      <section
+        className="island-shell rounded-2xl border border-border bg-card/60 p-6"
+        data-testid="movie-detail-metadata-loading"
+      >
         <h2 className="island-kicker mb-4">Details</h2>
         <div className="flex items-center justify-center py-10">
           <Loader className="size-5 animate-spin text-primary" />
@@ -137,7 +140,10 @@ export function MovieDetailMetadata({ movieId }: MovieDetailMetadataProps) {
   const movie = mapTmdbMovieDetail(detailRows[0])
 
   return (
-    <section className="island-shell rounded-2xl border border-border bg-card/60 p-6">
+    <section
+      className="island-shell rounded-2xl border border-border bg-card/60 p-6"
+      data-testid="movie-detail-metadata"
+    >
       <h2 className="island-kicker mb-4">Details</h2>
       <MovieDetailMetadataContent movie={movie} />
     </section>

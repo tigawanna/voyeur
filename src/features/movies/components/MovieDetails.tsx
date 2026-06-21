@@ -31,7 +31,7 @@ export function MovieDetails({
   ].filter(Boolean)
 
   return (
-    <article className={cn('relative isolate', className)}>
+    <article className={cn('relative isolate', className)} data-testid="movie-detail">
       {heroImage ? (
         <div
           aria-hidden
@@ -72,7 +72,10 @@ export function MovieDetails({
 
           <div className="flex min-w-0 flex-col gap-4 pt-2">
             <div>
-              <h1 className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+              <h1
+                className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl"
+                data-testid="movie-detail-title"
+              >
                 {movie.title}
               </h1>
               <p className="mt-2 text-sm text-muted-foreground">{metaParts.join(' · ')}</p>

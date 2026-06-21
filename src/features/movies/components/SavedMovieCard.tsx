@@ -29,6 +29,7 @@ export function SavedMovieCard({ movie, kind, className }: SavedMovieCardProps) 
 
   return (
     <article
+      data-testid={`saved-movie-card-${movie.movieId}`}
       className={cn(
         'group overflow-hidden rounded-xl border border-border bg-card text-card-foreground shadow-sm',
         className,
