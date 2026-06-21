@@ -3,6 +3,8 @@ import type { BrowseMovieWithLibrary } from '#/types/movie'
 import { posterUrl, mapTmdbMovie } from '#/utils/tmdb-images'
 import { movieViewTransitionName } from '#/utils/movie-view-transition'
 import { withViewTransition } from '#/utils/viewTransition'
+import { imageCacheClient } from '#/lib/image-cache/image-cache-client'
+import { CachedImage } from '@/components/common/CachedImage'
 import { cn } from '@/lib/utils'
 import { Link, useNavigate } from '@tanstack/react-router'
 
@@ -27,6 +29,12 @@ export function MovieCard({ movie, className }: MovieCardProps) {
         to="/movies/movie/$movieId"
         params={{ movieId: String(timelineMovie.id) }}
         className="block no-underline"
+        onMouseEnter={() => {
+          if (image) imageCacheClient.prefetch(image)
+        }}
+        onFocus={() => {
+          if (image) imageCacheClient.prefetch(image)
+        }}
         onClick={(event) => {
           event.preventDefault()
           withViewTransition(() => {
@@ -39,7 +47,7 @@ export function MovieCard({ movie, className }: MovieCardProps) {
       >
         <div className="relative aspect-2/3 overflow-hidden bg-muted">
           {image ? (
-            <img
+            <CachedImage
               src={image}
               alt={timelineMovie.title}
               className="h-full w-full object-cover transition duration-300 group-hover:scale-[1.03]"

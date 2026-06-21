@@ -2,6 +2,7 @@ import { Link } from '@tanstack/react-router'
 import { Bookmark, Star } from 'lucide-react'
 import type { SavedMovieRef } from '#/types/movie'
 import { posterUrl } from '#/utils/tmdb-images'
+import { CachedImage } from '@/components/common/CachedImage'
 import { cn } from '@/lib/utils'
 
 interface SavedMovieCardProps {
@@ -22,7 +23,12 @@ export function SavedMovieCard({ movie, kind }: SavedMovieCardProps) {
       >
         <div className="h-28 w-20 shrink-0 overflow-hidden rounded-xl bg-base-300">
           {image ? (
-            <img src={image} alt={movie.title} className="h-full w-full object-cover" loading="lazy" />
+            <CachedImage
+              src={image}
+              alt={movie.title}
+              className="h-full w-full object-cover"
+              loading="lazy"
+            />
           ) : null}
         </div>
         <div className="min-w-0 flex-1">

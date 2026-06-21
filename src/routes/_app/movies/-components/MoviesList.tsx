@@ -73,7 +73,7 @@ export function MoviesList() {
     }),
   })
 
-  const hasActiveFilters = Boolean(browseSearch.q?.trim())
+
   const hasPreviousResults = isError && movies.length > 0
 
   useEffect(() => {
@@ -107,13 +107,11 @@ export function MoviesList() {
               <EmptyTitle>Could not load movies</EmptyTitle>
               <EmptyDescription>{error.message}</EmptyDescription>
             </EmptyHeader>
-            {hasActiveFilters ? (
-              <EmptyContent className="flex-row justify-center gap-2">
-                <Button variant="outline" size="sm" onClick={clearFilters}>
-                  Clear filters
-                </Button>
-              </EmptyContent>
-            ) : null}
+            <EmptyContent className="flex-row justify-center gap-2">
+              <Button variant="outline" size="sm" onClick={clearFilters}>
+                Clear filters
+              </Button>
+            </EmptyContent>
           </Empty>
         </div>
       </MoviesListWrapper>
@@ -140,13 +138,11 @@ export function MoviesList() {
                   : 'No movies match the current filters.'}
               </EmptyDescription>
             </EmptyHeader>
-            {hasActiveFilters ? (
-              <EmptyContent className="flex-row justify-center gap-2">
-                <Button variant="outline" size="sm" onClick={clearFilters}>
-                  Clear filters
-                </Button>
-              </EmptyContent>
-            ) : null}
+            <EmptyContent className="flex-row justify-center gap-2">
+              <Button variant="outline" size="sm" onClick={clearFilters}>
+                Clear filters
+              </Button>
+            </EmptyContent>
           </Empty>
         </div>
       </MoviesListWrapper>

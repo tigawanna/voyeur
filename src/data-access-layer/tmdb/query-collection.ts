@@ -34,6 +34,7 @@ export const moviesCollection = createCollection(
     queryClient: globalQc,
     syncMode: 'on-demand',
     defaultIndexType: BasicIndex,
+    staleTime: 1000 * 60 * 60, // 5 minutes
   }),
 )
 
