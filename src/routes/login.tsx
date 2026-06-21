@@ -14,17 +14,7 @@ export const Route = createFileRoute("/login")({
   beforeLoad: ({ context, search }) => {
     const returnTo = search.returnTo === "/login" ? "/movies" : search.returnTo;
 
-    console.log("[voyeur:auth-bypass]", "login:beforeLoad", {
-      returnTo,
-      authBypassEnabled: context.authBypassEnabled,
-      hasViewer: Boolean(context.viewer?.user),
-    });
-
     if (canAccessApp(context)) {
-      console.log("[voyeur:auth-bypass]", "login:beforeLoad:redirect", {
-        returnTo,
-        reason: context.authBypassEnabled ? "bypass" : "viewer",
-      });
       throw redirect({ to: returnTo });
     }
   },

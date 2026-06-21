@@ -63,31 +63,16 @@ export function useViewer() {
 }
 
 export const viewerMiddleware = createMiddleware().server(async ({ next, request }) => {
-  const pathname = safeStringToUrl(request.url)?.pathname ?? "/";
-  const workerEnv = getWorkerEnv();
-  const authBypassEnabled = isAuthBypassEnabledOnServer(workerEnv, "viewerMiddleware");
-
-  if (authBypassEnabled) {
-    console.log("[voyeur:auth-bypass]", "viewerMiddleware:allow", { pathname, reason: "bypass" });
+  if (isAuthBypassEnabledOnServer(getWorkerEnv())) {
     return await next();
   }
 
   const session = await getAuth().api.getSession({ headers: request.headers });
   if (!session) {
+    const pathname = safeStringToUrl(request.url)?.pathname ?? "/";
     const returnTo = pathname === "/login" ? "/movies" : pathname;
-    console.log("[voyeur:auth-bypass]", "viewerMiddleware:redirect", {
-      pathname,
-      returnTo,
-      reason: "no-session",
-    });
     throw redirect({ to: "/login", search: { returnTo } });
   }
-
-  console.log("[voyeur:auth-bypass]", "viewerMiddleware:allow", {
-    pathname,
-    reason: "session",
-    userId: session.user.id,
-  });
 
   return await next({
     context: {

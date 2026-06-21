@@ -25,11 +25,6 @@ function LandingPage() {
       void navigate({ to: "/login", search: { returnTo: "/movies" } });
     });
   }
-console.log('== index.tsx : import.meta.env ==: ', import.meta.env)
-console.log(
-  '== index.tsx : import.meta.env.VITE_BYPASS_AUTH ==: ',
-  import.meta.env.VITE_BYPASS_AUTH,
-)
 
   return (
     <div className="flex min-h-dvh flex-col bg-background">

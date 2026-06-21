@@ -26,36 +26,17 @@ interface RouterContext {
 
 export const Route = createRootRouteWithContext<RouterContext>()({
   notFoundComponent: NotFoundPage,
-  loader: async () => {
-    const runtimeConfig = await getRuntimeConfig();
-    console.log("[voyeur:auth-bypass]", "__root:loader", runtimeConfig);
-    return runtimeConfig;
-  },
+  loader: async () => getRuntimeConfig(),
   beforeLoad: async ({ context }) => {
-    try {
-      const [viewer, runtimeConfig] = await Promise.all([
-        context.queryClient.ensureQueryData(viewerqueryOptions),
-        context.queryClient.ensureQueryData(runtimeConfigQueryOptions),
-      ]);
+    const [viewer, runtimeConfig] = await Promise.all([
+      context.queryClient.ensureQueryData(viewerqueryOptions),
+      context.queryClient.ensureQueryData(runtimeConfigQueryOptions),
+    ]);
 
-      const result = {
-        viewer: viewer.data ?? undefined,
-        authBypassEnabled: runtimeConfig.authBypassEnabled,
-      };
-
-      console.log("[voyeur:auth-bypass]", "__root:beforeLoad", {
-        authBypassEnabled: result.authBypassEnabled,
-        hasViewer: Boolean(result.viewer?.user),
-        viewerUserId: result.viewer?.user?.id ?? null,
-      });
-
-      return result;
-    } catch (error) {
-      console.error("[voyeur:auth-bypass]", "__root:beforeLoad:error", {
-        error: error instanceof Error ? error.message : error,
-      });
-      throw error;
-    }
+    return {
+      viewer: viewer.data ?? undefined,
+      authBypassEnabled: runtimeConfig.authBypassEnabled,
+    };
   },
   head: () => {
     const ogImageUrl = `${getAppUrl()}/og.png`;
