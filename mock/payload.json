@@ -1,100 +1,128 @@
 [
   {
     "method": "GET",
-    "url": "http://localhost:3072/api/tmdb/movies/936075/recommendations?page=1",
+    "url": "http://localhost:3072/api/tmdb/movies/646097/recommendations?page=1",
     "status": 200,
-    "duration": "2266ms",
-    "responseSize": "13.0KB"
-  },
-  {
-    "method": "GET",
-    "url": "http://localhost:3072/api/tmdb/movies/popular?page=1&region=US&language=en-US&sort_by=id.asc",
-    "status": 200,
-    "duration": "2049ms",
+    "duration": "610ms",
     "responseSize": "12.0KB"
   },
   {
     "method": "GET",
-    "url": "http://localhost:3072/api/tmdb/movies/1339713/recommendations?page=1",
+    "url": "http://localhost:3072/api/tmdb/movies/646097",
     "status": 200,
-    "duration": "4951ms",
-    "responseSize": "11.8KB"
+    "duration": "638ms",
+    "responseSize": "1.2KB"
   },
   {
     "method": "GET",
-    "url": "http://localhost:3072/api/tmdb/movies/popular?page=1&region=US&language=en-US&sort_by=id.asc",
+    "url": "http://localhost:3072/api/tmdb/movies/popular?page=1&region=US&language=en-US&sort_by=popularity.desc",
     "status": 200,
-    "duration": "4704ms",
+    "duration": "634ms",
+    "responseSize": "12.0KB"
+  },
+  {
+    "method": "GET",
+    "url": "http://localhost:3072/api/tmdb/movies/11028/recommendations?page=1",
+    "status": 200,
+    "duration": "308ms",
+    "responseSize": "12.6KB"
+  },
+  {
+    "method": "GET",
+    "url": "http://localhost:3072/api/tmdb/movies/11028",
+    "status": 200,
+    "duration": "275ms",
+    "responseSize": "1.2KB"
+  },
+  {
+    "method": "GET",
+    "url": "http://localhost:3072/api/tmdb/movies/popular?page=1&region=US&language=en-US&sort_by=popularity.desc",
+    "status": 200,
+    "duration": "205ms",
+    "responseSize": "12.0KB"
+  },
+  {
+    "method": "GET",
+    "url": "http://localhost:3072/api/tmdb/movies/1306368/recommendations?page=1",
+    "status": 200,
+    "duration": "293ms",
+    "responseSize": "12.7KB"
+  },
+  {
+    "method": "GET",
+    "url": "http://localhost:3072/api/tmdb/movies/1306368",
+    "status": 200,
+    "duration": "288ms",
+    "responseSize": "1.2KB"
+  },
+  {
+    "method": "GET",
+    "url": "http://localhost:3072/api/tmdb/movies/popular?page=1&region=US&language=en-US&sort_by=popularity.desc",
+    "status": 200,
+    "duration": "210ms",
+    "responseSize": "12.0KB"
+  },
+  {
+    "method": "GET",
+    "url": "http://localhost:3072/api/tmdb/movies/popular?page=3&region=US&language=en-US&sort_by=popularity.desc",
+    "status": 200,
+    "duration": "498ms",
+    "responseSize": "11.3KB"
+  },
+  {
+    "method": "GET",
+    "url": "http://localhost:3072/api/tmdb/movies/1419406/recommendations?page=1",
+    "status": 200,
+    "duration": "663ms",
+    "responseSize": "12.6KB"
+  },
+  {
+    "method": "GET",
+    "url": "http://localhost:3072/api/tmdb/movies/1419406",
+    "status": 200,
+    "duration": "288ms",
+    "responseSize": "1.5KB"
+  },
+  {
+    "method": "GET",
+    "url": "http://localhost:3072/api/tmdb/movies/popular?page=1&region=US&language=en-US&sort_by=popularity.desc",
+    "status": 200,
+    "duration": "223ms",
+    "responseSize": "12.0KB"
+  },
+  {
+    "method": "GET",
+    "url": "http://localhost:3072/api/tmdb/movies/popular?page=2&region=US&language=en-US&sort_by=popularity.desc",
+    "status": 200,
+    "duration": "630ms",
+    "responseSize": "11.9KB"
+  },
+  {
+    "method": "GET",
+    "url": "http://localhost:3072/api/tmdb/movies/popular?page=3&region=US&language=en-US&sort_by=popularity.desc",
+    "status": 200,
+    "duration": "368ms",
+    "responseSize": "11.3KB"
+  },
+  {
+    "method": "GET",
+    "url": "http://localhost:3072/api/tmdb/movies/popular?page=2&region=US&language=en-US&sort_by=popularity.desc",
+    "status": 200,
+    "duration": "336ms",
+    "responseSize": "11.9KB"
+  },
+  {
+    "method": "GET",
+    "url": "http://localhost:3072/api/tmdb/movies/popular?page=1&region=US&language=en-US&sort_by=popularity.desc",
+    "status": 200,
+    "duration": "690ms",
     "responseSize": "12.0KB"
   },
   {
     "method": "GET",
     "url": "http://localhost:3072/_serverFn/eyJmaWxlIjoiL3NyYy9saWIvYXV0aC5mdW5jdGlvbnMudHM_dHNzLXNlcnZlcmZuLXNwbGl0IiwiZXhwb3J0IjoiZ2V0U2Vzc2lvbl9jcmVhdGVTZXJ2ZXJGbl9oYW5kbGVyIn0",
     "status": 200,
-    "duration": "47ms",
+    "duration": "70ms",
     "responseSize": "1.1KB"
-  },
-  {
-    "method": "GET",
-    "url": "http://localhost:3072/api/tmdb/movies/popular?page=1&region=US&language=en-US&sort_by=popularity.desc",
-    "status": 200,
-    "duration": "12937ms",
-    "responseSize": "12.0KB"
-  },
-  {
-    "method": "GET",
-    "url": "http://localhost:3072/api/tmdb/movies/popular?page=1&region=US&language=en-US&sort_by=popularity.desc",
-    "status": 200,
-    "duration": "12067ms",
-    "responseSize": "12.0KB"
-  },
-  {
-    "method": "GET",
-    "url": "http://localhost:3072/api/tmdb/movies/popular?page=1&region=US&language=en-US&sort_by=popularity.desc",
-    "status": 200,
-    "duration": "10647ms",
-    "responseSize": "12.0KB"
-  },
-  {
-    "method": "GET",
-    "url": "http://localhost:3072/api/tmdb/movies/popular?page=1&region=US&language=en-US&sort_by=popularity.desc",
-    "status": 200,
-    "duration": "8417ms",
-    "responseSize": "12.0KB"
-  },
-  {
-    "method": "GET",
-    "url": "http://localhost:3072/api/tmdb/movies/popular?page=2&region=US&language=en-US&sort_by=popularity.desc",
-    "status": 200,
-    "duration": "8464ms",
-    "responseSize": "11.9KB"
-  },
-  {
-    "method": "GET",
-    "url": "http://localhost:3072/api/tmdb/movies/popular?page=2&region=US&language=en-US&sort_by=popularity.desc",
-    "status": 200,
-    "duration": "5855ms",
-    "responseSize": "11.9KB"
-  },
-  {
-    "method": "GET",
-    "url": "http://localhost:3072/api/tmdb/movies/popular?page=1&region=US&language=en-US&sort_by=popularity.asc",
-    "status": 200,
-    "duration": "2186ms",
-    "responseSize": "8.5KB"
-  },
-  {
-    "method": "GET",
-    "url": "http://localhost:3072/api/tmdb/movies/popular?page=1&region=US&language=en-US&sort_by=popularity.desc",
-    "status": 200,
-    "duration": "5839ms",
-    "responseSize": "12.0KB"
-  },
-  {
-    "method": "GET",
-    "url": "http://localhost:3072/api/tmdb/movies/search?query=thunder&page=4&region=US&language=en-US&sort_by=popularity.desc",
-    "status": 200,
-    "duration": "5110ms",
-    "responseSize": "11.5KB"
   }
 ]
