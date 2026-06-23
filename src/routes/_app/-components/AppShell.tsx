@@ -1,5 +1,7 @@
 import { useViewer } from "#/data-access-layer/auth/viewer";
+import { ensureDb } from "#/data-access-layer/tmdb/local-library-db";
 import { AppActivityNprogress } from "@/components/navigation/nprogress/AppActivityNprogress";
+import { Spinner } from "@/components/ui/spinner";
 import { AppConfig } from "#/utils/system";
 import { browseSearchDefaults } from "#/types/browse";
 import { cn } from "@/lib/utils";
@@ -7,6 +9,7 @@ import { withViewTransition } from "#/utils/viewTransition";
 import { Button } from "@/components/ui/button";
 import { Link, Outlet, useRouter, useRouterState } from "@tanstack/react-router";
 import { Bookmark, Film, LogOut, Settings, Star } from "lucide-react";
+import { useEffect, useState } from "react";
 
 const navItems = [
   { title: "Browse", href: "/movies", icon: Film },
@@ -16,10 +19,25 @@ const navItems = [
 ] as const;
 
 export function AppShell() {
+  const [dbReady, setDbReady] = useState(false);
   const pathname = useRouterState({ select: (state) => state.location.pathname });
   const router = useRouter();
   const { viewer, logoutMutation } = useViewer();
   const Icon = AppConfig.icon;
+
+  useEffect(() => {
+    void ensureDb().then(() => {
+      setDbReady(true);
+    });
+  }, []);
+
+  if (!dbReady) {
+    return (
+      <div className="flex h-svh items-center justify-center">
+        <Spinner className="size-8" />
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-dvh bg-background">

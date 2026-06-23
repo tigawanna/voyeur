@@ -25,10 +25,6 @@ import {
 } from "#/data-access-layer/tmdb/query-options";
 import type { MovieDetailsQueryResponse } from "#/data-access-layer/tmdb/generated/models/MovieDetails";
 import { getTanstackQueryContext } from "#/lib/tanstack/query/query-provider";
-import {
-  favoritesCollection,
-  watchlistCollection,
-} from "#/data-access-layer/tmdb/local-library-db";
 import { BasicIndex, createCollection } from "@tanstack/db";
 import { queryCollectionOptions } from "@tanstack/query-db-collection";
 
@@ -130,5 +126,3 @@ moviesCollection.createIndex((row) => row.popularity);
 moviesCollection.createIndex((row) => row.id);
 movieRecommendationsCollection.createIndex((row) => row.sourceMovieId);
 movieRecommendationsCollection.createIndex((row) => row.id);
-
-export { favoritesCollection, watchlistCollection };
