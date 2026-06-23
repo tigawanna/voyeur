@@ -1,4 +1,5 @@
 import { useViewer } from "#/data-access-layer/auth/viewer";
+import { syncLibraryEvents } from "#/data-access-layer/sync/sync-events";
 import { ensureDb } from "#/data-access-layer/tmdb/local-library-db";
 import { AppActivityNprogress } from "@/components/navigation/nprogress/AppActivityNprogress";
 import { Spinner } from "@/components/ui/spinner";
@@ -30,6 +31,14 @@ export function AppShell() {
       setDbReady(true);
     });
   }, []);
+
+  useEffect(() => {
+    if (!dbReady || !viewer.user) {
+      return;
+    }
+
+    void syncLibraryEvents();
+  }, [dbReady, viewer.user?.id]);
 
   if (!dbReady) {
     return (

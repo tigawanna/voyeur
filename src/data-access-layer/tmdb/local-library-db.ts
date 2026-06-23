@@ -21,6 +21,7 @@ async function initDb(): Promise<LocalLibraryDb> {
   } = await import("@tanstack/browser-db-sqlite-persistence");
   const { createEventSourcedDB } = await import("event-sourced-collection");
   const { createBrowserPlatform } = await import("event-sourced-collection/browser");
+  const { pullEvents, pushEvents } = await import("#/data-access-layer/sync/sync-transport");
 
   const platform = await createBrowserPlatform(
     {
@@ -36,6 +37,10 @@ async function initDb(): Promise<LocalLibraryDb> {
     createCollection,
     persistedCollectionOptions,
     debug: import.meta.env.DEV,
+    sync: {
+      pushEvents,
+      pullEvents,
+    },
     collections: {
       favorites: { getKey: (item: SavedMovieRef) => item.movieId },
       watchlist: { getKey: (item: SavedMovieRef) => item.movieId },

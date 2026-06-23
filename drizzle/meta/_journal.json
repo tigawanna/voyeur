@@ -15,6 +15,13 @@
       "when": 1781968387278,
       "tag": "0001_graceful_aaron_stack",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1782241175676,
+      "tag": "0002_greedy_squirrel_girl",
+      "breakpoints": true
     }
   ]
 }
