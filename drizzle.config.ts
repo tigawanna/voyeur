@@ -1,12 +1,43 @@
+import fs from "node:fs";
+import path from "node:path";
 import { defineConfig } from "drizzle-kit";
+
+const LOCAL_D1_DIR = path.resolve(
+  ".wrangler/state/v3/d1/miniflare-D1DatabaseObject",
+);
+
+function getLocalD1Url(): string {
+  if (process.env.DATABASE_URL) {
+    return process.env.DATABASE_URL;
+  }
+
+  if (!fs.existsSync(LOCAL_D1_DIR)) {
+    throw new Error(
+      'Local D1 database not found. Run "pnpm db:migrate:local" first, or set DATABASE_URL.',
+    );
+  }
+
+  const sqliteFiles = fs
+    .readdirSync(LOCAL_D1_DIR)
+    .filter((file) => file.endsWith(".sqlite") && file !== "metadata.sqlite")
+    .map((file) => path.join(LOCAL_D1_DIR, file))
+    .sort((a, b) => fs.statSync(b).mtimeMs - fs.statSync(a).mtimeMs);
+
+  const latest = sqliteFiles[0];
+  if (!latest) {
+    throw new Error(
+      'Local D1 database not found. Run "pnpm db:migrate:local" first, or set DATABASE_URL.',
+    );
+  }
+
+  return latest;
+}
 
 export default defineConfig({
   schema: "./src/lib/drizzle/schema/index.ts",
   out: "./drizzle",
   dialect: "sqlite",
   dbCredentials: {
-    url:
-      process.env.DATABASE_URL ??
-      "file:.wrangler/state/v3/d1/miniflare-D1DatabaseObject/a36f84ea60804f30bb0c7f7cad9f5336a6cca0165abdab8b9241d93dbf0b6006.sqlite",
+    url: getLocalD1Url(),
   },
 });
