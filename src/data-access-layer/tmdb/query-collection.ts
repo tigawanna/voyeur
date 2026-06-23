@@ -25,13 +25,10 @@ import {
 } from "#/data-access-layer/tmdb/query-options";
 import type { MovieDetailsQueryResponse } from "#/data-access-layer/tmdb/generated/models/MovieDetails";
 import { getTanstackQueryContext } from "#/lib/tanstack/query/query-provider";
-import type { SavedMovieRef } from "#/types/movie";
 import {
-  BrowserCollectionCoordinator,
-  createBrowserWASQLitePersistence,
-  openBrowserWASQLiteOPFSDatabase,
-  persistedCollectionOptions,
-} from "@tanstack/browser-db-sqlite-persistence";
+  favoritesCollection,
+  watchlistCollection,
+} from "#/data-access-layer/tmdb/local-library-db";
 import { BasicIndex, createCollection } from "@tanstack/db";
 import { queryCollectionOptions } from "@tanstack/query-db-collection";
 
@@ -134,40 +131,4 @@ moviesCollection.createIndex((row) => row.id);
 movieRecommendationsCollection.createIndex((row) => row.sourceMovieId);
 movieRecommendationsCollection.createIndex((row) => row.id);
 
-const database = await openBrowserWASQLiteOPFSDatabase({
-  databaseName: "voyeur.sqlite",
-});
-
-const coordinator = new BrowserCollectionCoordinator({
-  dbName: "voyeur",
-});
-
-const persistence = createBrowserWASQLitePersistence({
-  database,
-  coordinator,
-});
-
-// Local library — persisted to browser SQLite, mutated via insert/delete in MovieLibraryActions.
-export const favoritesCollection = createCollection(
-  persistedCollectionOptions<SavedMovieRef, number>({
-    id: "favorites",
-    getKey: (item) => item.movieId,
-    persistence,
-    schemaVersion: 1,
-    defaultIndexType: BasicIndex,
-  }),
-);
-
-favoritesCollection.createIndex((row) => row.movieId);
-
-export const watchlistCollection = createCollection(
-  persistedCollectionOptions<SavedMovieRef, number>({
-    id: "watchlist",
-    getKey: (item) => item.movieId,
-    persistence,
-    schemaVersion: 1,
-    defaultIndexType: BasicIndex,
-  }),
-);
-
-watchlistCollection.createIndex((row) => row.movieId);
+export { favoritesCollection, watchlistCollection };

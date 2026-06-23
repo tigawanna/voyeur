@@ -8,6 +8,7 @@ import {
   getTanstackQueryContext,
 } from "#/lib/tanstack/query/query-provider";
 import { AppDevtools } from "#/lib/tanstack/devtools/app-devtools";
+import { ErrorPage } from "#/routes/-components/ErrorPage";
 import { NotFoundPage } from "#/routes/-components/NotFoundPage";
 import appCss from "#/styles.css?url";
 import { AppConfig } from "#/utils/system";
@@ -25,6 +26,7 @@ interface RouterContext {
 }
 
 export const Route = createRootRouteWithContext<RouterContext>()({
+  errorComponent: ErrorPage,
   notFoundComponent: NotFoundPage,
   loader: async () => getRuntimeConfig(),
   beforeLoad: async ({ context }) => {
