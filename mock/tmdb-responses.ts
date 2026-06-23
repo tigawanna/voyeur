@@ -8,9 +8,11 @@ function loadFixture<T>(filename: string): T {
   return JSON.parse(readFileSync(join(fixturesDir, filename), "utf8")) as T;
 }
 
+type MovieFixture = Record<string, unknown>;
+
 const popularPage1 = loadFixture("popular-page-1.json");
-const movie646097 = loadFixture("movie-646097.json");
-const movie11028 = loadFixture("movie-11028.json");
+const movie646097 = loadFixture<MovieFixture>("movie-646097.json");
+const movie11028 = loadFixture<MovieFixture>("movie-11028.json");
 const recommendations646097 = loadFixture("recommendations-646097.json");
 const recommendations11028 = loadFixture("recommendations-11028.json");
 

@@ -34,7 +34,9 @@ const serverEntry: CloudflareServerEntry = {
       return honoApp.fetch(request, env, ctx);
     }
 
-    return runWithWorkerEnv(env, () => handler.fetch(request));
+    return runWithWorkerEnv(env, () =>
+      handler.fetch(request, { context: { isServer: true } }),
+    );
   },
 };
 

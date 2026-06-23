@@ -5,7 +5,6 @@ import { LoadingState } from "@/components/common/LoadingState";
 import { Empty, EmptyDescription, EmptyHeader, EmptyTitle } from "@/components/ui/empty";
 import { useLiveQuery } from "@tanstack/react-db";
 import { createFileRoute } from "@tanstack/react-router";
-import type { SavedMovieRef } from "#/types/movie";
 
 export const Route = createFileRoute("/_app/watchlist/")({
   component: WatchlistPage,

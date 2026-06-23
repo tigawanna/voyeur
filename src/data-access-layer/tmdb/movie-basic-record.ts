@@ -5,7 +5,7 @@ export function fromSavedMovieRefToBasicRecord(movie: SavedMovieRef): MovieDetai
   return {
     id: movie.movieId,
     title: movie.title,
-    poster_path: movie.posterPath,
+    poster_path: movie.posterPath ?? undefined,
     overview: "",
     backdrop_path: undefined,
     release_date: undefined,
