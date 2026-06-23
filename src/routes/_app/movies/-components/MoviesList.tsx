@@ -1,8 +1,7 @@
+import { db } from "#/data-access-layer/tmdb/local-library-db";
 import {
-  favoritesCollection,
   movieBasicCollection,
   moviesCollection,
-  watchlistCollection,
 } from "#/data-access-layer/tmdb/query-collection";
 import { MovieCard } from "#/features/movies/components/MovieCard";
 import { Button } from "@/components/ui/button";
@@ -39,10 +38,10 @@ export function MoviesList() {
     (q) =>
       q
         .from({ movie: moviesCollection })
-        .leftJoin({ favorite: favoritesCollection }, ({ movie, favorite }) =>
+        .leftJoin({ favorite: db.collections.favorites }, ({ movie, favorite }) =>
           eq(movie.id, favorite.movieId),
         )
-        .leftJoin({ watchlist: watchlistCollection }, ({ movie, watchlist }) =>
+        .leftJoin({ watchlist: db.collections.watchlist }, ({ movie, watchlist }) =>
           eq(movie.id, watchlist.movieId),
         )
         .where(({ movie }) =>

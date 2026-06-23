@@ -1,7 +1,4 @@
-import {
-  favoritesCollection,
-  watchlistCollection,
-} from "#/data-access-layer/tmdb/query-collection";
+import { db } from "#/data-access-layer/tmdb/local-library-db";
 import { useViewer } from "#/data-access-layer/auth/viewer";
 import { ConfirmDialog } from "#/components/common/ConfirmDialog";
 import type { SavedMovieRef } from "#/types/movie";
@@ -25,8 +22,8 @@ async function clearLocalLibraryData(
   watchlist: SavedMovieRef[],
 ) {
   await Promise.all([
-    ...favorites.map((item) => favoritesCollection.delete(item.movieId)),
-    ...watchlist.map((item) => watchlistCollection.delete(item.movieId)),
+    ...favorites.map((item) => db.collections.favorites.delete(item.movieId)),
+    ...watchlist.map((item) => db.collections.watchlist.delete(item.movieId)),
   ]);
 }
 
@@ -35,7 +32,7 @@ function SettingsPage() {
   const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
   const { data: favoritesData } = useLiveQuery(
     (query) =>
-      query.from({ favorite: favoritesCollection }).select(({ favorite }) => ({
+      query.from({ favorite: db.collections.favorites }).select(({ favorite }) => ({
         movieId: favorite.movieId,
         title: favorite.title,
         posterPath: favorite.posterPath,
@@ -45,7 +42,7 @@ function SettingsPage() {
   );
   const { data: watchlistData } = useLiveQuery(
     (query) =>
-      query.from({ watchlist: watchlistCollection }).select(({ watchlist }) => ({
+      query.from({ watchlist: db.collections.watchlist }).select(({ watchlist }) => ({
         movieId: watchlist.movieId,
         title: watchlist.title,
         posterPath: watchlist.posterPath,

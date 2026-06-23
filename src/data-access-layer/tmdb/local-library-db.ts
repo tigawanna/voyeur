@@ -36,14 +36,6 @@ async function initDb(): Promise<LocalLibraryDb> {
     createCollection,
     persistedCollectionOptions,
     debug: import.meta.env.DEV,
-    // sync:{
-    //   pullEvents:(since) => {
-       
-    //   },
-    //   pushEvents: async (events) => {
-        
-    //   },
-    // },
     collections: {
       favorites: { getKey: (item: SavedMovieRef) => item.movieId },
       watchlist: { getKey: (item: SavedMovieRef) => item.movieId },

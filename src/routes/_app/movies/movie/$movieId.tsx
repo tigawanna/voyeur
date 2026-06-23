@@ -1,10 +1,9 @@
+import { db } from "#/data-access-layer/tmdb/local-library-db";
 import {
-  favoritesCollection,
   movieBasicCollection,
   movieDetailCollection,
   movieRecommendationsCollection,
   moviesCollection,
-  watchlistCollection,
 } from "#/data-access-layer/tmdb/query-collection";
 import { MovieLibraryActions } from "#/features/movies/components/MovieLibraryActions";
 import { MovieDetails, MovieDetailsBackButton } from "#/features/movies/components/MovieDetails";
@@ -66,7 +65,7 @@ function MovieDetailsPage() {
   // Local favorites collection — drives the favorite toggle state.
   const { data: favoriteRows } = useLiveQuery(
     (q) =>
-      q.from({ favorite: favoritesCollection }).where(({ favorite }) => eq(favorite.movieId, id)),
+      q.from({ favorite: db.collections.favorites }).where(({ favorite }) => eq(favorite.movieId, id)),
     [id],
   );
 
@@ -74,7 +73,7 @@ function MovieDetailsPage() {
   const { data: watchlistRows } = useLiveQuery(
     (q) =>
       q
-        .from({ watchlist: watchlistCollection })
+        .from({ watchlist: db.collections.watchlist })
         .where(({ watchlist }) => eq(watchlist.movieId, id)),
     [id],
   );

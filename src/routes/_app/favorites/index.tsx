@@ -1,7 +1,5 @@
-import {
-  favoritesCollection,
-  movieBasicCollection,
-} from "#/data-access-layer/tmdb/query-collection";
+import { db } from "#/data-access-layer/tmdb/local-library-db";
+import { movieBasicCollection } from "#/data-access-layer/tmdb/query-collection";
 import { SavedMovieCard } from "#/features/movies/components/SavedMovieCard";
 import { LoadingState } from "@/components/common/LoadingState";
 import { Empty, EmptyDescription, EmptyHeader, EmptyTitle } from "@/components/ui/empty";
@@ -18,7 +16,7 @@ function FavoritesPage() {
 
   const { data, isLoading } = useLiveQuery(
     (query) =>
-      query.from({ favorite: favoritesCollection }).select(({ favorite }) => ({
+      query.from({ favorite: db.collections.favorites }).select(({ favorite }) => ({
         movieId: favorite.movieId,
         title: favorite.title,
         posterPath: favorite.posterPath,

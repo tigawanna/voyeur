@@ -1,7 +1,4 @@
-import {
-  favoritesCollection,
-  watchlistCollection,
-} from "#/data-access-layer/tmdb/query-collection";
+import { db } from "#/data-access-layer/tmdb/local-library-db";
 import { Bookmark, BookmarkCheck, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import type { Movie } from "#/types/movie";
@@ -31,20 +28,20 @@ export function MovieLibraryActions({
 }: MovieLibraryActionsProps) {
   async function toggleFavorite(currentlyFavorite: boolean) {
     if (currentlyFavorite) {
-      await favoritesCollection.delete(movie.id);
+      await db.collections.favorites.delete(movie.id);
       return;
     }
 
-    await favoritesCollection.insert(toSavedRef(movie));
+    await db.collections.favorites.insert(toSavedRef(movie));
   }
 
   async function toggleWatchlist(currentlyWatchlisted: boolean) {
     if (currentlyWatchlisted) {
-      await watchlistCollection.delete(movie.id);
+      await db.collections.watchlist.delete(movie.id);
       return;
     }
 
-    await watchlistCollection.insert(toSavedRef(movie));
+    await db.collections.watchlist.insert(toSavedRef(movie));
   }
 
   return (

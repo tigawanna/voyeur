@@ -1,8 +1,5 @@
-import {
-  favoritesCollection,
-  movieRecommendationsCollection,
-  watchlistCollection,
-} from "#/data-access-layer/tmdb/query-collection";
+import { db } from "#/data-access-layer/tmdb/local-library-db";
+import { movieRecommendationsCollection } from "#/data-access-layer/tmdb/query-collection";
 import { MovieCard } from "#/features/movies/components/MovieCard";
 import type { RecommendationMovieWithLibrary } from "#/types/movie";
 import { eq, isUndefined, not, useLiveQuery } from "@tanstack/react-db";
@@ -17,10 +14,10 @@ export function MovieRecommendations({ movieId }: MovieRecommendationsProps) {
     (q) =>
       q
         .from({ movie: movieRecommendationsCollection })
-        .leftJoin({ favorite: favoritesCollection }, ({ movie, favorite }) =>
+        .leftJoin({ favorite: db.collections.favorites }, ({ movie, favorite }) =>
           eq(movie.id, favorite.movieId),
         )
-        .leftJoin({ watchlist: watchlistCollection }, ({ movie, watchlist }) =>
+        .leftJoin({ watchlist: db.collections.watchlist }, ({ movie, watchlist }) =>
           eq(movie.id, watchlist.movieId),
         )
         .where(({ movie }) => eq(movie.sourceMovieId, movieId))

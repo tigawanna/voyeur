@@ -1,7 +1,5 @@
-import {
-  movieBasicCollection,
-  watchlistCollection,
-} from "#/data-access-layer/tmdb/query-collection";
+import { db } from "#/data-access-layer/tmdb/local-library-db";
+import { movieBasicCollection } from "#/data-access-layer/tmdb/query-collection";
 import { SavedMovieCard } from "#/features/movies/components/SavedMovieCard";
 import { LoadingState } from "@/components/common/LoadingState";
 import { Empty, EmptyDescription, EmptyHeader, EmptyTitle } from "@/components/ui/empty";
@@ -18,7 +16,7 @@ function WatchlistPage() {
 
   const { data, isLoading } = useLiveQuery(
     (query) =>
-      query.from({ watchlist: watchlistCollection }).select(({ watchlist }) => ({
+      query.from({ watchlist: db.collections.watchlist }).select(({ watchlist }) => ({
         movieId: watchlist.movieId,
         title: watchlist.title,
         posterPath: watchlist.posterPath,
