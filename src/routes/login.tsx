@@ -1,28 +1,28 @@
+import { Footer } from "#/components/navigation/Footer";
 import { canAccessApp } from "#/data-access-layer/auth/auth-bypass";
 import { LoginCard } from "#/features/auth/components/LoginCard";
-import { Footer } from "#/components/navigation/Footer";
 import { AppConfig } from "#/utils/system";
 import { Link, createFileRoute, redirect } from "@tanstack/react-router";
 import { z } from "zod";
 
-const loginSearchSchema = z.object({
-  returnTo: z.string().default("/movies"),
-});
+const searchparams = z.object({
+  returnTo: z.string().default('/movies'),
+})
 
-export const Route = createFileRoute("/login")({
-  validateSearch: loginSearchSchema,
+export const Route = createFileRoute('/login')({
+  validateSearch: searchparams,
   beforeLoad: ({ context, search }) => {
-    const returnTo = search.returnTo === "/login" ? "/movies" : search.returnTo;
+    const returnTo = search.returnTo === '/login' ? '/movies' : search.returnTo
 
     if (canAccessApp(context)) {
-      throw redirect({ to: returnTo });
+      throw redirect({ to: returnTo })
     }
   },
   head: () => ({
     meta: [{ title: `${AppConfig.name} | Sign in` }],
   }),
   component: LoginPage,
-});
+})
 
 function LoginPage() {
   const { returnTo } = Route.useSearch();

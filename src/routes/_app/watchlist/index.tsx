@@ -27,7 +27,7 @@ function WatchlistPage() {
     [],
   );
 
-  const watchlist = (data ?? []) as SavedMovieRef[];
+  const watchlist = data
 
   return (
     <section>
