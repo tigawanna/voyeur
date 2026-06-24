@@ -90,8 +90,8 @@ importers:
         specifier: ^8.6.0
         version: 8.6.0(react@19.2.7)
       event-sourced-collection:
-        specifier: ^0.0.5
-        version: 0.0.5(@tanstack/browser-db-sqlite-persistence@0.2.1(@journeyapps/wa-sqlite@1.7.0)(typescript@6.0.3))(@tanstack/db-sqlite-persistence-core@0.2.1(typescript@6.0.3))(@tanstack/db@0.6.9(typescript@6.0.3))
+        specifier: ^0.0.6
+        version: 0.0.6(@tanstack/browser-db-sqlite-persistence@0.2.1(@journeyapps/wa-sqlite@1.7.0)(typescript@6.0.3))(@tanstack/db-sqlite-persistence-core@0.2.1(typescript@6.0.3))(@tanstack/db@0.6.9(typescript@6.0.3))
       evlog:
         specifier: ^2.19.2
         version: 2.19.2(@tanstack/start-client-core@1.170.12)(express@5.2.1)(hono@4.12.27)(nitro-nightly@3.0.1-20260623-055145-de9708f5(better-sqlite3@12.11.1)(chokidar@5.0.0)(dotenv@17.4.2)(drizzle-orm@0.45.2(@cloudflare/workers-types@4.20260623.1)(@types/better-sqlite3@7.6.13)(better-sqlite3@12.11.1)(kysely@0.29.2))(jiti@2.7.0)(lru-cache@11.5.1)(miniflare@4.20260623.0)(vite@8.1.0(@types/node@22.20.0)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.22.4))(wrangler@4.104.0(@cloudflare/workers-types@4.20260623.1)))(ofetch@2.0.0-alpha.3)(react@19.2.7)(vite@8.1.0(@types/node@22.20.0)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.22.4))
@@ -4123,8 +4123,8 @@ packages:
   event-emitter@0.3.5:
     resolution: {integrity: sha512-D9rRn9y7kLPnJ+hMq7S/nhvoKwwvVJahBi2BPmx3bvbsEdK3W9ii8cBSGjP+72/LnM4n6fo3+dkCX5FeTQruXA==}
 
-  event-sourced-collection@0.0.5:
-    resolution: {integrity: sha512-qVm2HNvbV0ifFjNEPDMLkmNIFT/mHoqtzKFbNgjt+YvkfByXrlK+VkgJ37jY5CNl2CMyGeWMAcNWi36DBp2ALA==}
+  event-sourced-collection@0.0.6:
+    resolution: {integrity: sha512-e+nbaXmLA/aVbaUThSWEI20SmsXtfvsqtWqsVKlfzizFLAY16e7mnMxU4hkRSN7B0e7mf6d5QudvVT2zM+h1Rw==}
     engines: {node: '>=18'}
     peerDependencies:
       '@tanstack/browser-db-sqlite-persistence': '>=0.2.0'
@@ -9778,7 +9778,7 @@ snapshots:
       d: 1.0.2
       es5-ext: 0.10.64
 
-  event-sourced-collection@0.0.5(@tanstack/browser-db-sqlite-persistence@0.2.1(@journeyapps/wa-sqlite@1.7.0)(typescript@6.0.3))(@tanstack/db-sqlite-persistence-core@0.2.1(typescript@6.0.3))(@tanstack/db@0.6.9(typescript@6.0.3)):
+  event-sourced-collection@0.0.6(@tanstack/browser-db-sqlite-persistence@0.2.1(@journeyapps/wa-sqlite@1.7.0)(typescript@6.0.3))(@tanstack/db-sqlite-persistence-core@0.2.1(typescript@6.0.3))(@tanstack/db@0.6.9(typescript@6.0.3)):
     dependencies:
       '@tanstack/db': 0.6.9(typescript@6.0.3)
       '@tanstack/db-sqlite-persistence-core': 0.2.1(typescript@6.0.3)

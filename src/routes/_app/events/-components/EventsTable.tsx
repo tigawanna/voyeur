@@ -60,7 +60,7 @@ export function EventsTable({
   }
 
   return (
-    <div className="island-shell rounded-3xl border">
+    <div className="island-shell overflow-x-auto rounded-3xl border">
       <Table>
         <TableHeader>
           <TableRow>
@@ -176,7 +176,7 @@ function SyncBadge({ sync, syncedLabel, pendingLabel }: SyncBadgeProps) {
 
 function EventsTableSkeleton() {
   return (
-    <div className="island-shell rounded-3xl border">
+    <div className="island-shell overflow-x-auto rounded-3xl border">
       <Table>
         <TableHeader>
           <TableRow>

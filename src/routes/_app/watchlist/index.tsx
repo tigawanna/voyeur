@@ -28,9 +28,9 @@ function WatchlistPage() {
 
   return (
     <section>
-      <div className="mb-8">
+      <div className="mb-4 sm:mb-8">
         <p className="island-kicker mb-2">Up next</p>
-        <h1 className="display-title text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
+        <h1 className="display-title text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
           Watchlist
         </h1>
       </div>
@@ -46,7 +46,7 @@ function WatchlistPage() {
         </Empty>
       ) : null}
       <div
-        className="grid grid-cols-3 gap-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7"
+        className="grid grid-cols-2 gap-2 sm:grid-cols-3 sm:gap-3 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7"
         data-testid="watchlist-grid"
       >
         {watchlist.map((movie) => (

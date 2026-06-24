@@ -92,10 +92,10 @@ export function LogsViewer() {
 
   return (
     <section className="mx-auto max-w-6xl">
-      <div className="mb-8 flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+      <div className="mb-4 flex flex-col gap-3 sm:mb-8 sm:flex-row sm:items-start sm:justify-between">
         <div>
           <p className="island-kicker mb-2">Observability</p>
-          <h1 className="display-title text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
+          <h1 className="display-title text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
             Request logs
           </h1>
           <p className="mt-2 text-sm text-muted-foreground">
@@ -155,7 +155,7 @@ export function LogsViewer() {
 
       {!isLoading && !errorMessage && total > 0 ? (
         <div className="flex flex-col gap-4">
-          <div className="rounded-3xl border border-border bg-card/60">
+          <div className="overflow-x-auto rounded-3xl border border-border bg-card/60">
             <Table>
               <TableHeader>
                 <TableRow>

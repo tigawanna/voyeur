@@ -14,7 +14,7 @@ export function BrowseListPagination({ totalPages }: BrowseListPaginationProps) 
   if (totalPages <= 1) return null;
 
   return (
-    <div className="mx-auto flex w-full min-w-0 max-w-[70%] items-center justify-center overflow-hidden py-2">
+    <div className="mx-auto flex w-full min-w-0 max-w-full items-center justify-center overflow-hidden px-1 py-2 sm:max-w-[70%]">
       <ResponsivePagination
         current={browseSearch.page}
         total={totalPages}

@@ -92,7 +92,7 @@ export function MoviesList() {
     return (
       <MoviesListWrapper isRefetching={isRefetching}>
         <div className="flex h-full w-full flex-col items-center justify-center">
-          <Empty className="my-8 max-h-[40%] max-w-[60%] rounded-2xl bg-base-200">
+          <Empty className="my-8 w-full max-w-md rounded-2xl bg-base-200 sm:max-w-[60%]">
             <EmptyHeader>
               <EmptyMedia variant="icon">
                 <AlertCircle />
@@ -119,7 +119,7 @@ export function MoviesList() {
         isRefetching={isRefetching}
       >
         <div className="flex h-full w-full flex-col items-center justify-center">
-          <Empty className="my-8 max-h-[40%] max-w-[60%] rounded-2xl bg-base-200">
+          <Empty className="my-8 w-full max-w-md rounded-2xl bg-base-200 sm:max-w-[60%]">
             <EmptyHeader>
               <EmptyMedia variant="icon">
                 <SearchX />
@@ -149,7 +149,7 @@ export function MoviesList() {
       isRefetching={isRefetching}
     >
       <div
-        className="grid w-full grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5"
+        className="grid w-full grid-cols-1 gap-3 min-[420px]:grid-cols-2 sm:gap-4 lg:grid-cols-4 2xl:grid-cols-5"
         data-testid="movies-browse-grid"
       >
         {movies.map((movie) => (

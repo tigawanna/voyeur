@@ -94,14 +94,14 @@ function SettingsPage() {
 
   return (
     <section className="mx-auto max-w-2xl">
-      <div className="mb-8">
+      <div className="mb-4 sm:mb-8">
         <p className="island-kicker mb-2">Account</p>
-        <h1 className="display-title text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
+        <h1 className="display-title text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
           Settings
         </h1>
       </div>
 
-      <div className="island-shell space-y-6 rounded-3xl p-6 sm:p-8">
+      <div className="island-shell space-y-6 rounded-3xl p-4 sm:p-6 lg:p-8">
         <div>
           <h2 className="text-lg font-semibold text-foreground">Profile</h2>
           <dl className="mt-4 space-y-3 text-sm">

@@ -76,8 +76,10 @@ export function MovieCard({ movie, className }: MovieCardProps) {
           </div>
         </div>
       </Link>
-      <div className="flex flex-col gap-3 p-4">
-        <p className="m-0 line-clamp-2 text-sm text-muted-foreground">{timelineMovie.overview}</p>
+      <div className="flex flex-col gap-2 p-3 sm:gap-3 sm:p-4">
+        <p className="m-0 line-clamp-2 text-sm text-muted-foreground max-sm:line-clamp-1">
+          {timelineMovie.overview}
+        </p>
         <MovieLibraryActions
           movie={timelineMovie}
           isFavorite={movie.isFavorite}
