@@ -1,11 +1,12 @@
+import { BasicIndex } from "@tanstack/db";
 import { createBrowserEventSourcedDB } from "event-sourced-collection/browser";
-import type { EventSourcedDB } from "event-sourced-collection";
+import type { CollectionDef, EventSourcedDB } from "event-sourced-collection";
 import { pullEvents, pushEvents } from "#/data-access-layer/sync/sync-transport";
 import type { SavedMovieRef } from "#/types/movie";
 
 type LocalLibraryCollectionDefs = {
-  favorites: { getKey: (item: SavedMovieRef) => number };
-  watchlist: { getKey: (item: SavedMovieRef) => number };
+  favorites: CollectionDef<SavedMovieRef, number>;
+  watchlist: CollectionDef<SavedMovieRef, number>;
 };
 
 export type LocalLibraryDb = EventSourcedDB<LocalLibraryCollectionDefs>;
@@ -15,8 +16,14 @@ const { ensureDb, db } = createBrowserEventSourcedDB<LocalLibraryCollectionDefs>
   coordinatorDbName: "voyeur",
   debug: import.meta.env.DEV,
   collections: {
-    favorites: { getKey: (item: SavedMovieRef) => item.movieId },
-    watchlist: { getKey: (item: SavedMovieRef) => item.movieId },
+    favorites: {
+      getKey: (item: SavedMovieRef) => item.movieId,
+      indexes: [{ select: (item: SavedMovieRef) => item.movieId, indexType: BasicIndex }],
+    },
+    watchlist: {
+      getKey: (item: SavedMovieRef) => item.movieId,
+      indexes: [{ select: (item: SavedMovieRef) => item.movieId, indexType: BasicIndex }],
+    },
   },
   sync: { pushEvents, pullEvents },
   load: async () => {
