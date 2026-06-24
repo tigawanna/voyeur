@@ -1,6 +1,6 @@
 interface SiteIconProps {
-  className?: string
-  size?: number
+  className?: string;
+  size?: number;
 }
 
 export function SiteIcon({ className, size }: SiteIconProps) {
@@ -44,5 +44,5 @@ export function SiteIcon({ className, size }: SiteIconProps) {
         />
       </g>
     </svg>
-  )
+  );
 }

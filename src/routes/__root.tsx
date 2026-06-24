@@ -17,6 +17,8 @@ import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { ThemeProvider } from "@/lib/tanstack/router/theme-provider";
 import type { QueryClient } from "@tanstack/react-query";
+import { createMiddleware } from "@tanstack/react-start";
+import { evlogErrorHandler } from "evlog/nitro/v3";
 import { HeadContent, Outlet, Scripts, createRootRouteWithContext } from "@tanstack/react-router";
 
 interface RouterContext {
@@ -26,6 +28,9 @@ interface RouterContext {
 }
 
 export const Route = createRootRouteWithContext<RouterContext>()({
+  server: {
+    middleware: [createMiddleware().server(evlogErrorHandler)],
+  },
   errorComponent: ErrorPage,
   notFoundComponent: NotFoundPage,
   loader: async () => getRuntimeConfig(),

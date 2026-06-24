@@ -1,8 +1,5 @@
 import { db } from "#/data-access-layer/tmdb/local-library-db";
-import {
-  movieBasicCollection,
-  moviesCollection,
-} from "#/data-access-layer/tmdb/query-collection";
+import { movieBasicCollection, moviesCollection } from "#/data-access-layer/tmdb/query-collection";
 import { MovieCard } from "#/features/movies/components/MovieCard";
 import { Button } from "@/components/ui/button";
 import {

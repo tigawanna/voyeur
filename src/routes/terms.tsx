@@ -40,9 +40,9 @@ function TermsPage() {
 
       <h2>Accounts</h2>
       <p>
-        You sign in with Google. You are responsible for activity that occurs under your account
-        and for maintaining the security of your Google account. You must provide accurate
-        information associated with your sign-in.
+        You sign in with Google. You are responsible for activity that occurs under your account and
+        for maintaining the security of your Google account. You must provide accurate information
+        associated with your sign-in.
       </p>
 
       <h2>Acceptable use</h2>
@@ -56,16 +56,16 @@ function TermsPage() {
 
       <h2>Third-party services</h2>
       <p>
-        The Service integrates with Google for authentication and with The Movie Database (TMDB)
-        for movie information. Your use of those services is also subject to their respective
-        terms and policies.
+        The Service integrates with Google for authentication and with The Movie Database (TMDB) for
+        movie information. Your use of those services is also subject to their respective terms and
+        policies.
       </p>
 
       <h2>Intellectual property</h2>
       <p>
         The Service, including its design and branding, is owned by us or our licensors. Movie
-        titles, images, and related metadata belong to their respective owners and are displayed
-        for informational purposes.
+        titles, images, and related metadata belong to their respective owners and are displayed for
+        informational purposes.
       </p>
 
       <h2>Disclaimer</h2>
@@ -77,9 +77,9 @@ function TermsPage() {
 
       <h2>Limitation of liability</h2>
       <p>
-        To the fullest extent permitted by law, we are not liable for indirect, incidental,
-        special, consequential, or punitive damages, or for loss of profits, data, or goodwill,
-        arising from your use of the Service.
+        To the fullest extent permitted by law, we are not liable for indirect, incidental, special,
+        consequential, or punitive damages, or for loss of profits, data, or goodwill, arising from
+        your use of the Service.
       </p>
 
       <h2>Termination</h2>

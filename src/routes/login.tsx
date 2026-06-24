@@ -6,23 +6,23 @@ import { Link, createFileRoute, redirect } from "@tanstack/react-router";
 import { z } from "zod";
 
 const searchparams = z.object({
-  returnTo: z.string().default('/movies'),
-})
+  returnTo: z.string().default("/movies"),
+});
 
-export const Route = createFileRoute('/login')({
+export const Route = createFileRoute("/login")({
   validateSearch: searchparams,
   beforeLoad: ({ context, search }) => {
-    const returnTo = search.returnTo === '/login' ? '/movies' : search.returnTo
+    const returnTo = search.returnTo === "/login" ? "/movies" : search.returnTo;
 
     if (canAccessApp(context)) {
-      throw redirect({ to: returnTo })
+      throw redirect({ to: returnTo });
     }
   },
   head: () => ({
     meta: [{ title: `${AppConfig.name} | Sign in` }],
   }),
   component: LoginPage,
-})
+});
 
 function LoginPage() {
   const { returnTo } = Route.useSearch();

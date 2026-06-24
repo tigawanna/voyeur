@@ -53,6 +53,7 @@
     "drizzle-orm": "^0.45.2",
     "embla-carousel-react": "^8.6.0",
     "event-sourced-collection": "^0.0.1",
+    "evlog": "^2.19.2",
     "hono": "^4.12.26",
     "input-otp": "^1.4.2",
     "lucide-react": "^0.545.0",
@@ -104,18 +105,18 @@
     "vitest": "^4.1.5",
     "wrangler": "^4.102.0"
   },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "better-sqlite3",
-      "esbuild",
-      "lightningcss"
-    ]
-  },
   "devEngines": {
     "packageManager": {
       "name": "pnpm",
       "version": "11.9.0",
       "onFail": "download"
     }
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "better-sqlite3",
+      "esbuild",
+      "lightningcss"
+    ]
   }
 }

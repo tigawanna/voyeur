@@ -17,10 +17,7 @@ export const Route = createFileRoute("/_app/settings/")({
   component: SettingsPage,
 });
 
-async function clearLocalLibraryData(
-  favorites: SavedMovieRef[],
-  watchlist: SavedMovieRef[],
-) {
+async function clearLocalLibraryData(favorites: SavedMovieRef[], watchlist: SavedMovieRef[]) {
   await Promise.all([
     ...favorites.map((item) => db.collections.favorites.delete(item.movieId)),
     ...watchlist.map((item) => db.collections.watchlist.delete(item.movieId)),
@@ -104,10 +101,7 @@ function SettingsPage() {
             Review how we handle your data and the rules for using {AppConfig.name}.
           </p>
           <div className="mt-4 flex flex-wrap gap-3">
-            <Link
-              to="/privacy"
-              className={cn(buttonVariants({ variant: "outline", size: "sm" }))}
-            >
+            <Link to="/privacy" className={cn(buttonVariants({ variant: "outline", size: "sm" }))}>
               Privacy Policy
             </Link>
             <Link to="/terms" className={cn(buttonVariants({ variant: "outline", size: "sm" }))}>
@@ -120,8 +114,8 @@ function SettingsPage() {
           <h2 className="text-lg font-semibold text-destructive">Danger zone</h2>
           <p className="mt-2 text-sm text-muted-foreground">
             Permanently delete your {AppConfig.name} account and remove your sign-in data from our
-            servers. Your browser-stored favorites and watchlist on this device will also be cleared.
-            This cannot be undone.
+            servers. Your browser-stored favorites and watchlist on this device will also be
+            cleared. This cannot be undone.
           </p>
           <Button
             type="button"

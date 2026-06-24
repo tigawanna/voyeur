@@ -24,7 +24,7 @@ function WatchlistPage() {
     [],
   );
 
-  const watchlist = data
+  const watchlist = data;
 
   return (
     <section>

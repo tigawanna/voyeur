@@ -65,7 +65,9 @@ function MovieDetailsPage() {
   // Local favorites collection — drives the favorite toggle state.
   const { data: favoriteRows } = useLiveQuery(
     (q) =>
-      q.from({ favorite: db.collections.favorites }).where(({ favorite }) => eq(favorite.movieId, id)),
+      q
+        .from({ favorite: db.collections.favorites })
+        .where(({ favorite }) => eq(favorite.movieId, id)),
     [id],
   );
 

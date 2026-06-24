@@ -2,9 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { defineConfig } from "drizzle-kit";
 
-const LOCAL_D1_DIR = path.resolve(
-  ".wrangler/state/v3/d1/miniflare-D1DatabaseObject",
-);
+const LOCAL_D1_DIR = path.resolve(".wrangler/state/v3/d1/miniflare-D1DatabaseObject");
 
 function getLocalD1Url(): string {
   if (process.env.DATABASE_URL) {

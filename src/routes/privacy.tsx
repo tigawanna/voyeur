@@ -48,9 +48,8 @@ function PrivacyPage() {
 
       <h3>Movie library data</h3>
       <p>
-        Your favorites and watchlist are stored locally in your browser on your device. This
-        library data is not uploaded to our servers and is not linked to your account on our
-        backend.
+        Your favorites and watchlist are stored locally in your browser on your device. This library
+        data is not uploaded to our servers and is not linked to your account on our backend.
       </p>
 
       <h3>Technical data</h3>
@@ -100,9 +99,9 @@ function PrivacyPage() {
         >
           Google API Services User Data Policy
         </a>
-        , including the Limited Use requirements. Google user data is used only to provide user-facing
-        features in {AppConfig.name}, is not used for serving ads, and is not sold or transferred for
-        unrelated purposes.
+        , including the Limited Use requirements. Google user data is used only to provide
+        user-facing features in {AppConfig.name}, is not used for serving ads, and is not sold or
+        transferred for unrelated purposes.
       </p>
 
       <h2>Data retention</h2>
@@ -122,11 +121,7 @@ function PrivacyPage() {
         <li>
           <strong>Revoke Google access:</strong> You can remove {AppConfig.name}&apos;s access to
           your Google account at{" "}
-          <a
-            href="https://myaccount.google.com/permissions"
-            target="_blank"
-            rel="noreferrer"
-          >
+          <a href="https://myaccount.google.com/permissions" target="_blank" rel="noreferrer">
             Google Account permissions
           </a>
           .

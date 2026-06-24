@@ -100,15 +100,15 @@ The dev server runs at [http://localhost:3072](http://localhost:3072).
 
 There are **three separate env systems** in this stack. They do not overlap — putting a value in the wrong place is the most common production bug.
 
-| Variable | Where to set | Read how | In client bundle? |
-| --- | --- | --- | --- |
-| `TMDB_API_KEY` | `.dev.vars` / Wrangler secrets | `getWorkerEnv()` on server | No |
-| `BETTER_AUTH_SECRET` | `.dev.vars` / Wrangler secrets | `getWorkerEnv()` on server | No |
-| `BETTER_AUTH_URL` | `.dev.vars` / Wrangler secrets | `getWorkerEnv()` on server | No |
-| `GOOGLE_CLIENT_ID` | `.dev.vars` / Wrangler secrets | `getWorkerEnv()` on server | No |
-| `GOOGLE_CLIENT_SECRET` | `.dev.vars` / Wrangler secrets | `getWorkerEnv()` on server | No |
-| `BYPASS_AUTH` | `wrangler.jsonc` `vars` or Cloudflare dashboard | `getWorkerEnv()` → `getRuntimeConfig` server fn → root loader | No |
-| `VITE_APP_URL` | `.env` or build-time shell env | `import.meta.env` (client); fallback via `getAppUrl()` uses `window.location.origin` in browser | Yes, if set at build |
+| Variable               | Where to set                                    | Read how                                                                                        | In client bundle?    |
+| ---------------------- | ----------------------------------------------- | ----------------------------------------------------------------------------------------------- | -------------------- |
+| `TMDB_API_KEY`         | `.dev.vars` / Wrangler secrets                  | `getWorkerEnv()` on server                                                                      | No                   |
+| `BETTER_AUTH_SECRET`   | `.dev.vars` / Wrangler secrets                  | `getWorkerEnv()` on server                                                                      | No                   |
+| `BETTER_AUTH_URL`      | `.dev.vars` / Wrangler secrets                  | `getWorkerEnv()` on server                                                                      | No                   |
+| `GOOGLE_CLIENT_ID`     | `.dev.vars` / Wrangler secrets                  | `getWorkerEnv()` on server                                                                      | No                   |
+| `GOOGLE_CLIENT_SECRET` | `.dev.vars` / Wrangler secrets                  | `getWorkerEnv()` on server                                                                      | No                   |
+| `BYPASS_AUTH`          | `wrangler.jsonc` `vars` or Cloudflare dashboard | `getWorkerEnv()` → `getRuntimeConfig` server fn → root loader                                   | No                   |
+| `VITE_APP_URL`         | `.env` or build-time shell env                  | `import.meta.env` (client); fallback via `getAppUrl()` uses `window.location.origin` in browser | Yes, if set at build |
 
 #### 1. Client bundle — `import.meta.env.VITE_*` (build-time only)
 
@@ -152,7 +152,7 @@ python3 -c "import json; print(json.load(open('dist/server/wrangler.json'))['var
 # {}  — gone from deploy manifest; still 0 BYPASS matches in dist/client/
 ```
 
-Removing `BYPASS_AUTH` from `wrangler.jsonc` removes it from the **deployed Worker binding**. It does **not** remove anything from the client bundle (it was never there). Server code still contains the *lookup logic* for bypass; only the runtime value disappears.
+Removing `BYPASS_AUTH` from `wrangler.jsonc` removes it from the **deployed Worker binding**. It does **not** remove anything from the client bundle (it was never there). Server code still contains the _lookup logic_ for bypass; only the runtime value disappears.
 
 #### 3. Passing runtime server values to the client
 

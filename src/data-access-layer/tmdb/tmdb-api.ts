@@ -92,7 +92,10 @@ export function fetchSearchMoviesPage(query: string, params: TmdbListParams = {}
 }
 
 export function fetchMovieById(movieId: number, language?: string) {
-  return tmdbProxyFetch<MovieDetailsQueryResponse>(`/api/tmdb/movies/${movieId}`, (language ? { language } : {}));
+  return tmdbProxyFetch<MovieDetailsQueryResponse>(
+    `/api/tmdb/movies/${movieId}`,
+    language ? { language } : {},
+  );
 }
 
 export function fetchMovieRecommendations(movieId: number, page = 1, language?: string) {

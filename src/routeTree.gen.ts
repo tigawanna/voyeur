@@ -15,10 +15,13 @@ import { Route as LoginRouteImport } from './routes/login'
 import { Route as AppRouteRouteImport } from './routes/_app/route'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as BrowseIndexRouteImport } from './routes/browse/index'
+import { Route as ApiLogsIndexRouteImport } from './routes/api/logs/index'
 import { Route as AppWatchlistIndexRouteImport } from './routes/_app/watchlist/index'
 import { Route as AppSettingsIndexRouteImport } from './routes/_app/settings/index'
 import { Route as AppMoviesIndexRouteImport } from './routes/_app/movies/index'
+import { Route as AppLogsIndexRouteImport } from './routes/_app/logs/index'
 import { Route as AppFavoritesIndexRouteImport } from './routes/_app/favorites/index'
+import { Route as AppEventsIndexRouteImport } from './routes/_app/events/index'
 import { Route as ApiAuthSplatRouteImport } from './routes/api/auth/$'
 import { Route as AppMoviesMovieMovieIdRouteImport } from './routes/_app/movies/movie/$movieId'
 
@@ -51,6 +54,11 @@ const BrowseIndexRoute = BrowseIndexRouteImport.update({
   path: '/browse/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiLogsIndexRoute = ApiLogsIndexRouteImport.update({
+  id: '/api/logs/',
+  path: '/api/logs/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AppWatchlistIndexRoute = AppWatchlistIndexRouteImport.update({
   id: '/watchlist/',
   path: '/watchlist/',
@@ -66,9 +74,19 @@ const AppMoviesIndexRoute = AppMoviesIndexRouteImport.update({
   path: '/movies/',
   getParentRoute: () => AppRouteRoute,
 } as any)
+const AppLogsIndexRoute = AppLogsIndexRouteImport.update({
+  id: '/logs/',
+  path: '/logs/',
+  getParentRoute: () => AppRouteRoute,
+} as any)
 const AppFavoritesIndexRoute = AppFavoritesIndexRouteImport.update({
   id: '/favorites/',
   path: '/favorites/',
+  getParentRoute: () => AppRouteRoute,
+} as any)
+const AppEventsIndexRoute = AppEventsIndexRouteImport.update({
+  id: '/events/',
+  path: '/events/',
   getParentRoute: () => AppRouteRoute,
 } as any)
 const ApiAuthSplatRoute = ApiAuthSplatRouteImport.update({
@@ -89,10 +107,13 @@ export interface FileRoutesByFullPath {
   '/terms': typeof TermsRoute
   '/browse/': typeof BrowseIndexRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
+  '/events/': typeof AppEventsIndexRoute
   '/favorites/': typeof AppFavoritesIndexRoute
+  '/logs/': typeof AppLogsIndexRoute
   '/movies/': typeof AppMoviesIndexRoute
   '/settings/': typeof AppSettingsIndexRoute
   '/watchlist/': typeof AppWatchlistIndexRoute
+  '/api/logs/': typeof ApiLogsIndexRoute
   '/movies/movie/$movieId': typeof AppMoviesMovieMovieIdRoute
 }
 export interface FileRoutesByTo {
@@ -102,10 +123,13 @@ export interface FileRoutesByTo {
   '/terms': typeof TermsRoute
   '/browse': typeof BrowseIndexRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
+  '/events': typeof AppEventsIndexRoute
   '/favorites': typeof AppFavoritesIndexRoute
+  '/logs': typeof AppLogsIndexRoute
   '/movies': typeof AppMoviesIndexRoute
   '/settings': typeof AppSettingsIndexRoute
   '/watchlist': typeof AppWatchlistIndexRoute
+  '/api/logs': typeof ApiLogsIndexRoute
   '/movies/movie/$movieId': typeof AppMoviesMovieMovieIdRoute
 }
 export interface FileRoutesById {
@@ -117,10 +141,13 @@ export interface FileRoutesById {
   '/terms': typeof TermsRoute
   '/browse/': typeof BrowseIndexRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
+  '/_app/events/': typeof AppEventsIndexRoute
   '/_app/favorites/': typeof AppFavoritesIndexRoute
+  '/_app/logs/': typeof AppLogsIndexRoute
   '/_app/movies/': typeof AppMoviesIndexRoute
   '/_app/settings/': typeof AppSettingsIndexRoute
   '/_app/watchlist/': typeof AppWatchlistIndexRoute
+  '/api/logs/': typeof ApiLogsIndexRoute
   '/_app/movies/movie/$movieId': typeof AppMoviesMovieMovieIdRoute
 }
 export interface FileRouteTypes {
@@ -132,10 +159,13 @@ export interface FileRouteTypes {
     | '/terms'
     | '/browse/'
     | '/api/auth/$'
+    | '/events/'
     | '/favorites/'
+    | '/logs/'
     | '/movies/'
     | '/settings/'
     | '/watchlist/'
+    | '/api/logs/'
     | '/movies/movie/$movieId'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -145,10 +175,13 @@ export interface FileRouteTypes {
     | '/terms'
     | '/browse'
     | '/api/auth/$'
+    | '/events'
     | '/favorites'
+    | '/logs'
     | '/movies'
     | '/settings'
     | '/watchlist'
+    | '/api/logs'
     | '/movies/movie/$movieId'
   id:
     | '__root__'
@@ -159,10 +192,13 @@ export interface FileRouteTypes {
     | '/terms'
     | '/browse/'
     | '/api/auth/$'
+    | '/_app/events/'
     | '/_app/favorites/'
+    | '/_app/logs/'
     | '/_app/movies/'
     | '/_app/settings/'
     | '/_app/watchlist/'
+    | '/api/logs/'
     | '/_app/movies/movie/$movieId'
   fileRoutesById: FileRoutesById
 }
@@ -174,6 +210,7 @@ export interface RootRouteChildren {
   TermsRoute: typeof TermsRoute
   BrowseIndexRoute: typeof BrowseIndexRoute
   ApiAuthSplatRoute: typeof ApiAuthSplatRoute
+  ApiLogsIndexRoute: typeof ApiLogsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -220,6 +257,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BrowseIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/logs/': {
+      id: '/api/logs/'
+      path: '/api/logs'
+      fullPath: '/api/logs/'
+      preLoaderRoute: typeof ApiLogsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/_app/watchlist/': {
       id: '/_app/watchlist/'
       path: '/watchlist'
@@ -241,11 +285,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppMoviesIndexRouteImport
       parentRoute: typeof AppRouteRoute
     }
+    '/_app/logs/': {
+      id: '/_app/logs/'
+      path: '/logs'
+      fullPath: '/logs/'
+      preLoaderRoute: typeof AppLogsIndexRouteImport
+      parentRoute: typeof AppRouteRoute
+    }
     '/_app/favorites/': {
       id: '/_app/favorites/'
       path: '/favorites'
       fullPath: '/favorites/'
       preLoaderRoute: typeof AppFavoritesIndexRouteImport
+      parentRoute: typeof AppRouteRoute
+    }
+    '/_app/events/': {
+      id: '/_app/events/'
+      path: '/events'
+      fullPath: '/events/'
+      preLoaderRoute: typeof AppEventsIndexRouteImport
       parentRoute: typeof AppRouteRoute
     }
     '/api/auth/$': {
@@ -266,7 +324,9 @@ declare module '@tanstack/react-router' {
 }
 
 interface AppRouteRouteChildren {
+  AppEventsIndexRoute: typeof AppEventsIndexRoute
   AppFavoritesIndexRoute: typeof AppFavoritesIndexRoute
+  AppLogsIndexRoute: typeof AppLogsIndexRoute
   AppMoviesIndexRoute: typeof AppMoviesIndexRoute
   AppSettingsIndexRoute: typeof AppSettingsIndexRoute
   AppWatchlistIndexRoute: typeof AppWatchlistIndexRoute
@@ -274,7 +334,9 @@ interface AppRouteRouteChildren {
 }
 
 const AppRouteRouteChildren: AppRouteRouteChildren = {
+  AppEventsIndexRoute: AppEventsIndexRoute,
   AppFavoritesIndexRoute: AppFavoritesIndexRoute,
+  AppLogsIndexRoute: AppLogsIndexRoute,
   AppMoviesIndexRoute: AppMoviesIndexRoute,
   AppSettingsIndexRoute: AppSettingsIndexRoute,
   AppWatchlistIndexRoute: AppWatchlistIndexRoute,
@@ -293,6 +355,7 @@ const rootRouteChildren: RootRouteChildren = {
   TermsRoute: TermsRoute,
   BrowseIndexRoute: BrowseIndexRoute,
   ApiAuthSplatRoute: ApiAuthSplatRoute,
+  ApiLogsIndexRoute: ApiLogsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

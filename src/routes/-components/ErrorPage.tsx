@@ -1,17 +1,8 @@
 import { AppConfig } from "#/utils/system";
 import { withViewTransition } from "#/utils/viewTransition";
 import { Button } from "@/components/ui/button";
-import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from "@/components/ui/collapsible";
-import {
-  Link,
-  useNavigate,
-  useRouter,
-  type ErrorComponentProps,
-} from "@tanstack/react-router";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
+import { Link, useNavigate, useRouter, type ErrorComponentProps } from "@tanstack/react-router";
 import { Check, ChevronDown, Copy, Home, RotateCcw, TriangleAlert } from "lucide-react";
 import { useMemo, useState } from "react";
 
@@ -126,8 +117,8 @@ export function ErrorPage({ error, info, reset }: ErrorComponentProps) {
               Something went wrong
             </h1>
             <p className="mx-auto mb-8 max-w-md text-base text-muted-foreground">
-              The screening hit a snag before the credits could roll. Try again, copy the details, or
-              head home.
+              The screening hit a snag before the credits could roll. Try again, copy the details,
+              or head home.
             </p>
 
             <Collapsible className="group/collapsible mx-auto mb-8 max-w-md text-left">
@@ -143,7 +134,12 @@ export function ErrorPage({ error, info, reset }: ErrorComponentProps) {
             </Collapsible>
 
             <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
-              <Button type="button" variant="outline" className="gap-2" onClick={() => void handleCopy()}>
+              <Button
+                type="button"
+                variant="outline"
+                className="gap-2"
+                onClick={() => void handleCopy()}
+              >
                 {copied ? <Check className="size-4" /> : <Copy className="size-4" />}
                 {copied ? "Copied" : "Copy"}
               </Button>

@@ -9,13 +9,15 @@ import { cn } from "@/lib/utils";
 import { withViewTransition } from "#/utils/viewTransition";
 import { Button } from "@/components/ui/button";
 import { Link, Outlet, useRouter, useRouterState } from "@tanstack/react-router";
-import { Bookmark, Film, LogOut, Settings, Star } from "lucide-react";
+import { Bookmark, Film, LogOut, ScrollText, Settings, Star, Workflow } from "lucide-react";
 import { useEffect, useState } from "react";
 
 const navItems = [
   { title: "Browse", href: "/movies", icon: Film },
   { title: "Favorites", href: "/favorites", icon: Star },
   { title: "Watchlist", href: "/watchlist", icon: Bookmark },
+  { title: "Events", href: "/events", icon: Workflow },
+  { title: "Logs", href: "/logs", icon: ScrollText },
   { title: "Settings", href: "/settings", icon: Settings },
 ] as const;
 
