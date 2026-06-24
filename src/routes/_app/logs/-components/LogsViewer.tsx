@@ -124,31 +124,7 @@ export function LogsViewer() {
         </div>
       </div>
 
-      {isLoading ? (
-        <div className="island-shell rounded-3xl border">
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead>Time</TableHead>
-                <TableHead>Level</TableHead>
-                <TableHead>Request</TableHead>
-                <TableHead>Status</TableHead>
-                <TableHead>Duration</TableHead>
-                <TableHead>Sync</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {Array.from({ length: 5 }).map((_, index) => (
-                <TableRow key={index}>
-                  <TableCell colSpan={6}>
-                    <Skeleton className="h-4 w-full" />
-                  </TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </div>
-      ) : null}
+      {isLoading ? <LogsTableSkeleton /> : null}
 
       {!isLoading && errorMessage ? (
         <Empty className="border">
@@ -179,7 +155,7 @@ export function LogsViewer() {
 
       {!isLoading && !errorMessage && total > 0 ? (
         <div className="flex flex-col gap-4">
-          <div className="island-shell rounded-3xl border">
+          <div className="rounded-3xl border border-border bg-card/60">
             <Table>
               <TableHeader>
                 <TableRow>
@@ -271,5 +247,48 @@ export function LogsViewer() {
         </SheetContent>
       </Sheet>
     </section>
+  );
+}
+
+function LogsTableSkeleton() {
+  return (
+    <div className="rounded-3xl border border-border bg-card/60">
+      <Table>
+        <TableHeader>
+          <TableRow>
+            <TableHead className="pl-4">Time</TableHead>
+            <TableHead>Level</TableHead>
+            <TableHead>Request</TableHead>
+            <TableHead>Status</TableHead>
+            <TableHead>Duration</TableHead>
+            <TableHead className="pr-4">Sync</TableHead>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          {Array.from({ length: 5 }).map((_, index) => (
+            <TableRow key={index}>
+              <TableCell className="pl-4">
+                <Skeleton className="h-4 w-28" />
+              </TableCell>
+              <TableCell>
+                <Skeleton className="h-5 w-14 rounded-full" />
+              </TableCell>
+              <TableCell>
+                <Skeleton className="h-4 w-40" />
+              </TableCell>
+              <TableCell>
+                <Skeleton className="h-5 w-10 rounded-full" />
+              </TableCell>
+              <TableCell>
+                <Skeleton className="h-4 w-12" />
+              </TableCell>
+              <TableCell className="pr-4">
+                <Skeleton className="h-4 w-24" />
+              </TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </div>
   );
 }

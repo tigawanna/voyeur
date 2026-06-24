@@ -9,6 +9,24 @@ function getLogDir() {
   return process.env["EVLOG_FS_DIR"] ?? process.env["NUXT_EVLOG_FS_DIR"] ?? DEFAULT_LOG_DIR;
 }
 
+function isMissingDirectory(error: unknown) {
+  return (
+    typeof error === "object" &&
+    error !== null &&
+    "code" in error &&
+    (error as NodeJS.ErrnoException).code === "ENOENT"
+  );
+}
+
+async function readDirectoryEntries(dir: string) {
+  try {
+    return await readdir(dir);
+  } catch (error) {
+    if (isMissingDirectory(error)) return [];
+    throw error;
+  }
+}
+
 function parseEvlogFile(content: string): EvlogWideEvent[] {
   const trimmed = content.trim();
   if (!trimmed) return [];
@@ -46,7 +64,7 @@ function parseEvlogFile(content: string): EvlogWideEvent[] {
 
 export async function listEvlogDates(): Promise<string[]> {
   const dir = getLogDir();
-  const files = await readdir(dir);
+  const files = await readDirectoryEntries(dir);
   const dates = new Set<string>();
 
   for (const file of files) {
@@ -75,7 +93,7 @@ export async function readEvlogEvents(options?: {
   const pageSize = Math.max(1, options?.pageSize ?? 20);
   const offset = (page - 1) * pageSize;
 
-  const files = (await readdir(dir))
+  const files = (await readDirectoryEntries(dir))
     .filter((file) => file.startsWith(date) && file.endsWith(".jsonl"))
     .sort();
 
