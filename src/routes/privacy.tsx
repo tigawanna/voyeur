@@ -48,8 +48,14 @@ function PrivacyPage() {
 
       <h3>Movie library data</h3>
       <p>
-        Your favorites and watchlist are stored locally in your browser on your device. This library
-        data is not uploaded to our servers and is not linked to your account on our backend.
+        Your favorites and watchlist are stored locally in your browser on your device. By default,
+        this library data stays on your device and is not uploaded to our servers.
+      </p>
+      <p>
+        If you enable library sync in <Link to="/settings">Settings</Link> while signed in, changes
+        to your favorites and watchlist are also stored on our servers and linked to your account so
+        your library can be available across devices. You can turn library sync off at any time; when
+        sync is off, new library changes are not sent to our servers.
       </p>
 
       <h3>Technical data</h3>
@@ -62,6 +68,7 @@ function PrivacyPage() {
       <ul>
         <li>Authenticate you and maintain your session</li>
         <li>Display your name and profile image in the app</li>
+        <li>Sync your favorites and watchlist across devices when you enable library sync</li>
         <li>Operate, secure, and improve {AppConfig.name}</li>
         <li>Respond to support or privacy requests</li>
       </ul>
@@ -76,7 +83,8 @@ function PrivacyPage() {
         <li>
           <strong>Service providers:</strong> We use infrastructure providers (such as Cloudflare)
           to host the application and store authentication records. They process data on our behalf
-          to run the service.
+          to run the service. If you enable library sync, your favorites and watchlist changes are
+          also stored in our database and linked to your account.
         </li>
         <li>
           <strong>Movie metadata:</strong> The app fetches public movie information from The Movie
@@ -107,9 +115,9 @@ function PrivacyPage() {
       <h2>Data retention</h2>
       <p>
         We retain your account information while your account is active. When you delete your
-        account, we remove your user record and associated authentication data from our database.
-        Local favorites and watchlist data in your browser may remain until you clear site data in
-        your browser.
+        account, we remove your user record, authentication data, and synced library data from our
+        database. Favorites and watchlist data stored locally in your browser may remain until you
+        clear site data in your browser settings.
       </p>
 
       <h2>Your choices</h2>
@@ -127,8 +135,12 @@ function PrivacyPage() {
           .
         </li>
         <li>
-          <strong>Clear local data:</strong> You can clear favorites and watchlist data by removing
-          site data for this application in your browser settings.
+          <strong>Library sync:</strong> You can enable or disable syncing your favorites and
+          watchlist to your account in <Link to="/settings">Settings</Link> while signed in.
+        </li>
+        <li>
+          <strong>Clear local data:</strong> You can clear favorites and watchlist data stored on
+          this device by removing site data for this application in your browser settings.
         </li>
       </ul>
 

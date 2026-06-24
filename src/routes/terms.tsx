@@ -34,8 +34,10 @@ function TermsPage() {
 
       <h2>The Service</h2>
       <p>
-        {AppConfig.name} lets you browse movies, save favorites, and maintain a watchlist. Movie
-        metadata is provided by third-party sources and may be incomplete or change without notice.
+        {AppConfig.name} lets you browse movies, save favorites, and maintain a watchlist. Your
+        library is stored on your device by default. You can opt in to library sync while signed in
+        to access your favorites and watchlist across devices. Movie metadata is provided by
+        third-party sources and may be incomplete or change without notice.
       </p>
 
       <h2>Accounts</h2>

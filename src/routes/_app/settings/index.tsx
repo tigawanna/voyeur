@@ -1,9 +1,14 @@
 import { db } from "#/data-access-layer/tmdb/local-library-db";
 import { useViewer } from "#/data-access-layer/auth/viewer";
+import {
+  isLibrarySyncEnabled,
+  setLibrarySyncEnabled,
+} from "#/data-access-layer/sync/sync-events";
 import { ConfirmDialog } from "#/components/common/ConfirmDialog";
 import type { SavedMovieRef } from "#/types/movie";
 import { AppConfig } from "#/utils/system";
 import { Button, buttonVariants } from "@/components/ui/button";
+import { Switch } from "@/components/ui/switch";
 import { cn } from "@/lib/utils";
 import { useLiveQuery } from "@tanstack/react-db";
 import { Link, createFileRoute } from "@tanstack/react-router";
@@ -27,6 +32,8 @@ async function clearLocalLibraryData(favorites: SavedMovieRef[], watchlist: Save
 function SettingsPage() {
   const { viewer, deleteAccountMutation } = useViewer();
   const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
+  const [librarySyncEnabled, setLibrarySyncEnabledState] = useState(isLibrarySyncEnabled);
+  const [librarySyncPending, setLibrarySyncPending] = useState(false);
   const { data: favoritesData } = useLiveQuery(
     (query) =>
       query.from({ favorite: db.collections.favorites }).select(({ favorite }) => ({
@@ -49,6 +56,20 @@ function SettingsPage() {
   );
   const favorites = (favoritesData ?? []) as SavedMovieRef[];
   const watchlist = (watchlistData ?? []) as SavedMovieRef[];
+
+  async function handleLibrarySyncChange(enabled: boolean) {
+    setLibrarySyncPending(true);
+    setLibrarySyncEnabledState(enabled);
+
+    try {
+      await setLibrarySyncEnabled(enabled);
+    } catch {
+      setLibrarySyncEnabledState(!enabled);
+      toast.error("Could not update library sync. Try again.");
+    } finally {
+      setLibrarySyncPending(false);
+    }
+  }
 
   async function handleDeleteAccount() {
     try {
@@ -96,6 +117,27 @@ function SettingsPage() {
         </div>
 
         <div className="border-t border-border pt-6">
+          <h2 className="text-lg font-semibold text-foreground">Library sync</h2>
+          <p className="mt-2 text-sm text-muted-foreground">
+            Your favorites and watchlist are always stored on this device. Turn on sync to also save
+            them to your account and access them on other devices where you are signed in.
+          </p>
+          <div className="mt-4 flex items-center justify-between gap-4">
+            <label htmlFor="library-sync" className="text-sm font-medium text-foreground">
+              Sync favorites and watchlist
+            </label>
+            <Switch
+              id="library-sync"
+              checked={librarySyncEnabled}
+              disabled={librarySyncPending}
+              onCheckedChange={(checked) => {
+                void handleLibrarySyncChange(checked);
+              }}
+            />
+          </div>
+        </div>
+
+        <div className="border-t border-border pt-6">
           <h2 className="text-lg font-semibold text-foreground">Legal</h2>
           <p className="mt-2 text-sm text-muted-foreground">
             Review how we handle your data and the rules for using {AppConfig.name}.
@@ -113,8 +155,8 @@ function SettingsPage() {
         <div className="border-t border-border pt-6">
           <h2 className="text-lg font-semibold text-destructive">Danger zone</h2>
           <p className="mt-2 text-sm text-muted-foreground">
-            Permanently delete your {AppConfig.name} account and remove your sign-in data from our
-            servers. Your browser-stored favorites and watchlist on this device will also be
+            Permanently delete your {AppConfig.name} account and remove your sign-in and synced
+            library data from our servers. Favorites and watchlist stored on this device will also be
             cleared. This cannot be undone.
           </p>
           <Button
@@ -133,7 +175,7 @@ function SettingsPage() {
         open={deleteDialogOpen}
         onOpenChange={setDeleteDialogOpen}
         title="Delete your account?"
-        description="This permanently removes your account from our servers and clears your local favorites and watchlist on this device."
+        description="This permanently removes your account and synced library data from our servers and clears your favorites and watchlist on this device."
         confirmLabel="Delete account"
         confirmVariant="destructive"
         isConfirming={deleteAccountMutation.isPending}

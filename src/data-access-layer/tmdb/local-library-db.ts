@@ -26,6 +26,7 @@ const { ensureDb, db } = createBrowserEventSourcedDB<LocalLibraryCollectionDefs>
     },
   },
   sync: { pushEvents, pullEvents },
+  syncEnabled: false,
   load: async () => {
     const { createCollection } = await import("@tanstack/react-db");
     const {
