@@ -17,7 +17,7 @@ export default defineConfig({
     port: 3000,
   },
   plugins: [
-    ...(process.env.NODE_ENV !== "production" ? [devtools()] : []),
+    devtools(),
     cloudflare({ viteEnvironment: { name: "ssr" } }),
     tailwindcss(),
     tanstackStart(),

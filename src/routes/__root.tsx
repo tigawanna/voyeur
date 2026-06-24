@@ -7,7 +7,6 @@ import {
   TanstackQueryProvider,
   getTanstackQueryContext,
 } from "#/lib/tanstack/query/query-provider";
-import { AppDevtools } from "#/lib/tanstack/devtools/app-devtools";
 import { ErrorPage } from "#/routes/-components/ErrorPage";
 import { NotFoundPage } from "#/routes/-components/NotFoundPage";
 import appCss from "#/styles.css?url";
@@ -20,6 +19,15 @@ import type { QueryClient } from "@tanstack/react-query";
 import { createMiddleware } from "@tanstack/react-start";
 import { evlogErrorHandler } from "evlog/nitro/v3";
 import { HeadContent, Outlet, Scripts, createRootRouteWithContext } from "@tanstack/react-router";
+import { lazy, Suspense } from "react";
+
+const AppDevtools = import.meta.env.DEV
+  ? lazy(() =>
+      import("#/lib/tanstack/devtools/app-devtools").then((module) => ({
+        default: module.AppDevtools,
+      })),
+    )
+  : null;
 
 interface RouterContext {
   queryClient: QueryClient;
@@ -93,7 +101,11 @@ function RootDocument() {
               <Outlet />
               <Toaster />
             </TooltipProvider>
-            <AppDevtools />
+            {AppDevtools ? (
+              <Suspense fallback={null}>
+                <AppDevtools />
+              </Suspense>
+            ) : null}
           </TanstackQueryProvider>
         </ThemeProvider>
         <Scripts />

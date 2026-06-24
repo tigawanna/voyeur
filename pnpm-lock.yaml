@@ -41,9 +41,6 @@ importers:
       '@tanstack/react-db':
         specifier: ^0.1.87
         version: 0.1.87(react@19.2.7)(typescript@6.0.3)
-      '@tanstack/react-devtools':
-        specifier: latest
-        version: 0.10.7(@types/react-dom@19.2.3(@types/react@19.2.17))(@types/react@19.2.17)(csstype@3.2.3)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(solid-js@1.9.13)
       '@tanstack/react-pacer':
         specifier: ^0.22.1
         version: 0.22.1(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
@@ -53,9 +50,6 @@ importers:
       '@tanstack/react-router':
         specifier: latest
         version: 1.170.16(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
-      '@tanstack/react-router-devtools':
-        specifier: latest
-        version: 1.167.0(@tanstack/react-router@1.170.16(react-dom@19.2.7(react@19.2.7))(react@19.2.7))(@tanstack/router-core@1.171.13)(csstype@3.2.3)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
       '@tanstack/react-router-ssr-query':
         specifier: latest
         version: 1.167.1(@tanstack/query-core@5.101.1)(@tanstack/react-query@5.101.1(react@19.2.7))(@tanstack/react-router@1.170.16(react-dom@19.2.7(react@19.2.7))(react@19.2.7))(@tanstack/router-core@1.171.13)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
@@ -177,9 +171,15 @@ importers:
       '@tanstack/devtools-vite':
         specifier: latest
         version: 0.8.0(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.1)(vite@8.1.0(@types/node@22.20.0)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.22.4))
+      '@tanstack/react-devtools':
+        specifier: latest
+        version: 0.10.7(@types/react-dom@19.2.3(@types/react@19.2.17))(@types/react@19.2.17)(csstype@3.2.3)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(solid-js@1.9.13)
       '@tanstack/react-query-devtools':
         specifier: ^5.101.0
         version: 5.101.1(@tanstack/react-query@5.101.1(react@19.2.7))(react@19.2.7)
+      '@tanstack/react-router-devtools':
+        specifier: latest
+        version: 1.167.0(@tanstack/react-router@1.170.16(react-dom@19.2.7(react@19.2.7))(react@19.2.7))(@tanstack/router-core@1.171.13)(csstype@3.2.3)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
       '@tanstack/router-cli':
         specifier: ^1.132.0
         version: 1.167.17
